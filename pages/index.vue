@@ -1,9 +1,9 @@
 <template>
-  <div class="container-fluid red">
-    <div>
+  <div>
+    <div class="container-fluid red">
       <logo />
       <h1 class="title">
-        kernel-ad
+        KERNEL AD
       </h1>
       <h2 class="subtitle">
         Portfolio
@@ -21,21 +21,23 @@
         </a>
       </div>
     </div>
-    <!-- Masonry -->
-    <no-ssr>
+    <h3>FILTERS</h3>
+    <h3>MASONRY</h3>
+    <no-ssr class="container-fluid">
       <div
         v-masonry
-        transition-duration="3s"
+        transition-duration=".5s"
         item-selector=".item"
         class="masonry-container"
+        style="background-color: #f00"
       >
         <div
-          v-for="(item, index) in blocks"
+          v-for="(item, index) in projects"
           :key="index"
           v-masonry-tile
           class="item"
         >
-          <p>{{ item.title }} - {{ index }}</p>
+          <cardboard :item="item" />
         </div>
       </div>
     </no-ssr>
@@ -45,25 +47,25 @@
 <script>
 import NoSSR from 'vue-no-ssr'
 import Logo from '~/components/Logo.vue'
+import Cardboard from '~/components/Cardboard.vue'
 
 export default {
   components: {
     'no-ssr': NoSSR,
-    Logo
+    Logo,
+    Cardboard
   },
-  data() {
-    return {
-      blocks: [
-        {
-          title: 'nice block'
-        },
-        {
-          title: 'another shiny block'
-        },
-        {
-          title: 'the last block'
-        }
-      ]
+  // data() {
+  //   return {
+  //     statues: []
+  //   }
+  // },
+  computed: {
+    projects() {
+      // return this.$store.state.projects.all
+      return this.$store.state.projects.all.filter(
+        (project) => project.statue === 'Freelance Project'
+      )
     }
   },
   mounted() {
@@ -75,34 +77,9 @@ export default {
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.item {
+  background-color: #eee;
+  /* display: inline-block; */
+  /* float: left; */
 }
 </style>

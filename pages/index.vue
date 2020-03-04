@@ -22,7 +22,8 @@
       </div>
     </div>
     <h3>FILTERS</h3>
-    <!-- <button @click="setFilters()">FILTRER</button> -->
+    <button @click="setCategory('Design')">Design</button>
+    <button @click="setCategory('Engineering')">Engineering</button>
     <p>{{ debuglog }}</p>
     <h3>MASONRY</h3>
     <no-ssr class="container-fluid">
@@ -74,71 +75,37 @@ export default {
       const filtProj_ = []
 
       for (let i = 0; i < allProj_.length; i++) {
+        // Statue
         // Categories
-        for (let j = 0; j < categories_.length; j++) {
-          if (allProj_[i].categories.includes(categories_[j])) {
-            filtProj_.push(allProj_[i])
+        if (categories_.length > 0) {
+          for (let j = 0; j < categories_.length; j++) {
+            // Tags
+            if (allProj_[i].categories.includes(categories_[j])) {
+              filtProj_.push(allProj_[i])
+            }
           }
         }
       }
 
       return filtProj_
     }
-    // --> USE THIS TO SET FILTERS ARRAY
-    // fullName: {
-    //   // getter
-    //   get() {
-    //     return this.firstName + ' ' + this.lastName
-    //   },
-    //   // setter
-    //   set(newValue) {
-    //     const names = newValue.split(' ')
-    //     this.firstName = names[0]
-    //     this.lastName = names[names.length - 1]
-    //   }
-    // }
   },
   mounted() {
     if (typeof this.$redrawVueMasonry === 'function') {
       this.$redrawVueMasonry()
     }
+  },
+  methods: {
+    setCategory(cat_) {
+      if (!this.catFilter.includes(cat_)) this.catFilter.push(cat_)
+      else {
+        const ind_ = this.catFilter.indexOf(cat_)
+        if (ind_ > -1) {
+          this.catFilter.splice(ind_, 1)
+        }
+      }
+    }
   }
-  // methods: {
-  //   filteredMessages() {
-  //     console.log(this) // Our Vue component
-
-  //     const filteredMessages = this.allProjects.filter(
-  //       // References our Vue Component
-  //       (message) => this.allProjects.includes(this.match)
-  //     )
-
-  //     return filteredMessages
-  //   },
-  //   setFilters() {
-  //     console.log(this)
-
-  //     this.filtProjects = this.allProjects.filter(function(project_) {
-  //       // let isProject_ = true // boolean related to 'project_' filter (true -> project_ is return // false : not return)
-  //       // isProject_ = false
-
-  //       // this.debuglog = this.catFilter_
-  //       // const category_ = this.catFilter[0]
-  //       return project_.includes(this.catFilter[0])
-
-  //       // Filter category
-  //       if (this.catFilter.length > 0) {
-  //         let i
-  //         for (i = 0; i < this.catFilter.length; i++) {
-  //           // isProject_ = project_.categories === this.catFilter[i]
-  //           // project_.categories.components === this.catFilter[i]
-  //           return project_.includes(this.catFilter[i])
-  //         }
-  //       }
-
-  //       // return isProject_
-  //     })
-  //   }
-  // }
 }
 </script>
 

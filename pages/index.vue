@@ -22,9 +22,11 @@
       </div>
     </div>
     <h3>FILTERS</h3>
-    <button @click="setCategory('Design')">Design</button>
-    <button @click="setCategory('Engineering')">Engineering</button>
-    <p>{{ debuglog }}</p>
+    <div v-for="(cat_, index) in allFields" :key="index">
+      <button @click="setCategory(cat_)">
+        <i>{{ cat_ }}</i>
+      </button>
+    </div>
     <h3>MASONRY</h3>
     <no-ssr class="container-fluid">
       <div
@@ -59,35 +61,54 @@ export default {
   },
   data() {
     return {
-      // allProjects: this.$store.state.projects.all,
-      // filtProjects: this.allProjects,
-      catFilter: [],
-      debuglog: ''
+      selFields: []
     }
   },
   computed: {
-    projects() {
+    allProjects() {
       return this.$store.state.projects.all
     },
-    filteredProjects() {
-      const allProj_ = this.projects
-      const categories_ = this.catFilter
-      const filtProj_ = []
+    allFields() {
+      const allPrj_ = this.allProjects
+      const allFld_ = []
 
-      for (let i = 0; i < allProj_.length; i++) {
-        // Statue
-        // Categories
-        if (categories_.length > 0) {
-          for (let j = 0; j < categories_.length; j++) {
-            // Tags
-            if (allProj_[i].categories.includes(categories_[j])) {
-              filtProj_.push(allProj_[i])
+      for (let i = 0; i < allPrj_.length; i++) {
+        if (allPrj_[i].fields.length > 0) {
+          for (let j = 0; j < allPrj_[i].fields.length; j++) {
+            const cat_ = allPrj_[i].fields[j]
+            if (!allFld_.includes(cat_)) {
+              allFld_.push(cat_)
+            }
+          }
+        }
+      }
+      return allFld_
+    },
+    filteredProjects() {
+      const allPrj_ = this.allProjects
+      const selFld_ = this.selFields
+      let filtPrj_ = []
+
+      // Filter all projects
+      for (let i = 0; i < allPrj_.length; i++) {
+        // by statue
+        // by fields
+        if (selFld_.length > 0) {
+          for (let j = 0; j < selFld_.length; j++) {
+            // by tags
+            if (allPrj_[i].fields.includes(selFld_[j])) {
+              filtPrj_.push(allPrj_[i])
             }
           }
         }
       }
 
-      return filtProj_
+      // If no project selected return all projects
+      if (filtPrj_.length === 0) {
+        filtPrj_ = allPrj_
+      }
+
+      return filtPrj_
     }
   },
   mounted() {
@@ -96,13 +117,12 @@ export default {
     }
   },
   methods: {
-    setCategory(cat_) {
-      if (!this.catFilter.includes(cat_)) this.catFilter.push(cat_)
-      else {
-        const ind_ = this.catFilter.indexOf(cat_)
-        if (ind_ > -1) {
-          this.catFilter.splice(ind_, 1)
-        }
+    setField(fld_) {
+      if (!this.selFields.includes(fld_)) {
+        this.selFields.push(fld_)
+      } else {
+        const ind_ = this.selFields.indexOf(fld_)
+        this.selFields.splice(ind_, 1)
       }
     }
   }

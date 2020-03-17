@@ -7,8 +7,11 @@ export default {
     state.selFormat = format_
   },
 
-  setField(state, field_, state_) {
-    if (state_) {
+  setField(state, dataFld_) {
+    const field_ = dataFld_.id
+    const isFld_ = dataFld_.state
+    console.log('HERE', field_, isFld_)
+    if (isFld_) {
       state.selFields.push(field_)
     } else {
       const ind_ = state.selFields.indexOf(field_)

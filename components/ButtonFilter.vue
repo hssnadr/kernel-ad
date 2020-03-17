@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="col-xl-6 col-md-6 col-sm-12">
     <label class="switch">
-      <input id="id" v-model="isCheck" type="checkbox" />
+      <input id="id" v-model="isCheck" type="checkbox" @change="emitState" />
       <span class="slider round"></span>
-      <label for="id">{{ id }} {{ isCheck }}</label>
+      <label for="id">{{ id }} {{ isCheck }} {{ testmessage }}</label>
     </label>
   </div>
 </template>
@@ -20,15 +20,14 @@ export default {
   },
   data() {
     return {
-      isCheck: false
+      isCheck: false,
+      testmessage: 'nothing'
     }
   },
   methods: {
-    setState(s_) {
-      this.isCheck = s_
-    },
-    switchState() {
-      this.isCheck = !this.isCheck
+    emitState() {
+      this.testmessage = 'Not nothing!!' + this.isCheck
+      this.$emit('selected', { id: this.id, state: this.isCheck })
     }
   }
 }

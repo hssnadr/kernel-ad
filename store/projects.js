@@ -1,5 +1,5 @@
 export const state = () => ({
-  all: [
+  allProjects: [
     {
       title: 'Whooshing Machine',
       slug: 'whooshing-machine',
@@ -92,8 +92,15 @@ export const state = () => ({
       description: 'My first electronics project to make light painting',
       level: 1
     }
-  ]
+  ],
+  selInstitute: '',
+  selFormat: '',
+  selFields: [],
+  selSkills: [],
+  selTools: []
 })
+
+// exports.allProjectsDataBase = allProjectsDataBase
 
 // {
 //     title: '',

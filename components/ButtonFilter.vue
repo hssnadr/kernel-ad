@@ -1,9 +1,11 @@
 <template>
-  <div class="col-xl-6 col-md-6 col-sm-12">
+  <div>
     <label class="switch">
       <input id="id" v-model="isCheck" type="checkbox" @change="emitState" />
       <span class="slider round"></span>
-      <label for="id">{{ id }} {{ isCheck }} {{ testmessage }}</label>
+      <label class="container-fluid" for="id"
+        >{{ id }} {{ isCheck }} {{ testmessage }}</label
+      >
     </label>
   </div>
 </template>
@@ -16,12 +18,17 @@ export default {
       type: String,
       default: '-',
       useDefaultForNull: true
+    },
+    init: {
+      type: Boolean,
+      default: false,
+      useDefaultForNull: true
     }
   },
   data() {
     return {
-      isCheck: false,
-      testmessage: 'nothing'
+      testmessage: 'nothing',
+      isCheck: this.init
     }
   },
   methods: {

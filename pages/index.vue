@@ -4,7 +4,6 @@
       <logo />
       <h1 class="title">
         KERNEL AD
-        <button-filter :id="'HelloAdrien'"></button-filter>
       </h1>
       <h2 class="subtitle">
         Portfolio
@@ -24,7 +23,7 @@
     </div>
     <h3>FILTERS</h3>
     <fields></fields>
-    <skills></skills>
+    <!-- <skills></skills> -->
     <h3>MASONRY</h3>
     <no-ssr class="container-fluid">
       <div
@@ -51,18 +50,16 @@ import { mapGetters } from 'vuex'
 import NoSSR from 'vue-no-ssr'
 import Logo from '~/components/Logo.vue'
 import Fields from '~/components/FilterFields.vue'
-import Skills from '~/components/FilterSkills.vue'
+// import Skills from '~/components/FilterSkills.vue'
 import Cardboard from '~/components/Cardboard.vue'
-import ButtonFilter from '~/components/ButtonFilter.vue'
 
 export default {
   components: {
     'no-ssr': NoSSR,
     Logo,
     Fields,
-    Skills,
-    Cardboard,
-    'button-filter': ButtonFilter
+    // Skills,
+    Cardboard
   },
   computed: mapGetters({
     displayProjects: 'projects/filteredProjects'

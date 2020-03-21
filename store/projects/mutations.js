@@ -25,9 +25,7 @@ export default {
     const isSkl_ = dataSkl_.state
     if (isSkl_) {
       if (!state.selSkills.includes(skill_)) {
-        console.log(skill_)
         state.selSkills.push(skill_) // add skill if not already selected
-        console.log(state.selSkills)
       }
     } else if (state.selSkills.includes(skill_)) {
       const ind_ = state.selSkills.indexOf(skill_)

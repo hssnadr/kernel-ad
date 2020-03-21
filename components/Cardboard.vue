@@ -3,12 +3,18 @@
     <img :src="item.thumbnail" :alt="item.slug" />
     <div class="box-content">
       <ul class="icon">
-        <li>
+        <nuxt-link class="card-image" :to="{ name: 'projects-' + item.slug }">
+          <figure>
+            <img src="https://placehold.it/1200x600" alt="card image alt" />
+          </figure>
+        </nuxt-link>
+        <!-- <a :href="item.link" target="_blank" class="button--grey">Link</a> -->
+        <!-- <li>
           <a href="#"><i class="fa fa-search"></i></a>
         </li>
         <li>
           <a href="#"><i class="fa fa-link"></i></a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

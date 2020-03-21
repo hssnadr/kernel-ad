@@ -70,11 +70,11 @@ export default {
   },
   computed: {
     isEmptySel() {
+      let isEmpt_ = false
       if (this.displayProjects.length > 0) {
-        return true
-      } else {
-        return false
+        isEmpt_ = true
       }
+      return isEmpt_
     },
     ...mapGetters({
       displayProjects: 'projects/filteredProjects'

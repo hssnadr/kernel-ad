@@ -30,6 +30,7 @@
     <h3>MASONRY</h3>
     <no-ssr class="container-fluid">
       <div
+        v-if="isEmptySel"
         v-masonry
         transition-duration=".5s"
         item-selector=".item"
@@ -43,6 +44,9 @@
           class="item"
           :item="item"
         />
+      </div>
+      <div v-else>
+        <p>No projects selected! It works!!</p>
       </div>
     </no-ssr>
   </div>
@@ -64,9 +68,18 @@ export default {
     Skills,
     Cardboard
   },
-  computed: mapGetters({
-    displayProjects: 'projects/filteredProjects'
-  }),
+  computed: {
+    isEmptySel() {
+      if (this.displayProjects.length > 0) {
+        return true
+      } else {
+        return false
+      }
+    },
+    ...mapGetters({
+      displayProjects: 'projects/filteredProjects'
+    })
+  },
   mounted() {
     if (typeof this.$redrawVueMasonry === 'function') {
       this.$redrawVueMasonry()

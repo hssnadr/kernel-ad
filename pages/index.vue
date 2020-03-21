@@ -8,6 +8,9 @@
       <h2 class="subtitle">
         Portfolio
       </h2>
+      <p v-for="(prj_, indx) in displayProjects" :key="indx">
+        {{ prj_.title }} {{ prj_.skills }}
+      </p>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">
           Documentation
@@ -23,7 +26,7 @@
     </div>
     <h3>FILTERS</h3>
     <fields></fields>
-    <!-- <skills></skills> -->
+    <skills></skills>
     <h3>MASONRY</h3>
     <no-ssr class="container-fluid">
       <div
@@ -50,7 +53,7 @@ import { mapGetters } from 'vuex'
 import NoSSR from 'vue-no-ssr'
 import Logo from '~/components/Logo.vue'
 import Fields from '~/components/FilterFields.vue'
-// import Skills from '~/components/FilterSkills.vue'
+import Skills from '~/components/FilterSkills.vue'
 import Cardboard from '~/components/Cardboard.vue'
 
 export default {
@@ -58,7 +61,7 @@ export default {
     'no-ssr': NoSSR,
     Logo,
     Fields,
-    // Skills,
+    Skills,
     Cardboard
   },
   computed: mapGetters({

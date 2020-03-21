@@ -54,70 +54,71 @@ export default {
     return allSkl_
   },
 
-  filteredProjects(state) {
+  fltrdProjectsField(state) {
     const allPrj_ = state.allProjects
     const selFld_ = state.selFields
-    const selSkl_ = state.selSkills
-    let filtPrj_ = []
+    const filtPrj_ = []
+
+    for (let i = 0; i < allPrj_.length; i++) {
+      if (selFld_.length > 0) {
+        for (let j = 0; j < selFld_.length; j++) {
+          if (allPrj_[i].fields.includes(selFld_[j])) {
+            filtPrj_.push(allPrj_[i]) // add project
+          }
+        }
+      }
+    }
+
+    return filtPrj_
+  },
+
+  filteredProjects(state) {
+    const allPrj_ = state.allProjects
 
     // console.log(selFld_)
     // console.log(selSkl_)
 
-    // FIELDS
-    for (let i = 0; i < allPrj_.length; i++) {
-      if (selFld_.length > 0) {
-        for (let j = 0; j < selFld_.length; j++) {
-          if (
-            !filtPrj_.includes(allPrj_[i]) &&
-            allPrj_[i].fields.includes(selFld_[j])
-          ) {
-            filtPrj_.push(allPrj_[i]) // add project
+    const selFld_ = state.selFields
+    let fltFldPrj_ = []
+    if (selFld_.length > 0) {
+      allPrj_.forEach((prj_) => {
+        selFld_.forEach((fld_) => {
+          if (prj_.fields.includes(fld_)) {
+            fltFldPrj_.push(prj_) // add project
           }
-        }
-      } else {
-        filtPrj_ = allPrj_
-      }
+        })
+      })
+    } else {
+      fltFldPrj_ = allPrj_ // all projects if no selection
     }
 
-    // SKILLS
-    for (let i = 0; i < filtPrj_.length; i++) {
-      if (selSkl_.length > 0) {
-        for (let j = 0; j < selSkl_.length; j++) {
-          if (
-            filtPrj_.includes(filtPrj_[i]) &&
-            !filtPrj_[i].skills.includes(selSkl_[j])
-          ) {
-            filtPrj_.splice(i, 1) // remove project
+    let fltSklPrj_ = []
+    const selSkl_ = state.selSkills
+    if (selSkl_.length > 0) {
+      allPrj_.forEach((prj_) => {
+        selSkl_.forEach((skl_) => {
+          if (prj_.skills.includes(skl_)) {
+            fltSklPrj_.push(prj_) // add project
           }
-        }
-      }
+        })
+      })
+    } else {
+      fltSklPrj_ = allPrj_ // all projects if no selection
     }
 
-    // // SKILLS
-    // for (let i = 0; i < allPrj_.length; i++) {
-    //   if (selSkl_.length > 0) {
-    //     for (let k = 0; k < selSkl_.length; k++) {
-    //       if (
-    //         !filtPrj_.includes(allPrj_[i]) &&
-    //         allPrj_[i].skills.includes(selSkl_[k])
-    //       ) {
-    //         filtPrj_.push(allPrj_[i]) // add project
-    //       }
-    //     }
-    //   }
-    // }
-
-    // // Filter institute
-    // filtPrj_ = filtPrj_.filter(
-    //   (proj_) => proj_.institute === state.selInstitute
-    // )
-    // // Filter format
-    // filtPrj_ = filtPrj_.filter((proj_) => proj_.format === state.selFormat)
+    const filtPrj_ = []
+    allPrj_.forEach((project_) => {
+      if (fltFldPrj_.includes(project_)) {
+        if (fltSklPrj_.includes(project_)) {
+          filtPrj_.push(project_)
+        }
+      }
+    })
 
     // If no project selected return all projects
-    if (filtPrj_.length === 0) {
-      filtPrj_ = allPrj_
-    }
+    // if (filtPrj_.length === 0) {
+    //   filtPrj_ = allPrj_
+    // }
 
     return filtPrj_
   }

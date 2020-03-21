@@ -1,9 +1,20 @@
 <template>
   <div>
-    <div v-for="(skl_, index) in allSkills" :key="index">
-      <button @click="setSkill(skl_)">
-        <i>{{ skl_ }}</i>
-      </button>
+    {{ testMessage2 }}
+    <button-filter
+      :id="'AllSkills'"
+      ref="all"
+      :init="isFilter"
+      @selected="setAll"
+    ></button-filter>
+    <div v-show="isFilter">
+      <button-filter
+        v-for="(fld_, index) in allSkills"
+        :id="fld_"
+        ref="foo"
+        :key="index"
+        @selected="setSkill"
+      />
     </div>
   </div>
 </template>
@@ -12,12 +23,39 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  computed: mapGetters({
-    allSkills: 'projects/allSkills'
-  }),
+  data() {
+    return {
+      testMessage2: 'nothing',
+      isFilter: false
+    }
+  },
+  computed: {
+    ...mapGetters({
+      allSkills: 'projects/allSkills'
+    })
+  },
+  created() {
+    this.isFilter = false
+    this.allSkills.forEach((skl_) => {
+      this.setSkill({ id: skl_, state: false })
+    })
+  },
   methods: {
-    setSkill(skl_) {
-      this.$store.commit('projects/setSkill', skl_)
+    setSkill(data_) {
+      this.testMessage2 = data_.id + data_.state
+      this.$store.commit('projects/setSkill', data_)
+    },
+    setAll(data_) {
+      if (!data_.state) {
+        this.allSkills.forEach((fld_) => {
+          this.setSkill({ id: fld_, state: false })
+        })
+      } else {
+        this.$refs.foo.forEach((vuSkl_) => {
+          vuSkl_.emitState()
+        })
+      }
+      this.isFilter = data_.state
     }
   }
 }

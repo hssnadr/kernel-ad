@@ -1,8 +1,4 @@
 export default {
-  todos(state) {
-    return state.list
-  },
-
   allFormats(state) {
     const allPrj_ = state.allProjects
     const allFrmt_ = []
@@ -54,30 +50,10 @@ export default {
     return allSkl_
   },
 
-  fltrdProjectsField(state) {
-    const allPrj_ = state.allProjects
-    const selFld_ = state.selFields
-    const filtPrj_ = []
-
-    for (let i = 0; i < allPrj_.length; i++) {
-      if (selFld_.length > 0) {
-        for (let j = 0; j < selFld_.length; j++) {
-          if (allPrj_[i].fields.includes(selFld_[j])) {
-            filtPrj_.push(allPrj_[i]) // add project
-          }
-        }
-      }
-    }
-
-    return filtPrj_
-  },
-
   filteredProjects(state) {
     const allPrj_ = state.allProjects
 
-    // console.log(selFld_)
-    // console.log(selSkl_)
-
+    // FIELDS
     const selFld_ = state.selFields
     let fltFldPrj_ = []
     if (selFld_.length > 0) {
@@ -92,6 +68,7 @@ export default {
       fltFldPrj_ = allPrj_ // all projects if no selection
     }
 
+    // SKILLS
     let fltSklPrj_ = []
     const selSkl_ = state.selSkills
     if (selSkl_.length > 0) {

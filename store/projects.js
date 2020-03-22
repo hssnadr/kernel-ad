@@ -3,8 +3,6 @@ export const state = () => ({
     {
       title: 'Whooshing Machine',
       slug: 'whooshing-machine',
-      link:
-        'https://www.behance.net/gallery/35604629/Whooshing-Machine-Diploma-Project',
       year: '2014',
       institute: 'Strate École de Design',
       format: 'Student Project',
@@ -24,8 +22,6 @@ export const state = () => ({
     {
       title: 'Austerlitz 1805',
       slug: 'austerlitz-1805',
-      link:
-        'https://www.behance.net/gallery/35604629/Whooshing-Machine-Diploma-Project',
       year: '2015',
       institute: 'Dassault Systèmes',
       format: 'Student Project',
@@ -41,8 +37,6 @@ export const state = () => ({
     {
       title: 'Austerlitz Standard',
       slug: 'austerlitz-standard',
-      link:
-        'https://www.behance.net/gallery/35604629/Whooshing-Machine-Diploma-Project',
       year: '2015',
       institute: 'Dassault Systèmes',
       format: 'Student Project',
@@ -58,8 +52,6 @@ export const state = () => ({
     {
       title: 'Medapli',
       slug: 'medapli',
-      link:
-        'https://www.behance.net/gallery/35604629/Whooshing-Machine-Diploma-Project',
       year: '2016',
       institute: '-',
       format: 'Freelance Project',
@@ -75,8 +67,6 @@ export const state = () => ({
     {
       title: 'Portail 3D',
       slug: 'portail-3d',
-      link:
-        'https://www.behance.net/gallery/35604629/Whooshing-Machine-Diploma-Project',
       year: '2012',
       institute: 'Leroy Merlin',
       format: 'Student Project',
@@ -91,8 +81,6 @@ export const state = () => ({
     {
       title: 'Lumigraph',
       slug: 'lumigraph',
-      link:
-        'https://www.behance.net/gallery/35604629/Whooshing-Machine-Diploma-Project',
       year: '2013',
       institute: 'Strate École de Design',
       format: 'Student Project',

@@ -38,18 +38,30 @@
         style="background-color: #f00"
       >
         <Cardboard
-          v-for="(item, index) in displayProjects"
+          v-for="(prj_, index) in displayProjects"
           :key="index"
           v-masonry-tile
           class="item"
-          :item="item"
+          :item="prj_"
+          @selected="DisplayProject"
         />
       </div>
       <div v-else>
         <p>No projects selected! It works!!</p>
       </div>
     </no-ssr>
+    <div v-if="isWatching" id="myModal" class="modal">
+      <span class="close" @click="CloseProject">&times;</span>
+      <!-- <input type="button" :value="linkProject" @click="CloseProject" /> -->
+      <iframe
+        id="myiframe"
+        height="80%"
+        width="80%"
+        :src="linkProject"
+      ></iframe>
+    </div>
   </div>
+  <!-- il faudra rajouter un prevent au dessus si la page nexiste pas!! -->
 </template>
 
 <script>
@@ -68,6 +80,13 @@ export default {
     Skills,
     Cardboard
   },
+  data() {
+    return {
+      isWatching: false,
+      currentProject: null,
+      linkProject: ''
+    }
+  },
   computed: {
     isEmptySel() {
       let isEmpt_ = false
@@ -84,6 +103,16 @@ export default {
     if (typeof this.$redrawVueMasonry === 'function') {
       this.$redrawVueMasonry()
     }
+  },
+  methods: {
+    DisplayProject(data) {
+      this.linkProject = '/projects/' + data.project.slug
+      this.currentProject = data
+      this.isWatching = true
+    },
+    CloseProject() {
+      this.isWatching = false
+    }
   }
 }
 </script>
@@ -93,5 +122,94 @@ export default {
   /* background-color: #eee; */
   /* display: inline-block; */
   /* float: left; */
+}
+
+iframe#myiframe {
+}
+
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content,
+#caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
 }
 </style>

@@ -3,11 +3,13 @@
     <img :src="item.thumbnail" :alt="item.slug" />
     <div class="box-content">
       <ul class="icon">
-        <nuxt-link class="card-image" :to="{ name: 'projects-' + item.slug }">
+        <input type="button" value="GO" @click="emitProject" />
+        <!-- <nuxt-link class="card-image" :to="{ name: 'projects-' + item.slug }">
           <figure>
-            <img src="https://placehold.it/1200x600" alt="card image alt" />
-          </figure>
-        </nuxt-link>
+            <img src="https://placehold.it/1200x840" alt="card image alt" />
+          </figure> -->
+        <!-- </nuxt-link> -->
+
         <!-- <a :href="item.link" target="_blank" class="button--grey">Link</a> -->
         <!-- <li>
           <a href="#"><i class="fa fa-search"></i></a>
@@ -27,6 +29,9 @@ export default {
     item: Object
   },
   methods: {
+    emitProject() {
+      this.$emit('selected', { project: this.item })
+    },
     setClass() {
       // return 'col-xl-4 col-md-6 col-sm-12'
       if (this.item.level === 1) {

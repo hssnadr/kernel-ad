@@ -35,6 +35,7 @@ export default {
     })
   },
   created() {
+    // Replace by SetSkill.call(this) ?????
     this.isFilter = false
     this.allSkills.forEach((skl_) => {
       this.setSkill({ id: skl_, state: false })

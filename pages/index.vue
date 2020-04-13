@@ -106,9 +106,12 @@ export default {
   },
   methods: {
     DisplayProject(data) {
+      // if NOT smartphone
       this.linkProject = '/projects/' + data.project.slug
       this.currentProject = data
       this.isWatching = true
+
+      // if smartphone -> something like: window.location.href = '...
     },
     CloseProject() {
       this.isWatching = false

@@ -8,9 +8,9 @@
       <h2 class="subtitle">
         Portfolio
       </h2>
-      <p v-for="(prj_, indx) in displayProjects" :key="indx">
+      <!-- <p v-for="(prj_, indx) in displayProjects" :key="indx">
         {{ prj_.title }} {{ prj_.skills }}
-      </p>
+      </p> -->
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">
           Documentation
@@ -24,9 +24,30 @@
         </a>
       </div>
     </div>
-    <h3>FILTERS</h3>
-    <fields></fields>
-    <skills></skills>
+
+    <div class="container col-12 col-md-8" style="background-color:red;">
+      <div class="row">
+        <div class="col-md">
+          One of three columns
+        </div>
+        <div class="col-md">
+          One of three columns
+        </div>
+        <div class="col-md">
+          One of three columns
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-8" style="background-color:green;">
+        .col-12 .col-md-8
+      </div>
+      <div class="col-12 col-md-4" style="background-color:blue;">
+        .col-6 .col-md-4
+      </div>
+    </div>
+
     <h3>MASONRY</h3>
     <no-ssr class="container-fluid">
       <div
@@ -68,16 +89,12 @@
 import { mapGetters } from 'vuex'
 import NoSSR from 'vue-no-ssr'
 import Logo from '~/components/Logo.vue'
-import Fields from '~/components/FilterFields.vue'
-import Skills from '~/components/FilterSkills.vue'
 import Cardboard from '~/components/Cardboard.vue'
 
 export default {
   components: {
     'no-ssr': NoSSR,
     Logo,
-    Fields,
-    Skills,
     Cardboard
   },
   data() {

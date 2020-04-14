@@ -1,8 +1,49 @@
 <template>
   <div>
-    <nuxt />
+    <div class="container col-xl-8 col-md-4 col-sm-12">
+      <side-menu />
+    </div>
+
+    <p style="text-align: right;">menuWidth {{ menuWidth }}</p>
+
+    <div id="main" :style="mainMarginLeft">
+      <nuxt />
+    </div>
   </div>
 </template>
+
+<script>
+import SideMenu from '~/components/MenuASide'
+
+export default {
+  components: {
+    SideMenu
+  },
+
+  computed: {
+    menuWidth() {
+      return this.$store.getters['sidemenu/widthPx']
+    },
+
+    toggleSidebar() {
+      return this.$store.getters['sidemenu/toggleSidebar']
+    },
+    // wSideBar100() {
+    //   return this.$store.getters['sidemenu/width100']
+    // },
+    mainMarginLeft() {
+      if (this.toggleSidebar) {
+        let ml_ = this.menuWidth.toString()
+        ml_ = ml_.concat('px')
+
+        return { 'margin-left': ml_ }
+      } else {
+        return { 'margin-left': '0px' }
+      }
+    }
+  }
+}
+</script>
 
 <style>
 html {
@@ -22,6 +63,14 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+#main {
+  transition: margin-left 0.5s ease-out;
+  margin-left: 0px;
+  padding: 16px;
+  background-color: red;
+  box-sizing: border-box;
 }
 
 .button--green {

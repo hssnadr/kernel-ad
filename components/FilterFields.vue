@@ -23,6 +23,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  name: 'FilterFields',
   data() {
     return {
       testMessage2: 'nothing',

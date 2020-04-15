@@ -8,10 +8,10 @@
         id="foo"
         ref="foo"
         class="sidenav"
-        :style="{ width: wSideMenu + 'px' }"
+        :style="{ width: menuWidth + 'px' }"
       >
         <!-- <div v-if="toggleSidebar" class="sidenav"> -->
-        <p>wSideMenu {{ wSideMenu }}</p>
+        <p>menuWidth {{ menuWidth }}</p>
         <main-menu></main-menu>
       </div>
     </transition>
@@ -26,51 +26,46 @@ export default {
 
   data() {
     return {
-      windowWidth: 0,
-      widthFactor0: 0.3,
-      widthFactor: 0.3,
-      breakpoint: 600
+      menuWidth: 200, // px
+      wdtBrkPoint: 600 // px
     }
   },
 
   computed: {
     toggleSidebar() {
       return this.$store.getters['sidemenu/toggleSidebar']
-    },
-    wSideMenu() {
-      return this.windowWidth * this.widthFactor
     }
+    // wSideMenu() {
+    //   return this.windowWidth * this.widthFactor
+    // }
   },
 
   mounted() {
     // Add listener
     this.$nextTick(function() {
-      window.addEventListener('resize', this.getWindowWidth) // works also for the height!
-      this.getWindowWidth() // init listener
+      window.addEventListener('resize', this.setMenuWidth) // works also for the height!
+      this.setMenuWidth() // init listener
     })
   },
 
   beforeDestroy() {
     // Destroy listeners
-    window.removeEventListener('resize', this.getWindowWidth)
+    window.removeEventListener('resize', this.setMenuWidth)
   },
 
   methods: {
-    getWindowWidth(event) {
-      this.windowWidth = document.documentElement.clientWidth
+    setMenuWidth(event) {
+      this.windowWidth = document.documentElement.clientWidth // get window size
 
-      if (this.windowWidth < this.breakpoint) {
-        this.widthFactor = 1.0
+      // Set menu width based on screen size
+      if (this.windowWidth < this.wdtBrkPoint) {
+        this.menuWidth = this.windowWidth
       } else {
-        this.widthFactor = this.widthFactor0
+        this.menuWidth = 300
       }
 
-      const w_ = this.windowWidth * this.widthFactor
-      // this.$emit('resizeTo', { width: w_, factor: this.widthFactor })
-      this.$store.commit('sidemenu/SetWidth', {
-        width: w_,
-        factor: this.widthFactor
-      })
+      // Register width into store
+      this.$store.commit('sidemenu/SetWidth', { width: this.menuWidth })
     }
   }
 }

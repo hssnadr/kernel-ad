@@ -6,7 +6,7 @@
 
     <p style="text-align: right;">menuWidth {{ menuWidth }}</p>
 
-    <div id="main" :style="mainMarginLeft">
+    <div id="main" v-scroll-lock="isLockMainScroll" :style="mainMarginLeft">
       <nuxt />
     </div>
   </div>
@@ -24,22 +24,28 @@ export default {
     menuWidth() {
       return this.$store.getters['sidemenu/widthPx']
     },
-
     toggleSidebar() {
       return this.$store.getters['sidemenu/toggleSidebar']
     },
-    // wSideBar100() {
-    //   return this.$store.getters['sidemenu/width100']
-    // },
+    isMenuHover() {
+      return this.$store.getters['sidemenu/isHover']
+    },
     mainMarginLeft() {
-      if (this.toggleSidebar) {
+      if (this.toggleSidebar && !this.isMenuHover) {
         let ml_ = this.menuWidth.toString()
         ml_ = ml_.concat('px')
-
         return { 'margin-left': ml_ }
       } else {
         return { 'margin-left': '0px' }
       }
+    },
+    isLockMainScroll() {
+      // Scroll in the main vue is locked when menu is hover it
+      let lck_ = false
+      if (this.toggleSidebar && this.isMenuHover) {
+        lck_ = true
+      }
+      return lck_
     }
   }
 }
@@ -66,11 +72,11 @@ html {
 }
 
 #main {
-  transition: margin-left 0.5s ease-out;
+  transition: all 0.5s ease-out;
   margin-left: 0px;
   padding: 16px;
-  background-color: red;
-  box-sizing: border-box;
+  background-color: rgb(151, 255, 177);
+  position: auto;
 }
 
 .button--green {

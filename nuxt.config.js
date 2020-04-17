@@ -32,8 +32,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/vue-masonry', ssr: false },
-    { src: '~/plugins/global-components' },
-    { src: '~/plugins/v-scroll-block' }
+    { src: '~/plugins/global-components' }
   ],
   /*
    ** Nuxt.js dev-modules

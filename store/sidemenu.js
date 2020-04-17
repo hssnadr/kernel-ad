@@ -2,7 +2,7 @@
 export const state = () => ({
   toggleSidebar: false,
   widthPx: 0,
-  isHover: false
+  factorScale: 0 // %
 })
 
 // mutations
@@ -12,7 +12,7 @@ export const mutations = {
   },
   SetWidth(state, data) {
     state.widthPx = data.width
-    state.isHover = state.widthPx > 0.5 * document.documentElement.clientWidth
+    state.factorScale = data.factor
   }
 }
 
@@ -26,6 +26,15 @@ export const actions = {
 // Getters
 export const getters = {
   toggleSidebar: (state) => state.toggleSidebar,
-  widthPx: (state) => state.widthPx,
-  isHover: (state) => state.isHover
+  widthPx(state) {
+    return state.widthPx
+  }
+
+  // width100(state) {
+  //   let w_ = state.width100
+  //   if (screen.width < 600) {
+  //     w_ = 100
+  //   }
+  //   return w_
+  // }
 }

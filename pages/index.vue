@@ -8,21 +8,6 @@
       <h2 class="subtitle">
         Portfolio
       </h2>
-      <!-- <p v-for="(prj_, indx) in displayProjects" :key="indx">
-        {{ prj_.title }} {{ prj_.skills }}
-      </p> -->
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
     </div>
 
     <div class="container col-12 col-md-8" style="background-color:red;">
@@ -48,29 +33,26 @@
       </div>
     </div>
 
-    <h3>MASONRY</h3>
-    <no-ssr class="container-fluid">
-      <div
-        v-if="isEmptySel"
-        v-masonry
-        transition-duration=".5s"
-        item-selector=".item"
-        class="masonry-container"
-        style="background-color: #f00"
-      >
-        <Cardboard
-          v-for="(prj_, index) in displayProjects"
-          :key="index"
-          v-masonry-tile
-          class="item"
-          :item="prj_"
-          @selected="DisplayProject"
-        />
-      </div>
-      <div v-else>
-        <p>No projects selected! It works!!</p>
-      </div>
-    </no-ssr>
+    <!-- FLEX BOX -->
+    <transition-group
+      v-if="isEmptySel"
+      id="gridProjects"
+      :duration="{ enter: 500, leave: 800 }"
+      name="card"
+      tag="ul"
+    >
+      <Cardboard
+        v-for="prj_ in displayProjects"
+        :key="prj_.slug"
+        class="itemProject"
+        :item="prj_"
+        @selected="DisplayProject"
+      />
+    </transition-group>
+    <div v-else>
+      <p>No projects selected! It works!!</p>
+    </div>
+
     <div v-if="isWatching" id="myModal" class="modal">
       <span class="close" @click="CloseProject">&times;</span>
       <!-- <input type="button" :value="linkProject" @click="CloseProject" /> -->
@@ -87,13 +69,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import NoSSR from 'vue-no-ssr'
 import Logo from '~/components/Logo.vue'
 import Cardboard from '~/components/Cardboard.vue'
 
 export default {
   components: {
-    'no-ssr': NoSSR,
     Logo,
     Cardboard
   },
@@ -138,10 +118,63 @@ export default {
 </script>
 
 <style>
-.item {
-  /* background-color: #eee; */
-  /* display: inline-block; */
-  /* float: left; */
+#gridProjects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  min-height: 80vh;
+  align-content: center;
+
+  padding: 20px;
+
+  background-color: #fff9a8;
+}
+
+.itemProject {
+  width: 250px;
+  margin: 5px;
+  align-self: center; /* alignement axe secondaire */
+}
+
+.card {
+  transition: all 0.4s;
+}
+
+/* ENTER */
+.card-enter
+/* enter from */ {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.card-enter-active {
+}
+
+.card-enter-to {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* MOVE */
+.card-move {
+  position: relative;
+}
+
+/* LEAVE */
+.card-leave {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card-leave-active {
+  position: absolute;
+}
+
+.card-leave-to
+/* .card-leave-active for <2.1.8 */ {
+  opacity: 0;
+  transform: translate(0, 0, 0) scale(0.1);
 }
 
 iframe#myiframe {
@@ -167,45 +200,6 @@ iframe#myiframe {
   display: block;
   width: 80%;
   max-width: 700px;
-}
-
-/* Caption of Modal Image */
-#caption {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-  text-align: center;
-  color: #ccc;
-  padding: 10px 0;
-  height: 150px;
-}
-
-/* Add Animation */
-.modal-content,
-#caption {
-  -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
-  animation-name: zoom;
-  animation-duration: 0.6s;
-}
-
-@-webkit-keyframes zoom {
-  from {
-    -webkit-transform: scale(0);
-  }
-  to {
-    -webkit-transform: scale(1);
-  }
-}
-
-@keyframes zoom {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
 }
 
 /* The Close Button */

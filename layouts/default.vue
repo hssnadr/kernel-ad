@@ -1,12 +1,7 @@
 <template>
   <div>
-    <div class="container col-xl-8 col-md-4 col-sm-12">
-      <side-menu />
-    </div>
-
-    <p style="text-align: right;">menuWidth {{ menuWidth }}</p>
-
-    <div id="main" :style="mainMarginLeft">
+    <side-menu />
+    <div id="portfolio" :style="setMargin">
       <nuxt />
     </div>
   </div>
@@ -28,10 +23,7 @@ export default {
     toggleSidebar() {
       return this.$store.getters['sidemenu/toggleSidebar']
     },
-    // wSideBar100() {
-    //   return this.$store.getters['sidemenu/width100']
-    // },
-    mainMarginLeft() {
+    setMargin() {
       if (this.toggleSidebar) {
         let ml_ = this.menuWidth.toString()
         ml_ = ml_.concat('px')
@@ -65,40 +57,11 @@ html {
   margin: 0;
 }
 
-#main {
+#portfolio {
   transition: margin-left 0.5s ease-out;
   margin-left: 0px;
   padding: 16px;
   background-color: red;
   box-sizing: border-box;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
 }
 </style>

@@ -92,11 +92,13 @@ export default {
   methods: {
     DisplayProject(data) {
       // if NOT smartphone
-      this.linkProject = '/projects/' + data.project.slug
+      // this.linkProject = '/projects/' + data.project.slug
+      this.linkProject = '/project/' + data.project.slug
       this.currentProject = data
       this.isWatching = true
 
       // if smartphone -> something like: window.location.href = '...
+      // using NUXT LINK!
     },
     CloseProject() {
       this.isWatching = false
@@ -131,7 +133,7 @@ iframe#myiframe {
 .modal {
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 10; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;

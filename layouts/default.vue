@@ -1,18 +1,41 @@
 <template>
-  <div>
-    <side-menu />
-    <div id="portfolio" :style="setMargin">
-      <nuxt />
-    </div>
+  <div id="mainview" :style="setMargin">
+    <logo />
+    <nav id="navigator">
+      <p>
+        <NuxtLink to="/">
+          Portfolio
+        </NuxtLink>
+      </p>
+
+      <p>
+        <NuxtLink to="/MotionLab">
+          MotionLab
+        </NuxtLink>
+      </p>
+
+      <p>
+        <NuxtLink to="/Hitbox">
+          Hitbox
+        </NuxtLink>
+      </p>
+
+      <p>
+        <NuxtLink to="/KernelError">
+          Kernel Error
+        </NuxtLink>
+      </p>
+    </nav>
+    <nuxt />
   </div>
 </template>
 
 <script>
-import SideMenu from '~/components/MenuASide'
+import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
-    SideMenu
+    Logo
   },
 
   computed: {
@@ -57,7 +80,12 @@ html {
   margin: 0;
 }
 
-#portfolio {
+#navigator {
+  display: flex;
+  justify-content: space-around;
+}
+
+#mainview {
   transition: margin-left 0.5s ease-out;
   margin-left: 0px;
   padding: 16px;

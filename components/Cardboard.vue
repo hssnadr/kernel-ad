@@ -30,6 +30,8 @@ export default {
   },
   methods: {
     emitProject() {
+      this.$store.commit('projects/setCurrentProject', this.item.slug)
+      console.log('check1 ' + this.item.slug)
       this.$emit('selected', { project: this.item })
     },
     setClass() {

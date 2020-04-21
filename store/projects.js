@@ -93,6 +93,7 @@ export const state = () => ({
       level: 1
     }
   ],
+  curProject: null,
   selInstitute: '',
   selFormat: '',
   selFields: [],

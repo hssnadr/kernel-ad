@@ -1,4 +1,10 @@
 export default {
+  setCurrentProject(state, slug_) {
+    // state.curProjectSlug = slug_
+    state.curProject = state.allProjects.find((prj_) => prj_.slug === slug_)
+    console.log('check2 ', state.curProject.title)
+  },
+
   setInstitute(state, institute_) {
     state.selInstitute = institute_
   },

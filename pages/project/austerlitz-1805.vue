@@ -7,3 +7,9 @@
     />
   </div>
 </template>
+
+<script>
+export default {
+  layout: 'ProjectLayout'
+}
+</script>

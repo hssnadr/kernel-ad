@@ -1,7 +1,7 @@
 <template>
   <div>
+    <side-menu />
     <div class="container-fluid red">
-      <logo />
       <h1 class="title">
         KERNEL AD
       </h1>
@@ -10,27 +10,18 @@
       </h2>
     </div>
 
-    <portfolio v-if="curSection === 'portfolio'" />
-    <motionlab v-if="curSection === 'motionlab'" />
-    <hitbox v-if="curSection === 'hitbox'" />
-    <kernel-error v-if="curSection === 'kernelerror'" />
+    <portfolio-grid />
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import Portfolio from '~/components/indexPortfolio.vue'
-import Motionlab from '~/components/indexMotionLab.vue'
-import Hitbox from '~/components/indexHitbox.vue'
-import KernelError from '~/components/indexKernelError.vue'
+import SideMenu from '~/components/MenuASide'
+import PortfolioGrid from '~/components/PortfolioGrid.vue'
 
 export default {
   components: {
-    Logo,
-    Portfolio,
-    Motionlab,
-    Hitbox,
-    KernelError
+    SideMenu,
+    PortfolioGrid
   },
 
   data() {

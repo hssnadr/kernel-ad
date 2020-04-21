@@ -1,4 +1,12 @@
 export default {
+  getProjectBySlug: (state) => (slug_) => {
+    return state.allProjects.find((prj_) => prj_.slug === slug_)
+  },
+
+  getCurProject(state) {
+    return state.curProject
+  },
+
   allFormats(state) {
     const allPrj_ = state.allProjects
     const allFrmt_ = []

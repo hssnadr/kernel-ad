@@ -2,7 +2,7 @@ export const state = () => ({
   allProjects: [
     {
       title: 'Whooshing Machine',
-      id: 'whooshing-machine',
+      slug: 'whooshing-machine',
       year: '2014',
       institute: 'Strate École de Design',
       format: 'Student Project',
@@ -21,7 +21,7 @@ export const state = () => ({
     },
     {
       title: 'Austerlitz 1805',
-      id: 'austerlitz-1805',
+      slug: 'austerlitz-1805',
       year: '2015',
       institute: 'Dassault Systèmes',
       format: 'Student Project',
@@ -36,7 +36,7 @@ export const state = () => ({
     },
     {
       title: 'Austerlitz Standard',
-      id: 'austerlitz-standard',
+      slug: 'austerlitz-standard',
       year: '2015',
       institute: 'Dassault Systèmes',
       format: 'Student Project',
@@ -51,7 +51,7 @@ export const state = () => ({
     },
     {
       title: 'Medapli',
-      id: 'medapli',
+      slug: 'medapli',
       year: '2016',
       institute: '-',
       format: 'Freelance Project',
@@ -66,7 +66,7 @@ export const state = () => ({
     },
     {
       title: 'Portail 3D',
-      id: 'portail-3d',
+      slug: 'portail-3d',
       year: '2012',
       institute: 'Leroy Merlin',
       format: 'Student Project',
@@ -80,7 +80,7 @@ export const state = () => ({
     },
     {
       title: 'Lumigraph',
-      id: 'lumigraph',
+      slug: 'lumigraph',
       year: '2013',
       institute: 'Strate École de Design',
       format: 'Student Project',
@@ -105,7 +105,7 @@ export const state = () => ({
 
 // {
 //     title: '',
-//     id: '',
+//     slug: '',
 //     year: '',
 //     institute: '',
 //     format: '',

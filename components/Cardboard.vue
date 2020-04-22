@@ -1,10 +1,10 @@
 <template lang="html">
   <div class="card">
-    <img :src="project.thumbnail" :alt="idprj" />
+    <img :src="item.thumbnail" :alt="item.slug" />
     <div class="box-content">
       <ul class="icon">
         <input type="button" value="GO" @click="emitProject" />
-        <!-- <nuxt-link class="card-image" :to="{ name: 'projects-' + item.id }">
+        <!-- <nuxt-link class="card-image" :to="{ name: 'projects-' + item.slug }">
           <figure>
             <img src="https://placehold.it/1200x840" alt="card image alt" />
           </figure> -->
@@ -26,24 +26,19 @@
 export default {
   props: {
     // eslint-disable-next-line vue/require-default-prop
-    idprj: String
-  },
-  computed: {
-    project() {
-      return this.$store.getters['projects/getProjectByid'](this.idprj)
-    }
+    item: Object
   },
   methods: {
     emitProject() {
-      this.$emit('selected', { id: this.idprj })
+      this.$emit('selected', { project: this.item })
     },
     setClass() {
       // return 'col-xl-4 col-md-6 col-sm-12'
-      if (this.project.level === 1) {
+      if (this.item.level === 1) {
         return 'col-xl-4 col-md-4 col-sm-12'
-      } else if (this.project.level === 2) {
+      } else if (this.item.level === 2) {
         return 'col-xl-4 col-md-6 col-sm-12'
-      } else if (this.project.level === 3) {
+      } else if (this.item.level === 3) {
         return 'col-xl-4 col-md-8 col-sm-12'
       }
     }

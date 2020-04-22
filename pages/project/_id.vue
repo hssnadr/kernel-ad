@@ -7,7 +7,7 @@
     <p>{{ project.skills }}</p>
 
     <!-- Dedicated project page (referenced as component) -->
-    <component :is="slug" v-if="isExtComponent"></component>
+    <component :is="id" v-if="isExtComponent"></component>
 
     <!-- Footer (related project) -->
   </div>
@@ -18,21 +18,21 @@ export default {
   layout: 'ProjectLayout',
   data() {
     return {
-      slug: '',
+      id: '',
       isExtComponent: false
     }
   },
   computed: {
     project() {
-      return this.$store.getters['projects/getProjectBySlug'](this.slug)
+      return this.$store.getters['projects/getProjectByid'](this.id)
     }
   },
   created() {
-    this.slug = this.$route.params.slug
-    this.isExtComponent = this.slug in this.$options.components // check if there's a component refering to this project to present it in the project page
+    this.id = this.$route.params.id
+    this.isExtComponent = this.id in this.$options.components // check if there's a component refering to this project to present it in the project page
   },
   isComponentExist() {
-    return this.slug in this.$options.components
+    return this.id in this.$options.components
   }
 }
 </script>

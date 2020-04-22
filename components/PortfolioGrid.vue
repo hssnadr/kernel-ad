@@ -33,9 +33,9 @@
     >
       <Cardboard
         v-for="prj_ in displayProjects"
-        :key="prj_.slug"
+        :key="prj_.id"
+        :idprj="prj_.id"
         class="itemProject"
-        :item="prj_"
         @selected="DisplayProject"
       />
     </transition-group>
@@ -92,8 +92,8 @@ export default {
   methods: {
     DisplayProject(data) {
       // if NOT smartphone
-      // this.linkProject = '/projects/' + data.project.slug
-      this.linkProject = '/project/' + data.project.slug
+      // this.linkProject = '/projects/' + data.id
+      this.linkProject = '/project/' + data.id
       this.currentProject = data
       this.isWatching = true
 

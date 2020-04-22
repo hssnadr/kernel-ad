@@ -1,6 +1,6 @@
 export default {
-  getProjectBySlug: (state) => (slug_) => {
-    return state.allProjects.find((prj_) => prj_.slug === slug_)
+  getProjectByid: (state) => (id_) => {
+    return state.allProjects.find((prj_) => prj_.id === id_)
   },
 
   allFormats(state) {

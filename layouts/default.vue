@@ -2,29 +2,29 @@
   <div id="mainview" :style="setMargin">
     <logo />
     <nav id="navigator">
-      <p>
+      <h1>
         <NuxtLink to="/">
           Portfolio
         </NuxtLink>
-      </p>
+      </h1>
 
-      <p>
+      <h1 @click="clsSideBar()">
         <NuxtLink to="/MotionLab">
           MotionLab
         </NuxtLink>
-      </p>
+      </h1>
 
-      <p>
+      <h1 @click="clsSideBar()">
         <NuxtLink to="/Hitbox">
           Hitbox
         </NuxtLink>
-      </p>
+      </h1>
 
-      <p>
+      <h1 @click="clsSideBar()">
         <NuxtLink to="/KernelError">
           Kernel Error
         </NuxtLink>
-      </p>
+      </h1>
     </nav>
     <nuxt />
   </div>
@@ -37,17 +37,18 @@ export default {
   components: {
     Logo
   },
-
   computed: {
     menuWidth() {
       return this.$store.getters['sidemenu/widthPx']
     },
-
-    toggleSidebar() {
-      return this.$store.getters['sidemenu/toggleSidebar']
+    isSidebar() {
+      return this.$store.getters['sidemenu/isSidebar']
+    },
+    isHover() {
+      return this.$store.getters['sidemenu/isHover']
     },
     setMargin() {
-      if (this.toggleSidebar) {
+      if (this.isSidebar && !this.isHover) {
         let ml_ = this.menuWidth.toString()
         ml_ = ml_.concat('px')
 
@@ -55,6 +56,11 @@ export default {
       } else {
         return { 'margin-left': '0px' }
       }
+    }
+  },
+  methods: {
+    clsSideBar() {
+      this.$store.commit('sidemenu/SetState', false)
     }
   }
 }

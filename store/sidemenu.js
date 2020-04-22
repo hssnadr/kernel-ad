@@ -1,18 +1,23 @@
 // States
 export const state = () => ({
-  toggleSidebar: false,
+  isSidebar: false,
   widthPx: 0,
-  factorScale: 0 // %
+  factorScale: 0, // %
+  isHover: false
 })
 
 // mutations
 export const mutations = {
   TOGGLE_SIDEBAR(state) {
-    state.toggleSidebar = !state.toggleSidebar
+    state.isSidebar = !state.isSidebar
+  },
+  SetState(state, isOpen_) {
+    state.isSidebar = isOpen_
   },
   SetWidth(state, data) {
     state.widthPx = data.width
-    state.factorScale = data.factor
+    // state.factorScale = data.factor
+    state.isHover = data.factor > 0.5
   }
 }
 
@@ -25,7 +30,8 @@ export const actions = {
 
 // Getters
 export const getters = {
-  toggleSidebar: (state) => state.toggleSidebar,
+  isSidebar: (state) => state.isSidebar,
+  isHover: (state) => state.isHover,
   widthPx(state) {
     return state.widthPx
   }

@@ -4,7 +4,7 @@
 
     <transition name="slide-side">
       <div
-        v-if="toggleSidebar"
+        v-if="isSidebar"
         id="foo"
         ref="foo"
         class="sidenav"
@@ -34,8 +34,8 @@ export default {
   },
 
   computed: {
-    toggleSidebar() {
-      return this.$store.getters['sidemenu/toggleSidebar']
+    isSidebar() {
+      return this.$store.getters['sidemenu/isSidebar']
     },
     wSideMenu() {
       return this.windowWidth * this.widthFactor

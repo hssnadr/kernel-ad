@@ -69,7 +69,7 @@ export default {
       this.windowWidth = document.documentElement.clientWidth
 
       if (this.windowWidth < this.breakpoint) {
-        this.widthFactor = 0.8
+        this.widthFactor = 1.0
       } else {
         // ICI ON PEUT CHANGER DE LARGEUR DU MENU EN FONCTION DE LA TAILLE DE L ECRAN
         this.widthFactor = this.widthFactor0

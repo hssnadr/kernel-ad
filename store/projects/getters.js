@@ -54,7 +54,7 @@ export default {
     return allSkl_
   },
 
-  filteredIdProjects(state) {
+  filteredProjects(state) {
     const allPrj_ = state.allProjects
 
     // FIELDS
@@ -64,7 +64,7 @@ export default {
       allPrj_.forEach((prj_) => {
         selFld_.forEach((fld_) => {
           if (prj_.fields.includes(fld_)) {
-            fltFldPrj_.push(prj_.id) // add project
+            fltFldPrj_.push(prj_) // add project
           }
         })
       })
@@ -79,7 +79,7 @@ export default {
       allPrj_.forEach((prj_) => {
         selSkl_.forEach((skl_) => {
           if (prj_.skills.includes(skl_)) {
-            fltSklPrj_.push(prj_.id) // add project
+            fltSklPrj_.push(prj_) // add project
           }
         })
       })
@@ -91,7 +91,7 @@ export default {
     allPrj_.forEach((project_) => {
       if (fltFldPrj_.includes(project_)) {
         if (fltSklPrj_.includes(project_)) {
-          filtPrj_.push(project_.id)
+          filtPrj_.push(project_)
         }
       }
     })

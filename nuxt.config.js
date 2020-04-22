@@ -32,6 +32,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/vue-masonry', ssr: false },
+    { src: '~/plugins/v-scroll-lock' },
     { src: '~/plugins/global-components' }
   ],
   /*

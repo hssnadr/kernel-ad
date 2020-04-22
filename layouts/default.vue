@@ -1,7 +1,7 @@
 <template>
   <div id="mainview" :style="setMargin">
     <logo />
-    <nav id="navigator">
+    <nav id="navigator" v-scroll-lock="isScrollLock">
       <h1>
         <NuxtLink to="/">
           Portfolio
@@ -46,6 +46,13 @@ export default {
     },
     isHover() {
       return this.$store.getters['sidemenu/isHover']
+    },
+    isScrollLock() {
+      if (this.isSidebar && this.isHover) {
+        return true
+      } else {
+        return false
+      }
     },
     setMargin() {
       if (this.isSidebar && !this.isHover) {

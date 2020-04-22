@@ -34,7 +34,7 @@
       <Cardboard
         v-for="prj_ in displayProjects"
         :key="prj_.id"
-        :idprj="prj_.id"
+        :project="prj_"
         class="itemProject"
         @selected="DisplayProject"
       />

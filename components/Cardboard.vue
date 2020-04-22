@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="card">
-    <img :src="project.thumbnail" :alt="idprj" />
+    <img :src="project.thumbnail" :alt="project.id" />
     <div class="box-content">
       <ul class="icon">
         <input type="button" value="GO" @click="emitProject" />
@@ -26,16 +26,11 @@
 export default {
   props: {
     // eslint-disable-next-line vue/require-default-prop
-    idprj: String
-  },
-  computed: {
-    project() {
-      return this.$store.getters['projects/getProjectByid'](this.idprj)
-    }
+    project: Object
   },
   methods: {
     emitProject() {
-      this.$emit('selected', { id: this.idprj })
+      this.$emit('selected', { id: this.project.id })
     },
     setClass() {
       // return 'col-xl-4 col-md-6 col-sm-12'

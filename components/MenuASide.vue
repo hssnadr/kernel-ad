@@ -97,7 +97,7 @@ export default {
   background-color: #56adff;
   z-index: 2;
   position: fixed;
-  overflow: scroll;
+  overflow: auto;
   top: 0;
   left: 0;
   box-sizing: border-box;

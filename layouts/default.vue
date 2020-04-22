@@ -1,41 +1,46 @@
 <template>
   <div id="mainview" :style="setMargin">
     <logo />
+    <side-menu />
+
     <nav id="navigator" v-scroll-lock="isScrollLock">
-      <h1>
+      <h1 @click="showSideBar()">
         <NuxtLink to="/">
           Portfolio
         </NuxtLink>
       </h1>
 
-      <h1 @click="clsSideBar()">
+      <h1 @click="hideSideBar()">
         <NuxtLink to="/MotionLab">
           MotionLab
         </NuxtLink>
       </h1>
 
-      <h1 @click="clsSideBar()">
+      <h1 @click="hideSideBar()">
         <NuxtLink to="/Hitbox">
           Hitbox
         </NuxtLink>
       </h1>
 
-      <h1 @click="clsSideBar()">
+      <h1 @click="hideSideBar()">
         <NuxtLink to="/KernelError">
           Kernel Error
         </NuxtLink>
       </h1>
     </nav>
+    <div>Hello --> {{ hideSidebar }}</div>
     <nuxt />
   </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import SideMenu from '~/components/MenuASide'
 
 export default {
   components: {
-    Logo
+    Logo,
+    SideMenu
   },
   computed: {
     menuWidth() {
@@ -46,6 +51,9 @@ export default {
     },
     isHover() {
       return this.$store.getters['sidemenu/isHover']
+    },
+    hideSidebar() {
+      return this.$store.getters['sidemenu/hideSidebar']
     },
     isScrollLock() {
       if (this.isSidebar && this.isHover) {
@@ -66,8 +74,12 @@ export default {
     }
   },
   methods: {
-    clsSideBar() {
+    showSideBar() {
+      this.$store.commit('sidemenu/HIDE_SIDEBAR', false)
+    },
+    hideSideBar() {
       this.$store.commit('sidemenu/SetState', false)
+      this.$store.commit('sidemenu/HIDE_SIDEBAR', true)
     }
   }
 }

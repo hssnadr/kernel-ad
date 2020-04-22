@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-scroll-lock="isWatching">
     <div class="container col-12 col-md-8" style="background-color:red;">
       <div class="row">
         <div class="col-md">
@@ -97,7 +97,7 @@ export default {
       this.currentProject = data
       this.isWatching = true
 
-      // if smartphone -> something like: window.location.href = '...
+      // if smartphone -> sounds like: window.location.href = '...
       // using NUXT LINK!
     },
     CloseProject() {

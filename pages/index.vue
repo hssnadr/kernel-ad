@@ -1,6 +1,5 @@
 <template>
   <div>
-    <side-menu />
     <div class="container-fluid red">
       <h1 class="title">
         KERNEL AD
@@ -15,12 +14,10 @@
 </template>
 
 <script>
-import SideMenu from '~/components/MenuASide'
 import PortfolioGrid from '~/components/PortfolioGrid.vue'
 
 export default {
   components: {
-    SideMenu,
     PortfolioGrid
   },
 

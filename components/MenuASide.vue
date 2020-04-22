@@ -1,6 +1,12 @@
 <template>
   <div class="sidenav-container">
-    <div id="overlay" @click="$store.dispatch('sidemenu/toggleSidebar')"></div>
+    <!-- <transition name="button-slide"> -->
+    <div
+      v-if="!hideSidebar"
+      id="overlay"
+      @click="$store.dispatch('sidemenu/toggleSidebar')"
+    ></div>
+    <!-- </transition> -->
 
     <transition name="slide-side">
       <div
@@ -29,13 +35,16 @@ export default {
       windowWidth: 0,
       widthFactor0: 0.3,
       widthFactor: 0.3,
-      breakpoint: 600
+      breakpoint: 600 // pixel (width)
     }
   },
 
   computed: {
     isSidebar() {
       return this.$store.getters['sidemenu/isSidebar']
+    },
+    hideSidebar() {
+      return this.$store.getters['sidemenu/hideSidebar']
     },
     wSideMenu() {
       return this.windowWidth * this.widthFactor
@@ -62,11 +71,11 @@ export default {
       if (this.windowWidth < this.breakpoint) {
         this.widthFactor = 1.0
       } else {
+        // ICI ON PEUT CHANGER DE LARGEUR DU MENU EN FONCTION DE LA TAILLE DE L ECRAN
         this.widthFactor = this.widthFactor0
       }
 
       const w_ = this.windowWidth * this.widthFactor
-      // this.$emit('resizeTo', { width: w_, factor: this.widthFactor })
       this.$store.commit('sidemenu/SetWidth', {
         width: w_,
         factor: this.widthFactor
@@ -88,6 +97,7 @@ export default {
   background-color: #56adff;
   z-index: 2;
   position: fixed;
+  overflow: scroll;
   top: 0;
   left: 0;
   box-sizing: border-box;
@@ -110,10 +120,17 @@ export default {
   height: 20px;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 3;
   cursor: pointer;
+}
+
+.button-slide-enter-active,
+.button-slide-leave-active {
+  transition: all 0.5s ease-out;
+}
+.button-slide-enter,
+.button-slide-leave-to {
+  /* transform: translateX(-100%); */
 }
 </style>

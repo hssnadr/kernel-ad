@@ -1,13 +1,17 @@
 // States
 export const state = () => ({
+  hideSideBar: false,
   isSidebar: false,
-  widthPx: 0,
-  factorScale: 0, // %
+  widthPx: 200,
   isHover: false
 })
 
 // mutations
 export const mutations = {
+  HIDE_SIDEBAR(state, isHidden_) {
+    state.hideSideBar = isHidden_
+    console.log('$store/hideSideBar ', state.hideSideBar)
+  },
   TOGGLE_SIDEBAR(state) {
     state.isSidebar = !state.isSidebar
   },
@@ -16,7 +20,6 @@ export const mutations = {
   },
   SetWidth(state, data) {
     state.widthPx = data.width
-    // state.factorScale = data.factor
     state.isHover = data.factor > 0.5
   }
 }
@@ -30,11 +33,10 @@ export const actions = {
 
 // Getters
 export const getters = {
+  hideSidebar: (state) => state.hideSidebar,
   isSidebar: (state) => state.isSidebar,
   isHover: (state) => state.isHover,
-  widthPx(state) {
-    return state.widthPx
-  }
+  widthPx: (state) => state.widthPx
 
   // width100(state) {
   //   let w_ = state.width100

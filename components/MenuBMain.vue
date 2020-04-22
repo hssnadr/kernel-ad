@@ -2,19 +2,22 @@
   <div>
     C'est le main menu B)
     <h3>FILTERS</h3>
-    <fields></fields>
-    <skills></skills>
+    <field-filter />
+    <skill-filter />
+    <years-filter />
   </div>
 </template>
 
 <script>
-import Fields from '~/components/FilterFields.vue'
-import Skills from '~/components/FilterSkills.vue'
+import FieldFilter from '~/components/ProjectFilters/FilterFields.vue'
+import SkillFilter from '~/components/ProjectFilters/FilterSkills.vue'
+import YearsFilter from '~/components/ProjectFilters/FilterYears.vue'
 
 export default {
   components: {
-    Fields,
-    Skills
+    FieldFilter,
+    SkillFilter,
+    YearsFilter
   }
 }
 </script>

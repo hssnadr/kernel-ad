@@ -3,6 +3,29 @@ export default {
     return state.allProjects.find((prj_) => prj_.id === id_)
   },
 
+  getYears(state) {
+    const allPrj_ = state.allProjects
+    const d_ = new Date()
+    let y0_ = d_.getFullYear()
+    let y1_ = 0
+
+    allPrj_.forEach((p_) => {
+      if (!isNaN(p_.year0)) {
+        if (p_.year0 < y0_) {
+          y0_ = p_.year0
+        }
+      }
+
+      if (!isNaN(p_.year1)) {
+        if (p_.year1 > y1_) {
+          y1_ = p_.year1
+        }
+      }
+    })
+
+    return { year0: y0_, year1: y1_ }
+  },
+
   allFormats(state) {
     const allPrj_ = state.allProjects
     const allFrmt_ = []

@@ -3,7 +3,8 @@ export const state = () => ({
     {
       title: 'Whooshing Machine',
       id: 'whooshing-machine',
-      year: '2014',
+      year0: '2014',
+      year1: '2014',
       institute: 'Strate École de Design',
       format: 'Student Project',
       fields: ['Design'],
@@ -22,7 +23,8 @@ export const state = () => ({
     {
       title: 'Austerlitz 1805',
       id: 'austerlitz-1805',
-      year: '2015',
+      year0: '2015',
+      year1: '2015',
       institute: 'Dassault Systèmes',
       format: 'Student Project',
       fields: ['Design'],
@@ -37,7 +39,8 @@ export const state = () => ({
     {
       title: 'Austerlitz Standard',
       id: 'austerlitz-standard',
-      year: '2015',
+      year0: '2015',
+      year1: '2015',
       institute: 'Dassault Systèmes',
       format: 'Student Project',
       fields: ['Design'],
@@ -52,7 +55,8 @@ export const state = () => ({
     {
       title: 'Medapli',
       id: 'medapli',
-      year: '2016',
+      year0: '2016',
+      year1: '2016',
       institute: '-',
       format: 'Freelance Project',
       fields: ['Design'],
@@ -67,7 +71,8 @@ export const state = () => ({
     {
       title: 'Portail 3D',
       id: 'portail-3d',
-      year: '2012',
+      year0: '2011',
+      year1: '2012',
       institute: 'Leroy Merlin',
       format: 'Student Project',
       fields: ['Engineering'],
@@ -81,7 +86,8 @@ export const state = () => ({
     {
       title: 'Lumigraph',
       id: 'lumigraph',
-      year: '2013',
+      year0: '2013',
+      year1: '2013',
       institute: 'Strate École de Design',
       format: 'Student Project',
       fields: ['Art'],

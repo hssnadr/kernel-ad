@@ -16,8 +16,6 @@
         class="sidenav"
         :style="{ width: wSideMenu + 'px' }"
       >
-        <p>wSideMenu {{ wSideMenu }}</p>
-
         <main-menu></main-menu>
       </div>
     </transition>

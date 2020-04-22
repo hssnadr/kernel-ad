@@ -32,8 +32,8 @@ export const actions = {
 
 // Getters
 export const getters = {
-  isSidebar: (state) => state.isSidebar,
   hideSidebar: (state) => state.hideSidebar,
+  isSidebar: (state) => state.isSidebar,
   isHover: (state) => state.isHover,
   widthPx: (state) => state.widthPx
 

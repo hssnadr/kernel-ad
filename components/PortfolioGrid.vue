@@ -32,9 +32,9 @@
       tag="ul"
     >
       <Cardboard
-        v-for="prj_ in displayProjects"
-        :key="prj_.id"
-        :idprj="prj_.id"
+        v-for="idprj_ in dispIdProjects"
+        :key="idprj_"
+        :idprj="idprj_"
         class="itemProject"
         @selected="DisplayProject"
       />
@@ -75,13 +75,13 @@ export default {
   computed: {
     isEmptySel() {
       let isEmpt_ = false
-      if (this.displayProjects.length > 0) {
+      if (this.dispIdProjects.length > 0) {
         isEmpt_ = true
       }
       return isEmpt_
     },
     ...mapGetters({
-      displayProjects: 'projects/filteredProjects'
+      dispIdProjects: 'projects/filteredIdProjects'
     })
   },
   mounted() {

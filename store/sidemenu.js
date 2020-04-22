@@ -1,16 +1,15 @@
-// States
+// State
 export const state = () => ({
-  hideSideBar: false,
+  hideSidebar: true,
   isSidebar: false,
   widthPx: 200,
   isHover: false
 })
 
-// mutations
+// Mutations
 export const mutations = {
   HIDE_SIDEBAR(state, isHidden_) {
-    state.hideSideBar = isHidden_
-    console.log('$store/hideSideBar ', state.hideSideBar)
+    state.hideSidebar = isHidden_
   },
   TOGGLE_SIDEBAR(state) {
     state.isSidebar = !state.isSidebar
@@ -24,7 +23,7 @@ export const mutations = {
   }
 }
 
-// actions
+// Actions
 export const actions = {
   toggleSidebar({ commit }) {
     commit('TOGGLE_SIDEBAR')
@@ -33,8 +32,8 @@ export const actions = {
 
 // Getters
 export const getters = {
-  hideSidebar: (state) => state.hideSidebar,
   isSidebar: (state) => state.isSidebar,
+  hideSidebar: (state) => state.hideSidebar,
   isHover: (state) => state.isHover,
   widthPx: (state) => state.widthPx
 

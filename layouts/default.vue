@@ -4,31 +4,30 @@
     <side-menu />
 
     <nav id="navigator" v-scroll-lock="isScrollLock">
-      <h1 @click="showSideBar()">
+      <h1>
         <NuxtLink to="/">
           Portfolio
         </NuxtLink>
       </h1>
 
-      <h1 @click="hideSideBar()">
+      <h1>
         <NuxtLink to="/MotionLab">
           MotionLab
         </NuxtLink>
       </h1>
 
-      <h1 @click="hideSideBar()">
+      <h1>
         <NuxtLink to="/Hitbox">
           Hitbox
         </NuxtLink>
       </h1>
 
-      <h1 @click="hideSideBar()">
+      <h1>
         <NuxtLink to="/KernelError">
           Kernel Error
         </NuxtLink>
       </h1>
     </nav>
-    <div>Hello --> {{ hideSidebar }}</div>
     <nuxt />
   </div>
 </template>
@@ -52,9 +51,6 @@ export default {
     isHover() {
       return this.$store.getters['sidemenu/isHover']
     },
-    hideSidebar() {
-      return this.$store.getters['sidemenu/hideSidebar']
-    },
     isScrollLock() {
       if (this.isSidebar && this.isHover) {
         return true
@@ -71,15 +67,6 @@ export default {
       } else {
         return { 'margin-left': '0px' }
       }
-    }
-  },
-  methods: {
-    showSideBar() {
-      this.$store.commit('sidemenu/HIDE_SIDEBAR', false)
-    },
-    hideSideBar() {
-      this.$store.commit('sidemenu/SetState', false)
-      this.$store.commit('sidemenu/HIDE_SIDEBAR', true)
     }
   }
 }

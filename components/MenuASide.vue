@@ -1,12 +1,12 @@
 <template>
   <div class="sidenav-container">
-    <!-- <transition name="button-slide"> -->
-    <div
-      v-if="!hideSidebar"
-      id="overlay"
-      @click="$store.dispatch('sidemenu/toggleSidebar')"
-    ></div>
-    <!-- </transition> -->
+    <transition name="button-slide">
+      <div
+        v-if="!hideSidebar"
+        id="overlay"
+        @click="$store.dispatch('sidemenu/toggleSidebar')"
+      ></div>
+    </transition>
 
     <transition name="slide-side">
       <div
@@ -16,8 +16,8 @@
         class="sidenav"
         :style="{ width: wSideMenu + 'px' }"
       >
-        <!-- <div v-if="toggleSidebar" class="sidenav"> -->
         <p>wSideMenu {{ wSideMenu }}</p>
+
         <main-menu></main-menu>
       </div>
     </transition>
@@ -127,10 +127,10 @@ export default {
 
 .button-slide-enter-active,
 .button-slide-leave-active {
-  transition: all 0.5s ease-out;
+  transition: all 0.3s ease-out;
 }
 .button-slide-enter,
 .button-slide-leave-to {
-  /* transform: translateX(-100%); */
+  transform: translateX(-100%);
 }
 </style>

@@ -25,6 +25,10 @@ export default {
     return {
       curSection: 'portfolio'
     }
+  },
+  mounted() {
+    // Show side bar button
+    this.$store.commit('sidemenu/HIDE_SIDEBAR', false)
   }
 }
 </script>

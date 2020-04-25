@@ -31,8 +31,9 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/vue-masonry', ssr: false },
+    // { src: '~/plugins/vue-masonry', ssr: false },
     { src: '~/plugins/v-scroll-lock' },
+    // { src: '~/plugins/double-slider' },
     { src: '~/plugins/global-components' }
   ],
   /*
@@ -43,6 +44,7 @@ export default {
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module'
+    // '@nuxtjs/vuetify'
   ],
   /*
    ** Nuxt.js modules

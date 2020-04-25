@@ -7,23 +7,23 @@ export default {
     const allPrj_ = state.allProjects
     const d_ = new Date()
     let y0_ = d_.getFullYear()
-    let y1_ = 0
+    let y1_ = 1989
 
     allPrj_.forEach((p_) => {
-      if (!isNaN(p_.year0)) {
-        if (p_.year0 < y0_) {
-          y0_ = p_.year0
+      if (!isNaN(p_.years.y0)) {
+        if (p_.years.y0 < y0_) {
+          y0_ = p_.years.y0
         }
       }
 
-      if (!isNaN(p_.year1)) {
-        if (p_.year1 > y1_) {
-          y1_ = p_.year1
+      if (!isNaN(p_.years.y1)) {
+        if (p_.years.y1 > y1_) {
+          y1_ = p_.years.y1
         }
       }
     })
 
-    return { year0: y0_, year1: y1_ }
+    return { y0: y0_, y1: y1_ }
   },
 
   allFormats(state) {
@@ -80,6 +80,20 @@ export default {
   filteredProjects(state) {
     const allPrj_ = state.allProjects
 
+    // YEARS
+    let fltYrs_ = []
+    if (state.selYears != null) {
+      const y0_ = state.selYears.y0
+      const y1_ = state.selYears.y1
+      allPrj_.forEach((prj_) => {
+        if (!(prj_.years.y1 < y0_ || prj_.years.y0 > y1_)) {
+          fltYrs_.push(prj_) // add project
+        }
+      })
+    } else {
+      fltYrs_ = allPrj_ // all projects if no selection
+    }
+
     // FIELDS
     const selFld_ = state.selFields
     let fltFldPrj_ = []
@@ -114,7 +128,9 @@ export default {
     allPrj_.forEach((project_) => {
       if (fltFldPrj_.includes(project_)) {
         if (fltSklPrj_.includes(project_)) {
-          filtPrj_.push(project_)
+          if (fltYrs_.includes(project_)) {
+            filtPrj_.push(project_)
+          }
         }
       }
     })

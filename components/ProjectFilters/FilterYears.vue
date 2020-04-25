@@ -1,20 +1,19 @@
 <template>
   <div>
-    <p>{{ year0 }} - {{ year1 }}</p>
-
     <input
-      data-role="slider"
-      data-min="year0"
-      data-max="year1"
-      data-on-change-value="$('#event-receiver').val('Value: '+arguments[0])"
+      id="yselector"
+      v-model="yselect"
+      type="range"
+      :min="year0"
+      :max="year1"
+      @change="setYears"
     />
-    <input id="event-receiver" type="text" />
-
-    <button class="btn btn-primary btn-lg">I'm a large Bootstrap button</button>
-
-    <form class="multi-range-field my-5 pb-5">
-      <input id="multi19" class="multi-range" type="range" />
-    </form>
+    <div v-if="isRange">
+      <p>{{ yselect }} - {{ year1 }}</p>
+    </div>
+    <div v-else>
+      <p>{{ yselect }}</p>
+    </div>
   </div>
 </template>
 
@@ -23,12 +22,35 @@ export default {
   data() {
     return {
       year0: 1989,
-      year1: 2020
+      year1: 2020,
+      checked: false,
+      yselect: 1984
+    }
+  },
+  computed: {
+    isRange() {
+      return this.yselect !== this.year1
     }
   },
   mounted() {
-    this.year0 = this.$store.getters['projects/getYears'].year0
-    this.year1 = this.$store.getters['projects/getYears'].year1
+    this.year0 = this.$store.getters['projects/getYears'].y0
+    this.year1 = this.$store.getters['projects/getYears'].y1
+
+    this.yselect = this.year0
+    this.$store.commit('projects/setYears', {
+      y0: this.yselect,
+      y1: this.year1
+    })
+  },
+  methods: {
+    setYears() {
+      this.$store.commit('projects/setYears', {
+        y0: this.yselect,
+        y1: this.year1
+      })
+    }
   }
 }
 </script>
+
+<style></style>

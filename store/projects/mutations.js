@@ -7,6 +7,10 @@ export default {
     state.selFormat = format_
   },
 
+  setYears(state, years_) {
+    state.selYears = years_
+  },
+
   setField(state, dataFld_) {
     const field_ = dataFld_.id
     const isFld_ = dataFld_.state

@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="card">
-    <img :src="project.thumbnail" :alt="project.id" />
+    <img :src="thumbnail" :alt="project.id" />
     <div class="box-content">
       <ul class="icon">
         <input type="button" value="GO" @click="emitProject" />
@@ -27,6 +27,11 @@ export default {
   props: {
     // eslint-disable-next-line vue/require-default-prop
     project: Object
+  },
+  computed: {
+    thumbnail() {
+      return this.$store.getters['projects/getThumbnailById'](this.project.id)
+    }
   },
   methods: {
     emitProject() {

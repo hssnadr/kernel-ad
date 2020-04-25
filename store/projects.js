@@ -221,6 +221,31 @@ export const state = () => ({
       description:
         'Short familiarization project with Dassault Systemes softwares',
       level: 1
+    },
+    {
+      title: 'Random Sketches #3',
+      id: 'random-sketches3',
+      years: { y0: '2016', y1: '2016' },
+      institute: null,
+      format: 'Personal',
+      fields: ['Art'],
+      skills: ['Drawing'],
+      tools: ['Pencils', 'photoshop'],
+      thumbnail: {
+        asset: 'thbSketches3.png',
+        link: ''
+      },
+      media: {
+        iframe: [],
+        image: [
+          'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/a5006a37233689.5739c529a7102.png',
+          'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/23e34e37233689.5739c529a7996.png',
+          'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/e302c237233689.575bceed99c4b.jpg',
+          'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/96155937233689.575bceed9afa2.jpg'
+        ]
+      },
+      description: 'Random daily sketches',
+      level: 1
     }
   ],
   curProject: null,
@@ -243,7 +268,10 @@ export const state = () => ({
 //   fields: [],
 //   skills: [],
 //   tools: [],
-//   thumbnail: '',
+//   thumbnail: {
+//     asset: '',
+//     link: ''
+//   },
 //   media: {},
 //   description: '',
 //   level: 1

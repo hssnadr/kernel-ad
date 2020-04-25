@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       windowWidth: 0,
-      widthFactor0: 0.3,
+      widthFactor0: 0.2,
       widthFactor: 0.3,
       breakpoint: 600 // pixel (width)
     }

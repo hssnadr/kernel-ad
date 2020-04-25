@@ -58,10 +58,6 @@ export default {
   transition: all 0.4s;
 }
 
-.card {
-  /* transition: all 0.4s; */
-}
-
 /* ENTER */
 .card-enter
 /* enter from */ {

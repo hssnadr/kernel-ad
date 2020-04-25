@@ -5,13 +5,17 @@ export default {
 
   getThumbnailById: (state) => (id_) => {
     const prj_ = state.allProjects.find((prj_) => prj_.id === id_)
-    const pthb_ = prj_.thumbnail
     let thb_ = 'http://via.placeholder.com/500c'
 
-    if (pthb_.asset != null) {
-      thb_ = pthb_.asset
-    } else if (pthb_.link != null) {
-      thb_ = pthb_.link
+    if (prj_.thumbnail.asset != null) {
+      try {
+        const f_ = 'projects/' + prj_.id + '/' + prj_.thumbnail.asset
+        thb_ = require('../../assets/' + f_)
+      } catch (err) {
+        console.error(err)
+      }
+    } else if (prj_.thumbnail.link != null) {
+      thb_ = prj_.thumbnail.link
     }
 
     return thb_

@@ -12,6 +12,7 @@
       <component :is="id"></component>
     </div>
     <div v-else>
+      <!-- Gallery from projects/store -->
       <div v-if="isGallery">
         <img
           v-for="(img_, index) in project.media.images"
@@ -20,9 +21,14 @@
           class="pic"
         />
       </div>
+      <!-- iFrame from projects/store -->
+      <div v-if="isIframe">
+        <div v-for="(ifr_, index) in project.media.iframes" :key="index">
+          <p><span v-html="ifr_"></span></p>
+        </div>
+      </div>
+      <!-- Footer (related project) -->
     </div>
-
-    <!-- Footer (related project) -->
   </div>
 </template>
 
@@ -45,7 +51,22 @@ export default {
         if (
           Object.prototype.hasOwnProperty.call(this.project.media, 'images')
         ) {
-          is_ = this.project.media.images.length > 0
+          if (this.project.media.images != null) {
+            is_ = this.project.media.images.length > 0
+          }
+        }
+      }
+      return is_
+    },
+    isIframe() {
+      let is_ = false
+      if (Object.prototype.hasOwnProperty.call(this.project, 'media')) {
+        if (
+          Object.prototype.hasOwnProperty.call(this.project.media, 'iframes')
+        ) {
+          if (this.project.media.iframes != null) {
+            is_ = this.project.media.iframes.length > 0
+          }
         }
       }
       return is_

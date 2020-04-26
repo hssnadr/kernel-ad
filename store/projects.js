@@ -100,8 +100,6 @@ export const state = () => ({
       description: 'My first electronics project to make light painting',
       level: 1
     },
-    // ------------------------------------------------------------------------------------------------- //
-    // ------------------------------------------------------------------------------------------------- //
     {
       title: 'La perception de la réalité',
       id: 'memoire',
@@ -152,7 +150,7 @@ export const state = () => ({
           'https://mir-s3-cdn-cf.behance.net/projects/404/9f070035652361.Y3JvcCw3NzEsNjAyLDM2LDI2.jpg'
       },
       media: {
-        iframe: [
+        iframes: [
           '<iframe src="https://player.vimeo.com/video/161060346" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>'
         ]
       },
@@ -174,7 +172,9 @@ export const state = () => ({
         link:
           'https://mir-s3-cdn-cf.behance.net/projects/404/72084b35618985.Y3JvcCw4MDcsNjMxLDQsNg.jpg'
       },
-      media: {},
+      media: {
+        images: null
+      },
       description: 'Startup created from my diploma project.',
       level: 1
     },
@@ -192,7 +192,9 @@ export const state = () => ({
         link:
           'https://mir-s3-cdn-cf.behance.net/projects/404/11524399.54ba8e45bf59b.jpg'
       },
-      media: {},
+      media: {
+        images: []
+      },
       description: 'Illustrations',
       level: 1
     },
@@ -236,8 +238,8 @@ export const state = () => ({
         link: ''
       },
       media: {
-        iframe: [],
-        image: [
+        iframes: [],
+        images: [
           'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/a5006a37233689.5739c529a7102.png',
           'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/23e34e37233689.5739c529a7996.png',
           'https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/e302c237233689.575bceed99c4b.jpg',

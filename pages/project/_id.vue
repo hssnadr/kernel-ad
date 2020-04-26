@@ -5,9 +5,22 @@
     <h3>{{ project.year }}</h3>
     <p>{{ project.description }}</p>
     <p>{{ project.skills }}</p>
+    <!-- {{ project.media.images.length }} -->
 
     <!-- Dedicated project page (referenced as component) -->
-    <component :is="id" v-if="isExtComponent"></component>
+    <div v-if="isExtComponent">
+      <component :is="id"></component>
+    </div>
+    <div v-else>
+      <div v-if="isGallery">
+        <img
+          v-for="(img_, index) in project.media.images"
+          :key="index"
+          :src="img_"
+          class="pic"
+        />
+      </div>
+    </div>
 
     <!-- Footer (related project) -->
   </div>
@@ -25,6 +38,17 @@ export default {
   computed: {
     project() {
       return this.$store.getters['projects/getProjectByid'](this.id)
+    },
+    isGallery() {
+      let is_ = false
+      if (Object.prototype.hasOwnProperty.call(this.project, 'media')) {
+        if (
+          Object.prototype.hasOwnProperty.call(this.project.media, 'images')
+        ) {
+          is_ = this.project.media.images.length > 0
+        }
+      }
+      return is_
     }
   },
   created() {
@@ -36,3 +60,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.pic {
+  width: 100%;
+}
+</style>

@@ -7,7 +7,7 @@
       :init="isFilter"
       @selected="setAll"
     ></button-filter>
-    <div v-show="isFilter">
+    <div v-show="isFilter" style="background-color: yellow;">
       <button-filter
         v-for="(fld_, index) in allFields"
         :id="fld_"

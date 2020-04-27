@@ -35,5 +35,18 @@ export default {
       const ind_ = state.selSkills.indexOf(skill_)
       state.selSkills.splice(ind_, 1) // remove skill if previously selected
     }
+  },
+
+  setFilter(state, data_) {
+    state.selFilters.forEach((sel_) => {
+      if (sel_.type === data_.type && sel_.name === data_.name) {
+        const ind_ = state.selFilters.indexOf(sel_)
+        state.selFilters.splice(ind_, 1) // remove filter if previously set
+      }
+
+      if (data_.state !== 'skip') {
+        state.selFilters.push(data_) // update filter if not skiped (include, add or exclude)
+      }
+    })
   }
 }

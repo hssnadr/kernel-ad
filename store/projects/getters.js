@@ -29,19 +29,32 @@ export default {
 
     allPrj_.forEach((p_) => {
       if (!isNaN(p_.years.y0)) {
-        if (p_.years.y0 < y0_) {
-          y0_ = p_.years.y0
-        }
+        y0_ = p_.years.y0 < y0_ ? p_.years.y0 : y0_
       }
 
       if (!isNaN(p_.years.y1)) {
-        if (p_.years.y1 > y1_) {
-          y1_ = p_.years.y1
-        }
+        y1_ = p_.years.y1 > y1_ ? p_.years.y1 : y1_
       }
     })
 
     return { y0: y0_, y1: y1_ }
+  },
+
+  getAllFiltersByType: (state) => (type_) => {
+    const filters_ = []
+
+    state.allProjects.forEach((p_) => {
+      if (Object.prototype.hasOwnProperty.call(p_, type_)) {
+        if (p_[type_] != null && p_[type_].length > 0) {
+          p_[type_].forEach((f_) => {
+            if (!filters_.includes(f_)) {
+              filters_.push(f_)
+            }
+          })
+        }
+      }
+    })
+    return filters_
   },
 
   allFormats(state) {
@@ -93,6 +106,23 @@ export default {
       }
     }
     return allSkl_
+  },
+
+  allTools(state) {
+    const allPrj_ = state.allProjects
+    const allTls_ = []
+
+    for (let i = 0; i < allPrj_.length; i++) {
+      if (allPrj_[i].tools.length > 0) {
+        for (let j = 0; j < allPrj_[i].tools.length; j++) {
+          const frmt_ = allPrj_[i].tools[j]
+          if (!allTls_.includes(frmt_)) {
+            allTls_.push(frmt_)
+          }
+        }
+      }
+    }
+    return allTls_
   },
 
   filteredProjects(state) {
@@ -159,5 +189,95 @@ export default {
     // }
 
     return filtPrj_
+  },
+
+  selectedProjects(state) {
+    const allPrj_ = state.allProjects
+    let selPrj_ = []
+    const filters_ = state.selFilters
+
+    // YEARS
+    let fltYrs_ = []
+    if (state.selYears != null) {
+      const y0_ = state.selYears.y0
+      const y1_ = state.selYears.y1
+      allPrj_.forEach((prj_) => {
+        if (!(prj_.years.y1 < y0_ || prj_.years.y0 > y1_)) {
+          fltYrs_.push(prj_) // add project
+        }
+      })
+    } else {
+      fltYrs_ = allPrj_ // all projects if no selection
+    }
+
+    // FILTERS
+    if (filters_.length > 0) {
+      // Include
+      filters_.forEach((filter_) => {
+        const type_ = filter_.type
+        const name_ = filter_.name
+        const state_ = filter_.state
+
+        if (state.selTypeFilters.includes(type_) && state_ === 'include') {
+          fltYrs_.forEach((prj_) => {
+            if (!selPrj_.includes(prj_)) {
+              if (Object.prototype.hasOwnProperty.call(prj_, type_)) {
+                if (prj_[type_].includes(name_)) {
+                  selPrj_.push(prj_) // add project
+                }
+              }
+            }
+          })
+        }
+      })
+
+      // Add
+      filters_.forEach((filter_) => {
+        const type_ = filter_.type
+        const name_ = filter_.name
+        const state_ = filter_.state
+
+        if (state.selTypeFilters.includes(type_) && state_ === 'add') {
+          fltYrs_.forEach((prj_) => {
+            if (!selPrj_.includes(prj_)) {
+              if (Object.prototype.hasOwnProperty.call(prj_, type_)) {
+                if (prj_[type_].includes(name_)) {
+                  selPrj_.push(prj_) // add project
+                }
+              }
+            }
+          })
+        }
+      })
+
+      // If no project selected return all projects
+      if (selPrj_.length === 0) {
+        selPrj_ = allPrj_
+      }
+
+      // Exclude
+      filters_.forEach((filter_) => {
+        const type_ = filter_.type
+        const name_ = filter_.name
+        const state_ = filter_.state
+
+        if (state.selTypeFilters.includes(type_) && state_ === 'exclude') {
+          fltYrs_.forEach((prj_) => {
+            if (selPrj_.includes(prj_)) {
+              if (Object.prototype.hasOwnProperty.call(prj_, type_)) {
+                if (prj_[type_].includes(name_)) {
+                  const ind_ = prj_.indexOf(prj_)
+                  state.selFilters.splice(ind_, 1) // remove
+                }
+              }
+            }
+          })
+        }
+      })
+    } else {
+      selPrj_ = fltYrs_ // all projects if no selection
+    }
+
+    return selPrj_
   }
 }

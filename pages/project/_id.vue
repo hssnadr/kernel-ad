@@ -85,5 +85,6 @@ export default {
 <style>
 .pic {
   width: 100%;
+  height: auto;
 }
 </style>

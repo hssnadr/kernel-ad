@@ -57,6 +57,24 @@ export default {
     return filters_
   },
 
+  getFilterState: (state) => (filter_) => {
+    let s_ = null
+
+    // console.log(filter_.type, filter_.name)
+
+    if (state.selFilters.length > 0) {
+      state.selFilters.forEach((f_) => {
+        // console.log(f_.type, f_.name, f_.state)
+        if (f_.type === filter_.type && f_.name === filter_.name) {
+          s_ = f_.state
+          // console.log(f_.type, f_.name, f_.state)
+        }
+      })
+    }
+
+    return s_
+  },
+
   allFormats(state) {
     const allPrj_ = state.allProjects
     const allFrmt_ = []
@@ -214,6 +232,7 @@ export default {
     if (filters_.length > 0) {
       // Include
       filters_.forEach((filter_) => {
+        console.log('get selected: ', filter_.type, filter_.name, filter_.state)
         const type_ = filter_.type
         const name_ = filter_.name
         const state_ = filter_.state
@@ -222,8 +241,10 @@ export default {
           fltYrs_.forEach((prj_) => {
             if (!selPrj_.includes(prj_)) {
               if (Object.prototype.hasOwnProperty.call(prj_, type_)) {
-                if (prj_[type_].includes(name_)) {
-                  selPrj_.push(prj_) // add project
+                if (prj_[type_] != null) {
+                  if (prj_[type_].includes(name_)) {
+                    selPrj_.push(prj_) // add project
+                  }
                 }
               }
             }
@@ -241,8 +262,10 @@ export default {
           fltYrs_.forEach((prj_) => {
             if (!selPrj_.includes(prj_)) {
               if (Object.prototype.hasOwnProperty.call(prj_, type_)) {
-                if (prj_[type_].includes(name_)) {
-                  selPrj_.push(prj_) // add project
+                if (prj_[type_] != null) {
+                  if (prj_[type_].includes(name_)) {
+                    selPrj_.push(prj_) // add project
+                  }
                 }
               }
             }
@@ -265,9 +288,11 @@ export default {
           fltYrs_.forEach((prj_) => {
             if (selPrj_.includes(prj_)) {
               if (Object.prototype.hasOwnProperty.call(prj_, type_)) {
-                if (prj_[type_].includes(name_)) {
-                  const ind_ = prj_.indexOf(prj_)
-                  state.selFilters.splice(ind_, 1) // remove
+                if (prj_[type_] != null) {
+                  if (prj_[type_].includes(name_)) {
+                    const ind_ = state.selFilters.indexOf(prj_)
+                    state.selFilters.splice(ind_, 1) // remove
+                  }
                 }
               }
             }

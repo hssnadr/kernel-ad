@@ -81,7 +81,8 @@ export default {
       return isEmpt_
     },
     ...mapGetters({
-      displayProjects: 'projects/filteredProjects'
+      // displayProjects: 'projects/filteredProjects'
+      displayProjects: 'projects/selectedProjects'
     })
   },
   mounted() {

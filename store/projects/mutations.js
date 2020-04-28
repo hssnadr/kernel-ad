@@ -43,10 +43,14 @@ export default {
         const ind_ = state.selFilters.indexOf(sel_)
         state.selFilters.splice(ind_, 1) // remove filter if previously set
       }
-
-      if (data_.state !== 'skip') {
-        state.selFilters.push(data_) // update filter if not skiped (include, add or exclude)
-      }
     })
+
+    if (data_.state !== 'skip') {
+      state.selFilters.push(data_) // update filter if not skiped (include, add or exclude)
+    }
+
+    // state.selFilters.forEach((f_) => {
+    //   console.log(state.selFilters.length, f_.type, f_.name, f_.state)
+    // })
   }
 }

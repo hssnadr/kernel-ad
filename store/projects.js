@@ -257,12 +257,12 @@ export const state = () => ({
   selFields: [],
   selSkills: [],
   selTools: [],
-  selTypeFilters: ['tools', 'fields', 'skills'],
+  selTypeFilters: ['tools', 'fields', 'skills', 'institute'],
   selFilters: [
-    { type: 'tools', name: 'Pencils', state: 'include' },
-    { type: 'fields', name: 'Art', state: 'add' },
-    { type: 'skills', name: 'Drawing', state: 'exclude' },
-    { type: 'tools', name: 'photoshop', state: 'skip' }
+    // { type: 'tools', name: 'Pencils', state: 'include' },
+    // { type: 'fields', name: 'Art', state: 'add' },
+    // { type: 'skills', name: 'Drawing', state: 'exclude' },
+    // { type: 'tools', name: 'illustrator', state: 'include' }
   ]
 })
 

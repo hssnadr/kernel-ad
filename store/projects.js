@@ -248,6 +248,32 @@ export const state = () => ({
       },
       description: 'Random daily sketches',
       level: 1
+    },
+    {
+      title: 'VJ Rien',
+      id: 'vj-rien',
+      years: { y0: '2016', y1: '2020' },
+      institute: ['RAW'],
+      format: ['Possession'],
+      fields: ['Art', ['Divertissement']],
+      skills: ['video', 'vjing'],
+      tools: ['Resolum', 'AfterEffetc'],
+      thumbnail: {
+        link:
+          'https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/66173228_1165195547000368_5984451956725252096_n.jpg?_nc_cat=106&_nc_sid=e3f864&_nc_ohc=mwPEhlxlqSQAX-G8qRg&_nc_ht=scontent-cdt1-1.xx&oh=a9511fcd729ca03aa08cff28d9b5305b&oe=5ECFD2E4'
+      },
+      media: {
+        iframes: [
+          '<iframe src="https://player.vimeo.com/video/395736031" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>'
+        ],
+        images: [
+          'https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/77159366_1294680737385181_1891818388196425728_n.jpg?_nc_cat=107&_nc_sid=e3f864&_nc_ohc=P_RQsRAs5lEAX_2MGwR&_nc_ht=scontent-cdg2-1.xx&oh=d021f5a5882568b25e2a63670d6b00b3&oe=5ECE23E2',
+          'https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/75497680_2757007504362481_1834601826016559104_n.jpg?_nc_cat=103&_nc_sid=09cbfe&_nc_ohc=orYfo_v5XZYAX_e8e_M&_nc_ht=scontent-cdt1-1.xx&oh=509bd9b0380ee1afcb5e7ba7c39bb141&oe=5ECDDD8A',
+          'https://www.facebook.com/photo?fbid=1009945589192032&set=a.532597686926827'
+        ]
+      },
+      description: 'Pure fucking vjing',
+      level: 1
     }
   ],
   curProject: null,
@@ -257,7 +283,7 @@ export const state = () => ({
   selFields: [],
   selSkills: [],
   selTools: [],
-  selTypeFilters: ['tools', 'fields', 'skills', 'institute'],
+  selTypeFilters: ['tools', 'fields', 'skills', 'institute', 'parties'],
   selFilters: [
     // { type: 'tools', name: 'Pencils', state: 'include' },
     // { type: 'fields', name: 'Art', state: 'add' },

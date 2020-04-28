@@ -1,21 +1,29 @@
 <template>
   <div>
-    <h4 class="filter-section">{{ type }}</h4>
-    <li
-      v-for="filter in filters"
-      :id="filter"
-      :key="filter"
-      class="filter-name"
-      :class="{
-        include: 'include' === getStateByFilter(filter),
-        skip: 'skip' === getStateByFilter(filter)
-      }"
-      @click="setFilter(filter)"
+    <h4
+      class="filter-section"
+      :class="{ include: isTypeFilter, skip: !isTypeFilter }"
+      @click="setFilterType()"
     >
-      <!-- :style="styleByFilterId(filter)" -->
-      {{ filter }}
-      <!-- {{ styleByFilterId(filter) }} -->
-    </li>
+      {{ type }}
+    </h4>
+    <div v-if="isTypeFilter">
+      <div
+        v-for="filter in filters"
+        :id="filter"
+        :key="filter"
+        class="filter-name"
+        :class="{
+          include: 'include' === getStateByFilter(filter),
+          skip: 'skip' === getStateByFilter(filter)
+        }"
+        @click="setFilter(filter)"
+      >
+        <!-- :style="styleByFilterId(filter)" -->
+        {{ filter }}
+        <!-- {{ styleByFilterId(filter) }} -->
+      </div>
+    </div>
   </div>
 </template>
 
@@ -42,6 +50,9 @@ export default {
     filters() {
       return this.$store.getters['projects/getAllFiltersByType'](this.type)
     },
+    isTypeFilter() {
+      return this.$store.getters['projects/isTypeFilter'](this.type)
+    },
     getStateByFilter(id_) {
       const state_ = (id_) => {
         // get current state of filter = { type: this.type, name: id_ }
@@ -50,38 +61,24 @@ export default {
           name: id_
         })
       }
-      console.log('styleByFilterId ', id_, state_)
 
       return state_
     }
   },
   methods: {
+    setFilterType() {
+      this.$store.commit('projects/setTypeFilter', this.type)
+    },
     setFilter(filter_) {
       const oldState = this.getStateByFilter(filter_)
       let newState_ = 'skip' // default value
-
-      // if (oldState != null) {
-      //   switch (oldState) {
-      //     case 'skip':
-      //       newState_ = 'include'
-      //       break
-      //     case 'include':
-      //       newState_ = 'skip'
-      //       break
-      //     default:
-      //       break
-      //   }
-      // }
 
       if (oldState == null) {
         newState_ = 'include'
       }
 
-      console.log(newState_)
-
       const data_ = { type: this.type, name: filter_, state: newState_ }
       this.$store.commit('projects/setFilter', data_)
-      console.log('setFilter ', filter_)
     }
   }
 }

@@ -37,6 +37,15 @@ export default {
     }
   },
 
+  setTypeFilter(state, type_) {
+    if (state.selTypeFilters.includes(type_)) {
+      const ind_ = state.selTypeFilters.indexOf(type_)
+      state.selTypeFilters.splice(ind_, 1) // remove type filter if already set
+    } else {
+      state.selTypeFilters.push(type_)
+    }
+  },
+
   setFilter(state, data_) {
     state.selFilters.forEach((sel_) => {
       if (sel_.type === data_.type && sel_.name === data_.name) {

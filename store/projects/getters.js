@@ -57,17 +57,17 @@ export default {
     return filters_
   },
 
+  isTypeFilter: (state) => (type_) => {
+    return state.selTypeFilters.includes(type_)
+  },
+
   getFilterState: (state) => (filter_) => {
     let s_ = null
 
-    // console.log(filter_.type, filter_.name)
-
     if (state.selFilters.length > 0) {
       state.selFilters.forEach((f_) => {
-        // console.log(f_.type, f_.name, f_.state)
         if (f_.type === filter_.type && f_.name === filter_.name) {
           s_ = f_.state
-          // console.log(f_.type, f_.name, f_.state)
         }
       })
     }

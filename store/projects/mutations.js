@@ -37,7 +37,7 @@ export default {
     }
   },
 
-  setTypeFilter(state, type_) {
+  toggleTypeFilter(state, type_) {
     if (state.selTypeFilters.includes(type_)) {
       const ind_ = state.selTypeFilters.indexOf(type_)
       state.selTypeFilters.splice(ind_, 1) // remove type filter if already set

@@ -46,10 +46,12 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.1.2",
+    "node-sass": "^4.14.1",
     "prettier": "^1.19.1",
     "require-extension-hooks": "^0.3.3",
     "require-extension-hooks-babel": "^1.0.0",
     "require-extension-hooks-vue": "^2.0.0",
+    "sass-loader": "^8.0.2",
     "stylelint": "^10.1.0"
   }
 }

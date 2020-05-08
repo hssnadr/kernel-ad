@@ -255,7 +255,7 @@ export const state = () => ({
       years: { y0: '2016', y1: '2020' },
       institute: ['RAW'],
       format: ['Possession'],
-      fields: ['Art', ['Divertissement']],
+      fields: ['Art'],
       skills: ['video', 'vjing'],
       tools: ['Resolum', 'AfterEffetc'],
       thumbnail: {
@@ -283,7 +283,7 @@ export const state = () => ({
   selFields: [],
   selSkills: [],
   selTools: [],
-  selTypeFilters: ['tools', 'fields', 'skills', 'institute', 'parties'],
+  selTypeFilters: [],
   selFilters: [
     // { type: 'tools', name: 'Pencils', state: 'include' },
     // { type: 'fields', name: 'Art', state: 'add' },

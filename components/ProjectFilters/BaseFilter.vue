@@ -3,11 +3,11 @@
     <h4
       class="filter-section"
       :class="{ include: isTypeFilter, skip: !isTypeFilter }"
-      @click="setFilterType()"
+      @click="showFilterType()"
     >
       {{ type }}
     </h4>
-    <div v-if="isTypeFilter">
+    <div v-if="showFilter">
       <div
         v-for="filter in filters"
         :id="filter"
@@ -38,6 +38,7 @@ export default {
   },
   data() {
     return {
+      showFilter: false,
       skip: {
         fontWeight: 'normal'
       },
@@ -66,8 +67,13 @@ export default {
     }
   },
   methods: {
-    setFilterType() {
-      this.$store.commit('projects/setTypeFilter', this.type)
+    showFilterType() {
+      if (!this.showFilter && this.isTypeFilter) {
+        this.$store.commit('projects/toggleTypeFilter', this.type)
+        this.showFilter = false
+      } else {
+        this.showFilter = !this.showFilter
+      }
     },
     setFilter(filter_) {
       const oldState = this.getStateByFilter(filter_)
@@ -79,6 +85,10 @@ export default {
 
       const data_ = { type: this.type, name: filter_, state: newState_ }
       this.$store.commit('projects/setFilter', data_)
+
+      if (!this.isTypeFilter) {
+        this.$store.commit('projects/toggleTypeFilter', this.type) // switch state
+      }
     }
   }
 }

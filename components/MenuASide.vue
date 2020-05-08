@@ -8,6 +8,8 @@
       ></div>
     </transition>
 
+    <icon-hbg />
+
     <transition name="slide-side">
       <div
         v-if="isSidebar"
@@ -24,9 +26,10 @@
 
 <script>
 import MainMenu from '~/components/MenuBMain'
+import IconHbg from '~/components/Icon_Hamburger'
 
 export default {
-  components: { MainMenu },
+  components: { MainMenu, IconHbg },
 
   data() {
     return {

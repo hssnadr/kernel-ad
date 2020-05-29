@@ -28,6 +28,7 @@
         </NuxtLink>
       </h1>
     </nav>
+
     <nuxt />
   </div>
 </template>
@@ -100,8 +101,7 @@ html {
 #mainview {
   transition: margin-left 0.5s ease-out;
   margin-left: 0px;
-  padding: 16px;
+  padding: 0px;
   background-color: red;
-  box-sizing: border-box;
 }
 </style>

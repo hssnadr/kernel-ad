@@ -58,41 +58,6 @@ export default {
   transition: all 0.4s;
 }
 
-/* ENTER */
-.card-enter
-/* enter from */ {
-  opacity: 0;
-  transform: scale(0.5);
-}
-
-.card-enter-active {
-}
-
-.card-enter-to {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* MOVE */
-.card-move {
-  position: relative;
-}
-
-/* LEAVE */
-.card-leave {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.card-leave-active {
-  position: absolute;
-}
-
-.card-leave-to
-/* .card-leave-active for <2.1.8 */ {
-  opacity: 0;
-  transform: translate(0, 0, 0) scale(0.1);
-}
 .card img {
   /* object-fit: cover; */
   width: 100%;
@@ -112,7 +77,7 @@ export default {
 .card .box-content:after,
 .card .box-content:before {
   content: '';
-  width: 50px;
+  width: 100px;
   height: 50px;
   position: absolute;
   opacity: 0;

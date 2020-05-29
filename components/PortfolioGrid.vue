@@ -28,7 +28,7 @@
       v-if="isEmptySel"
       id="gridProjects"
       :duration="{ enter: 500, leave: 800 }"
-      name="card"
+      name="card-swap"
       tag="ul"
     >
       <Cardboard
@@ -129,6 +129,42 @@ export default {
 }
 
 iframe#myiframe {
+}
+
+/* ENTER */
+.card-swap-enter
+/* enter from */ {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.card-swap-enter-active {
+}
+
+.card-swap-enter-to {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* MOVE */
+.card-swap-move {
+  position: relative;
+}
+
+/* LEAVE */
+.card-swap-leave {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card-swap-leave-active {
+  position: absolute;
+}
+
+.card-swap-leave-to
+/* .card-swap-leave-active for <2.1.8 */ {
+  opacity: 0;
+  transform: translate(0, 0, 0) scale(0.1);
 }
 
 .modal {

@@ -1,14 +1,13 @@
 <template>
   <div class="sidenav-container">
     <transition name="button-slide">
-      <div
+      <icon-hbg v-if="!hideSidebar" id="menu-button" />
+      <!-- <div
         v-if="!hideSidebar"
-        id="overlay"
+        id="menu-button"
         @click="$store.dispatch('sidemenu/toggleSidebar')"
-      ></div>
+      ></div> -->
     </transition>
-
-    <icon-hbg />
 
     <transition name="slide-side">
       <div
@@ -114,14 +113,11 @@ export default {
   transform: translateX(-100%);
 }
 
-#overlay {
+#menu-button {
   position: fixed;
   display: block;
-  width: 20px;
-  height: 20px;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  top: 20px;
+  left: 20px;
   z-index: 3;
   cursor: pointer;
 }

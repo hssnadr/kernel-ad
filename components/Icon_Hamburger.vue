@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="[isOpen ? 'hamburger' : 'hamburger-cross']"
-    @click="toggleState()"
+    :class="[isSidebar ? 'hamburger-cross' : 'hamburger']"
+    @click="$store.dispatch('sidemenu/toggleSidebar')"
   >
     <span></span>
   </div>
@@ -9,14 +9,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      isOpen: false
-    }
-  },
-  methods: {
-    toggleState() {
-      this.isOpen = !this.isOpen
+  computed: {
+    isSidebar() {
+      return this.$store.getters['sidemenu/isSidebar']
     }
   }
 }
@@ -39,7 +34,7 @@ export default {
   background: black;
   border-radius: 50%;
   transform: rotate(0);
-  transition: 0.5s ease-out;
+  transition: none;
 
   // variables
   $width-bar: 20px;
@@ -57,7 +52,7 @@ export default {
     width: $width-bar;
     height: $height-bar;
 
-    // transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
     &::before,
     &::after {
       content: '';
@@ -96,9 +91,11 @@ export default {
 .hamburger-cross {
   @extend.hamburger;
   transform: rotate(180deg);
+  transition: 0.5s ease-out;
 
   span {
     background: transparent;
+    transition: 0.3s ease-out;
 
     &::before {
       transform: translateY(0) rotate(45deg);
@@ -109,6 +106,7 @@ export default {
     }
   }
   &:hover {
+    transition: 0.3s ease-out;
     span {
       &:before {
         transform: translateY(0) rotate(135deg);

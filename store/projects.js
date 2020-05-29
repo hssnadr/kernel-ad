@@ -274,6 +274,30 @@ export const state = () => ({
       },
       description: 'Pure fucking vjing',
       level: 1
+    },
+    {
+      title: 'Carlitos way',
+      id: 'charles',
+      years: { y0: '1988', y1: '1995' },
+      institute: 'Alter Urbain',
+      format: 'Charles Format',
+      fields: ['Events'],
+      skills: [],
+      tools: ['HTML', 'CSS'],
+      monFormat: ['cestmonformat'],
+      thumbnail: {
+        link: 'https://f4.bcbits.com/img/0016301968_10.jpg'
+      },
+      media: {
+        images: [
+          'https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/30261448_1736723963077390_4507425876295548928_n.jpg?_nc_cat=107&_nc_sid=8bfeb9&_nc_ohc=8sD4tYc-rbIAX-fbyaq&_nc_ht=scontent-cdg2-1.xx&oh=85d1ac455501085503f6007f4ddbf0d3&oe=5EE1D265'
+        ],
+        iframes: [
+          '<iframe width="560" height="315" src="https://www.youtube.com/embed/_7F6CVCvl1w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+        ]
+      },
+      description: 'Charles is in the fucking place',
+      level: 1
     }
   ],
   curProject: null,

@@ -22,15 +22,6 @@ export default {
   position: relative;
   width: 54px;
   height: 54px;
-
-  background: black;
-  border-radius: 50%;
-}
-
-.hamburger {
-  position: relative;
-  width: 54px;
-  height: 54px;
   background: black;
   border-radius: 50%;
   transform: rotate(0);

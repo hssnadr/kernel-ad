@@ -2,11 +2,6 @@
   <div class="sidenav-container">
     <transition name="button-slide">
       <icon-hbg v-if="!hideSidebar" id="menu-button" />
-      <!-- <div
-        v-if="!hideSidebar"
-        id="menu-button"
-        @click="$store.dispatch('sidemenu/toggleSidebar')"
-      ></div> -->
     </transition>
 
     <transition name="slide-side">

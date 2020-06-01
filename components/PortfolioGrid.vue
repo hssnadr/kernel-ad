@@ -1,6 +1,6 @@
 <template>
   <div v-scroll-lock="isWatching">
-    <div class="container col-12 col-md-8" style="background-color:red;">
+    <!-- <div class="container col-12 col-md-8" style="background-color:red;">
       <div class="row">
         <div class="col-md">
           One of three columns
@@ -21,7 +21,7 @@
       <div class="col-12 col-md-4" style="background-color:blue;">
         .col-6 .col-md-4
       </div>
-    </div>
+    </div> -->
 
     <!-- FLEX BOX -->
     <transition-group

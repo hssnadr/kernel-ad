@@ -1,6 +1,5 @@
 <template>
   <div id="mainview" :style="setMargin">
-    <logo />
     <side-menu />
 
     <nav id="navigator" v-scroll-lock="isScrollLock">
@@ -34,12 +33,10 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 import SideMenu from '~/components/MenuASide'
 
 export default {
   components: {
-    Logo,
     SideMenu
   },
   computed: {
@@ -74,25 +71,6 @@ export default {
 </script>
 
 <style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
 #navigator {
   display: flex;
   justify-content: space-around;

@@ -8,7 +8,6 @@
     <base-filter :type="'skills'" />
     <base-filter :type="'tools'" />
     <base-filter :type="'institute'" />
-    <base-filter :type="'monformat'" />
     <years-filter />
   </div>
 </template>

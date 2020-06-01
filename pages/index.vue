@@ -33,11 +33,8 @@ export default {
 }
 </script>
 
-<style>
-/* 100% Image Width on Smaller Screens */
-/* @media only screen and (max-width: 700px) {
-  .modal-content {
-    width: 100%;
-  }
-} */
+<style lang="scss">
+.title {
+  color: $secondary-color;
+}
 </style>

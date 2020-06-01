@@ -23,10 +23,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    // fichier CSS dans le projet
-    '@/assets/css/main.css'
-  ],
+  css: ['@assets/css/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -52,7 +49,8 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
-    // Doc: https://axios.nuxtjs.org/usage
+    // Doc: https://axios.nuxtjs.org/usage,
+    '@nuxtjs/style-resources',
     '@nuxtjs/axios',
     '@nuxtjs/pwa'
   ],
@@ -69,5 +67,8 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  styleResources: {
+    scss: ['assets/css/*.scss']
   }
 }

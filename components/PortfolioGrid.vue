@@ -118,8 +118,6 @@ export default {
   align-content: center;
 
   padding: 20px;
-
-  background-color: #fff9a8;
 }
 
 .itemProject {

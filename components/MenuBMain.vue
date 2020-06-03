@@ -1,13 +1,11 @@
 <template>
   <div>
-    Les gens c'est le main menu
-    <h3>FILTERS</h3>
     <!-- <field-filter />
     <skill-filter /> -->
     <base-filter :type="'fields'" />
     <base-filter :type="'skills'" />
     <base-filter :type="'tools'" />
-    <base-filter :type="'institute'" />
+    <base-filter :type="'institutes'" />
     <years-filter />
   </div>
 </template>

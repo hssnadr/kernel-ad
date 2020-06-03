@@ -19,10 +19,13 @@ export default {
 
 <style lang="scss">
 .hamburger {
+  $hbg-backcol: transparent;
+  $hbg-frontcol: $primary-color;
+
   position: relative;
   width: 54px;
   height: 54px;
-  background: black;
+  background: $hbg-backcol;
   border-radius: 50%;
   transform: rotate(0);
   transition: none;
@@ -39,7 +42,7 @@ export default {
     transform: translateX(-50%) translateY(-50%);
 
     display: block;
-    background: white;
+    background: $hbg-frontcol;
     width: $width-bar;
     height: $height-bar;
 
@@ -53,7 +56,7 @@ export default {
       left: 0;
 
       display: block;
-      background: white;
+      background: $hbg-frontcol;
       width: $width-bar;
       height: $height-bar;
 

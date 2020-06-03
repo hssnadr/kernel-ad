@@ -80,6 +80,5 @@ export default {
   transition: margin-left 0.5s ease-out;
   margin-left: 0px;
   padding: 0px;
-  background-color: red;
 }
 </style>

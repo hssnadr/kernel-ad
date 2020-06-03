@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       windowWidth: 0,
-      widthFactor0: 0.2,
+      widthFactor0: 0.3,
       widthFactor: 0.3,
       breakpoint: 600 // pixel (width)
     }
@@ -89,7 +89,6 @@ export default {
 .sidenav {
   height: 100%;
   /* width: 300px; */
-  background-color: #56adff;
   z-index: 2;
   position: fixed;
   overflow: auto;
@@ -97,6 +96,7 @@ export default {
   left: 0;
   box-sizing: border-box;
   padding: 30px;
+  padding-top: 100px;
 }
 
 .slide-side-enter-active,

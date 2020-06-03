@@ -1,6 +1,10 @@
 @mixin text-stroke($color: black, $thikness: 1px) {
-  text-shadow: (-1 * $thikness) 0 $color, 0 $thikness $color,
-    $thikness 0 $color, 0 (-1 * $thikness) $color;
+  text-shadow: (-1 * $thikness) (-1 * $thikness) $color, $thikness $thikness $color,
+  (-1 * $thikness) $thikness $color, $thikness (-1 * $thikness) $color;
+}
+
+@mixin text-nostroke() {
+  text-shadow: none;
 }
 
 @mixin rotate($rotation: 10) {

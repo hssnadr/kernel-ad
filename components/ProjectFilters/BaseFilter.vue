@@ -1,12 +1,11 @@
 <template>
   <div>
-    <h4
-      class="filter-section"
-      :class="{ include: isTypeFilter, skip: !isTypeFilter }"
+    <button
+      :class="[isTypeFilter ? 'typefilter-on' : 'typefilter-off']"
       @click="showFilterType()"
     >
       {{ type }}
-    </h4>
+    </button>
     <div v-if="showFilter">
       <div
         v-for="filter in filters"
@@ -69,11 +68,11 @@ export default {
   methods: {
     showFilterType() {
       if (!this.showFilter && this.isTypeFilter) {
-        this.$store.commit('projects/toggleTypeFilter', this.type)
         this.showFilter = false
       } else {
         this.showFilter = !this.showFilter
       }
+      this.$store.commit('projects/toggleTypeFilter', this.type)
     },
     setFilter(filter_) {
       const oldState = this.getStateByFilter(filter_)
@@ -94,13 +93,37 @@ export default {
 }
 </script>
 
-<style>
-.filter-section {
-  text-transform: capitalize;
+<style lang="scss">
+.typefilter-off {
+  font-weight: 800;
+  font-style: italic;
+  font-size: 2.5em;
+  letter-spacing: 0.02em;
+  transition: letter-spacing 0.15s ease-out;
+  text-transform: uppercase;
+  padding-left: 0;
+  margin-left: 0.2em;
+
+  color: $base-color;
+  @include text-stroke($color: $primary-color, $thikness: 1px);
+
+  &:hover {
+    letter-spacing: 0.05em;
+  }
+}
+
+.typefilter-on {
+  @extend .typefilter-off;
+  // @include text-nostroke();
+  color: $primary-color;
+
+  &:hover {
+    // @include text-nostroke();
+  }
 }
 
 .filter-name:hover {
-  font-size: 1.1em;
+  // font-size: 1.1em;
 }
 
 .include {

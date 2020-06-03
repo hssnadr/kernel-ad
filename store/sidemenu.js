@@ -2,7 +2,7 @@
 export const state = () => ({
   hideSidebar: true,
   isSidebar: false,
-  widthPx: 200,
+  widthPx: 400,
   isHover: false
 })
 

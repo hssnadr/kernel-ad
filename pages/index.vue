@@ -1,14 +1,5 @@
 <template>
   <div>
-    <div class="container-fluid red">
-      <h1 class="title">
-        KERNEL AD
-      </h1>
-      <h2 class="subtitle">
-        Portfolio
-      </h2>
-    </div>
-
     <portfolio-grid />
   </div>
 </template>

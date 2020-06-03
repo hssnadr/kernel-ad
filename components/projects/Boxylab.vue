@@ -122,14 +122,6 @@ export default {
 </script>
 
 <style lang="scss">
-@font-face {
-  font-family: 'SharpGrotesk';
-  src: url('../../assets/fonts/SharpGroteskSmBoldItalic15.otf'); // format("ttf/otf");
-  font-weight: 800;
-  font-display: swap;
-  font-style: normal;
-}
-
 .boxylab-body {
   background: $boxy-black;
 }

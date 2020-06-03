@@ -2,10 +2,13 @@
   <div>
     <!-- <field-filter />
     <skill-filter /> -->
-    <base-filter :type="'fields'" />
+    <div v-for="typeFilter in typeFilters" :key="typeFilter">
+      <base-filter :id="typeFilter" :type="typeFilter" />
+    </div>
+    <!-- <base-filter :type="'fields'" />
     <base-filter :type="'skills'" />
     <base-filter :type="'tools'" />
-    <base-filter :type="'institutes'" />
+    <base-filter :type="'institutes'" /> -->
     <years-filter />
   </div>
 </template>
@@ -22,6 +25,11 @@ export default {
     // FieldFilter,
     // SkillFilter,
     YearsFilter
+  },
+  data() {
+    return {
+      typeFilters: ['fields', 'skills', 'tools', 'institutes']
+    }
   }
 }
 </script>

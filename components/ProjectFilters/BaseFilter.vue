@@ -6,22 +6,17 @@
     >
       {{ type }}
     </button>
-    <div v-if="showFilter">
-      <div
+
+    <div v-if="isFilterDisplay" class="filters">
+      <button
         v-for="filter in filters"
         :id="filter"
         :key="filter"
-        class="filter-name"
-        :class="{
-          include: 'include' === getStateByFilter(filter),
-          skip: 'skip' === getStateByFilter(filter)
-        }"
+        :class="[getStateByFilter(filter) ? 'filtertext-on' : 'filtertext-off']"
         @click="setFilter(filter)"
       >
-        <!-- :style="styleByFilterId(filter)" -->
         {{ filter }}
-        <!-- {{ styleByFilterId(filter) }} -->
-      </div>
+      </button>
     </div>
   </div>
 </template>
@@ -35,20 +30,12 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      showFilter: false,
-      skip: {
-        fontWeight: 'normal'
-      },
-      include: {
-        fontWeight: 'bold'
-      }
-    }
-  },
   computed: {
     filters() {
       return this.$store.getters['projects/getAllFiltersByType'](this.type)
+    },
+    isFilterDisplay() {
+      return this.$store.getters['projects/isFilterDisplay'](this.type)
     },
     isTypeFilter() {
       return this.$store.getters['projects/isTypeFilter'](this.type)
@@ -67,13 +54,26 @@ export default {
   },
   methods: {
     showFilterType() {
-      if (!this.showFilter && this.isTypeFilter) {
-        this.showFilter = false
+      if (this.isFilterDisplay) {
+        this.$store.commit('projects/setDisplayFilter', 'nodisplay') // send any messages other than type filters
+      } else if (!this.isTypeFilter) {
+        this.$store.commit('projects/setDisplayFilter', this.type)
+        this.$store.commit('projects/toggleTypeFilter', this.type)
       } else {
-        this.showFilter = !this.showFilter
+        this.$store.commit('projects/toggleTypeFilter', this.type)
       }
-      this.$store.commit('projects/toggleTypeFilter', this.type)
     },
+    // showFilterType() {
+    //   if (!this.isFilterDisplay && this.isTypeFilter) {
+    //     // this.isFilterDisplay = false
+    //     // this.$store.commit('projects/setDisplayFilter', 'nodisplay')
+    //   } else {
+    //     // this.isFilterDisplay = !this.isFilterDisplay
+
+    //     this.$store.commit('projects/setDisplayFilter', this.type)
+    //   }
+    //   this.$store.commit('projects/toggleTypeFilter', this.type)
+    // },
     setFilter(filter_) {
       const oldState = this.getStateByFilter(filter_)
       let newState_ = 'skip' // default value
@@ -94,12 +94,14 @@ export default {
 </script>
 
 <style lang="scss">
+$filter-offset: 5px;
+$filter-spaceletter: 0.02em;
+
 .typefilter-off {
   font-weight: 800;
   font-style: italic;
   font-size: 2.5em;
-  letter-spacing: 0.02em;
-  transition: letter-spacing 0.15s ease-out;
+  letter-spacing: $filter-spaceletter;
   text-transform: uppercase;
   padding-left: 0;
   margin-left: 0.2em;
@@ -107,26 +109,40 @@ export default {
   color: $base-color;
   @include text-stroke($color: $primary-color, $thikness: 1px);
 
+  transition: transform 0.3s ease-out, letter-spacing 0.15s ease-out;
+
   &:hover {
-    letter-spacing: 0.05em;
+    letter-spacing: 3 * $filter-spaceletter;
+    transform: translateX($filter-offset);
   }
 }
 
 .typefilter-on {
   @extend .typefilter-off;
-  // @include text-nostroke();
   color: $primary-color;
-
-  &:hover {
-    // @include text-nostroke();
-  }
+  transform: translateX($filter-offset);
+  letter-spacing: 3 * $filter-spaceletter;
 }
 
-.filter-name:hover {
-  // font-size: 1.1em;
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.include {
-  font-weight: bold;
+.filtertext-off {
+  font-weight: 300;
+  font-size: 1rem;
+  margin: 0.5em 0.2em;
+  padding: 0;
+  text-transform: lowercase;
+  color: $lightgrey;
+  transition: all 0s;
+}
+
+.filtertext-on {
+  @extend .filtertext-off;
+  font-weight: 400;
+  color: $primary-color;
 }
 </style>

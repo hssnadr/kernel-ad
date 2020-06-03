@@ -57,6 +57,10 @@ export default {
     return filters_
   },
 
+  isFilterDisplay: (state) => (type_) => {
+    return state.dispTypeFilter === type_
+  },
+
   isTypeFilter: (state) => (type_) => {
     return state.selTypeFilters.includes(type_)
   },
@@ -232,7 +236,6 @@ export default {
     if (filters_.length > 0) {
       // Include
       filters_.forEach((filter_) => {
-        console.log('get selected: ', filter_.type, filter_.name, filter_.state)
         const type_ = filter_.type
         const name_ = filter_.name
         const state_ = filter_.state

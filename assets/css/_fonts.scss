@@ -1,7 +1,18 @@
+// ---------------------------------------------------------
+//                      Poppins
+// ---------------------------------------------------------
 @font-face {
-  font-family: 'SharpGrotesk';
-  src: url('/fonts/SharpGroteskSmBoldItalic15.otf'); // format("ttf/otf");
-  font-weight: 800;
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-Light.ttf') format("ttf");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/Poppins-regular.ttf') format("ttf");
+  font-weight: 400;
   font-display: swap;
   font-style: normal;
 }
@@ -28,4 +39,15 @@
   font-weight: 950;
   font-display: swap;
   font-style: italic;
+}
+
+// ---------------------------------------------------------
+//                      SharpGrotesk
+// ---------------------------------------------------------
+@font-face {
+  font-family: 'SharpGrotesk';
+  src: url('/fonts/SharpGroteskSmBoldItalic15.otf'); // format("ttf/otf");
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
 }

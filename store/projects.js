@@ -232,7 +232,7 @@ export const state = () => ({
       format: ['Personal'],
       fields: ['Art'],
       skills: ['Drawing'],
-      tools: ['Pencils', 'photoshop'],
+      tools: ['photoshop'],
       thumbnail: {
         asset: 'thbSketches3.png',
         link: ''
@@ -268,11 +268,12 @@ export const state = () => ({
   ],
   curProject: null,
   selYears: null, // { y0: 1989, y1: 2020 },
-  selInstitutes: '',
-  selFormat: '',
-  selFields: [],
-  selSkills: [],
-  selTools: [],
+  // selInstitutes: '',
+  // selFormat: '',
+  // selFields: [],
+  // selSkills: [],
+  // selTools: [],
+  dispTypeFilter: '',
   selTypeFilters: [],
   selFilters: [
     // { type: 'tools', name: 'Pencils', state: 'include' },

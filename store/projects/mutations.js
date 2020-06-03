@@ -37,11 +37,29 @@ export default {
     }
   },
 
+  setDisplayFilter(state, type_) {
+    state.dispTypeFilter = type_
+  },
+
   toggleTypeFilter(state, type_) {
     if (state.selTypeFilters.includes(type_)) {
       const ind_ = state.selTypeFilters.indexOf(type_)
       state.selTypeFilters.splice(ind_, 1) // remove type filter if already set
     } else {
+      state.selTypeFilters.push(type_)
+    }
+  },
+
+  setTypeFilter(state, data_) {
+    const type_ = data_.type
+    const state_ = data_.state
+
+    if (!state_) {
+      if (state.selTypeFilters.includes(type_)) {
+        const ind_ = state.selTypeFilters.indexOf(type_)
+        state.selTypeFilters.splice(ind_, 1) // remove type filter if already set
+      }
+    } else if (!state.selTypeFilters.includes(type_)) {
       state.selTypeFilters.push(type_)
     }
   },
@@ -57,9 +75,5 @@ export default {
     if (data_.state !== 'skip') {
       state.selFilters.push(data_) // update filter if not skiped (include, add or exclude)
     }
-
-    // state.selFilters.forEach((f_) => {
-    //   console.log(state.selFilters.length, f_.type, f_.name, f_.state)
-    // })
   }
 }

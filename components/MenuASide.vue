@@ -80,7 +80,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .sidenav-container {
   height: 100%;
   width: 100%;
@@ -88,6 +88,7 @@ export default {
 
 .sidenav {
   height: 100%;
+  background: $base-color;
   /* width: 300px; */
   z-index: 2;
   position: fixed;

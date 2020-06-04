@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- FILTER TYPE -->
     <button
       :class="[isTypeFilter ? 'typefilter-on' : 'typefilter-off']"
       @click="showFilterType()"
@@ -7,15 +8,36 @@
       {{ type }}
     </button>
 
+    <!-- FILTER -->
     <div v-if="isFilterDisplay" class="filters">
       <button
-        v-for="filter in filters"
-        :id="filter"
-        :key="filter"
-        :class="[getStateByFilter(filter) ? 'filtertext-on' : 'filtertext-off']"
-        @click="setFilter(filter)"
+        v-for="filter_ in filters"
+        :id="filter_"
+        :key="filter_"
+        :class="[filterState(filter_) ? 'filtertext-on' : 'filtertext-off']"
+        @click="setFilter(filter_)"
       >
-        {{ filter }}
+        <!-- by id (default) -->
+        <span v-if="display === 'id'">
+          {{ filter_ }}
+        </span>
+
+        <!-- by name -->
+        <span v-if="display === 'name'">
+          {{ filterName(filter_) }}
+        </span>
+
+        <!-- by icon -->
+        <span v-if="display === 'icon'">
+          <component
+            :is="'icon-' + filter_"
+            v-if="isIcon('icon-' + filter_)"
+            :class="[filterState(filter_) ? 'filtericon-on' : 'filtericon-off']"
+          ></component>
+          <span v-else>
+            {{ filter_ }}
+          </span>
+        </span>
       </button>
     </div>
   </div>
@@ -25,9 +47,16 @@
 export default {
   props: {
     type: {
+      // Filter type (eg. tools, institutes, skills...)
       type: String,
-      default: 'skip',
+      default: 'Tools',
       required: true
+    },
+    display: {
+      // Display mode (text or icon)
+      type: String,
+      default: 'id',
+      required: false
     }
   },
   computed: {
@@ -40,17 +69,22 @@ export default {
     isTypeFilter() {
       return this.$store.getters['projects/isTypeFilter'](this.type)
     },
-    getStateByFilter(id_) {
+    filterState(id_) {
       const state_ = (id_) => {
-        // get current state of filter = { type: this.type, name: id_ }
         return this.$store.getters['projects/getFilterState']({
           type: this.type,
           name: id_
         })
       }
-
       return state_
     }
+    // filterName(id_) {
+    //   // const data_ = (id_) => {
+    //   //   return this.$store.getters['references/getName'](id_)
+    //   // }
+    //   const data_ = 'hey hey hey'
+    //   return data_
+    // }
   },
   methods: {
     showFilterType() {
@@ -63,19 +97,8 @@ export default {
         this.$store.commit('projects/toggleTypeFilter', this.type)
       }
     },
-    // showFilterType() {
-    //   if (!this.isFilterDisplay && this.isTypeFilter) {
-    //     // this.isFilterDisplay = false
-    //     // this.$store.commit('projects/setDisplayFilter', 'nodisplay')
-    //   } else {
-    //     // this.isFilterDisplay = !this.isFilterDisplay
-
-    //     this.$store.commit('projects/setDisplayFilter', this.type)
-    //   }
-    //   this.$store.commit('projects/toggleTypeFilter', this.type)
-    // },
     setFilter(filter_) {
-      const oldState = this.getStateByFilter(filter_)
+      const oldState = this.filterState(filter_)
       let newState_ = 'skip' // default value
 
       if (oldState == null) {
@@ -88,6 +111,12 @@ export default {
       if (!this.isTypeFilter) {
         this.$store.commit('projects/toggleTypeFilter', this.type) // switch state
       }
+    },
+    filterName(id_) {
+      return this.$store.getters['references/getName'](id_)
+    },
+    isIcon(filter_) {
+      return filter_ in this.$options.components
     }
   }
 }
@@ -97,6 +126,7 @@ export default {
 $filter-offset: 5px;
 $filter-spaceletter: 0.02em;
 
+// TYPE FILTER
 .typefilter-off {
   font-weight: 800;
   font-style: italic;
@@ -130,6 +160,8 @@ $filter-spaceletter: 0.02em;
   justify-content: space-around;
 }
 
+// -----------------------------
+
 .filtertext-off {
   font-weight: 300;
   font-size: 1rem;
@@ -144,5 +176,18 @@ $filter-spaceletter: 0.02em;
   @extend .filtertext-off;
   font-weight: 400;
   color: $primary-color;
+}
+
+// -----------------------------
+
+.filtericon-off {
+  height: 20px;
+  width: auto;
+  fill: $lightgrey;
+}
+
+.filtericon-on {
+  @extend .filtericon-off;
+  fill: $primary-color;
 }
 </style>

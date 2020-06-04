@@ -2,13 +2,13 @@
   <div>
     <!-- <field-filter />
     <skill-filter /> -->
-    <div v-for="typeFilter in typeFilters" :key="typeFilter">
+    <!-- <div v-for="typeFilter in typeFilters" :key="typeFilter">
       <base-filter :id="typeFilter" :type="typeFilter" />
-    </div>
-    <!-- <base-filter :type="'fields'" />
+    </div> -->
+    <base-filter :type="'fields'" />
     <base-filter :type="'skills'" />
-    <base-filter :type="'tools'" />
-    <base-filter :type="'institutes'" /> -->
+    <base-filter :type="'tools'" :display="'icon'" />
+    <base-filter :type="'institutes'" :display="'name'" />
     <years-filter />
   </div>
 </template>

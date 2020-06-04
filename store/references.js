@@ -1,5 +1,30 @@
 export const state = () => ({
-  allTools: [
+  allReferences: [
+    {
+      name: 'Strate École de Design',
+      id: 'strate',
+      link: 'www.strate.design'
+    },
+    {
+      name: 'Dassault Systèmes',
+      id: 'dassault-systemes',
+      link: 'www.3ds.com'
+    },
+    {
+      name: 'CRI Paris',
+      id: 'cri-paris',
+      link: 'www.cri-paris.org'
+    },
+    {
+      name: 'Arts et Métiers ParisTech',
+      id: 'am-paristech',
+      link: 'www.artsetmetiers.fr'
+    },
+    {
+      name: 'Leroy Merlin',
+      id: 'leroy-merlin',
+      link: 'www.leroymerlin.fr'
+    },
     {
       name: 'Illustrator',
       id: 'illustrator',
@@ -75,7 +100,12 @@ export const state = () => ({
 
 // Getters
 export const getters = {
-  getTool: (state) => (id_) => {
-    state.allTools.find((tool) => tool.id === id_)
+  getName: (state) => (id_) => {
+    let name_ = id_
+    console.log(state.allReferences.find((ref) => ref.id === id_) === null)
+
+    name_ = state.allReferences.find((ref) => ref.id === id_).name
+
+    return name_
   }
 }

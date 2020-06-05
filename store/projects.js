@@ -71,11 +71,11 @@ export const state = () => ({
       title: 'Portail 3D',
       id: 'portail-3d',
       years: { y0: '2011', y1: '2012' },
-      institutes: ['leroy-merlin  '],
+      institutes: ['leroy-merlin'],
       format: ['Student Project'],
       fields: ['Engineering'],
       skills: ['Programing', 'UX', 'Video'],
-      tools: ['unity3d', 'csharp'],
+      tools: ['unity3d', 'C#'],
       thumbnail: {
         link:
           'https://mir-s3-cdn-cf.behance.net/projects/404/22a93e11024709.Y3JvcCw0NTAsMzUyLDQxLDIw.png'

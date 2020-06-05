@@ -102,11 +102,10 @@ export const state = () => ({
 export const getters = {
   getName: (state) => (id_) => {
     let name_ = id_
-    state.allReferences.forEach((element) => {
-      if (element.id === id_) {
-        name_ = element.name
-      }
-    })
+    console.log(state.allReferences.find((ref) => ref.id === id_) === null)
+
+    name_ = state.allReferences.find((ref) => ref.id === id_).name
+
     return name_
   }
 }

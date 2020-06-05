@@ -4,20 +4,9 @@ import Vue from 'vue'
 import ButtonFilter from '~/components/ButtonFilter.vue'
 
 // Icons (file name = reference id in store/references.js)
-import IconAbleton from '~/components/tools/ableton.vue'
-import IconAftereffects from '~/components/tools/aftereffects.vue'
-import IconArduino from '~/components/tools/arduino.vue'
-import IconCatia from '~/components/tools/catia.vue'
-import IconCsharp from '~/components/tools/csharp.vue'
 import IconIllustrator from '~/components/tools/illustrator.vue'
 import IconIndesign from '~/components/tools/indesign.vue'
-import IconMatlab from '~/components/tools/matlab.vue'
-import IconMax from '~/components/tools/max.vue'
 import IconPhotoshop from '~/components/tools/photoshop.vue'
-import IconPixate from '~/components/tools/pixate.vue'
-import IconPremiere from '~/components/tools/premiere.vue'
-import IconProcessing from '~/components/tools/processing.vue'
-import IconPuredata from '~/components/tools/puredata.vue'
 import IconPython from '~/components/tools/python.vue'
 import IconUnity3d from '~/components/tools/unity3d.vue'
 
@@ -32,20 +21,9 @@ import Boxylab from '~/components/projects/Boxylab.vue'
 Vue.component('button-filter', ButtonFilter)
 
 // Icons
-Vue.component('icon-ableton', IconAbleton)
-Vue.component('icon-aftereffects', IconAftereffects)
-Vue.component('icon-arduino', IconArduino)
-Vue.component('icon-catia', IconCatia)
-Vue.component('icon-csharp', IconCsharp)
 Vue.component('icon-illustrator', IconIllustrator)
 Vue.component('icon-indesign', IconIndesign)
-Vue.component('icon-matlab', IconMatlab)
-Vue.component('icon-max', IconMax)
 Vue.component('icon-photoshop', IconPhotoshop)
-Vue.component('icon-pixate', IconPixate)
-Vue.component('icon-premiere', IconPremiere)
-Vue.component('icon-processing', IconProcessing)
-Vue.component('icon-puredate', IconPuredata)
 Vue.component('icon-python', IconPython)
 Vue.component('icon-unity3d', IconUnity3d)
 

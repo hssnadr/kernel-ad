@@ -258,7 +258,7 @@ export const state = () => ({
       format: 'Freelance',
       fields: ['Engineering'],
       skills: ['Programming'],
-      tools: ['HTML', 'CSS', 'Vue', 'Nuxt'],
+      tools: ['nuxt'],
       thumbnail: {
         link: 'https://f4.bcbits.com/img/0016301968_10.jpg'
       },

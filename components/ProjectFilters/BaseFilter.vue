@@ -134,7 +134,7 @@ $filter-spaceletter: 0.02em;
   letter-spacing: $filter-spaceletter;
   text-transform: uppercase;
   padding-left: 0;
-  margin-left: 0.2em;
+  margin: 0.2em 0 0.02em 0.2em;
 
   color: $base-color;
   @include text-stroke($color: $primary-color, $thikness: 1px);
@@ -154,13 +154,14 @@ $filter-spaceletter: 0.02em;
   letter-spacing: 3 * $filter-spaceletter;
 }
 
+// -----------------------------
+
 .filters {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  // margin: 20px 0;
 }
-
-// -----------------------------
 
 .filtertext-off {
   font-weight: 300;
@@ -169,12 +170,17 @@ $filter-spaceletter: 0.02em;
   padding: 0;
   text-transform: lowercase;
   color: $lightgrey;
-  transition: all 0s;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $primary-color;
+  }
 }
 
 .filtertext-on {
   @extend .filtertext-off;
-  font-weight: 400;
+  // font-weight: 400;
+  // font-size: 1.04rem;
   color: $primary-color;
 }
 
@@ -184,6 +190,12 @@ $filter-spaceletter: 0.02em;
   height: 35px;
   width: auto;
   fill: $lightgrey;
+  margin: 0 10px;
+  transition: fill 0.3s;
+
+  &:hover {
+    fill: $primary-color;
+  }
 }
 
 .filtericon-on {

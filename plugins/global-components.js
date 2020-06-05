@@ -13,6 +13,7 @@ import IconIllustrator from '~/components/tools/illustrator.vue'
 import IconIndesign from '~/components/tools/indesign.vue'
 import IconMatlab from '~/components/tools/matlab.vue'
 import IconMax from '~/components/tools/max.vue'
+import IconNuxt from '~/components/tools/nuxt.vue'
 import IconPhotoshop from '~/components/tools/photoshop.vue'
 import IconPixate from '~/components/tools/pixate.vue'
 import IconPremiere from '~/components/tools/premiere.vue'
@@ -41,6 +42,7 @@ Vue.component('icon-illustrator', IconIllustrator)
 Vue.component('icon-indesign', IconIndesign)
 Vue.component('icon-matlab', IconMatlab)
 Vue.component('icon-max', IconMax)
+Vue.component('icon-nuxt', IconNuxt)
 Vue.component('icon-photoshop', IconPhotoshop)
 Vue.component('icon-pixate', IconPixate)
 Vue.component('icon-premiere', IconPremiere)

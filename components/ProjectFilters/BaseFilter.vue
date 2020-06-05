@@ -157,7 +157,7 @@ $filter-spaceletter: 0.02em;
 .filters {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 // -----------------------------
@@ -181,7 +181,7 @@ $filter-spaceletter: 0.02em;
 // -----------------------------
 
 .filtericon-off {
-  height: 20px;
+  height: 35px;
   width: auto;
   fill: $lightgrey;
 }

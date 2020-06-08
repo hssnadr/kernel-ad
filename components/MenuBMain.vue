@@ -8,7 +8,7 @@
     <base-filter :type="'fields'" />
     <base-filter :type="'skills'" />
     <base-filter :type="'tools'" :display="'icon'" />
-    <base-filter :type="'institutes'" :display="'name'" />
+    <base-filter :type="'institutes'" :display="'logo'" />
     <years-filter />
   </div>
 </template>

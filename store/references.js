@@ -1,13 +1,13 @@
 export const state = () => ({
   allReferences: [
     {
-      name: 'Strate École de Design',
+      name: 'Strate - École de Design',
       id: 'strate',
       link: 'www.strate.design'
     },
     {
       name: 'Dassault Systèmes',
-      id: 'dassault-systemes',
+      id: 'dassaultsystemes',
       link: 'www.3ds.com'
     },
     {
@@ -22,7 +22,7 @@ export const state = () => ({
     },
     {
       name: 'Leroy Merlin',
-      id: 'leroy-merlin',
+      id: 'leroymerlin',
       link: 'www.leroymerlin.fr'
     },
     {
@@ -39,7 +39,7 @@ export const state = () => ({
     },
     {
       name: 'After Effects',
-      id: 'after-effects',
+      id: 'aftereffects',
       link:
         'https://www.adobe.com/fr/products/aftereffects.html?gclid=EAIaIQobChMIiaXxifng6QIVxeFRCh08UwAkEAAYASAAEgJxX_D_BwE&sdid=88X75SL1&mv=search&ef_id=EAIaIQobChMIiaXxifng6QIVxeFRCh08UwAkEAAYASAAEgJxX_D_BwE:G:s&s_kwcid=AL!3085!3!341216976145!e!!g!!after%20effects'
     },
@@ -94,6 +94,16 @@ export const state = () => ({
       name: 'Pure Data',
       id: 'pure-data',
       link: 'https://puredata.info/'
+    },
+    {
+      name: 'C#',
+      id: 'csharp',
+      link: '' // <--------------------------------------------
+    },
+    {
+      name: 'Python',
+      id: 'python',
+      link: '' // <--------------------------------------------
     }
   ]
 })

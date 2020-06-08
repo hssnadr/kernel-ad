@@ -3,6 +3,10 @@ import Vue from 'vue'
 // Filters
 import ButtonFilter from '~/components/ButtonFilter.vue'
 
+// Logo (file name = reference id in store/references.js)
+import LogoDassaultsystemes from '~/components/institutes/dassaultsystemes.vue'
+import LogoLeroymerlin from '~/components/institutes/leroymerlin.vue'
+
 // Icons (file name = reference id in store/references.js)
 import IconAbleton from '~/components/tools/ableton.vue'
 import IconAftereffects from '~/components/tools/aftereffects.vue'
@@ -31,6 +35,10 @@ import Boxylab from '~/components/projects/Boxylab.vue'
 
 // Filters
 Vue.component('button-filter', ButtonFilter)
+
+// Logo
+Vue.component('logo-dassaultsystemes', LogoDassaultsystemes)
+Vue.component('logo-leroymerlin', LogoLeroymerlin)
 
 // Icons
 Vue.component('icon-ableton', IconAbleton)

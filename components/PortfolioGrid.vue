@@ -1,29 +1,5 @@
 <template>
   <div v-scroll-lock="isWatching">
-    <!-- <div class="container col-12 col-md-8" style="background-color:red;">
-      <div class="row">
-        <div class="col-md">
-          One of three columns
-        </div>
-        <div class="col-md">
-          One of three columns
-        </div>
-        <div class="col-md">
-          One of three columns
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12 col-md-8" style="background-color:green;">
-        .col-12 .col-md-8
-      </div>
-      <div class="col-12 col-md-4" style="background-color:blue;">
-        .col-6 .col-md-4
-      </div>
-    </div> -->
-
-    <!-- FLEX BOX -->
     <transition-group
       v-if="isEmptySel"
       id="gridProjects"
@@ -45,11 +21,13 @@
 
     <div v-if="isWatching" id="myModal" class="modal">
       <span class="close" @click="CloseProject">&times;</span>
+
       <!-- <input type="button" :value="linkProject" @click="CloseProject" /> -->
       <iframe
-        id="myiframe"
+        id="iframe-project"
         height="80%"
         width="80%"
+        allowtransparency="true"
         :src="linkProject"
       ></iframe>
     </div>
@@ -107,7 +85,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #gridProjects {
   display: flex;
   flex-wrap: wrap;
@@ -125,7 +103,10 @@ export default {
   align-self: center; /* alignement axe secondaire */
 }
 
-iframe#myiframe {
+#iframe-project {
+  display: block;
+  height: 100%;
+  margin: auto;
 }
 
 /* ENTER */
@@ -168,13 +149,13 @@ iframe#myiframe {
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 10; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  // padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  height: 100vh; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
+  // background-color: rgb(0, 0, 0); // Fallback color
   background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
 
@@ -183,7 +164,8 @@ iframe#myiframe {
   margin: auto;
   display: block;
   width: 80%;
-  max-width: 700px;
+  height: 100vh;
+  background: rgba(0, 255, 0, 0.5);
 }
 
 /* The Close Button */
@@ -202,12 +184,5 @@ iframe#myiframe {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
-}
-
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px) {
-  .modal-content {
-    width: 100%;
-  }
 }
 </style>

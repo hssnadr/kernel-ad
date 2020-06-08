@@ -31,11 +31,24 @@
         <span v-if="display === 'icon'">
           <component
             :is="'icon-' + filter_"
-            v-if="isIcon('icon-' + filter_)"
+            v-if="isFile('icon-' + filter_)"
+            v-tooltip.bottom="filterName(filter_)"
             :class="[filterState(filter_) ? 'filtericon-on' : 'filtericon-off']"
           ></component>
           <span v-else>
-            {{ filter_ }}
+            {{ filterName(filter_) }}
+          </span>
+        </span>
+
+        <!-- by logo -->
+        <span v-if="display === 'logo'">
+          <component
+            :is="'logo-' + filter_"
+            v-if="isFile('logo-' + filter_)"
+            :class="[filterState(filter_) ? 'filterlogo-on' : 'filterlogo-off']"
+          ></component>
+          <span v-else>
+            {{ filterName(filter_) }}
           </span>
         </span>
       </button>
@@ -78,13 +91,6 @@ export default {
       }
       return state_
     }
-    // filterName(id_) {
-    //   // const data_ = (id_) => {
-    //   //   return this.$store.getters['references/getName'](id_)
-    //   // }
-    //   const data_ = 'hey hey hey'
-    //   return data_
-    // }
   },
   methods: {
     showFilterType() {
@@ -115,8 +121,8 @@ export default {
     filterName(id_) {
       return this.$store.getters['references/getName'](id_)
     },
-    isIcon(filter_) {
-      return filter_ in this.$options.components
+    isFile(file_) {
+      return file_ in this.$options.components
     }
   }
 }
@@ -159,8 +165,8 @@ $filter-spaceletter: 0.02em;
 .filters {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  // margin: 20px 0;
+  justify-content: space-around;
+  margin: 0 0 20px 0;
 }
 
 .filtertext-off {
@@ -179,8 +185,6 @@ $filter-spaceletter: 0.02em;
 
 .filtertext-on {
   @extend .filtertext-off;
-  // font-weight: 400;
-  // font-size: 1.04rem;
   color: $primary-color;
 }
 
@@ -200,6 +204,25 @@ $filter-spaceletter: 0.02em;
 
 .filtericon-on {
   @extend .filtericon-off;
+  fill: $primary-color;
+}
+
+// -----------------------------
+
+.filterlogo-off {
+  // height: 60px;
+  width: 40%;
+  fill: $lightgrey;
+  margin: 0 10px;
+  transition: fill 0.3s;
+
+  &:hover {
+    fill: $primary-color;
+  }
+}
+
+.filterlogo-on {
+  @extend .filterlogo-off;
   fill: $primary-color;
 }
 </style>

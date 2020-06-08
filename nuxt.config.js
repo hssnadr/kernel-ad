@@ -28,8 +28,8 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    // { src: '~/plugins/vue-masonry', ssr: false },
     { src: '~/plugins/v-scroll-lock' },
+    { src: '~/plugins/v-tooltype' },
     // { src: '~/plugins/double-slider' },
     { src: '~/plugins/global-components' }
   ],
@@ -70,5 +70,9 @@ export default {
   },
   styleResources: {
     scss: ['assets/css/*.scss']
-  }
+  },
+  server: {
+    port: 8000, // default: 3000
+    host: '0.0.0.0' // default: localhost
+  } // other configs
 }

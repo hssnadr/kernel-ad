@@ -1,5 +1,5 @@
 <template>
-  <div class="page-project">
+  <div>
     <!-- Header information -->
     <h2>{{ project.title }}</h2>
     <h3>{{ project.year }}</h3>
@@ -83,9 +83,5 @@ export default {
 .pic {
   width: 100%;
   height: auto;
-}
-
-.page-project {
-  background: rgba(255, 0, 0, 0.5);
 }
 </style>

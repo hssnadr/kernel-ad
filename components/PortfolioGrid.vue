@@ -21,15 +21,15 @@
 
     <div v-if="isWatching" id="myModal" class="modal">
       <span class="close" @click="CloseProject">&times;</span>
+      <page-project />
 
-      <!-- <input type="button" :value="linkProject" @click="CloseProject" /> -->
-      <iframe
+      <!-- <iframe
         id="iframe-project"
         height="80%"
         width="80%"
         allowtransparency="true"
         :src="linkProject"
-      ></iframe>
+      ></iframe> -->
     </div>
   </div>
   <!-- il faudra rajouter un prevent au dessus si la page nexiste pas!! -->
@@ -38,10 +38,12 @@
 <script>
 import { mapGetters } from 'vuex'
 import Cardboard from '~/components/Cardboard.vue'
+import PageProject from '~/components/PageProject.vue'
 
 export default {
   components: {
-    Cardboard
+    Cardboard,
+    PageProject
   },
   data() {
     return {
@@ -156,7 +158,7 @@ export default {
   height: 100vh; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   // background-color: rgb(0, 0, 0); // Fallback color
-  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+  // background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
 
 /* Modal Content (image) */

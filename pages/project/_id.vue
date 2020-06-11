@@ -10,15 +10,19 @@
           {{ project.description }}
         </div>
       </div>
-      <div class="project-institute" :class="{ 'cursor-pointer': isLink() }">
-        <span class="logo" @click="goToReference(institute)">
+      <div class="project-institute">
+        <span
+          class="logo"
+          :class="{ 'cursor-pointer': isLink(institute) }"
+          @click="goToReference(institute)"
+        >
           <component
             :is="'logo-' + institute"
             v-if="isFile('logo-' + institute)"
             class="svg"
           ></component>
           <span v-else>
-            {{ institute }}
+            {{ refName(institute) }}
           </span>
         </span>
       </div>
@@ -73,7 +77,7 @@ export default {
       return years_
     },
     institute() {
-      let institute_ = 'me'
+      let institute_ = ''
       if (this.project.institutes !== null) {
         institute_ = this.project.institutes[0]
       }
@@ -113,6 +117,9 @@ export default {
   methods: {
     isFile(file_) {
       return file_ in this.$options.components
+    },
+    refName(ref_) {
+      return this.$store.getters['references/getName'](ref_)
     },
     isLink(ref_) {
       const link_ = this.$store.getters['references/getLink'](ref_)

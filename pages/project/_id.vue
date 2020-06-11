@@ -1,31 +1,35 @@
 <template>
   <div class="project-container">
     <!-- Header information -->
-    <header class="project-header">
-      <div class="project-overview">
-        <div class="format">
-          <p>{{ project.format[0] }} project &bull; {{ years }}</p>
+    <header>
+      <div class="project-header">
+        <div class="project-overview">
+          <div class="format">
+            <p>{{ project.format[0] }} project &bull; {{ years }}</p>
+          </div>
+          <div class="description">
+            {{ project.description }}
+          </div>
         </div>
-        <div class="description">
-          {{ project.description }}
-        </div>
-      </div>
-      <div class="project-institute">
-        <span
-          class="logo"
-          :class="{ 'cursor-pointer': isLink(institute) }"
-          @click="goToReference(institute)"
-        >
-          <component
-            :is="'logo-' + institute"
-            v-if="isFile('logo-' + institute)"
-            class="svg"
-          ></component>
-          <span v-else>
-            {{ refName(institute) }}
+        <div class="project-institute">
+          <span
+            class="logo"
+            :class="{ 'cursor-pointer': isLink(institute) }"
+            @click="goToReference(institute)"
+          >
+            <component
+              :is="'logo-' + institute"
+              v-if="isFile('logo-' + institute)"
+              class="svg"
+            ></component>
+            <span v-else>
+              {{ refName(institute) }}
+            </span>
           </span>
-        </span>
+        </div>
+        <div class="line-spacer"></div>
       </div>
+      <h1 class="project-title">{{ project.title }}</h1>
     </header>
 
     <!-- Dedicated project page (referenced as component) -->
@@ -184,6 +188,15 @@ export default {
   }
 }
 
+.project-title {
+  width: 100%;
+  text-align: center;
+  font-size: 3em;
+  color: $base-color;
+  padding: 1em 0.5em;
+  margin: 0;
+}
+
 .project-pictures {
   width: 100%;
   height: auto;
@@ -196,6 +209,10 @@ export default {
 
   .project-institute {
     width: 30%;
+  }
+
+  .project-title {
+    font-size: 4em;
   }
 }
 </style>

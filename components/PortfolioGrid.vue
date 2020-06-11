@@ -105,6 +105,58 @@ export default {
   margin: auto;
 }
 
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  // padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100vh; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  // background-color: rgb(0, 0, 0); // Fallback color
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+// .modal-content {
+//   margin: auto;
+//   display: block;
+//   width: 100%;
+//   height: 100vh;
+//   background: rgba(0, 255, 0, 0.5);
+// }
+
+.background-project {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 30px 0;
+  background: transparentize($color: $primary-color, $amount: 0.15);
+}
+
+/* The Close Button */
+.close-project {
+  position: fixed;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  z-index: 9999;
+
+  &:hover,
+  &:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
 /* ENTER */
 .card-swap-enter
 /* enter from */ {
@@ -139,57 +191,5 @@ export default {
 /* .card-swap-leave-active for <2.1.8 */ {
   opacity: 0;
   transform: translate(0, 0, 0) scale(0.1);
-}
-
-.modal {
-  display: block; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 10; /* Sit on top */
-  // padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100vh; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  // background-color: rgb(0, 0, 0); // Fallback color
-  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
-}
-
-/* Modal Content (image) */
-.modal-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  height: 100vh;
-  background: rgba(0, 255, 0, 0.5);
-}
-
-.background-project {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  width: 100vw;
-  min-height: 100vh;
-  padding: 30px 0;
-  background: transparentize($color: $primary-color, $amount: 0.15);
-}
-
-/* The Close Button */
-.close-project {
-  position: fixed;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-  z-index: 9999;
-
-  &:hover,
-  &:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-  }
 }
 </style>

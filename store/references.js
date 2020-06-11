@@ -3,27 +3,27 @@ export const state = () => ({
     {
       name: 'Strate - École de Design',
       id: 'strate',
-      link: 'www.strate.design'
+      link: 'https://www.strate.design'
     },
     {
       name: 'Dassault Systèmes',
       id: 'dassaultsystemes',
-      link: 'www.3ds.com'
+      link: 'https://www.3ds.com'
     },
     {
       name: 'CRI Paris',
       id: 'cri-paris',
-      link: 'www.cri-paris.org'
+      link: 'https://www.cri-paris.org'
     },
     {
       name: 'Arts et Métiers ParisTech',
       id: 'am-paristech',
-      link: 'www.artsetmetiers.fr'
+      link: 'https://www.artsetmetiers.fr'
     },
     {
       name: 'Leroy Merlin',
       id: 'leroymerlin',
-      link: 'www.leroymerlin.fr'
+      link: 'https://www.leroymerlin.fr'
     },
     {
       name: 'Illustrator',
@@ -118,5 +118,14 @@ export const getters = {
       }
     })
     return name_
+  },
+  getLink: (state) => (id_) => {
+    let link_ = null
+    state.allReferences.forEach((element) => {
+      if (element.id === id_ && element.link !== '') {
+        link_ = element.link
+      }
+    })
+    return link_
   }
 }

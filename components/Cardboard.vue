@@ -4,11 +4,16 @@
     <div class="box-content">
       <ul class="icon">
         <input type="button" value="GO" @click="emitProject" />
+        <nuxt-link
+          :to="{ name: 'project-id', params: { id: 'whooshing-machine' } }"
+          >FIRE</nuxt-link
+        >
+
         <!-- <nuxt-link class="card-image" :to="{ name: 'projects-' + item.id }">
           <figure>
             <img src="https://placehold.it/1200x840" alt="card image alt" />
-          </figure> -->
-        <!-- </nuxt-link> -->
+          </figure>
+        </nuxt-link> -->
 
         <!-- <a :href="item.link" target="_blank" class="button--grey">Link</a> -->
         <!-- <li>
@@ -27,6 +32,13 @@ export default {
   props: {
     // eslint-disable-next-line vue/require-default-prop
     project: Object
+  },
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+    beforeEnter(el) {
+      console.log('Before enter...')
+    }
   },
   computed: {
     thumbnail() {

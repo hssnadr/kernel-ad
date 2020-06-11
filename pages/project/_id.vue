@@ -1,10 +1,28 @@
 <template>
-  <div>
+  <div class="project-container">
     <!-- Header information -->
-    <h2>{{ project.title }}</h2>
-    <h3>{{ project.year }}</h3>
-    <p>{{ project.description }}</p>
-    <p>{{ project.skills }}</p>
+    <header class="project-header">
+      <div class="project-overview">
+        <div class="format">
+          <p>{{ project.format[0] }} project &bull; {{ years }}</p>
+        </div>
+        <div class="description">
+          {{ project.description }}
+        </div>
+      </div>
+      <div class="project-institute" :class="{ 'cursor-pointer': isLink() }">
+        <span class="logo" @click="goToReference(institute)">
+          <component
+            :is="'logo-' + institute"
+            v-if="isFile('logo-' + institute)"
+            class="svg"
+          ></component>
+          <span v-else>
+            {{ institute }}
+          </span>
+        </span>
+      </div>
+    </header>
 
     <!-- Dedicated project page (referenced as component) -->
     <div v-if="isExtComponent">
@@ -17,7 +35,7 @@
           v-for="(img_, index) in project.media.images"
           :key="index"
           :src="img_"
-          class="pic"
+          class="project-pictures"
         />
       </div>
       <!-- iFrame from projects/store -->
@@ -43,6 +61,23 @@ export default {
   computed: {
     project() {
       return this.$store.getters['projects/getProjectByid'](this.id)
+    },
+    years() {
+      let years_ = 'unknown'
+      if (this.project.years.y0 !== this.project.years.y1) {
+        years_ = this.project.years.y0 + ' - ' + this.project.years.y1
+      } else {
+        years_ = this.project.years.y0
+      }
+
+      return years_
+    },
+    institute() {
+      let institute_ = 'me'
+      if (this.project.institutes !== null) {
+        institute_ = this.project.institutes[0]
+      }
+      return institute_
     },
     isGallery() {
       let is_ = false
@@ -74,14 +109,86 @@ export default {
   created() {
     this.id = this.$route.params.id
     this.isExtComponent = this.id in this.$options.components // check if there's a component refering to this project to present it in the project page
-    console.log(this.id, this.isExtComponent)
+  },
+  methods: {
+    isFile(file_) {
+      return file_ in this.$options.components
+    },
+    isLink(ref_) {
+      const link_ = this.$store.getters['references/getLink'](ref_)
+      return link_ !== null
+    },
+    goToReference(ref_) {
+      const link_ = this.$store.getters['references/getLink'](ref_)
+      if (link_ !== null) {
+        window.open(link_, '_blank')
+      }
+    }
   }
 }
 </script>
 
-<style>
-.pic {
+<style lang="scss">
+.project-container {
+  background: $primary-color;
+}
+
+.project-header {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  min-height: 200px;
+  border-bottom: 2px solid $base-color;
+}
+
+.project-overview {
+  width: 100%;
+  color: $base-color;
+  $space-border: 0.2rem;
+
+  .format {
+    font-size: 1.2em;
+    margin-bottom: $space-border;
+  }
+
+  .description {
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    border-top: 2px solid $base-color;
+    padding-top: $space-border;
+  }
+}
+
+.project-institute {
+  width: 100%;
+  .logo {
+    display: block;
+    margin: auto;
+    color: $base-color;
+    text-align: center;
+    .svg {
+      width: 200px;
+      fill: $base-color;
+    }
+  }
+}
+
+.project-pictures {
   width: 100%;
   height: auto;
+}
+
+@media #{$small-up} {
+  .project-overview {
+    width: 30%;
+  }
+
+  .project-institute {
+    width: 30%;
+  }
 }
 </style>

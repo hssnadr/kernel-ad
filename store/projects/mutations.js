@@ -1,4 +1,8 @@
 export default {
+  setCurrentProjectId(state, id_) {
+    state.curProject = id_
+  },
+
   setInstitute(state, institute_) {
     state.selInstitute = institute_
   },

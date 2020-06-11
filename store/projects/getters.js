@@ -1,4 +1,7 @@
 export default {
+  getCurrentProject: (state, getters) =>
+    getters.getProjectByid(state.curProject),
+
   getProjectByid: (state) => (id_) => {
     return state.allProjects.find((prj_) => prj_.id === id_)
   },

@@ -12,7 +12,7 @@
         :key="prj_.id"
         :project="prj_"
         class="itemProject"
-        @selected="DisplayProject"
+        @selected="WatchProject"
       />
     </transition-group>
     <div v-else>
@@ -21,7 +21,7 @@
 
     <div v-if="isWatching" id="myModal" class="modal">
       <span class="close" @click="CloseProject">&times;</span>
-      <page-project />
+      <page-project :id="idToWatch" />
 
       <!-- <iframe
         id="iframe-project"
@@ -48,8 +48,8 @@ export default {
   data() {
     return {
       isWatching: false,
-      currentProject: null,
-      linkProject: ''
+      linkProject: '',
+      idToWatch: ''
     }
   },
   computed: {
@@ -70,11 +70,13 @@ export default {
     }
   },
   methods: {
-    DisplayProject(data) {
+    WatchProject(data) {
       // if NOT smartphone
-      // this.linkProject = '/projects/' + data.id
-      this.linkProject = '/project/' + data.id
-      this.currentProject = data
+
+      // this.linkProject = '/project/' + data.id
+      // this.idToWatch = data.id
+
+      this.$store.commit('projects/setCurrentProjectId', data.id)
       this.isWatching = true
 
       // if smartphone -> sounds like: window.location.href = '...

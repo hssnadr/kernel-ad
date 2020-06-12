@@ -156,6 +156,8 @@ export default {
 }
 
 .project-overview {
+  display: block;
+  margin: auto;
   width: 100%;
   color: $base-color;
   $space-border: 0.2rem;
@@ -175,6 +177,8 @@ export default {
 }
 
 .project-institute {
+  display: block;
+  margin: auto;
   width: 100%;
   .logo {
     display: block;

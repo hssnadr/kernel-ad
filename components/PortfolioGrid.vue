@@ -19,8 +19,14 @@
       <p>No projects selected! It works!!</p>
     </div>
 
-    <div v-if="isWatching" id="myModal" class="modal">
-      <span class="close-project" @click="CloseProject">&times;</span>
+    <div
+      v-if="isWatching"
+      id="myModal"
+      class="modal"
+      @click="CloseProject"
+      @keyup.esc="CloseProject"
+    >
+      <span class="close-project" @click="CloseProject()">&times;</span>
       <iframe id="iframe-project" :src="linkProject"></iframe>
     </div>
   </div>

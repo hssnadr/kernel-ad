@@ -1,28 +1,32 @@
-<template lang="html">
-  <div class="card">
-    <img :src="thumbnail" :alt="project.id" />
-    <div class="box-content">
-      <ul class="icon">
-        <input type="button" value="GO" @click="emitProject" />
-        <nuxt-link
-          :to="{ name: 'project-id', params: { id: 'whooshing-machine' } }"
-          >FIRE</nuxt-link
-        >
+<template>
+  <div class="card" @click="emitProject">
+    <!-- <img :src="thumbnail" :alt="project.id" /> -->
+    <img src="https://via.placeholder.com/320x450" />
 
-        <!-- <nuxt-link class="card-image" :to="{ name: 'projects-' + item.id }">
+    <div class="card-content">
+      <h2>{{ project.title }}</h2>
+      <h3>{{ refName(institute) }}</h3>
+      <span class="format"
+        ><p>{{ project.format[0] }} project &bull; {{ years }}</p></span
+      >
+
+      <!-- <ul class="icon">
+        <input type="button" value="GO" /> -->
+
+      <!-- <nuxt-link class="card-image" :to="{ name: 'projects-' + item.id }">
           <figure>
             <img src="https://placehold.it/1200x840" alt="card image alt" />
           </figure>
         </nuxt-link> -->
 
-        <!-- <a :href="item.link" target="_blank" class="button--grey">Link</a> -->
-        <!-- <li>
+      <!-- <a :href="item.link" target="_blank" class="button--grey">Link</a> -->
+      <!-- <li>
           <a href="#"><i class="fa fa-search"></i></a>
         </li>
         <li>
           <a href="#"><i class="fa fa-link"></i></a>
         </li> -->
-      </ul>
+      <!-- </ul> -->
     </div>
   </div>
 </template>
@@ -43,51 +47,75 @@ export default {
   computed: {
     thumbnail() {
       return this.$store.getters['projects/getThumbnailById'](this.project.id)
+    },
+    years() {
+      let years_ = 'unknown'
+      if (this.project.years.y0 !== this.project.years.y1) {
+        years_ = this.project.years.y0 + ' - ' + this.project.years.y1
+      } else {
+        years_ = this.project.years.y0
+      }
+
+      return years_
+    },
+    institute() {
+      let institute_ = ''
+      if (this.project.institutes !== null) {
+        institute_ = this.project.institutes[0]
+      }
+      return institute_
     }
   },
   methods: {
     emitProject() {
       this.$emit('selected', { id: this.project.id })
     },
-    setClass() {
-      // return 'col-xl-4 col-md-6 col-sm-12'
-      if (this.project.level === 1) {
-        return 'col-xl-4 col-md-4 col-sm-12'
-      } else if (this.project.level === 2) {
-        return 'col-xl-4 col-md-6 col-sm-12'
-      } else if (this.project.level === 3) {
-        return 'col-xl-4 col-md-8 col-sm-12'
-      }
+    refName(ref_) {
+      return this.$store.getters['references/getName'](ref_)
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 .card {
   position: relative;
-  /* float: left; */
   transition: all 0.4s;
+  cursor: pointer;
 }
 
 .card img {
-  /* object-fit: cover; */
   width: 100%;
   height: auto;
 }
-.card .box-content {
+
+.card .card-content {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   transition: all 0.5s ease 0s;
+  padding: 10px;
+  opacity: 0;
 }
-.card:hover .box-content {
-  background-color: rgba(255, 242, 242, 0.5);
+
+.card:hover .card-content {
+  background-color: transparentize($color: $primary-color, $amount: 0.2);
+  opacity: 1;
+  color: $base-color !important;
 }
-.card .box-content:after,
-.card .box-content:before {
+
+.card .h3 {
+  font-weight: 600;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: red;
+}
+
+/*
+.card .card-content:after,
+.card .card-content:before {
   content: '';
   width: 100px;
   height: 50px;
@@ -96,20 +124,20 @@ export default {
   transform: scale(1.5);
   transition: all 0.6s ease 0.3s;
 }
-.card .box-content:before {
+.card .card-content:before {
   border-left: 1px solid #a01f1f;
   border-top: 1px solid #a01f1f;
   top: 19px;
   left: 19px;
 }
-.card .box-content:after {
+.card .card-content:after {
   border-bottom: 1px solid #56ec48;
   border-right: 1px solid #56ec48;
   bottom: 19px;
   right: 19px;
 }
-.card:hover .box-content:after,
-.card:hover .box-content:before {
+.card:hover .card-content:after,
+.card:hover .card-content:before {
   opacity: 1;
   transform: scale(1);
 }
@@ -175,7 +203,7 @@ export default {
 .card .icon li a:hover {
   background: #000;
   color: #fff;
-}
+} */
 /* @media only screen and (max-width: 990px) {
   .card {
     margin-bottom: 30px;

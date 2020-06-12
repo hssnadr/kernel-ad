@@ -1,14 +1,21 @@
 <template>
-  <div class="card" @click="emitProject">
+  <div class="card">
     <!-- <img :src="thumbnail" :alt="project.id" /> -->
     <img src="https://via.placeholder.com/320x450" />
-
     <div class="card-content">
-      <h2>{{ project.title }}</h2>
-      <h3>{{ refName(institute) }}</h3>
-      <span class="format"
-        ><p>{{ project.format[0] }} project &bull; {{ years }}</p></span
-      >
+      <div @click="emitProject()">
+        <h2>{{ project.title }}</h2>
+        <h3 v-if="refName(institute) !== ''">{{ refName(institute) }}</h3>
+        <span class="format">
+          <p>{{ project.format[0] }} project &bull; {{ years }}</p>
+        </span>
+        <div class="line-break"></div>
+        <div class="description">
+          <p>
+            {{ project.description }}
+          </p>
+        </div>
+      </div>
 
       <!-- <ul class="icon">
         <input type="button" value="GO" /> -->
@@ -34,14 +41,10 @@
 <script>
 export default {
   props: {
-    // eslint-disable-next-line vue/require-default-prop
-    project: Object
-  },
-  pageTransition: {
-    name: 'page',
-    mode: 'out-in',
-    beforeEnter(el) {
-      console.log('Before enter...')
+    project: {
+      type: Object,
+      default: null,
+      required: true
     }
   },
   computed: {
@@ -80,13 +83,13 @@ export default {
 <style lang="scss">
 .card {
   position: relative;
-  transition: all 0.4s;
+  // transition: all 0.4s;
   cursor: pointer;
-}
 
-.card img {
-  width: 100%;
-  height: auto;
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .card .card-content {
@@ -95,22 +98,42 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  transition: all 0.5s ease 0s;
-  padding: 10px;
+  // transition: all 0.5s ease 0s;
+  padding: 20px;
   opacity: 0;
+
+  h2 {
+    font-size: 1.7em;
+    margin-bottom: 0.3rem;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    font-style: italic;
+    color: transparentize($color: $base-color, $amount: 0.2);
+  }
+
+  .description {
+    // padding: 0 4px;
+    text-align: justify;
+    // text-justify: inter-word;
+  }
+
+  &:hover {
+    background-color: transparentize($color: $primary-color, $amount: 0.2);
+    opacity: 1;
+    color: $base-color;
+  }
 }
 
-.card:hover .card-content {
-  background-color: transparentize($color: $primary-color, $amount: 0.2);
-  opacity: 1;
-  color: $base-color !important;
-}
-
-.card .h3 {
-  font-weight: 600;
-  font-size: 1em;
-  text-transform: uppercase;
-  color: red;
+.line-break {
+  width: 30%;
+  height: 2px;
+  margin: 0.6em 0;
+  background: $base-color;
 }
 
 /*

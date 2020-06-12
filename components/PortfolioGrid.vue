@@ -98,7 +98,7 @@ export default {
 }
 
 .itemProject {
-  width: 250px;
+  // width: 250px;
   margin: 5px;
   align-self: center; /* alignement axe secondaire */
 }

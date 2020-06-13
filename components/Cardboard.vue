@@ -1,9 +1,7 @@
 <template>
-  <div class="card">
-    <!-- <img :src="thumbnail" :alt="project.id" /> -->
-    <img src="https://via.placeholder.com/320x450" />
-    <div class="card-content">
-      <div @click="emitProject()">
+  <div class="card" :style="cardBackground">
+    <div class="card-content" @click="emitProject()">
+      <div class="top-content">
         <h2>{{ project.title }}</h2>
         <h3 v-if="refName(institute) !== ''">{{ refName(institute) }}</h3>
         <span class="format">
@@ -17,23 +15,22 @@
         </div>
       </div>
 
-      <!-- <ul class="icon">
-        <input type="button" value="GO" /> -->
-
-      <!-- <nuxt-link class="card-image" :to="{ name: 'projects-' + item.id }">
-          <figure>
-            <img src="https://placehold.it/1200x840" alt="card image alt" />
-          </figure>
-        </nuxt-link> -->
-
-      <!-- <a :href="item.link" target="_blank" class="button--grey">Link</a> -->
-      <!-- <li>
-          <a href="#"><i class="fa fa-search"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-link"></i></a>
-        </li> -->
-      <!-- </ul> -->
+      <div class="bottom-content">
+        <div class="tools-icon">
+          <div v-for="tool_ in project.tools" :key="tool_">
+            <component
+              :is="'icon-' + tool_"
+              v-if="isFile('icon-' + tool_)"
+              class="tool-icon"
+            ></component>
+          </div>
+        </div>
+        <div class="skills">
+          <span v-for="skill_ in project.skills" :key="skill_">
+            {{ skill_ }}
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -45,6 +42,13 @@ export default {
       type: Object,
       default: null,
       required: true
+    }
+  },
+  data() {
+    return {
+      cardBackground: {
+        backgroundImage: "url('https://via.placeholder.com/320x450')"
+      }
     }
   },
   computed: {
@@ -69,9 +73,18 @@ export default {
       return institute_
     }
   },
+  created() {
+    this.cardBackground.backgroundImage =
+      'url(' +
+      this.$store.getters['projects/getThumbnailById'](this.project.id) +
+      ')'
+  },
   methods: {
     emitProject() {
       this.$emit('selected', { id: this.project.id })
+    },
+    isFile(file_) {
+      return file_ in this.$options.components
     },
     refName(ref_) {
       return this.$store.getters['references/getName'](ref_)
@@ -82,29 +95,42 @@ export default {
 
 <style lang="scss">
 .card {
-  position: relative;
-  // transition: all 0.4s;
   cursor: pointer;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
+  background-size: cover;
+  background-position: center;
 }
 
 .card .card-content {
   width: 100%;
   height: 100%;
+  position: relative;
+  top: 0;
+  background-color: $primary-color; // transparentize($color: $primary-color, $amount: 0.08);
+  color: $base-color;
+  opacity: 0;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.line-break {
+  width: 30%;
+  height: 2px;
+  margin: 1em 0;
+  background: $base-color;
+}
+
+.card-content .top-content {
   position: absolute;
   top: 0;
   left: 0;
-  // transition: all 0.5s ease 0s;
   padding: 20px;
-  opacity: 0;
 
   h2 {
     font-size: 1.7em;
     margin-bottom: 0.3rem;
+    // font-style: italic;
   }
 
   h3 {
@@ -112,28 +138,46 @@ export default {
     font-size: 1.1em;
     text-transform: uppercase;
     margin-bottom: 0.3rem;
-    font-style: italic;
-    color: transparentize($color: $base-color, $amount: 0.2);
+    color: $lightgrey; // transparentize($color: $base-color, $amount: 0.2);
   }
 
   .description {
-    // padding: 0 4px;
     text-align: justify;
-    // text-justify: inter-word;
-  }
-
-  &:hover {
-    background-color: transparentize($color: $primary-color, $amount: 0.2);
-    opacity: 1;
-    color: $base-color;
   }
 }
 
-.line-break {
-  width: 30%;
-  height: 2px;
-  margin: 0.6em 0;
-  background: $base-color;
+.card-content .bottom-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+
+  .tools-icon {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+
+    .tool-icon {
+      width: 45px;
+      fill: $base-color;
+      margin-right: 4px;
+    }
+  }
+
+  .skills {
+    // width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    text-align: right;
+    font-weight: 100;
+    font-size: 1em;
+    color: transparentize($color: $base-color, $amount: 0.2);
+  }
 }
 
 /*

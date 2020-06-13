@@ -11,7 +11,7 @@
         v-for="prj_ in displayProjects"
         :key="prj_.id"
         :project="prj_"
-        class="itemProject"
+        class="item-project"
         @selected="WatchProject"
       />
     </transition-group>
@@ -90,17 +90,19 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
   min-height: 80vh;
   align-content: center;
 
   padding: 20px;
 }
 
-.itemProject {
-  // width: 250px;
-  margin: 5px;
-  align-self: center; /* alignement axe secondaire */
+.item-project {
+  width: 300px;
+  height: 490px;
+  margin: 7px;
+  // align-self: center; /* alignement axe secondaire */
+  border-radius: 0;
+  border: none;
 }
 
 #iframe-project {

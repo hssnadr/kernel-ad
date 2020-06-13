@@ -69,22 +69,22 @@ export default {
     }
   }
 
-  &:hover {
-    span {
-      &:before {
-        transform: translateY(-($space-between + $offset));
-      }
+  // &:hover {
+  //   span {
+  //     &:before {
+  //       transform: translateY(-($space-between + $offset));
+  //     }
 
-      &:after {
-        transform: translateY($space-between + $offset);
-      }
-    }
-  }
+  //     &:after {
+  //       transform: translateY($space-between + $offset);
+  //     }
+  //   }
+  // }
 }
 
 .hamburger-cross {
   @extend.hamburger;
-  transform: rotate(180deg);
+  transform: rotate(90deg);
   transition: 0.5s ease-out;
 
   span {

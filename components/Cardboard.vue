@@ -105,7 +105,13 @@ export default {
   height: 100%;
   position: relative;
   top: 0;
-  background-color: $primary-color; // transparentize($color: $primary-color, $amount: 0.08);
+  background-color: $primary-color;
+  // background-color: transparentize($color: $primary-color, $amount: 0.15);
+  // background: linear-gradient(
+  //   transparentize($color: black, $amount: 0.01),
+  //   transparentize($color: black, $amount: 0.05) 40%,
+  //   transparentize($color: black, $amount: 0.4)
+  // );
   color: $base-color;
   opacity: 0;
 

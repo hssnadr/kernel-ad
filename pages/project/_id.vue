@@ -141,7 +141,7 @@ export default {
 
 <style lang="scss">
 .project-container {
-  background: $primary-color;
+  background: $base-color;
 }
 
 .project-header {
@@ -152,14 +152,14 @@ export default {
   align-items: center;
   width: 100%;
   min-height: 200px;
-  border-bottom: 2px solid $base-color;
+  border-bottom: 2px solid $primary-color;
 }
 
 .project-overview {
   display: block;
   margin: auto;
   width: 100%;
-  color: $base-color;
+  color: $primary-color;
   $space-border: 0.2rem;
 
   .format {
@@ -171,7 +171,7 @@ export default {
     font-family: 'Poppins', 'Roboto', sans-serif;
     font-weight: 200;
     font-style: normal;
-    border-top: 2px solid $base-color;
+    border-top: 2px solid $primary-color;
     padding-top: $space-border;
   }
 }
@@ -183,11 +183,11 @@ export default {
   .logo {
     display: block;
     margin: auto;
-    color: $base-color;
+    color: $primary-color;
     text-align: center;
     .svg {
       width: 200px;
-      fill: $base-color;
+      fill: $primary-color;
     }
   }
 }
@@ -196,7 +196,7 @@ export default {
   width: 100%;
   text-align: center;
   font-size: 3em;
-  color: $base-color;
+  color: $primary-color;
   padding: 1em 0.5em;
   margin: 0;
 }

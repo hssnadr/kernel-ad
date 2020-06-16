@@ -210,8 +210,8 @@ $filter-spaceletter: 0.02em;
 // -----------------------------
 
 .filterlogo-off {
-  // height: 60px;
-  width: 40%;
+  height: 60px;
+  width: auto;
   fill: $lightgrey;
   margin: 0 10px;
   transition: fill 0.3s;

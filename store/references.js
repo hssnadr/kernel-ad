@@ -26,6 +26,11 @@ export const state = () => ({
       link: 'https://www.leroymerlin.fr'
     },
     {
+      name: 'Guken',
+      id: 'guken',
+      link: 'https://www.behance.net/gallery/35618985/GUKEN'
+    },
+    {
       name: 'Illustrator',
       id: 'illustrator',
       link:

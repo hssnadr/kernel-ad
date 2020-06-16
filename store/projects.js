@@ -23,7 +23,12 @@ export const state = () => ({
       institutes: ['dassaultsystemes'],
       format: ['Student'],
       fields: ['Design'],
-      skills: ['Product Design', '3D Modeling', '3D Rendering'],
+      skills: [
+        'Product Design',
+        '3D Modeling',
+        '3D Rendering',
+        'Mon nouvel outil'
+      ],
       tools: ['catia'],
       thumbnail: {
         link:
@@ -162,7 +167,7 @@ export const state = () => ({
       title: 'GUKEN',
       id: 'guken',
       years: { y0: '2015', y1: '2016' },
-      institutes: null,
+      institutes: ['guken'],
       format: ['Personal'],
       fields: ['Engineering', 'Design'],
       skills: ['Data science', 'Programing', 'UX', 'UI', 'Management', 'DTP'],

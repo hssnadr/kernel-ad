@@ -6,6 +6,8 @@ import ButtonFilter from '~/components/ButtonFilter.vue'
 // Logo (file name = reference id in store/references.js)
 import LogoDassaultsystemes from '~/components/institutes/dassaultsystemes.vue'
 import LogoLeroymerlin from '~/components/institutes/leroymerlin.vue'
+import LogoStrate from '~/components/institutes/strate.vue'
+import LogoGuken from '~/components/institutes/guken.vue'
 
 // Icons (file name = reference id in store/references.js)
 import IconAbleton from '~/components/tools/ableton.vue'
@@ -39,6 +41,8 @@ Vue.component('button-filter', ButtonFilter)
 // Logo
 Vue.component('logo-dassaultsystemes', LogoDassaultsystemes)
 Vue.component('logo-leroymerlin', LogoLeroymerlin)
+Vue.component('logo-strate', LogoStrate)
+Vue.component('logo-guken', LogoGuken)
 
 // Icons
 Vue.component('icon-ableton', IconAbleton)

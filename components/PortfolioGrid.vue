@@ -71,11 +71,11 @@ export default {
 
       if (window.innerWidth > 800) {
         // Large screen (iframe)
-        this.linkProject = '/project/' + data.id
+        this.linkProject = '/projects/' + data.id
         this.isWatching = true
       } else {
         // Small screen (link to)
-        window.location.href = '/project/' + data.id
+        window.location.href = '/projects/' + data.id
       }
     },
     CloseProject() {

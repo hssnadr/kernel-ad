@@ -196,7 +196,11 @@ export default {
   width: 100%;
   text-align: center;
   font-size: 3em;
-  color: $primary-color;
+
+  // color: $primary-color;
+  color: $base-color;
+  @include text-stroke($color: $primary-color, $thikness: 1px);
+
   padding: 1em 0.5em;
   margin: 0;
 }

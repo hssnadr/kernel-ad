@@ -23,12 +23,7 @@ export const state = () => ({
       institutes: ['dassaultsystemes'],
       format: ['Student'],
       fields: ['Design'],
-      skills: [
-        'Product Design',
-        '3D Modeling',
-        '3D Rendering',
-        'Mon nouvel outil'
-      ],
+      skills: ['Product Design', '3D Modeling', '3D Rendering'],
       tools: ['catia'],
       thumbnail: {
         link:

@@ -1,3 +1,5 @@
+// import axios from 'axios'
+
 export default {
   mode: 'universal',
   /*
@@ -77,9 +79,18 @@ export default {
   },
   styleResources: {
     scss: ['assets/css/*.scss']
-  },
-  server: {
-    port: 8000, // default: 3000
-    host: '0.0.0.0' // default: localhost
-  } // other configs
+  }
+  // server: {
+  //   port: 8000, // default: 3000
+  //   host: '0.0.0.0' // default: localhost
+  // }
+  // generate: {
+  //   routes() {
+  //     return axios.get('https://my-api/project').then((res) => {
+  //       return res.data.map((project) => {
+  //         return '/project/' + project.id
+  //       })
+  //     })
+  //   }
+  // }
 }

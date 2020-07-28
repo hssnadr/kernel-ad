@@ -25,7 +25,7 @@
     "jquery-bridget": "^2.0.1",
     "masonry": "0.0.2",
     "masonry-layout": "^4.2.2",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.14.0",
     "v-scroll-lock": "^1.1.1",
     "v-tooltip": "^2.0.3",
     "vue-client-only": "^2.0.0",

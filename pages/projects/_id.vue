@@ -49,6 +49,7 @@
       <!-- iFrame from projects/store -->
       <div v-if="isIframe">
         <div v-for="(ifr_, index) in project.media.iframes" :key="index">
+          <!-- eslint-disable-next-line -->
           <p><span v-html="ifr_"></span></p>
         </div>
       </div>

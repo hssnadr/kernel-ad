@@ -79,11 +79,11 @@ export default {
   },
   styleResources: {
     scss: ['assets/css/*.scss']
+  },
+  server: {
+    port: 8000, // default: 3000
+    host: '0.0.0.0' // default: localhost
   }
-  // server: {
-  //   port: 8000, // default: 3000
-  //   host: 'localhost' // '0.0.0.0' // default: localhost
-  // }
   // generate: {
   //   routes() {
   //     return axios.get('https://my-api/project').then((res) => {

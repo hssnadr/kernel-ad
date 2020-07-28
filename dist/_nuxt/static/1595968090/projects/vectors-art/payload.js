@@ -1,0 +1,1 @@
+__NUXT_JSONP__("projects/vectors-art", {data:[{}],fetch:[],mutations:[]});

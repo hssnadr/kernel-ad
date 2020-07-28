@@ -1,10 +1,16 @@
-// import axios from 'axios'
+import data from './static/projects.json'
+const dynamicRoutes = () => {
+  return new Promise((resolve) => {
+    resolve(data.map((el) => `projects/${el.id}`))
+  })
+}
 
 export default {
   mode: 'universal',
   /*
    ** Headers of the page
    */
+  target: 'static',
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -83,14 +89,8 @@ export default {
   server: {
     port: 8000, // default: 3000
     host: '0.0.0.0' // default: localhost
+  },
+  generate: {
+    routes: dynamicRoutes
   }
-  // generate: {
-  //   routes() {
-  //     return axios.get('https://my-api/project').then((res) => {
-  //       return res.data.map((project) => {
-  //         return '/project/' + project.id
-  //       })
-  //     })
-  //   }
-  // }
 }

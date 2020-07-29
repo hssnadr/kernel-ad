@@ -15,7 +15,7 @@ export default {
         const f_ = 'projects/' + prj_.id + '/' + prj_.thumbnail.asset
         thb_ = require('~/assets/' + f_)
       } catch (err) {
-        console.error(err)
+        // console.error(err)
       }
     } else if (prj_.thumbnail.link != null) {
       thb_ = prj_.thumbnail.link

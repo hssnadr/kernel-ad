@@ -39,31 +39,23 @@
     <div v-else>
       <!-- Gallery from projects/store -->
       <div v-if="isGallery">
-        <!-- <img
+        <img
           v-for="(img_, index) in project.media.images"
           :key="index"
-          :src="img_"
+          src="~/assets/projects/austerlitz-1805/head.jpg"
           class="project-pictures"
-        /> -->
-
-        <div v-for="(media_, index) in project.medias" :key="index">
-          <div v-if="getImage(media_) !== null">
-            <img
-              v-if="media_.type === 'image'"
-              class="project-pictures"
-              :src="getImage(media_)"
-            />
-          </div>
-        </div>
+        />
+        <!-- :src="img_" -->
       </div>
       <!-- iFrame from projects/store -->
       <div v-if="isIframe">
         <div v-for="(ifr_, index) in project.media.iframes" :key="index">
+          <!-- eslint-disable-next-line -->
           <p><span v-html="ifr_"></span></p>
         </div>
       </div>
+      <!-- Footer (related project) -->
     </div>
-    <!-- Footer (related project) -->
   </div>
 </template>
 
@@ -99,22 +91,15 @@ export default {
     },
     isGallery() {
       let is_ = false
-      // if (Object.prototype.hasOwnProperty.call(this.project, 'media')) {
-      //   if (
-      //     Object.prototype.hasOwnProperty.call(this.project.media, 'images')
-      //   ) {
-      //     if (this.project.media.images != null) {
-      //       is_ = this.project.media.images.length > 0
-      //     }
-      //   }
-      // }
-
-      if (Object.prototype.hasOwnProperty.call(this.project, 'medias')) {
-        if (this.project.medias != null) {
-          is_ = this.project.medias.length > 0
+      if (Object.prototype.hasOwnProperty.call(this.project, 'media')) {
+        if (
+          Object.prototype.hasOwnProperty.call(this.project.media, 'images')
+        ) {
+          if (this.project.media.images != null) {
+            is_ = this.project.media.images.length > 0
+          }
         }
       }
-
       return is_
     },
     isIframe() {
@@ -151,20 +136,6 @@ export default {
       if (link_ !== null) {
         window.open(link_, '_blank')
       }
-    },
-    getImage(media_) {
-      let link_ = null
-      if (media_.source === 'external') {
-        // Improvement: check if link is working (else return null)
-        link_ = media_.link
-      } else {
-        try {
-          link_ = require('~/' + media_.source + '/' + media_.link)
-        } catch (err) {
-          link_ = null
-        }
-      }
-      return link_
     }
   }
 }

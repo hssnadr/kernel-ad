@@ -15,13 +15,37 @@ export default {
         const f_ = 'projects/' + prj_.id + '/' + prj_.thumbnail.asset
         thb_ = require('~/assets/' + f_)
       } catch (err) {
-        console.error(err)
+        // console.error(err)
       }
     } else if (prj_.thumbnail.link != null) {
       thb_ = prj_.thumbnail.link
     }
 
     return thb_
+  },
+
+  getImageSrc: (state) => (data_) => {
+    const prj_ = state.allProjects.find((prj_) => prj_.id === data_.project_)
+    let src_ = null
+
+    if (prj_.medias != null) {
+      const image_ = prj_.medias.find((img_) => img_.id === data_.image_)
+
+      if (image_ != null) {
+        if (Object.prototype.hasOwnProperty.call(image_, 'file')) {
+          try {
+            const f_ = 'projects/' + prj_.id + '/' + image_.file
+            src_ = require('~/assets/' + f_)
+          } catch (err) {
+            // console.error(err)
+          }
+        } else if (Object.prototype.hasOwnProperty.call(image_, 'link')) {
+          src_ = image_.link
+        }
+      }
+    }
+
+    return src_
   },
 
   getYears(state) {

@@ -36,34 +36,26 @@
     <div v-if="isExtComponent">
       <component :is="id"></component>
     </div>
-    <div v-else>
+    <div v-else class="gallery-page">
       <!-- Gallery from projects/store -->
       <div v-if="isGallery">
-        <!-- <img
-          v-for="(img_, index) in project.media.images"
-          :key="index"
-          :src="img_"
-          class="project-pictures"
-        /> -->
-
         <div v-for="(media_, index) in project.medias" :key="index">
-          <div v-if="getImage(media_) !== null">
-            <img
-              v-if="media_.type === 'image'"
-              class="project-pictures"
-              :src="getImage(media_)"
-            />
+          <!-- Images -->
+          <img
+            v-if="media_.type === 'image'"
+            class="project-pictures"
+            :src="getImage(media_)"
+            :alt="media_.id"
+          />
+
+          <!-- iFrames -->
+          <div class="iframe-container">
+            <span v-if="media_.type === 'iframe'" v-html="media_.code"></span>
           </div>
         </div>
       </div>
-      <!-- iFrame from projects/store -->
-      <div v-if="isIframe">
-        <div v-for="(ifr_, index) in project.media.iframes" :key="index">
-          <p><span v-html="ifr_"></span></p>
-        </div>
-      </div>
+      <!-- Footer (related project) -->
     </div>
-    <!-- Footer (related project) -->
   </div>
 </template>
 
@@ -99,33 +91,9 @@ export default {
     },
     isGallery() {
       let is_ = false
-      // if (Object.prototype.hasOwnProperty.call(this.project, 'media')) {
-      //   if (
-      //     Object.prototype.hasOwnProperty.call(this.project.media, 'images')
-      //   ) {
-      //     if (this.project.media.images != null) {
-      //       is_ = this.project.media.images.length > 0
-      //     }
-      //   }
-      // }
-
       if (Object.prototype.hasOwnProperty.call(this.project, 'medias')) {
         if (this.project.medias != null) {
           is_ = this.project.medias.length > 0
-        }
-      }
-
-      return is_
-    },
-    isIframe() {
-      let is_ = false
-      if (Object.prototype.hasOwnProperty.call(this.project, 'media')) {
-        if (
-          Object.prototype.hasOwnProperty.call(this.project.media, 'iframes')
-        ) {
-          if (this.project.media.iframes != null) {
-            is_ = this.project.media.iframes.length > 0
-          }
         }
       }
       return is_
@@ -154,16 +122,8 @@ export default {
     },
     getImage(media_) {
       let link_ = null
-      if (media_.source === 'external') {
-        // Improvement: check if link is working (else return null)
-        link_ = media_.link
-      } else {
-        try {
-          link_ = require('~/' + media_.source + '/' + media_.link)
-        } catch (err) {
-          link_ = null
-        }
-      }
+      const data_ = { project_: this.id, image_: media_.id }
+      link_ = this.$store.getters['projects/getImageSrc'](data_)
       return link_
     }
   }
@@ -172,6 +132,7 @@ export default {
 
 <style lang="scss">
 .project-container {
+  width: 100%;
   background: $base-color;
 }
 
@@ -239,6 +200,12 @@ export default {
 .project-pictures {
   width: 100%;
   height: auto;
+}
+
+.iframe-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
 }
 
 @media #{$small-up} {

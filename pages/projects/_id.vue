@@ -42,9 +42,10 @@
         <img
           v-for="(img_, index) in project.media.images"
           :key="index"
-          :src="img_"
+          src="~/assets/projects/austerlitz-1805/head.jpg"
           class="project-pictures"
         />
+        <!-- :src="img_" -->
       </div>
       <!-- iFrame from projects/store -->
       <div v-if="isIframe">

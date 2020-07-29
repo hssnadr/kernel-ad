@@ -30,7 +30,7 @@ import IconUnity3d from '~/components/tools/unity3d.vue'
 
 // Project pages
 import WhooshingMachine from '~/components/projects/WhooshingMachine.vue'
-import Austerlitz1805 from '~/components/projects/Austerlitz1805.vue'
+// import Austerlitz1805 from '~/components/projects/Austerlitz1805.vue'
 import Boxylab from '~/components/projects/Boxylab.vue'
 
 // ------------------------------------------------------------------------------
@@ -65,5 +65,5 @@ Vue.component('icon-unity3d', IconUnity3d)
 
 // Project pages
 Vue.component('whooshing-machine', WhooshingMachine)
-Vue.component('austerlitz-1805', Austerlitz1805)
+// Vue.component('austerlitz-1805', Austerlitz1805)
 Vue.component('boxylab', Boxylab)

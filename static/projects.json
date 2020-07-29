@@ -28,6 +28,13 @@
       "link":
         "https://mir-s3-cdn-cf.behance.net/projects/404/9bd43135402169.Y3JvcCw3NDgsNTg2LDMwLDIw.jpg"
     },
+    "media": {
+      "images": [
+        "../../assets/projects/austerlitz-1805/head.jpg",
+        "../assets/projects/austerlitz-1805/overview.jpg",
+        "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/43b1ab35402169.56f5560cc5834.jpg"
+      ]
+    },
     "description":
       "Product design project made for Dassault Systèmes to highlight their 3D solution softwares.",
     "level": 2
@@ -257,7 +264,7 @@
     "format": "Freelance",
     "fields": ["Engineering"],
     "skills": ["Programming"],
-    "tools": ["nuxt"],
+    "tools": ["nuxt", "michelin"],
     "thumbnail": {
       "link": "https://f4.bcbits.com/img/0016301968_10.jpg"
     },

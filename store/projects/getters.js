@@ -13,7 +13,7 @@ export default {
     if (prj_.thumbnail.asset != null) {
       try {
         const f_ = 'projects/' + prj_.id + '/' + prj_.thumbnail.asset
-        thb_ = require('../../assets/' + f_)
+        thb_ = require('~/assets/' + f_)
       } catch (err) {
         // console.error(err)
       }

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("projects/frost-project", {data:[{}],fetch:[],mutations:[]});

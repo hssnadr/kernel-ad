@@ -28,13 +28,10 @@
       "link":
         "https://mir-s3-cdn-cf.behance.net/projects/404/9bd43135402169.Y3JvcCw3NDgsNTg2LDMwLDIw.jpg"
     },
-    "media": {
-      "images": [
-        "../../assets/projects/austerlitz-1805/head.jpg",
-        "../assets/projects/austerlitz-1805/overview.jpg",
-        "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/43b1ab35402169.56f5560cc5834.jpg"
-      ]
-    },
+    "medias": [
+      {"type": "image", "id": "1805-header", "file": "head.jpg"},
+      {"type": "image", "id": "1805-overview", "file": "overview.jpg"}
+    ],
     "description":
       "Product design project made for Dassault Systèmes to highlight their 3D solution softwares.",
     "level": 2
@@ -155,11 +152,9 @@
       "link":
         "https://mir-s3-cdn-cf.behance.net/projects/404/9f070035652361.Y3JvcCw3NzEsNjAyLDM2LDI2.jpg"
     },
-    "media": {
-      "iframes": [
-        "<iframe src='https://player.vimeo.com/video/161060346' width='640' height='360' frameborder='0' allow='autoplay'; fullscreen' allowfullscreen></iframe>"
-      ]
-    },
+    "medias": [
+      {"type": "iframe", "code": "<iframe src='https://player.vimeo.com/video/161060346' width='640' height='360' frameborder='0' allow='autoplay'; fullscreen' allowfullscreen></iframe>"}
+    ],
     "description":
       "Video and interaction concept for Cassiopeia camera project.",
     "level": 1

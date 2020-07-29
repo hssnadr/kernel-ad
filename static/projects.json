@@ -2,17 +2,15 @@
   {
     "title": "Whooshing Machine",
     "id": "whooshing-machine",
-    "years": {
-      "y0": "2014",
-      "y1": "2014"
-    },
+    "years": { "y0": "2014", "y1": "2014" },
     "institutes": ["strate"],
     "format": ["Student"],
     "fields": ["Design"],
     "skills": ["UX", "UI", "Illustration", "Video"],
     "tools": ["illustrator", "aftereffects", "premiere", "photoshop"],
     "thumbnail": {
-      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/06502135604629.Y3JvcCw3NjIsNTk1LDQyLDIy.jpg"
+      "link":
+        "https://mir-s3-cdn-cf.behance.net/projects/404/06502135604629.Y3JvcCw3NjIsNTk1LDQyLDIy.jpg"
     },
     "description": "Diploma project at Strate École de Design",
     "level": 3
@@ -20,82 +18,70 @@
   {
     "title": "Austerlitz 1805",
     "id": "austerlitz-1805",
-    "years": {
-      "y0": "2014",
-      "y1": "2014"
-    },
+    "years": { "y0": "2014", "y1": "2014" },
     "institutes": ["dassaultsystemes"],
     "format": ["Student"],
     "fields": ["Design"],
     "skills": ["Product Design", "3D Modeling", "3D Rendering"],
     "tools": ["catia"],
     "thumbnail": {
-      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/9bd43135402169.Y3JvcCw3NDgsNTg2LDMwLDIw.jpg"
-    },
-    "media": {
-      "images": [
-        "../../assets/projects/austerlitz-1805/head.jpg",
-        "../assets/projects/austerlitz-1805/overview.jpg",
-        "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/43b1ab35402169.56f5560cc5834.jpg"
-      ]
+      "link":
+        "https://mir-s3-cdn-cf.behance.net/projects/404/9bd43135402169.Y3JvcCw3NDgsNTg2LDMwLDIw.jpg"
     },
     "medias": [
-      {"type": "image", "source": "assets", "link": "projects/austerlitz-1805/head.jpg"},
-      {"type": "image", "source": "external", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/43b1ab35402169.56f5560cc5834.jpg"}
+      {"type": "image", "id": "1805-header", "file": "head.jpg"},
+      {"type": "image", "id": "1805-overview", "file": "overview.jpg"}
     ],
-    "description": "Product design project made for Dassault Systèmes to highlight their 3D solution softwares.",
+    "description":
+      "Product design project made for Dassault Systèmes to highlight their 3D solution softwares.",
     "level": 2
   },
   {
     "title": "Austerlitz Standard",
     "id": "austerlitz-standard",
-    "years": {
-      "y0": "2014",
-      "y1": "2014"
-    },
+    "years": { "y0": "2014", "y1": "2014" },
     "institutes": ["dassaultsystemes"],
     "format": ["Student"],
     "fields": ["Design"],
     "skills": ["Product Design", "3D Modeling", "3D Rendering"],
     "tools": ["catia"],
     "thumbnail": {
-      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/c6c1c935401905.Y3JvcCw2NzcsNTI5LDAsMg.jpg"
+      "link":
+        "https://mir-s3-cdn-cf.behance.net/projects/404/c6c1c935401905.Y3JvcCw2NzcsNTI5LDAsMg.jpg"
     },
-    "description": "Product design project made for Dassault Systèmes to highlight their 3D solution softwares.",
+    "description":
+      "Product design project made for Dassault Systèmes to highlight their 3D solution softwares.",
     "level": 2
   },
   {
     "title": "Medapli",
     "id": "medapli",
-    "years": {
-      "y0": "2016",
-      "y1": "2016"
-    },
+    "years": { "y0": "2016", "y1": "2016" },
     "institutes": null,
     "format": ["Freelance"],
     "fields": ["Design"],
     "skills": ["UX", "UI"],
     "tools": ["illustrator", "photoshop", "pixate"],
     "thumbnail": {
-      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/2e436036472477.Y3JvcCwxMDIwLDc5NywwLDA.jpg"
+      "link":
+        "https://mir-s3-cdn-cf.behance.net/projects/404/2e436036472477.Y3JvcCwxMDIwLDc5NywwLDA.jpg"
     },
-    "description": "Medical application dedicated to senior unfamiliar with new technologies.",
+    "description":
+      "Medical application dedicated to senior unfamiliar with new technologies.",
     "level": 1
   },
   {
     "title": "Portail 3D",
     "id": "portail-3d",
-    "years": {
-      "y0": "2011",
-      "y1": "2012"
-    },
+    "years": { "y0": "2011", "y1": "2012" },
     "institutes": ["leroymerlin"],
     "format": ["Student"],
     "fields": ["Engineering"],
     "skills": ["Programing", "UX", "Video"],
     "tools": ["unity3d", "csharp"],
     "thumbnail": {
-      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/22a93e11024709.Y3JvcCw0NTAsMzUyLDQxLDIw.png"
+      "link":
+        "https://mir-s3-cdn-cf.behance.net/projects/404/22a93e11024709.Y3JvcCw0NTAsMzUyLDQxLDIw.png"
     },
     "description": "Online sales aid application",
     "level": 2
@@ -103,10 +89,7 @@
   {
     "title": "Lumigraph",
     "id": "lumigraph",
-    "years": {
-      "y0": "2013",
-      "y1": "2013"
-    },
+    "years": { "y0": "2013", "y1": "2013" },
     "institutes": ["strate"],
     "format": ["Student"],
     "fields": ["Art"],
@@ -114,7 +97,8 @@
     "tools": ["arduino", "processing"],
     "thumbnail": {
       "asset": null,
-      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/10904379.5480a3e764ebb.jpg"
+      "link":
+        "https://mir-s3-cdn-cf.behance.net/projects/404/10904379.5480a3e764ebb.jpg"
     },
     "description": "My first electronics project to make light painting",
     "level": 1
@@ -122,10 +106,7 @@
   {
     "title": "La perception de la réalité",
     "id": "memoire",
-    "years": {
-      "y0": "2013",
-      "y1": "2014"
-    },
+    "years": { "y0": "2013", "y1": "2014" },
     "institutes": ["strate"],
     "format": ["Student"],
     "fields": ["Design"],
@@ -133,7 +114,8 @@
     "tools": ["indesign", "photoshop", "illustrator"],
     "thumbnail": {
       "asset": null,
-      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/2e611c35613969.Y3JvcCw1MjIsNDA4LDc1LDQ4.jpg"
+      "link":
+        "https://mir-s3-cdn-cf.behance.net/projects/404/2e611c35613969.Y3JvcCw1MjIsNDA4LDc1LDQ4.jpg"
     },
     "description": "Diploma thesis",
     "level": 1
@@ -141,10 +123,7 @@
   {
     "title": "W-STM",
     "id": "wstm",
-    "years": {
-      "y0": "2014",
-      "y1": "2014"
-    },
+    "years": { "y0": "2014", "y1": "2014" },
     "institutes": null,
     "format": ["Freelance"],
     "fields": ["Design"],
@@ -152,18 +131,17 @@
     "tools": ["catia"],
     "thumbnail": {
       "asset": null,
-      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/22806283.54baa1e9a7fb5.jpg"
+      "link":
+        "https://mir-s3-cdn-cf.behance.net/projects/404/22806283.54baa1e9a7fb5.jpg"
     },
-    "description": "Serves wine and keeps its flavors once the bottle is opened",
+    "description":
+      "Serves wine and keeps its flavors once the bottle is opened",
     "level": 1
   },
   {
     "title": "Cassiopeia",
     "id": "cassiopeia",
-    "years": {
-      "y0": "2014",
-      "y1": "2014"
-    },
+    "years": { "y0": "2014", "y1": "2014" },
     "institutes": ["dassaultsystemes"],
     "format": ["Student"],
     "fields": ["Design"],
@@ -171,27 +149,20 @@
     "tools": ["premiere", "aftereffects", "catia"],
     "thumbnail": {
       "asset": null,
-      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/9f070035652361.Y3JvcCw3NzEsNjAyLDM2LDI2.jpg"
-    },
-    "media": {
-      "iframes": [
-        "<iframe src='https://player.vimeo.com/video/161060346' width='640' height='360' frameborder='0' allow='autoplay'; fullscreen' allowfullscreen></iframe>"
-      ]
+      "link":
+        "https://mir-s3-cdn-cf.behance.net/projects/404/9f070035652361.Y3JvcCw3NzEsNjAyLDM2LDI2.jpg"
     },
     "medias": [
-      {"type": "iframe", "link": "<iframe src='https://player.vimeo.com/video/161060346' width='640' height='360' frameborder='0' allow='autoplay'; fullscreen' allowfullscreen></iframe>"},
-      {"type": "image", "source": "external", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/43b1ab35402169.56f5560cc5834.jpg"}
+      {"type": "iframe", "code": "<iframe src='https://player.vimeo.com/video/161060346' width='640' height='360' frameborder='0' allow='autoplay'; fullscreen' allowfullscreen></iframe>"}
     ],
-    "description": "Video and interaction concept for Cassiopeia camera project.",
+    "description":
+      "Video and interaction concept for Cassiopeia camera project.",
     "level": 1
   },
   {
     "title": "GUKEN",
     "id": "guken",
-    "years": {
-      "y0": "2015",
-      "y1": "2016"
-    },
+    "years": { "y0": "2015", "y1": "2016" },
     "institutes": ["guken"],
     "format": ["Personal"],
     "fields": ["Engineering", "Design"],
@@ -199,7 +170,8 @@
     "tools": ["matlab", "python", "photoshop", "illustrator"],
     "thumbnail": {
       "asset": null,
-      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/72084b35618985.Y3JvcCw4MDcsNjMxLDQsNg.jpg"
+      "link":
+        "https://mir-s3-cdn-cf.behance.net/projects/404/72084b35618985.Y3JvcCw4MDcsNjMxLDQsNg.jpg"
     },
     "media": {
       "images": null
@@ -210,10 +182,7 @@
   {
     "title": "Vectors",
     "id": "vectors-art",
-    "years": {
-      "y0": "2013",
-      "y1": "2015"
-    },
+    "years": { "y0": "2013", "y1": "2015" },
     "institutes": null,
     "format": ["Personal"],
     "fields": ["Art"],
@@ -221,7 +190,8 @@
     "tools": ["illustrator"],
     "thumbnail": {
       "asset": null,
-      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/11524399.54ba8e45bf59b.jpg"
+      "link":
+        "https://mir-s3-cdn-cf.behance.net/projects/404/11524399.54ba8e45bf59b.jpg"
     },
     "media": {
       "images": []
@@ -232,10 +202,7 @@
   {
     "title": "Frost",
     "id": "frost-project",
-    "years": {
-      "y0": "2014",
-      "y1": "2014"
-    },
+    "years": { "y0": "2014", "y1": "2014" },
     "institutes": ["dassaultsystemes"],
     "format": ["Student"],
     "fields": ["Design"],
@@ -243,7 +210,8 @@
     "tools": ["catia"],
     "thumbnail": {
       "asset": null,
-      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/19378135.548f55222ab20.jpg"
+      "link":
+        "https://mir-s3-cdn-cf.behance.net/projects/404/19378135.548f55222ab20.jpg"
     },
     "media": {
       "images": [
@@ -253,16 +221,14 @@
         "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/5f52df19378135.562d962c85876.png"
       ]
     },
-    "description": "Short familiarization project with Dassault Systemes softwares",
+    "description":
+      "Short familiarization project with Dassault Systemes softwares",
     "level": 1
   },
   {
     "title": "Random Sketches #3",
     "id": "random-sketches3",
-    "years": {
-      "y0": "2016",
-      "y1": "2016"
-    },
+    "years": { "y0": "2016", "y1": "2016" },
     "institutes": null,
     "format": ["Personal"],
     "fields": ["Art"],
@@ -288,10 +254,7 @@
   {
     "title": "Boxylab",
     "id": "boxylab",
-    "years": {
-      "y0": "2020",
-      "y1": "2020"
-    },
+    "years": { "y0": "2020", "y1": "2020" },
     "institutes": null,
     "format": "Freelance",
     "fields": ["Engineering"],

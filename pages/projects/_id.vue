@@ -91,33 +91,9 @@ export default {
     },
     isGallery() {
       let is_ = false
-      // if (Object.prototype.hasOwnProperty.call(this.project, 'media')) {
-      //   if (
-      //     Object.prototype.hasOwnProperty.call(this.project.media, 'images')
-      //   ) {
-      //     if (this.project.media.images != null) {
-      //       is_ = this.project.media.images.length > 0
-      //     }
-      //   }
-      // }
-
       if (Object.prototype.hasOwnProperty.call(this.project, 'medias')) {
         if (this.project.medias != null) {
           is_ = this.project.medias.length > 0
-        }
-      }
-
-      return is_
-    },
-    isIframe() {
-      let is_ = false
-      if (Object.prototype.hasOwnProperty.call(this.project, 'media')) {
-        if (
-          Object.prototype.hasOwnProperty.call(this.project.media, 'iframes')
-        ) {
-          if (this.project.media.iframes != null) {
-            is_ = this.project.media.iframes.length > 0
-          }
         }
       }
       return is_

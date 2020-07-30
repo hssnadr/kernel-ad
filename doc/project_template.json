@@ -1,0 +1,23 @@
+{
+  "title": "",
+  "id": "",
+  "years": { "y0": "", "y1": "" },
+  "institutes": null,
+  "format": [""],
+  "fields": [""],
+  "skills": [""],
+  "tools": [""],
+  "thumbnail": {
+    "assets": null,
+    "link": ""
+  },
+  "medias": [
+    { "type": "image", "id": "img-id1", "file": "", "style": "(optional)" },
+    { "type": "image", "id": "img-id2", "link": "" },
+    { "type": "iframe", "code": "" },
+    { "type": "paragraph", "text": "", "style": "(optional)" }
+  ],
+  "background": "",
+  "description": "",
+  "level": 1
+}

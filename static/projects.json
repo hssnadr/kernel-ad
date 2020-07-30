@@ -9,8 +9,7 @@
     "skills": ["UX", "UI", "Illustration", "Video"],
     "tools": ["illustrator", "aftereffects", "premiere", "photoshop"],
     "thumbnail": {
-      "link":
-        "https://mir-s3-cdn-cf.behance.net/projects/404/06502135604629.Y3JvcCw3NjIsNTk1LDQyLDIy.jpg"
+      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/06502135604629.Y3JvcCw3NjIsNTk1LDQyLDIy.jpg"
     },
     "description": "Diploma project at Strate École de Design",
     "level": 3
@@ -25,15 +24,18 @@
     "skills": ["Product Design", "3D Modeling", "3D Rendering"],
     "tools": ["catia"],
     "thumbnail": {
-      "link":
-        "https://mir-s3-cdn-cf.behance.net/projects/404/9bd43135402169.Y3JvcCw3NDgsNTg2LDMwLDIw.jpg"
+      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/9bd43135402169.Y3JvcCw3NDgsNTg2LDMwLDIw.jpg"
     },
     "medias": [
-      {"type": "image", "id": "1805-header", "file": "head.jpg"},
-      {"type": "image", "id": "1805-overview", "file": "overview.jpg"}
+      { "type": "image", "id": "1805-header", "file": "head.jpg" },
+      { "type": "image", "id": "1805-overview", "file": "overview.jpg" },
+      { "type": "image", "id": "1805-details", "file": "details.jpg" },
+      { "type": "image", "id": "1805-process1", "file": "process_1.jpg" },
+      { "type": "image", "id": "1805-moodboard", "file": "inspiration.jpg" },
+      { "type": "image", "id": "1805-process2", "file": "process_2.jpg" },
+      { "type": "image", "id": "1805-render", "file": "render.jpg" }
     ],
-    "description":
-      "Product design project made for Dassault Systèmes to highlight their 3D solution softwares.",
+    "description": "Product design project made for Dassault Systèmes to highlight their 3D solution softwares.",
     "level": 2
   },
   {
@@ -46,11 +48,17 @@
     "skills": ["Product Design", "3D Modeling", "3D Rendering"],
     "tools": ["catia"],
     "thumbnail": {
-      "link":
-        "https://mir-s3-cdn-cf.behance.net/projects/404/c6c1c935401905.Y3JvcCw2NzcsNTI5LDAsMg.jpg"
+      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/c6c1c935401905.Y3JvcCw2NzcsNTI5LDAsMg.jpg"
     },
-    "description":
-      "Product design project made for Dassault Systèmes to highlight their 3D solution softwares.",
+    "medias": [
+      { "type": "image", "id": "Austlz-header", "file": "Head.jpg" },
+      { "type": "image", "id": "Austlz-overview", "file": "LRE.jpg" },
+      { "type": "image", "id": "Austlz-detail", "file": "DetailModeling.jpg" },
+      { "type": "image", "id": "Austlz-blister", "file": "Blister.jpg" },
+      { "type": "image", "id": "Austlz-blades", "file": "3DHead.jpg" },
+      { "type": "image", "id": "Austrlz-render", "file": "Ending.jpg" }
+    ],
+    "description": "Product design project made for Dassault Systèmes to highlight their 3D solution softwares.",
     "level": 2
   },
   {
@@ -63,11 +71,20 @@
     "skills": ["UX", "UI"],
     "tools": ["illustrator", "photoshop", "pixate"],
     "thumbnail": {
-      "link":
-        "https://mir-s3-cdn-cf.behance.net/projects/404/2e436036472477.Y3JvcCwxMDIwLDc5NywwLDA.jpg"
+      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/2e436036472477.Y3JvcCwxMDIwLDc5NywwLDA.jpg"
     },
-    "description":
-      "Medical application dedicated to senior unfamiliar with new technologies.",
+    "background": "#455DB5",
+    "medias": [
+      { "type": "image", "id": "medapli-overview1", "file": "medapli_1.jpg" },
+      { "type": "image", "id": "medapli-overview2", "file": "medapli_2.jpg" },
+      { "type": "image", "id": "medapli-overview3", "file": "medapli_3.jpg" },
+      {"type": "paragraph", "text": "Prototype made with Pixate Studio", "style": "color: #FFF;"},
+      {
+        "type": "iframe",
+        "code": "<iframe src='https://player.vimeo.com/video/164107262' width='300' height='532' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe>"
+      }
+    ],
+    "description": "Medical application dedicated to senior unfamiliar with new technologies.",
     "level": 1
   },
   {
@@ -80,9 +97,16 @@
     "skills": ["Programing", "UX", "Video"],
     "tools": ["unity3d", "csharp"],
     "thumbnail": {
-      "link":
-        "https://mir-s3-cdn-cf.behance.net/projects/404/22a93e11024709.Y3JvcCw0NTAsMzUyLDQxLDIw.png"
+      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/22a93e11024709.Y3JvcCw0NTAsMzUyLDQxLDIw.png"
     },
+    "medias": [
+      { "type": "image", "id": "lm-head", "file": "head.png" },
+      {
+        "type": "iframe",
+        "code": "<iframe title='vimeo-player' src='https://player.vimeo.com/video/75018005' width='640' height='360' frameborder='0' allowfullscreen></iframe>"
+      },
+      { "type": "image", "id": "lm-overview", "file": "overview.png" }
+    ],
     "description": "Online sales aid application",
     "level": 2
   },
@@ -96,9 +120,6 @@
     "skills": ["programming", "electronics", "video making"],
     "tools": ["arduino", "processing"],
     "thumbnail": {
-      "asset": null,
-      "link":
-        "https://mir-s3-cdn-cf.behance.net/projects/404/10904379.5480a3e764ebb.jpg"
     },
     "description": "My first electronics project to make light painting",
     "level": 1
@@ -114,9 +135,18 @@
     "tools": ["indesign", "photoshop", "illustrator"],
     "thumbnail": {
       "asset": null,
-      "link":
-        "https://mir-s3-cdn-cf.behance.net/projects/404/2e611c35613969.Y3JvcCw1MjIsNDA4LDc1LDQ4.jpg"
+      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/2e611c35613969.Y3JvcCw1MjIsNDA4LDc1LDQ4.jpg"
     },
+    "medias": [
+      { "type": "image", "id": "memoire-head", "file": "Head.jpg" },
+      { "type": "image", "id": "memoire-preview", "file": "Preview.jpg" },
+      { "type": "image", "id": "memoire-quote", "file": "Bohm.jpg" },
+      {
+        "type": "iframe",
+        "code": "<iframe title='Perception Réalité' src='https://www.scribd.com/embeds/306528577/content?start_page=1&view_mode=scroll&access_key=key-cNkDQnL6WbQIyhWbcNkD' data-auto-height='true' data-aspect-ratio='0.703125' scrolling='no' width='100%' height='600' frameborder='0'></iframe>"
+      },
+      { "type": "image", "id": "memoire-references", "file": "Bibliographie.jpg" }
+    ],
     "description": "Diploma thesis",
     "level": 1
   },
@@ -130,12 +160,23 @@
     "skills": ["Product Design"],
     "tools": ["catia"],
     "thumbnail": {
-      "asset": null,
-      "link":
-        "https://mir-s3-cdn-cf.behance.net/projects/404/22806283.54baa1e9a7fb5.jpg"
+      "asset": "cover.jpg",
+      "link": null
     },
-    "description":
-      "Serves wine and keeps its flavors once the bottle is opened",
+    "background": "#1A1A1A",
+    "medias": [
+      { "type": "image", "id": "wstm-head", "file": "dark.jpg" },
+      { "type": "image", "id": "wstm-duo1", "file": "duo1.jpg" },
+      { "type": "image", "id": "wstm-anim", "file": "inside.gif", "style": "width: 500px; margin: 30px auto;" },
+      { "type": "image", "id": "wstm-duo2", "file": "duo2.jpg" },
+      { "type": "image", "id": "wstm-glass", "file": "glass.jpg" },
+      { "type": "paragraph", "text": "Project tweeted by Philippe Laufer (CATIA boss at Dassault Systèmes)", "style": "color: white;" },
+      { "type": "image", "id": "wstm-tweet", "file": "laufer.png", "style": "width: 60%; margin: 30px auto;" },
+      { "type": "image", "id": "wstm-draft", "file": "draft.png" },
+      { "type": "image", "id": "wstm-explodeVertical", "file": "explodeV.jpg" },
+      { "type": "image", "id": "wstm-explodeHorizontal", "file": "explodeH.jpg" }
+    ],
+    "description": "Serves wine and keeps its flavors once the bottle is opened",
     "level": 1
   },
   {
@@ -149,14 +190,15 @@
     "tools": ["premiere", "aftereffects", "catia"],
     "thumbnail": {
       "asset": null,
-      "link":
-        "https://mir-s3-cdn-cf.behance.net/projects/404/9f070035652361.Y3JvcCw3NzEsNjAyLDM2LDI2.jpg"
+      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/9f070035652361.Y3JvcCw3NzEsNjAyLDM2LDI2.jpg"
     },
     "medias": [
-      {"type": "iframe", "code": "<iframe src='https://player.vimeo.com/video/161060346' width='640' height='360' frameborder='0' allow='autoplay'; fullscreen' allowfullscreen></iframe>"}
+      {
+        "type": "iframe",
+        "code": "<iframe src='https://player.vimeo.com/video/161060346' width='640' height='360' frameborder='0' allow='autoplay'; fullscreen' allowfullscreen></iframe>"
+      }
     ],
-    "description":
-      "Video and interaction concept for Cassiopeia camera project.",
+    "description": "Video and interaction concept for Cassiopeia camera project.",
     "level": 1
   },
   {
@@ -170,18 +212,21 @@
     "tools": ["matlab", "python", "photoshop", "illustrator"],
     "thumbnail": {
       "asset": null,
-      "link":
-        "https://mir-s3-cdn-cf.behance.net/projects/404/72084b35618985.Y3JvcCw4MDcsNjMxLDQsNg.jpg"
+      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/72084b35618985.Y3JvcCw4MDcsNjMxLDQsNg.jpg"
     },
-    "media": {
-      "images": null
-    },
-    "'escription": "Startup created from my diploma project.",
+    "medias": [
+      { "type": "image", "id": "guken-overview", "file": "overview.jpg" },
+      { "type": "image", "id": "guken-work1", "file": "Works1_2.jpg" },
+      { "type": "image", "id": "guken-work2", "file": "Works2_1.jpg" },
+      { "type": "image", "id": "guken-advantage", "file": "principle.jpg" },
+      { "type": "image", "id": "guken-partnairs", "file": "partnairs.jpg" }
+    ],
+    "description": "Startup created from my diploma project.",
     "level": 1
   },
   {
     "title": "Vectors",
-    "id": "vectors-art",
+    "id": "vectors",
     "years": { "y0": "2013", "y1": "2015" },
     "institutes": null,
     "format": ["Personal"],
@@ -190,13 +235,16 @@
     "tools": ["illustrator"],
     "thumbnail": {
       "asset": null,
-      "link":
-        "https://mir-s3-cdn-cf.behance.net/projects/404/11524399.54ba8e45bf59b.jpg"
+      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/11524399.54ba8e45bf59b.jpg"
     },
-    "media": {
-      "images": []
-    },
-    "'escription": "Illustrations",
+    "medias": [
+      { "type": "image", "id": "vectors-steps", "file": "guyX3.jpg" },
+      { "type": "image", "id": "vectors-guy", "file": "guy.jpg" },
+      { "type": "image", "id": "vectors-cammy", "file": "cammy.jpg" },
+      { "type": "image", "id": "vectors-wip", "file": "cammy_wip.jpg" },
+      { "type": "image", "id": "vectors-flyer", "file": "flyer.jpg", "style": "width: 80%; margin: 30px auto;" }
+    ],
+    "description": "Illustrations",
     "level": 1
   },
   {
@@ -210,24 +258,22 @@
     "tools": ["catia"],
     "thumbnail": {
       "asset": null,
-      "link":
-        "https://mir-s3-cdn-cf.behance.net/projects/404/19378135.548f55222ab20.jpg"
+      "link": "https://mir-s3-cdn-cf.behance.net/projects/404/19378135.548f55222ab20.jpg"
     },
-    "media": {
-      "images": [
-        "https://mir's3-cdn-cf.behance.net/project_modules/1400_opt_1/d00dd219378135.562d962c93011.jpg",
-        "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/3791c219378135.562d962c975cb.jpg",
-        "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/285d6f19378135.562d962c7ebb0.png",
-        "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/5f52df19378135.562d962c85876.png"
-      ]
-    },
-    "description":
-      "Short familiarization project with Dassault Systemes softwares",
+    "medias": [
+      { "type": "image", "id": "frost-global", "file": "frost.jpg" },
+      { "type": "image", "id": "frost-detail", "file": "detail.jpg" },
+      { "type": "image", "id": "frost-parts", "file": "parts.png" },
+      { "type": "image", "id": "frost-top", "file": "top.jpg" },
+      { "type": "image", "id": "frost-wip1", "file": "WIP01.jpg" },
+      { "type": "image", "id": "frost-wip2", "file": "WIP02.jpg" }
+    ],
+    "description": "Short familiarization project with Dassault Systemes softwares",
     "level": 1
   },
   {
-    "title": "Random Sketches #3",
-    "id": "random-sketches3",
+    "title": "Sketchbook 3",
+    "id": "sketchbook3",
     "years": { "y0": "2016", "y1": "2016" },
     "institutes": null,
     "format": ["Personal"],
@@ -238,16 +284,59 @@
       "asset": "thbSketches3.png",
       "link": ""
     },
-    "media": {
-      "iframes": [],
-      "images": [
-        "https://mir's3-cdn-cf.behance.net/project_modules/1400_opt_1/a5006a37233689.5739c529a7102.png",
-        "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/49001757_10157159200455815_3735243326874451968_o.jpg?_nc_cat=100&_nc_sid=09cbfe&_nc_ohc=8bMoOLflrVIAX-m-4TH&_nc_ht=scontent-cdg2-1.xx&oh=67070179ebc852fe3174683621dd81c7&oe=5EE6DB86",
-        "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/23e34e37233689.5739c529a7996.png",
-        "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/e302c237233689.575bceed99c4b.jpg",
-        "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/96155937233689.575bceed9afa2.jpg"
-      ]
+    "medias": [
+      { "type": "image", "id": "sketch-owl", "file": "owl.png" },
+      { "type": "image", "id": "sketch-owlhead", "file": "owl_detail.png" },
+      { "type": "image", "id": "sketch-random1", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/e302c237233689.575bceed99c4b.jpg" },
+      { "type": "image", "id": "sketch-random2", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/96155937233689.575bceed9afa2.jpg" },
+      { "type": "image", "id": "sketch-soraia", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/37b09537233689.575bceed9b5b7.jpg" }
+    ],
+    "description": "Random daily sketches",
+    "level": 1
+  },
+  {
+    "title": "Sèvre Chaville Boxe 92",
+    "id": "boxe92",
+    "years": { "y0": "2015", "y1": "2015" },
+    "institutes": null,
+    "format": ["Personal"],
+    "fields": ["Art"],
+    "skills": ["Drawing"],
+    "tools": ["illustrator", "photoshop"],
+    "thumbnail": {
+      "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/9a656a22826619.563191057da2a.jpg"
     },
+    "medias": [
+      { "type": "image", "id": "boxe92-logo", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d33d4022826619.56319105769f4.jpg" },
+      { "type": "image", "id": "boxe92-logodetail", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d5abfd22826619.56319100af74e.jpg" },
+      { "type": "image", "id": "boxe92-sketch1", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/7f319422826619.563190176d519.jpg" },
+      { "type": "image", "id": "boxe92-sketch2", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/478f1422826619.56319017661c3.jpg" },
+      { "type": "image", "id": "boxe92-variant1", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/9a656a22826619.563191057da2a.jpg" },
+      { "type": "image", "id": "boxe92-variant1detail", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5713e022826619.563190f84dfd5.jpg", "style": "max-width: 500px; margin: 30px auto;" },
+      { "type": "image", "id": "boxe92-variant2", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/2a3ac422826619.563190174f5a9.png" },
+      { "type": "image", "id": "boxe92-composition", "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/39327222826619.56319105877a3.jpg" }
+    ],
+    "description": "Logo realized for the boxing club based in Sèvres and Chaville",
+    "level": 1
+  },
+  {
+    "title": "Sketchbook 2",
+    "id": "sketchbook2",
+    "years": { "y0": "2014", "y1": "2014" },
+    "institutes": null,
+    "format": ["Personal"],
+    "fields": ["Art"],
+    "skills": ["Drawing"],
+    "tools": ["photoshop"],
+    "thumbnail": {
+      "assets": null,
+      "link": ""
+    },
+    "medias": [
+      { "type": "image", "id": "img-id1", "file": "" },
+      { "type": "image", "id": "img-id2", "link": "" },
+      { "type": "iframe", "code": "" }
+    ],
     "description": "Random daily sketches",
     "level": 1
   },
@@ -259,7 +348,7 @@
     "format": "Freelance",
     "fields": ["Engineering"],
     "skills": ["Programming"],
-    "tools": ["nuxt", "michelin"],
+    "tools": ["nuxt"],
     "thumbnail": {
       "link": "https://f4.bcbits.com/img/0016301968_10.jpg"
     },

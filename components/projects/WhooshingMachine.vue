@@ -46,7 +46,7 @@
       src="https://www.scribd.com/embeds/306500518/content?start_page=1&view_mode=scroll&show_recommendations=true"
       scrolling="no"
       frameborder="0"
-      style="margin:20px auto;display:block;width:800px;height:800px;"
+      style="margin:20px auto;display:block;width:80%;height:800px;"
     ></iframe>
     <img
       class="wm-thanks"

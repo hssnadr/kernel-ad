@@ -36,21 +36,34 @@
     <div v-if="isExtComponent">
       <component :is="id"></component>
     </div>
-    <div v-else class="gallery-page">
+    <div v-else>
       <!-- Gallery from projects/store -->
-      <div v-if="isGallery">
-        <div v-for="(media_, index) in project.medias" :key="index">
+      <div v-if="isGallery" :style="customBackground">
+        <div
+          v-for="(media_, index) in project.medias"
+          :key="index"
+          class="media-gallery"
+        >
           <!-- Images -->
           <img
             v-if="media_.type === 'image'"
             class="project-pictures"
+            :style="getStyle(media_)"
             :src="getImage(media_)"
             :alt="media_.id"
           />
 
+          <span
+            v-if="media_.type === 'paragraph'"
+            class="project-text"
+            :style="getStyle(media_)"
+          >
+            <p>{{ media_.text }}</p>
+          </span>
+
           <!-- iFrames -->
-          <div class="iframe-container">
-            <span v-if="media_.type === 'iframe'" v-html="media_.code"></span>
+          <div v-if="media_.type === 'iframe'" class="iframe-container">
+            <span v-html="media_.code"></span>
           </div>
         </div>
       </div>
@@ -71,6 +84,13 @@ export default {
   computed: {
     project() {
       return this.$store.getters['projects/getProjectByid'](this.id)
+    },
+    customBackground() {
+      let background_ = ''
+      if (Object.prototype.hasOwnProperty.call(this.project, 'background')) {
+        background_ = 'background:' + this.project.background + ';'
+      }
+      return background_
     },
     years() {
       let years_ = 'unknown'
@@ -119,6 +139,13 @@ export default {
       if (link_ !== null) {
         window.open(link_, '_blank')
       }
+    },
+    getStyle(media_) {
+      let style_ = ''
+      if (Object.prototype.hasOwnProperty.call(media_, 'style')) {
+        style_ = media_.style
+      }
+      return style_
     },
     getImage(media_) {
       let link_ = null
@@ -198,12 +225,21 @@ export default {
 }
 
 .project-pictures {
+  display: block;
   width: 100%;
   height: auto;
+  margin: 0 auto;
+}
+
+.project-text {
+  width: 100%;
+  margin: 1.5em;
+  text-align: center;
 }
 
 .iframe-container {
   display: flex;
+  width: 100%;
   justify-content: center;
   margin: 50px 0;
 }

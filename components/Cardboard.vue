@@ -164,8 +164,9 @@ export default {
   .tools-icon {
     width: 50%;
     display: flex;
-    flex-wrap: wrap;
-    align-content: flex-end;
+    flex-wrap: wrap-reverse;
+    align-content: flex-start;
+    align-items: center;
 
     .tool-icon {
       width: 45px;

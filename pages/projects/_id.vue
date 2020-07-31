@@ -233,7 +233,7 @@ export default {
 
 .project-text {
   width: 100%;
-  margin: 1.5em;
+  margin: 1.5em 25%;
   text-align: center;
 }
 

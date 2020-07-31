@@ -15,6 +15,7 @@ import IconAftereffects from '~/components/tools/aftereffects.vue'
 import IconArduino from '~/components/tools/arduino.vue'
 import IconCatia from '~/components/tools/catia.vue'
 import IconCsharp from '~/components/tools/csharp.vue'
+import IconFlash from '~/components/tools/flash.vue'
 import IconIllustrator from '~/components/tools/illustrator.vue'
 import IconIndesign from '~/components/tools/indesign.vue'
 import IconMatlab from '~/components/tools/matlab.vue'
@@ -49,6 +50,7 @@ Vue.component('icon-aftereffects', IconAftereffects)
 Vue.component('icon-arduino', IconArduino)
 Vue.component('icon-catia', IconCatia)
 Vue.component('icon-csharp', IconCsharp)
+Vue.component('icon-flash', IconFlash)
 Vue.component('icon-illustrator', IconIllustrator)
 Vue.component('icon-indesign', IconIndesign)
 Vue.component('icon-matlab', IconMatlab)

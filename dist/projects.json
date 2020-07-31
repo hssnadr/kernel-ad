@@ -1,0 +1,527 @@
+[
+  {
+    "title": "Whooshing Machine",
+    "id": "whooshing-machine",
+    "years": { "y0": "2014", "y1": "2014" },
+    "institutes": ["strate"],
+    "format": ["Student"],
+    "fields": ["Design"],
+    "skills": ["UX", "UI", "Illustration", "Video"],
+    "tools": ["illustrator", "aftereffects", "premiere", "photoshop"],
+    "thumbnail": {
+      "asset": "Cover2.jpg"
+    },
+    "description": "Diploma project at Strate École de Design",
+    "level": 3
+  },
+  {
+    "title": "Austerlitz 1805",
+    "id": "austerlitz-1805",
+    "years": { "y0": "2014", "y1": "2014" },
+    "institutes": ["dassaultsystemes"],
+    "format": ["Student"],
+    "fields": ["Design"],
+    "skills": ["Product Design", "3D Modeling", "3D Rendering"],
+    "tools": ["catia"],
+    "thumbnail": {
+      "asset": "cover.jpg"
+    },
+    "medias": [
+      { "type": "image", "id": "1805-header", "file": "head.jpg" },
+      { "type": "image", "id": "1805-overview", "file": "overview.jpg" },
+      { "type": "image", "id": "1805-details", "file": "details.jpg" },
+      { "type": "image", "id": "1805-process1", "file": "process_1.jpg" },
+      { "type": "image", "id": "1805-moodboard", "file": "inspiration.jpg" },
+      { "type": "image", "id": "1805-process2", "file": "process_2.jpg" },
+      { "type": "image", "id": "1805-render", "file": "render.jpg" }
+    ],
+    "description": "Product design project made for Dassault Systèmes to highlight their 3D solution softwares.",
+    "level": 2
+  },
+  {
+    "title": "Austerlitz Standard",
+    "id": "austerlitz-standard",
+    "years": { "y0": "2014", "y1": "2014" },
+    "institutes": ["dassaultsystemes"],
+    "format": ["Student"],
+    "fields": ["Design"],
+    "skills": ["Product Design", "3D Modeling", "3D Rendering"],
+    "tools": ["catia"],
+    "thumbnail": {
+      "asset": "Cover.jpg"
+    },
+    "medias": [
+      { "type": "image", "id": "Austlz-header", "file": "Head.jpg" },
+      { "type": "image", "id": "Austlz-overview", "file": "LRE.jpg" },
+      { "type": "image", "id": "Austlz-detail", "file": "DetailModeling.jpg" },
+      { "type": "image", "id": "Austlz-blister", "file": "Blister.jpg" },
+      { "type": "image", "id": "Austlz-blades", "file": "3DHead.jpg" },
+      { "type": "image", "id": "Austrlz-render", "file": "Ending.jpg" }
+    ],
+    "description": "Product design project made for Dassault Systèmes to highlight their 3D solution softwares.",
+    "level": 2
+  },
+  {
+    "title": "Medapli",
+    "id": "medapli",
+    "years": { "y0": "2016", "y1": "2016" },
+    "institutes": null,
+    "format": ["Freelance"],
+    "fields": ["Design"],
+    "skills": ["UX", "UI"],
+    "tools": ["illustrator", "photoshop", "pixate"],
+    "thumbnail": {
+      "asset": "Couverture2.jpg"
+    },
+    "background": "#455DB5",
+    "medias": [
+      { "type": "image", "id": "medapli-overview1", "file": "medapli_1.jpg" },
+      { "type": "image", "id": "medapli-overview2", "file": "medapli_2.jpg" },
+      { "type": "image", "id": "medapli-overview3", "file": "medapli_3.jpg" },
+      {
+        "type": "iframe",
+        "code": "<iframe src='https://player.vimeo.com/video/164107262' width='300' height='532' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Prototype made with Pixate Studio",
+        "style": "color: #FFF;"
+      }
+    ],
+    "description": "Medical application dedicated to senior unfamiliar with new technologies.",
+    "level": 1
+  },
+  {
+    "title": "Portail 3D",
+    "id": "portail-3d",
+    "years": { "y0": "2011", "y1": "2012" },
+    "institutes": ["leroymerlin"],
+    "format": ["Student"],
+    "fields": ["Engineering"],
+    "skills": ["Programing", "UX", "Video"],
+    "tools": ["unity3d", "csharp"],
+    "thumbnail": {
+      "asset": "cover2.png"
+    },
+    "medias": [
+      { "type": "image", "id": "lm-head", "file": "head.png" },
+      {
+        "type": "iframe",
+        "code": "<iframe title='vimeo-player' src='https://player.vimeo.com/video/75018005' width='640' height='360' frameborder='0' allowfullscreen></iframe>"
+      },
+      { "type": "image", "id": "lm-overview", "file": "overview.png" }
+    ],
+    "description": "Online sales aid application",
+    "level": 2
+  },
+  {
+    "title": "NeighborMood",
+    "id": "neighbormood",
+    "years": { "y0": "2012", "y1": "2012" },
+    "institutes": ["strate"],
+    "format": ["Student"],
+    "fields": ["Design"],
+    "skills": ["UX", "Video", "Illustration"],
+    "tools": ["illustrator", "flash", "premiere"],
+    "thumbnail": {
+      "asset": "cover.png"
+    },
+    "background": "#9998cb",
+    "medias": [
+      { "type": "image", "id": "nm-presentation1", "file": "traceur1_2.png" },
+      {
+        "type": "iframe",
+        "code": "<iframe title='vimeo-player' src='https://player.vimeo.com/video/59351522' width='640' height='360' frameborder='0' allowfullscreen></iframe>"
+      },
+      { "type": "image", "id": "nm-presentation2", "file": "traceur2_2.png" }
+    ],
+    "description": "NeighborMood is a interactive student design project dedicated to public spaces on the horizon of 2030",
+    "level": 1
+  },
+  {
+    "title": "Lumigraph",
+    "id": "lumigraph",
+    "years": { "y0": "2013", "y1": "2013" },
+    "institutes": ["strate"],
+    "format": ["Student"],
+    "fields": ["Art"],
+    "skills": ["programming", "electronics", "video making"],
+    "tools": ["arduino", "processing"],
+    "thumbnail": {
+      "asset": "cover.jpg"
+    },
+    "medias": [
+      { "type": "image", "id": "lumigraph-view1", "file": "lumigraph1.png" },
+      { "type": "image", "id": "lumigraph-strate", "file": "StrateLight.jpg", "style": "width: 50%; margin: 40px auto;" },
+      {
+        "type": "iframe",
+        "code": "<iframe src='https://player.vimeo.com/video/74477284' width='640' height='360' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe>"
+      },
+      { "type": "image", "id": "lumigraph-view2", "file": "lumigraph2.png" },
+      { "type": "image", "id": "lumigraph-view3", "file": "lumigraph3.png" },
+      { "type": "image", "id": "lumigraph-view4", "file": "lumigraph4.png" },
+      { "type": "paragraph", "text": "Lumigraph presented at Noise La Ville festival (2014), organized by Sciences Po Paris" },
+      { "type": "image", "id": "lumigraph-strate", "file": "StrateLight.jpg", "style": "width: 50%; margin: 40px auto;" },
+      { "type": "image", "id": "lumigraph-sciencepo", "file": "SciencePo.jpg", "style": "width: 50%; margin: 40px auto;" },
+      { "type": "paragraph", "text": "From Illustrator to Lumigraph (former test)" },
+      { "type": "image", "id": "lumigraph-illustrator", "file": "illustrator.jpg", "style": "width: 50%; margin: 40px auto;" },
+      { "type": "image", "id": "lumigraph-processing", "file": "processing.jpg", "style": "width: 50%; margin: 40px auto;" },
+      { "type": "image", "id": "lumigraph-result", "file": "lumigraph.jpg", "style": "width: 50%; margin: 40px auto;" }
+    ],
+    "description": "My first electronics project to make light painting",
+    "level": 1
+  },
+  {
+    "title": "La perception de la réalité",
+    "id": "memoire",
+    "years": { "y0": "2013", "y1": "2014" },
+    "institutes": ["strate"],
+    "format": ["Student"],
+    "fields": ["Design"],
+    "skills": ["DTP"],
+    "tools": ["indesign", "photoshop", "illustrator"],
+    "thumbnail": {
+      "asset": "Cover.jpg"
+    },
+    "medias": [
+      { "type": "image", "id": "memoire-head", "file": "Head.jpg" },
+      { "type": "image", "id": "memoire-preview", "file": "Preview.jpg" },
+      { "type": "image", "id": "memoire-quote", "file": "Bohm.jpg" },
+      {
+        "type": "iframe",
+        "code": "<iframe title='Perception Réalité' src='https://www.scribd.com/embeds/306528577/content?start_page=1&view_mode=scroll&access_key=key-cNkDQnL6WbQIyhWbcNkD' data-auto-height='true' data-aspect-ratio='0.703125' scrolling='no' width='100%' height='600' frameborder='0'></iframe>"
+      },
+      {
+        "type": "image",
+        "id": "memoire-references",
+        "file": "Bibliographie.jpg"
+      }
+    ],
+    "description": "Diploma thesis",
+    "level": 1
+  },
+  {
+    "title": "W-STM",
+    "id": "wstm",
+    "years": { "y0": "2014", "y1": "2014" },
+    "institutes": null,
+    "format": ["Freelance"],
+    "fields": ["Design"],
+    "skills": ["Product Design"],
+    "tools": ["catia"],
+    "thumbnail": {
+      "asset": "cover.jpg",
+      "link": null
+    },
+    "background": "#1A1A1A",
+    "medias": [
+      { "type": "image", "id": "wstm-head", "file": "dark.jpg", "style": "max-width: 932px;" },
+      { "type": "image", "id": "wstm-duo1", "file": "duo1.jpg" },
+      {
+        "type": "image",
+        "id": "wstm-anim",
+        "file": "inside.gif",
+        "style": "max-width: 600px; margin: 30px auto;"
+      },
+      { "type": "image", "id": "wstm-duo2", "file": "duo2.jpg" },
+      { "type": "image", "id": "wstm-glass", "file": "glass.jpg" }, 
+      {
+        "type": "paragraph",
+        "text": "Project tweeted by Philippe Laufer (CATIA boss at Dassault Systèmes)",
+        "style": "color: white; max-width: 500px;"
+      },
+      {
+        "type": "image",
+        "id": "wstm-tweet",
+        "file": "laufer.png",
+        "style": "width: 60; max-width: 640px; margin: 0 auto 30px auto;"
+      },
+      { "type": "image", "id": "wstm-draft", "file": "draft.png", "style": "max-width: 1190px;" },
+      { "type": "image", "id": "wstm-explodeVertical", "file": "explodeV.jpg" },
+      {
+        "type": "image",
+        "id": "wstm-explodeHorizontal",
+        "file": "explodeH.jpg"
+      }
+    ],
+    "description": "Serves wine and keeps its flavors once the bottle is opened",
+    "level": 1
+  },
+  {
+    "title": "Knit It",
+    "id": "knit-it",
+    "years": { "y0": "2014", "y1": "2014" },
+    "institutes": ["strate"],
+    "format": ["Student"],
+    "fields": ["Design"],
+    "skills": ["UX", "Illustration", "Video"],
+    "tools": ["illustrator", "premiere", "aftereffects"],
+    "thumbnail": {
+      "asset": "cover.png"
+    },
+    "medias": [
+      { "type": "image", "id": "knitit-logo", "file": "KnitIt_logo.png", "style": "width: 60%; max-width: 900px; margin: 40px auto;" },
+      { "type": "image", "id": "ArtsSciencePrize-logo", "file": "artscienceprize_logo.png", "style": "width: 80%; max-width: 800px; margin: 40px auto;" },
+      {
+        "type": "iframe",
+        "code": "<iframe title='vimeo-player' src='https://player.vimeo.com/video/92176264' width='640' height='360' frameborder='0' allowfullscreen></iframe>"
+      },
+      { "type": "image", "id": "knitit-concept", "file": "conceptlivre.jpg", "style": "width: 90%; margin: 40px auto;" },
+      { "type": "image", "id": "knitit-picture1", "file": "knitit_pic1.jpg" },
+      { "type": "image", "id": "knitit-picture2", "file": "knitit_pic2.jpg" },
+      { "type": "image", "id": "knitit-picture3", "file": "knitit_pic3.jpg" },
+      { "type": "image", "id": "knitit-picture4", "file": "knitit_pic4.JPG" },
+      { "type": "image", "id": "david-ferrer", "file": "ferrer.JPG" },
+      { "type": "image", "id": "knitit-end", "file": "slide_fin.jpg", "style": "width: 60%; max-width: 1000px; margin: 60px auto;" }
+    ],
+    "description": "Forward-looking project designed for the 2014 Arts Science Prize competition",
+    "level": 1
+  },
+  {
+    "title": "Cassiopeia",
+    "id": "cassiopeia",
+    "years": { "y0": "2014", "y1": "2014" },
+    "institutes": ["dassaultsystemes"],
+    "format": ["Student"],
+    "fields": ["Design"],
+    "skills": ["UX", "Video"],
+    "tools": ["premiere", "aftereffects", "catia"],
+    "thumbnail": {
+      "asset": "Cover1.jpg"
+    },
+    "medias": [
+      {
+        "type": "iframe",
+        "code": "<iframe src='https://player.vimeo.com/video/161060346' width='640' height='360' frameborder='0' allow='autoplay'; fullscreen' allowfullscreen></iframe>"
+      }
+    ],
+    "description": "Video and interaction concept for Cassiopeia camera project.",
+    "level": 1
+  },
+  {
+    "title": "GUKEN",
+    "id": "guken",
+    "years": { "y0": "2015", "y1": "2016" },
+    "institutes": ["guken"],
+    "format": ["Personal"],
+    "fields": ["Engineering", "Design"],
+    "skills": ["Data science", "Programing", "UX", "UI", "Management", "DTP"],
+    "tools": ["matlab", "python", "photoshop", "illustrator"],
+    "thumbnail": {
+      "asset": "cover.jpg"
+    },
+    "medias": [
+      { "type": "image", "id": "guken-overview", "file": "overview.jpg" },
+      { "type": "image", "id": "guken-work1", "file": "Works1_2.jpg" },
+      { "type": "image", "id": "guken-work2", "file": "Works2_1.jpg" },
+      { "type": "image", "id": "guken-advantage", "file": "principle.jpg" },
+      { "type": "image", "id": "guken-partnairs", "file": "partnairs.jpg" }
+    ],
+    "description": "Startup created from my diploma project.",
+    "level": 1
+  },
+  {
+    "title": "Vectors",
+    "id": "vectors",
+    "years": { "y0": "2013", "y1": "2015" },
+    "institutes": null,
+    "format": ["Personal"],
+    "fields": ["Art"],
+    "skills": ["Drawing", "Illustration"],
+    "tools": ["illustrator"],
+    "thumbnail": {
+      "asset": "cover.jpg"
+    },
+    "medias": [
+      { "type": "image", "id": "vectors-steps", "file": "guyX3.jpg" },
+      { "type": "image", "id": "vectors-guy", "file": "guy.jpg", "style": "max-width: 820px;" },
+      { "type": "image", "id": "vectors-cammy", "file": "cammy.jpg" },
+      { "type": "image", "id": "vectors-wip", "file": "cammy_wip.jpg" },
+      {
+        "type": "image",
+        "id": "vectors-flyer",
+        "file": "flyer.jpg",
+        "style": "width: 70%; margin: 40px auto;"
+      }
+    ],
+    "description": "Illustrations",
+    "level": 1
+  },
+  {
+    "title": "Frost",
+    "id": "frost",
+    "years": { "y0": "2014", "y1": "2014" },
+    "institutes": ["dassaultsystemes"],
+    "format": ["Student"],
+    "fields": ["Design"],
+    "skills": ["Product Design", "3D Modeling", "3D Rendering"],
+    "tools": ["catia"],
+    "thumbnail": {
+      "asset": "cover.jpg"
+    },
+    "medias": [
+      { "type": "image", "id": "frost-global", "file": "frost.jpg" },
+      { "type": "image", "id": "frost-detail", "file": "detail.jpg" },
+      { "type": "image", "id": "frost-parts", "file": "parts.png" },
+      { "type": "image", "id": "frost-top", "file": "top.jpg", "style": "max-width: 1481px;" },
+      { "type": "image", "id": "frost-wip1", "file": "WIP01.jpg", "style": "width: 50%; max-width: 1200px; margin: 40px auto;" },
+      { "type": "image", "id": "frost-wip2", "file": "WIP02.jpg", "style": "width: 50%; max-width: 1200px; margin: 40px auto;" }
+    ],
+    "description": "Short familiarization project with Dassault Systemes softwares",
+    "level": 1
+  },
+  {
+    "title": "Sketchbook 1",
+    "id": "sketchbook1",
+    "years": { "y0": "2012", "y1": "2013" },
+    "institutes": null,
+    "format": ["Personal"],
+    "fields": ["Art"],
+    "skills": ["Drawing"],
+    "tools": [""],
+    "thumbnail": {
+      "asset": "cover.jpg"
+    },
+    "medias": [
+      { "type": "image", "id": "sketchs1", "file": "Sketchs01.jpg" },
+      { "type": "image", "id": "sketchs2", "file": "Sketchs02.jpg" }
+    ],
+    "description": "Random daily sketches",
+    "level": 1
+  },
+  {
+    "title": "Sketchbook 2",
+    "id": "sketchbook2",
+    "years": { "y0": "2014", "y1": "2014" },
+    "institutes": null,
+    "format": ["Personal"],
+    "fields": ["Art"],
+    "skills": ["Drawing"],
+    "tools": ["photoshop"],
+    "thumbnail": {
+      "asset": "cover2.jpg"
+    },
+    "medias": [
+      { "type": "image", "id": "dancers", "file": "JustDance.jpg" },
+      { "type": "image", "id": "karolina", "file": "krender1.jpg" },
+      { "type": "image", "id": "diane", "file": "DGDC.jpg" },
+      { "type": "image", "id": "joana", "file": "joana1.jpg" },
+      { "type": "image", "id": "horses", "file": "Chevaux.jpg" },
+      { "type": "image", "id": "fluo-sketch", "file": "fluotest.jpg" },
+      { "type": "image", "id": "Vitruve2049", "file": "Vitruve2_0.jpg" },
+      { "type": "image", "id": "Boxer1", "file": "Boxe1.jpg" },
+      { "type": "image", "id": "Boxer2", "file": "Boxe3.jpg" }
+    ],
+    "description": "Random daily sketches",
+    "level": 1
+  },
+  {
+    "title": "Sketchbook 3",
+    "id": "sketchbook3",
+    "years": { "y0": "2016", "y1": "2016" },
+    "institutes": null,
+    "format": ["Personal"],
+    "fields": ["Art"],
+    "skills": ["Drawing"],
+    "tools": ["photoshop"],
+    "thumbnail": {
+      "asset": "cover.jpg"
+    },
+    "medias": [
+      { "type": "image", "id": "sketch-owl", "file": "owl.png" },
+      { "type": "image", "id": "sketch-owlhead", "file": "owl_detail.png" },
+      { "type": "image", "id": "watercolor", "file": "watercolor.jpg" },
+      {
+        "type": "image",
+        "id": "sketch-random1",
+        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/e302c237233689.575bceed99c4b.jpg"
+      },
+      {
+        "type": "image",
+        "id": "sketch-random2",
+        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/96155937233689.575bceed9afa2.jpg"
+      },
+      {
+        "type": "image",
+        "id": "sketch-soraia",
+        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/37b09537233689.575bceed9b5b7.jpg"
+      }
+    ],
+    "description": "Random daily sketches",
+    "level": 1
+  },
+  {
+    "title": "Sèvre Chaville Boxe 92",
+    "id": "boxe92",
+    "years": { "y0": "2015", "y1": "2015" },
+    "institutes": null,
+    "format": ["Personal"],
+    "fields": ["Art"],
+    "skills": ["Drawing"],
+    "tools": ["illustrator", "photoshop"],
+    "thumbnail": {
+      "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/9a656a22826619.563191057da2a.jpg"
+    },
+    "medias": [
+      {
+        "type": "image",
+        "id": "boxe92-logo",
+        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d33d4022826619.56319105769f4.jpg"
+      },
+      {
+        "type": "image",
+        "id": "boxe92-logodetail",
+        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/d5abfd22826619.56319100af74e.jpg"
+      },
+      {
+        "type": "image",
+        "id": "boxe92-sketch1",
+        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/7f319422826619.563190176d519.jpg"
+      },
+      {
+        "type": "image",
+        "id": "boxe92-sketch2",
+        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/478f1422826619.56319017661c3.jpg"
+      },
+      {
+        "type": "image",
+        "id": "boxe92-variant1",
+        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/9a656a22826619.563191057da2a.jpg"
+      },
+      {
+        "type": "image",
+        "id": "boxe92-variant1detail",
+        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5713e022826619.563190f84dfd5.jpg",
+        "style": "width: 80%; max-width: 800px; margin: 30px auto;"
+      },
+      {
+        "type": "image",
+        "id": "boxe92-variant2",
+        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/2a3ac422826619.563190174f5a9.png"
+      },
+      {
+        "type": "image",
+        "id": "boxe92-composition",
+        "link": "https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/39327222826619.56319105877a3.jpg",
+        "style": "max-width: 1500px;"
+      }
+    ],
+    "description": "Logo realized for the boxing club based in Sèvres and Chaville",
+    "level": 1
+  },
+  {
+    "title": "Boxylab",
+    "id": "boxylab",
+    "years": { "y0": "2020", "y1": "2020" },
+    "institutes": null,
+    "format": "Freelance",
+    "fields": ["Engineering"],
+    "skills": ["Programming"],
+    "tools": ["nuxt"],
+    "thumbnail": {
+      "link": "https://f4.bcbits.com/img/0016301968_10.jpg"
+    },
+    "description": "My first web development mission",
+    "level": 1
+  }
+]

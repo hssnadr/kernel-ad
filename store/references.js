@@ -61,6 +61,11 @@ export const state = () => ({
         'https://www.adobe.com/fr/products/indesign.html?gclid=EAIaIQobChMIk42Fn_rg6QIVmYbVCh0yDAooEAAYASAAEgKUwPD_BwE&sdid=88X75SL1&mv=search&ef_id=EAIaIQobChMIk42Fn_rg6QIVmYbVCh0yDAooEAAYASAAEgKUwPD_BwE:G:s&s_kwcid=AL!3085!3!341217014080!e!!g!!indesign'
     },
     {
+      name: 'Flash Professional',
+      id: 'flash',
+      link: 'https://fr.wikipedia.org/wiki/Adobe_Animate'
+    },
+    {
       name: 'CATIA',
       id: 'catia',
       link: 'https://www.3ds.com/fr/produits-et-services/catia/'

@@ -13,8 +13,8 @@
   },
   "medias": [
     { "type": "image", "id": "img-id1", "file": "", "style": "(optional)" },
-    { "type": "image", "id": "img-id2", "link": "" },
-    { "type": "iframe", "code": "" },
+    { "type": "image", "id": "img-id2", "link": "", "url": "(optional" },
+    { "type": "iframe", "code": "(replace width='' height='' with --> class='responsive-iframe' for 100% width iframe)" },
     { "type": "paragraph", "text": "", "style": "(optional)" }
   ],
   "background": "",

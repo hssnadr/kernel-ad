@@ -114,6 +114,11 @@ export const state = () => ({
       name: 'Python',
       id: 'python',
       link: '' // <--------------------------------------------
+    },
+    {
+      name: 'Nuxt',
+      id: 'nuxt',
+      link: 'https://nuxtjs.org/'
     }
   ]
 })

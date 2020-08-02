@@ -107,7 +107,7 @@
       { "type": "image", "id": "lm-head", "file": "head.png" },
       {
         "type": "iframe",
-        "code": "<iframe title='vimeo-player' src='https://player.vimeo.com/video/75018005' width='640' height='360' frameborder='0' allowfullscreen></iframe>"
+        "code": "<iframe title='vimeo-player' src='https://player.vimeo.com/video/75018005' class='responsive-iframe'  frameborder='0' allowfullscreen></iframe>"
       },
       { "type": "image", "id": "lm-overview", "file": "overview.png" }
     ],
@@ -128,12 +128,12 @@
     },
     "background": "#9998cb",
     "medias": [
-      { "type": "image", "id": "nm-presentation1", "file": "traceur1_2.png" },
+      { "type": "image", "id": "nm-presentation1", "file": "traceur1.png" },
       {
         "type": "iframe",
-        "code": "<iframe title='vimeo-player' src='https://player.vimeo.com/video/59351522' width='640' height='360' frameborder='0' allowfullscreen></iframe>"
+        "code": "<iframe title='vimeo-player' src='https://player.vimeo.com/video/59351522'  class='responsive-iframe'  frameborder='0' allowfullscreen></iframe>"
       },
-      { "type": "image", "id": "nm-presentation2", "file": "traceur2_2.png" }
+      { "type": "image", "id": "nm-presentation2", "file": "traceur2.png" }
     ],
     "description": "NeighborMood is a interactive student design project dedicated to public spaces on the horizon of 2030",
     "level": 1
@@ -155,7 +155,7 @@
       { "type": "image", "id": "lumigraph-strate", "file": "StrateLight.jpg", "style": "width: 50%; margin: 40px auto;" },
       {
         "type": "iframe",
-        "code": "<iframe src='https://player.vimeo.com/video/74477284' width='640' height='360' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe>"
+        "code": "<iframe src='https://player.vimeo.com/video/74477284' class='responsive-iframe' frameborder='0' allow='autoplay; fullscreen' allowfullscreen></iframe>"
       },
       { "type": "image", "id": "lumigraph-view2", "file": "lumigraph2.png" },
       { "type": "image", "id": "lumigraph-view3", "file": "lumigraph3.png" },
@@ -264,7 +264,7 @@
       { "type": "image", "id": "ArtsSciencePrize-logo", "file": "artscienceprize_logo.png", "style": "width: 80%; max-width: 800px; margin: 40px auto;" },
       {
         "type": "iframe",
-        "code": "<iframe title='vimeo-player' src='https://player.vimeo.com/video/92176264' width='640' height='360' frameborder='0' allowfullscreen></iframe>"
+        "code": "<iframe title='vimeo-player' src='https://player.vimeo.com/video/92176264' class='responsive-iframe' frameborder='0' allowfullscreen></iframe>"
       },
       { "type": "image", "id": "knitit-concept", "file": "conceptlivre.jpg", "style": "width: 90%; margin: 40px auto;" },
       { "type": "image", "id": "knitit-picture1", "file": "knitit_pic1.jpg" },
@@ -292,7 +292,7 @@
     "medias": [
       {
         "type": "iframe",
-        "code": "<iframe src='https://player.vimeo.com/video/161060346' width='640' height='360' frameborder='0' allow='autoplay'; fullscreen' allowfullscreen></iframe>"
+        "code": "<iframe src='https://player.vimeo.com/video/161060346' class='responsive-iframe' frameborder='0' allow='autoplay'; fullscreen' allowfullscreen></iframe>"
       }
     ],
     "description": "Video and interaction concept for Cassiopeia camera project.",
@@ -314,8 +314,8 @@
       { "type": "image", "id": "guken-overview", "file": "overview.jpg" },
       { "type": "image", "id": "guken-work1", "file": "Works1_2.jpg" },
       { "type": "image", "id": "guken-work2", "file": "Works2_1.jpg" },
-      { "type": "image", "id": "guken-advantage", "file": "principle.jpg" },
-      { "type": "image", "id": "guken-partnairs", "file": "partnairs.jpg" }
+      { "type": "image", "id": "guken-advantage", "file": "principle.png" },
+      { "type": "image", "id": "guken-partnairs", "file": "partnairs.jpg", "url": "https://www.echosciences-grenoble.fr/articles/le-mouvement-a-propos-des-oeuvres-de-julien-previeux" }
     ],
     "description": "Startup created from my diploma project.",
     "level": 1

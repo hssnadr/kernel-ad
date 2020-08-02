@@ -14,7 +14,7 @@
         <div class="project-institute">
           <span
             class="logo"
-            :class="{ 'cursor-pointer': isLink(institute) }"
+            :class="{ 'cursor-pointer': isRefLink(institute) }"
             @click="goToReference(institute)"
           >
             <component
@@ -48,9 +48,11 @@
           <img
             v-if="media_.type === 'image'"
             class="project-pictures"
+            :class="{ 'cursor-pointer': isURL(media_) }"
             :style="getStyle(media_)"
             :src="getImage(media_)"
             :alt="media_.id"
+            @click="goToURL(media_)"
           />
 
           <span
@@ -130,7 +132,7 @@ export default {
     refName(ref_) {
       return this.$store.getters['references/getName'](ref_)
     },
-    isLink(ref_) {
+    isRefLink(ref_) {
       const link_ = this.$store.getters['references/getLink'](ref_)
       return link_ !== null
     },
@@ -152,6 +154,15 @@ export default {
       const data_ = { project_: this.id, image_: media_.id }
       link_ = this.$store.getters['projects/getImageSrc'](data_)
       return link_
+    },
+    isURL(media_) {
+      return Object.prototype.hasOwnProperty.call(media_, 'url')
+    },
+    goToURL(media_) {
+      if (this.isURL(media_)) {
+        const win = window.open(media_.url, '_blank')
+        win.focus()
+      }
     }
   }
 }
@@ -237,12 +248,12 @@ export default {
   text-align: center;
 }
 
-.iframe-container {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin: 50px 0;
-}
+// .project-iframe {
+//   display: flex;
+//   width: 100%;
+//   justify-content: center;
+//   margin: 50px 0;
+// }
 
 @media #{$small-up} {
   .project-overview {

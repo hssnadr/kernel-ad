@@ -1,10 +1,9 @@
 <template>
   <div class="wm-container">
-    <div class="wm-video">
+    <div class="iframe-container">
       <iframe
         src="https://player.vimeo.com/video/97103156"
-        width="640"
-        height="360"
+        class="responsive-iframe"
         frameborder="0"
         allow="autoplay; fullscreen"
         allowfullscreen
@@ -64,15 +63,6 @@ export default {
 </script>
 
 <style lang="scss">
-.wm-video {
-  width: 100%;
-  iframe {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 .wm-image {
   width: 100%;
   height: auto;

@@ -24,7 +24,6 @@ import IconHbg from '~/components/Icon_Hamburger'
 
 export default {
   components: { MainMenu, IconHbg },
-
   data() {
     return {
       windowWidth: 0,

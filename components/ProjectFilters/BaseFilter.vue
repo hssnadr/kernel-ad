@@ -197,9 +197,10 @@ $filter-spaceletter: 0.02em;
   margin: 0 10px;
   transition: fill 0.3s;
 
-  &:hover {
-    fill: $primary-color;
-  }
+  // ---> not good on touch devices
+  // &:hover {
+  //   fill: $primary-color;
+  // }
 }
 
 .filtericon-on {
@@ -216,9 +217,10 @@ $filter-spaceletter: 0.02em;
   margin: 0 10px;
   transition: fill 0.3s;
 
-  &:hover {
-    fill: $primary-color;
-  }
+  // ---> not good on touch devices
+  // &:hover {
+  //   fill: $primary-color;
+  // }
 }
 
 .filterlogo-on {

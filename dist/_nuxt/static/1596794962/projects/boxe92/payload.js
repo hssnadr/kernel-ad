@@ -1,1 +1,0 @@
-__NUXT_JSONP__("projects/boxe92", {data:[{}],fetch:[],mutations:[]});

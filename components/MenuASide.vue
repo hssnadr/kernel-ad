@@ -13,6 +13,12 @@
         :style="{ width: wSideMenu + 'px' }"
       >
         <main-menu></main-menu>
+
+        <div class="maclass">
+          <p>
+            Coucou dsfgdfgfdgdfgfdhgghj grhhfghf gdgh rhrt hrthrth rth rth rth r
+          </p>
+        </div>
       </div>
     </transition>
   </div>

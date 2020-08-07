@@ -3,6 +3,17 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1366 2339.2" enable-background="new 0 0 1366 2339.2" xml:space="preserve">
 <g id="montessori-hover">
+	<g id="montessori-arrows">
+	<path style="fill:none;stroke:#3C3C3B;stroke-width:1.9397;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" d="
+		M217.88,1177.8c0-1.05-0.85-1.9-1.9-1.9c-1.05,0-1.9,0.85-1.9,1.9c0,1.05,0.85,1.9,1.9,1.9
+		C217.03,1179.7,217.88,1178.85,217.88,1177.8l-1.9,0v42.77l-2.63-2.63l2.63,2.63l2.63-2.63"/>
+	
+		<polyline style="fill:none;stroke:#3C3C3B;stroke-width:1.9397;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="
+		180.34,1415.41 182.97,1412.78 185.6,1415.41 182.97,1412.78 182.97,1564.78 180.34,1562.16 182.97,1564.78 185.6,1562.16 	"/>
+	
+		<polyline style="fill:none;stroke:#3C3C3B;stroke-width:1.9397;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points="
+		570.84,1314.36 326.08,1314.36 328.71,1311.74 326.08,1314.36 328.71,1316.99 	"/>
+	</g>
 	<g>
 		<rect x="301.71" y="1342.15" style="fill:none;" width="223.69" height="86.09"/>
 		<path style="fill:#3C3C3B;" d="M303.02,1342.83c0-0.45,0.22-0.67,0.66-0.67h0.74c0.44,0,0.66,0.22,0.66,0.67v10.02
@@ -34227,7 +34238,7 @@ DuOaO45o7jmjuOaO45o7jmjuOaO45o7jmgvczl7r1egf17V/pN/H7j//2Q==" transform="matrix(
 		</g>
 	</g>
 </g>
-<g id="Calque_1">
+<!-- <g id="Calque_1">
 	<rect y="180.88" fill="#4A52D1" width="1366" height="418.2"/>
 	<g>
 		<g opacity="0.3">
@@ -36647,7 +36658,7 @@ DuOaO45o7jmjuOaO45o7jmjuOaO45o7jmgvczl7r1egf17V/pN/H7j//2Q==" transform="matrix(
 	
 		<path fill="none" stroke="#3C3C3B" stroke-width="1.9397" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
 		M814.49,1255.21v-23.23c0-4.55,3.68-8.23,8.23-8.23h57.77c4.55,0,8.23-3.68,8.23-8.23v-79.39"/>
-</g>
+</g> -->
 </svg>
 </template>
 
@@ -36657,6 +36668,14 @@ export default {
 		return {
 			hitbox: false
 		}
+	},
+	mounted() {
+		// Loader
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+
+      setTimeout(() => this.$nuxt.$loading.finish(), 2000)
+    })
 	},
 	methods: {
 		goMontessori() {
@@ -36680,8 +36699,18 @@ export default {
 	cursor: pointer;
 	opacity: 0;
 	transition: 0.5s;
+
+	#montessori-arrows {
+			stroke-dasharray: 260;
+  		stroke-dashoffset: 260;
+			transition : stroke-dashoffset 1s;
+		}
+
   &:hover {
     opacity: 1;
+		#montessori-arrows {
+			stroke-dashoffset: 0;
+		}
   }
 }
 

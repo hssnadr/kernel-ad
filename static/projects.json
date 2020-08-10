@@ -104,12 +104,12 @@
       "asset": "cover2.png"
     },
     "medias": [
-      { "type": "image", "id": "lm-head", "file": "head.png" },
+      { "type": "image", "id": "lm-head", "file": "head.png", "style": "margin-bottom: 50px;"},
       {
         "type": "iframe",
         "code": "<iframe title='vimeo-player' src='https://player.vimeo.com/video/75018005' class='responsive-iframe'  frameborder='0' allowfullscreen></iframe>"
       },
-      { "type": "image", "id": "lm-overview", "file": "overview.png" }
+      { "type": "image", "id": "lm-overview", "file": "overview.png" , "style": "margin-top: 50px;"}
     ],
     "description": "Online sales aid application",
     "level": 2

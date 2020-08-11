@@ -5,13 +5,13 @@
 	<g @mouseover="montessori = true" @mouseleave="montessori = false">
 		<svg-montessori />
 	</g>
-	<!-- <g  @mouseover="sensorskit=true" @mouseleave="sensorskit=false">
+	<g  @mouseover="sensorskit=true" @mouseleave="sensorskit=false">
 		<svg-sensorskit />
-	</g> -->
+	</g>
 	<g @mouseover="aphp=true" @mouseleave="aphp=false">
 		<svg-aphp />
 	</g>
-	<!-- <g  @mouseover="streamo=true" @mouseleave="streamo=false">
+	<g  @mouseover="streamo=true" @mouseleave="streamo=false">
 		<svg-streamo />
 	</g>
 	<g  @mouseover="movuina=true" @mouseleave="movuina=false">
@@ -11439,28 +11439,28 @@
 				</g>
 			</g>
 		</g>
-	</transition> -->
+	</transition>
 </svg>
 </template>
 
 <script>
 import SvgMontessori from '~/components/motionlab/projects/montessori.vue'
-// import SvgSensorskit from '~/components/motionlab/projects/sensorskit.vue'
+import SvgSensorskit from '~/components/motionlab/projects/sensorskit.vue'
 import SvgAphp from '~/components/motionlab/projects/aphp.vue'
-// import SvgStreamo from '~/components/motionlab/projects/streamo.vue'
-// import SvgMovuina from '~/components/motionlab/projects/movuina.vue'
-// import SvgRgblamp from '~/components/motionlab/projects/rgblamp.vue'
-// import SvgBalanceboard from '~/components/motionlab/projects/balanceboard.vue'
+import SvgStreamo from '~/components/motionlab/projects/streamo.vue'
+import SvgMovuina from '~/components/motionlab/projects/movuina.vue'
+import SvgRgblamp from '~/components/motionlab/projects/rgblamp.vue'
+import SvgBalanceboard from '~/components/motionlab/projects/balanceboard.vue'
 
 export default {
 	components: {
 		SvgMontessori,
-		// SvgSensorskit
-		SvgAphp
-		// SvgStreamo,
-		// SvgMovuina,
-		// SvgRgblamp,
-		// SvgBalanceboard
+		SvgSensorskit,
+		SvgAphp,
+		SvgStreamo,
+		SvgMovuina,
+		SvgRgblamp,
+		SvgBalanceboard
 	},
 	data() {
 		return {

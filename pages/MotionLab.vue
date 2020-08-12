@@ -1,7 +1,9 @@
 <template>
   <h2>
     MotionLab
-    <ah-works />
+    <div class="motionlab-container">
+      <ah-works />
+    </div>
   </h2>
 </template>
 
@@ -19,3 +21,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.motionlab-container {
+  width: 100%;
+  // padding: 0 250px;
+}
+</style>

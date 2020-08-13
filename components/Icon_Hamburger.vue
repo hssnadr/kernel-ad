@@ -19,22 +19,22 @@ export default {
 
 <style lang="scss">
 .hamburger {
+  // variables
   $hbg-backcol: transparent;
   $hbg-frontcol: $primary-color;
-
-  position: relative;
-  width: 54px;
-  height: 54px;
-  background: $hbg-backcol;
-  border-radius: 50%;
-  transform: rotate(0);
-  transition: none;
-
-  // variables
   $width-bar: 20px;
   $height-bar: 2px;
   $space-between: 0.4em; //6px;
   $offset: 0.1em; //1px;
+
+  position: relative;
+  width: $width-bar; // 54px;
+  height: $width-bar; // 54px;
+  background: $hbg-backcol;
+  // border-radius: 50%;
+  transform: rotate(0);
+  transition: none;
+
   span {
     position: absolute;
     top: 50%;
@@ -43,7 +43,7 @@ export default {
 
     display: block;
     background: $hbg-frontcol;
-    width: $width-bar;
+    width: 100%;
     height: $height-bar;
 
     transition: 0.3s ease-out;

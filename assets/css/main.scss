@@ -7,7 +7,7 @@
 @import 'tooltype.scss';
 
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  font-family: 'Poppins', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: $base-font-size;
   word-spacing: 1px;
@@ -70,6 +70,18 @@ p {
   font-family: 'Poppins', 'Roboto', sans-serif;
   font-weight: 300;
   font-style: normal;
+}
+
+a {
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  font-weight: 300;
+  color: $primary-color;
+  
+  &:hover {
+    font-weight: 400;
+    color: $primary-color;
+    text-decoration: none;
+  }
 }
 
 button {

@@ -105,6 +105,14 @@ export default {
   border: none;
 }
 
+@media #{$medium-down} {
+  .item-project {
+    width: 140px;
+    height: 240px;
+    margin: 4px;
+  }
+}
+
 #iframe-project {
   display: block;
   height: 100%;

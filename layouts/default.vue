@@ -3,29 +3,23 @@
     <side-menu />
 
     <nav id="navigator" v-scroll-lock="isScrollLock">
-      <h1>
-        <NuxtLink to="/">
-          Portfolio
-        </NuxtLink>
-      </h1>
+      <NuxtLink to="/">
+        Portfolio
+      </NuxtLink>
 
-      <h1>
-        <NuxtLink to="/MotionLab">
-          MotionLab
-        </NuxtLink>
-      </h1>
+      <NuxtLink to="/MotionLab">
+        MotionLab
+      </NuxtLink>
 
-      <h1>
-        <NuxtLink to="/Hitbox">
-          Hitbox
-        </NuxtLink>
-      </h1>
+      <NuxtLink to="/Hitbox">
+        Hitbox
+      </NuxtLink>
 
-      <h1>
+      <!-- <h1>
         <NuxtLink to="/KernelError">
           Kernel Error
         </NuxtLink>
-      </h1>
+      </h1> -->
     </nav>
 
     <nuxt />
@@ -33,7 +27,7 @@
 </template>
 
 <script>
-import SideMenu from '~/components/MenuASide'
+import SideMenu from '~/components/Menu_Container'
 
 export default {
   components: {
@@ -70,10 +64,18 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #navigator {
   display: flex;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 2rem;
+  font-size: 1.2rem;
+
+  a {
+    margin: 1rem 0 1rem 1em;
+  }
 }
 
 #mainview {

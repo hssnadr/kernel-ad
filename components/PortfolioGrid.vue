@@ -116,7 +116,7 @@ export default {
 #iframe-project {
   display: block;
   height: 100%;
-  width: 80%;
+  width: 70%;
   min-width: 700px;
   margin: auto;
 }

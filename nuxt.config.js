@@ -46,6 +46,7 @@ export default {
     { src: '~/plugins/v-scroll-lock' },
     { src: '~/plugins/v-tooltype' },
     // { src: '~/plugins/double-slider' },
+    // { src: '~/plugins/vue-headroom' },
     { src: '~/plugins/global-components' }
   ],
   /*

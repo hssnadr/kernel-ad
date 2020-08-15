@@ -1,5 +1,8 @@
 <template>
   <div>
+    <header style="height: 50px;">
+      <!-- logo -->
+    </header>
     <portfolio-grid />
   </div>
 </template>
@@ -19,6 +22,7 @@ export default {
   },
   mounted() {
     // Show side bar button
+    this.$store.commit('navigator/SET_COLORSWAP', false)
     this.$store.commit('sidemenu/HIDE_SIDEBAR', false)
   }
 }

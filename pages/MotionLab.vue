@@ -15,8 +15,8 @@
         @mouseleave="hoverMotionLab = false"
       >
         <h3 class="motionlab">
-          Motion<span class="ml-yellow">L</span><span class="ml-red">A</span
-          ><span class="ml-blue">B</span>
+          Motion<span class="ml-yellow">L</span><span class="ml-red">a</span
+          ><span class="ml-blue">b</span>
           <!-- Motion<span :class="{ 'ml-yellow': hoverMotionLab }">L</span
           ><span :class="{ 'ml-red': hoverMotionLab }">A</span
           ><span :class="{ 'ml-blue': hoverMotionLab }">B</span> -->
@@ -57,6 +57,7 @@ export default {
   },
   mounted() {
     // Hide side bar
+    this.$store.commit('navigator/SET_COLORSWAP', false)
     this.$store.commit('sidemenu/SetState', false)
     this.$store.commit('sidemenu/HIDE_SIDEBAR', true)
   }
@@ -88,8 +89,15 @@ export default {
   }
 
   h3 {
+    color: $motionlab-black;
     margin: 1em;
     transition: transform 0.4s, filter 0.8s;
+    background-color: transparentize(
+      $color: (
+        $motionlab-purple
+      ),
+      $amount: 1
+    );
 
     .ml-yellow .ml-red .ml-blue {
       color: $motionlab-black;
@@ -98,7 +106,14 @@ export default {
     &:hover {
       font-style: italic;
       transform: translateX(0.5%) scale(1.005);
-      filter: drop-shadow(3px 3px 1px $color-shadow);
+      filter: drop-shadow(5px 5px 0px transparentize(#000, 0.8));
+      background-color: transparentize(
+        $color: (
+          $motionlab-purple
+        ),
+        $amount: 0
+      );
+      color: $base-color;
 
       .ml-yellow {
         color: $motionlab-yellow;
@@ -126,7 +141,6 @@ export default {
 
 .motionlab-container {
   width: 100%;
-  // transform: scale(110%);
   overflow: hidden;
 }
 </style>

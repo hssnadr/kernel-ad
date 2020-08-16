@@ -91,13 +91,7 @@ export default {
   h3 {
     color: $motionlab-black;
     margin: 1em;
-    transition: transform 0.4s, filter 0.8s;
-    background-color: transparentize(
-      $color: (
-        $motionlab-purple
-      ),
-      $amount: 1
-    );
+    transition: all 0.4s ease-out; //transform 0.4s, filter 0.8s;
 
     .ml-yellow .ml-red .ml-blue {
       color: $motionlab-black;
@@ -105,14 +99,9 @@ export default {
 
     &:hover {
       font-style: italic;
-      transform: translateX(0.5%) scale(1.005);
-      filter: drop-shadow(5px 5px 0px transparentize(#000, 0.8));
-      background-color: transparentize(
-        $color: (
-          $motionlab-purple
-        ),
-        $amount: 0
-      );
+      transform: translateX(-0.25%) scale(1.005);
+      @include text-stroke($color: $motionlab-purple, $thikness: 1px);
+      filter: drop-shadow(3px 3px 0px transparentize($motionlab-purple, 0.7));
       color: $base-color;
 
       .ml-yellow {

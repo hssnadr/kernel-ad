@@ -25,12 +25,12 @@
 	<g @mouseover="movuina=true" @mouseleave="movuina=false" @click="goURL('http://www.movuino.com/#movuina')">
 		<svg-movuina />
 	</g>
-	<g @mouseover="aphp=true" @mouseleave="aphp=false">
-		<svg-aphp />
-	</g>
 	<g @mouseover="streamo=true" @mouseleave="streamo=false" @click="goURL('http://www.movuino.com/#streamo')">
 		<svg-streamo />
 	</g>
+	<g @mouseover="aphp=true" @mouseleave="aphp=false">
+		<svg-aphp />
+	</g>	
 	<g @mouseover="hitbox=true" @mouseleave="hitbox=false" @click="goURL('http://hitbox.tech/')">
 		<g id="hitbox" v-if="hitbox===false">
 			<polygon style="display:none;fill:#FFFFFF;" points="1059.6,1129.66 1059.6,857.57 681.6,857.57 634.06,905.12 634.06,991.63 
@@ -8666,14 +8666,6 @@ export default {
   opacity: 0;
 }
 
-// #montessori {
-	// opacity: 1;
-	// transition: 0.5s;
-  // &:hover {
-  //   opacity: 0;
-  // }
-// }
-
 #MOVUINO {
 	&:hover {
 		cursor: pointer;
@@ -8682,8 +8674,7 @@ export default {
 
 #montessori {
 	cursor: pointer;
-	// opacity: 0;
-	transition: 0.5s;
+	transition: all 0.5s;
 
 	.arrows {
 			stroke: $motionlab-black;
@@ -8692,7 +8683,7 @@ export default {
 
 			stroke-dasharray: 500; // 680;
   		stroke-dashoffset: 500; // -100; // 680;
-			transition : stroke-dashoffset 0.5s;
+			transition : stroke-dashoffset 0.8s;
 		}
 		.hover {
 			fill: lightgreen; //$base-color;
@@ -8716,7 +8707,7 @@ export default {
 		}
 		.arrows {
 			stroke-dashoffset: 0;
-			transition : stroke-dashoffset 1s;
+			// transition : stroke-dashoffset 1s;
 		}
   }
 }
@@ -8724,60 +8715,118 @@ export default {
 #sensorskit {
 	@extend #montessori ;
 
-	// #sensorskit-arrows {
-	// 	stroke-dasharray: 1500; // 680;
-	// 	stroke-dashoffset: -50; // 680;
-	// 	transition : stroke-dashoffset 0.5s;
-	// }
+	.arrows {
+		stroke-dasharray: 270; // 680;
+		stroke-dashoffset: 270; // -30; // -50; // 680;
+		// transition : all 0.2s;
+	}
 
-	// &:hover {
-	// 	#sensorskit-arrows {
-	// 		stroke-dashoffset: 0;
-	// 		transition : stroke-dashoffset 0.8s;
-	// 	}
-	// }
+	.hover {
+		stroke: $motionlab-yellow;
+	}
+
+	&:hover {
+		.arrows {
+			stroke-dashoffset: 0;
+			// transition : all 0.2s;
+		}
+	}
 }
 
 #rgblamp {
 	@extend #montessori ;
 
-	// #rgblamp-arrows {
-	// 	stroke-dasharray: 700; // 680;
-  // 		stroke-dashoffset: -50; // 300;
-	// 	transition : stroke-dashoffset 0.5s;
-	// }
+	.arrows {
+		stroke-dasharray: 380; // 680;
+  	stroke-dashoffset: 380; // 300;
+	}
 
-	// &:hover {
-	// 	#rgblamp-arrows {
-	// 		stroke-dashoffset: 0;
-	// 		// transition : stroke-dashoffset 2s;
-	// 	}
-	// }
+	.hover {
+		stroke: $motionlab-red;
+	}
+
+	&:hover {
+		.arrows {
+			stroke-dashoffset: 0;
+		}
+	}
 }
 
-// #balanceboard {
-// 	@extend #montessori ;
-// }
 #balanceboard {
 	@extend #montessori ;
 
-	// #balanceboard-arrows {
-	// 	stroke-dasharray: 1500; // 720;
-  // 		stroke-dashoffset: -100;
-	// 	transition : stroke-dashoffset 0.5s;
-	// }
+	.arrows {
+		stroke-dasharray: 450; // 720;
+  	stroke-dashoffset: 450;
+	}
 
-	// &:hover {
-	// 	#balanceboard-arrows {
-	// 		stroke-dashoffset: 0;
-	// 		transition : stroke-dashoffset 0.8s;
-	// 	}
-	// }
+	.hover {
+		stroke: $motionlab-red;
+	}
+
+	&:hover {
+		.arrows {
+			stroke-dashoffset: 0;
+		}
+	}
 }
 
-// #hitbox {
-// 	@extend #montessori ;
-// }
+#movuina {
+	@extend #montessori ;
+
+	.arrows {
+		stroke-dasharray: 450; // 600;
+  	stroke-dashoffset: 450; // 400;
+	}
+
+	.hover {
+		stroke: $motionlab-purple;
+	}
+
+	&:hover {
+		.arrows {
+			stroke-dashoffset: 0;
+		}
+	}
+}
+
+#streamo {
+	@extend #montessori ;
+
+	.arrows {
+		stroke-dasharray: 990;
+		stroke-dashoffset: 990;
+	}
+
+	.hover {
+		stroke: $motionlab-red;
+	}
+
+	&:hover {
+		.arrows {
+			stroke-dashoffset: 0;
+		}
+	}
+}
+
+#aphp {
+	@extend #montessori ;
+
+	.arrows {
+			stroke-dasharray: 280; // 400;
+  		stroke-dashoffset: 280; // 400;
+	}
+
+	.hover {
+		stroke: $motionlab-purple;
+	}
+
+	&:hover {
+		.arrows {
+			stroke-dashoffset: 0;
+		}
+	}
+}
 
 #hitbox-hover {
 	&:hover {
@@ -8790,64 +8839,5 @@ export default {
 }
 .fade-hitbox-enter, .fade-hitbox-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
-}
-
-#movuina {
-	@extend #montessori ;
-
-	// #movuina-arrows {
-	// 	stroke-dasharray: 1500; // 600;
-  // 		stroke-dashoffset: -70; // 400;
-	// 	transition : stroke-dashoffset 0.5s;
-	// }
-
-	// &:hover {
-	// 	#movuina-arrows {
-	// 		stroke-dashoffset: 0;
-	// 		transition : stroke-dashoffset 0.7s;
-	// 	}
-	// }
-}
-
-#streamo {
-	@extend #montessori ;
-
-	// #streamo-arrows {
-	// 	stroke-dasharray: 1500;
-  // 		stroke-dashoffset: 150;
-	// 	transition : stroke-dashoffset 0.5s;
-	// }
-
-	// &:hover {
-	// 	#streamo-arrows {
-	// 		stroke-dashoffset: 0;
-	// 		transition : stroke-dashoffset 2s;
-	// 	}
-	// }
-}
-
-// #sensorkit {
-// 	@extend #montessori ;
-// }
-
-
-// #aphp {
-// 	@extend #montessori ;
-// }
-#aphp {
-	@extend #montessori ;
-
-	// #aphp-arrows {
-	// 		stroke-dasharray: 1500; // 400;
-  // 		stroke-dashoffset: -40; // 400;
-	// 		transition : stroke-dashoffset 0.5s;
-	// }
-
-	// &:hover {
-	// 	#aphp-arrows {
-	// 		stroke-dashoffset: 0;
-	// 		transition : stroke-dashoffset 0.5s;
-	// 	}
-	// }
 }
 </style>

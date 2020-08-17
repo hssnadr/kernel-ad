@@ -19,17 +19,17 @@
 	<g @mouseover="sensorskit=true" @mouseleave="sensorskit=false" @click="goURL('http://www.movuino.com/index.php/portfolio/sensors-kit/')">
 		<svg-sensorskit />
 	</g>
+	<g @mouseover="rgblamp=true" @mouseleave="rgblamp=false" @click="goURL('http://www.movuino.com/index.php/portfolio/rgb-lamp/')">
+		<svg-rgblamp />
+	</g>
+	<g @mouseover="movuina=true" @mouseleave="movuina=false" @click="goURL('http://www.movuino.com/#movuina')">
+		<svg-movuina />
+	</g>
 	<g @mouseover="aphp=true" @mouseleave="aphp=false">
 		<svg-aphp />
 	</g>
 	<g @mouseover="streamo=true" @mouseleave="streamo=false" @click="goURL('http://www.movuino.com/#streamo')">
 		<svg-streamo />
-	</g>
-	<g @mouseover="movuina=true" @mouseleave="movuina=false" @click="goURL('http://www.movuino.com/#movuina')">
-		<svg-movuina />
-	</g>
-	<g @mouseover="rgblamp=true" @mouseleave="rgblamp=false" @click="goURL('http://www.movuino.com/index.php/portfolio/rgb-lamp/')">
-		<svg-rgblamp />
 	</g>
 	<g @mouseover="hitbox=true" @mouseleave="hitbox=false" @click="goURL('http://hitbox.tech/')">
 		<g id="hitbox" v-if="hitbox===false">
@@ -8680,64 +8680,99 @@ export default {
 	}
 }
 
-#montessori-hover {
+#montessori {
 	cursor: pointer;
-	opacity: 0;
+	// opacity: 0;
 	transition: 0.5s;
 
-	#montessori-arrows {
-			stroke-dasharray: 700; // 680;
-  			stroke-dashoffset: -100; // 680;
+	.arrows {
+			stroke: $motionlab-black;
+			stroke-width: 3px;
+			fill: none ;
+
+			stroke-dasharray: 500; // 680;
+  		stroke-dashoffset: 500; // -100; // 680;
 			transition : stroke-dashoffset 0.5s;
+		}
+		.hover {
+			fill: lightgreen; //$base-color;
+			stroke-width: 8px;
+			stroke: $motionlab-blue;
+
+			opacity: 0;
+		}
+		.normal {
+			stroke: $motionlab-black;
+			stroke-width: 0.5px;
+			fill: $base-color;
 		}
 
   &:hover {
-    opacity: 1;
-		#montessori-arrows {
+		// .normal {
+		// 	filter: drop-shadow(3px 3px 0px transparentize(black, 0.8));
+		// }
+		.hover {
+			opacity: 1;
+		}
+		.arrows {
 			stroke-dashoffset: 0;
 			transition : stroke-dashoffset 1s;
 		}
   }
 }
 
-// #rgblamp {
-// 	@extend #montessori ;
-// }
-#rgblamp-hover {
-	@extend #montessori-hover ;
+#sensorskit {
+	@extend #montessori ;
 
-	#rgblamp-arrows {
-		stroke-dasharray: 700; // 680;
-  		stroke-dashoffset: -50; // 300;
-		transition : stroke-dashoffset 0.5s;
-	}
+	// #sensorskit-arrows {
+	// 	stroke-dasharray: 1500; // 680;
+	// 	stroke-dashoffset: -50; // 680;
+	// 	transition : stroke-dashoffset 0.5s;
+	// }
 
-	&:hover {
-		#rgblamp-arrows {
-			stroke-dashoffset: 0;
-			// transition : stroke-dashoffset 2s;
-		}
-	}
+	// &:hover {
+	// 	#sensorskit-arrows {
+	// 		stroke-dashoffset: 0;
+	// 		transition : stroke-dashoffset 0.8s;
+	// 	}
+	// }
+}
+
+#rgblamp {
+	@extend #montessori ;
+
+	// #rgblamp-arrows {
+	// 	stroke-dasharray: 700; // 680;
+  // 		stroke-dashoffset: -50; // 300;
+	// 	transition : stroke-dashoffset 0.5s;
+	// }
+
+	// &:hover {
+	// 	#rgblamp-arrows {
+	// 		stroke-dashoffset: 0;
+	// 		// transition : stroke-dashoffset 2s;
+	// 	}
+	// }
 }
 
 // #balanceboard {
 // 	@extend #montessori ;
 // }
-#balanceboard-hover {
-	@extend #montessori-hover ;
+#balanceboard {
+	@extend #montessori ;
 
-	#balanceboard-arrows {
-		stroke-dasharray: 1500; // 720;
-  		stroke-dashoffset: -100;
-		transition : stroke-dashoffset 0.5s;
-	}
+	// #balanceboard-arrows {
+	// 	stroke-dasharray: 1500; // 720;
+  // 		stroke-dashoffset: -100;
+	// 	transition : stroke-dashoffset 0.5s;
+	// }
 
-	&:hover {
-		#balanceboard-arrows {
-			stroke-dashoffset: 0;
-			transition : stroke-dashoffset 0.8s;
-		}
-	}
+	// &:hover {
+	// 	#balanceboard-arrows {
+	// 		stroke-dashoffset: 0;
+	// 		transition : stroke-dashoffset 0.8s;
+	// 	}
+	// }
 }
 
 // #hitbox {
@@ -8757,80 +8792,62 @@ export default {
   opacity: 0;
 }
 
-// #movuina {
-// 	@extend #montessori ;
-// }
-#movuina-hover {
-	@extend #montessori-hover ;
+#movuina {
+	@extend #montessori ;
 
-	#movuina-arrows {
-		stroke-dasharray: 1500; // 600;
-  		stroke-dashoffset: -70; // 400;
-		transition : stroke-dashoffset 0.5s;
-	}
+	// #movuina-arrows {
+	// 	stroke-dasharray: 1500; // 600;
+  // 		stroke-dashoffset: -70; // 400;
+	// 	transition : stroke-dashoffset 0.5s;
+	// }
 
-	&:hover {
-		#movuina-arrows {
-			stroke-dashoffset: 0;
-			transition : stroke-dashoffset 0.7s;
-		}
-	}
+	// &:hover {
+	// 	#movuina-arrows {
+	// 		stroke-dashoffset: 0;
+	// 		transition : stroke-dashoffset 0.7s;
+	// 	}
+	// }
 }
 
-#streamo-hover {
-	@extend #montessori-hover ;
+#streamo {
+	@extend #montessori ;
 
-	#streamo-arrows {
-		stroke-dasharray: 1500;
-  		stroke-dashoffset: 150;
-		transition : stroke-dashoffset 0.5s;
-	}
+	// #streamo-arrows {
+	// 	stroke-dasharray: 1500;
+  // 		stroke-dashoffset: 150;
+	// 	transition : stroke-dashoffset 0.5s;
+	// }
 
-	&:hover {
-		#streamo-arrows {
-			stroke-dashoffset: 0;
-			transition : stroke-dashoffset 2s;
-		}
-	}
+	// &:hover {
+	// 	#streamo-arrows {
+	// 		stroke-dashoffset: 0;
+	// 		transition : stroke-dashoffset 2s;
+	// 	}
+	// }
 }
 
 // #sensorkit {
 // 	@extend #montessori ;
 // }
-#sensorskit-hover {
-	@extend #montessori-hover ;
 
-	#sensorskit-arrows {
-		stroke-dasharray: 1500; // 680;
-  		stroke-dashoffset: -50; // 680;
-		transition : stroke-dashoffset 0.5s;
-	}
-
-	&:hover {
-		#sensorskit-arrows {
-			stroke-dashoffset: 0;
-			transition : stroke-dashoffset 0.8s;
-		}
-	}
-}
 
 // #aphp {
 // 	@extend #montessori ;
 // }
-#aphp-hover {
-	@extend #montessori-hover ;
+#aphp {
+	@extend #montessori ;
 
-	#aphp-arrows {
-			stroke-dasharray: 1500; // 400;
-  		stroke-dashoffset: -40; // 400;
-			transition : stroke-dashoffset 0.5s;
-	}
+	// #aphp-arrows {
+	// 		stroke-dasharray: 1500; // 400;
+  // 		stroke-dashoffset: -40; // 400;
+	// 		transition : stroke-dashoffset 0.5s;
+	// }
 
-	&:hover {
-		#aphp-arrows {
-			stroke-dashoffset: 0;
-			transition : stroke-dashoffset 0.5s;
-		}
-	}
+	// &:hover {
+	// 	#aphp-arrows {
+	// 		stroke-dashoffset: 0;
+	// 		transition : stroke-dashoffset 0.5s;
+	// 	}
+	// }
 }
 </style>

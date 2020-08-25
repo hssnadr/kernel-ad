@@ -1,6 +1,17 @@
 <template>
   <div>
     <!-- <header id="hitbox-header"></header> -->
+    <div class="hitbox-background1"></div>
+
+    <vimeo-player
+      ref="player"
+      :video-id="450028533"
+      :player-width="1200"
+      :autoplay="true"
+      :controls="false"
+      :loop="true"
+    />
+
     <div
       v-for="index in 5"
       :key="index"
@@ -16,6 +27,8 @@ export default {
     this.$store.commit('navigator/SET_COLORSWAP', true)
     this.$store.commit('sidemenu/SetState', false)
     this.$store.commit('sidemenu/HIDE_SIDEBAR', true)
+
+    this.$refs.player.mute() // mute video
   }
 }
 </script>

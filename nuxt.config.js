@@ -47,7 +47,8 @@ export default {
     { src: '~/plugins/v-tooltype' },
     // { src: '~/plugins/double-slider' },
     // { src: '~/plugins/vue-headroom' },
-    { src: '~/plugins/global-components' }
+    { src: '~/plugins/global-components' },
+    { src: '~/plugins/vue-vimeo-player', ssr: false }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -82,7 +83,8 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {},
+    vendor: ['vue-vimeo-player']
   },
   styleResources: {
     scss: ['assets/css/*.scss']

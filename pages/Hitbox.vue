@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <header id="hitbox-header"></header> -->
-    <div class="hitbox-background1"></div>
+    <!-- <div class="hitbox-background1"></div>
 
     <vimeo-player
       ref="player"
@@ -10,7 +10,7 @@
       :autoplay="true"
       :controls="false"
       :loop="true"
-    />
+    /> -->
 
     <div
       v-for="index in 5"

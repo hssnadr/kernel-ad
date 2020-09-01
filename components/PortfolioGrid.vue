@@ -124,7 +124,7 @@ export default {
 .modal {
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 10; /* Sit on top */
+  z-index: 9000; /* Sit on top */
   // padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;

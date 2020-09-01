@@ -79,7 +79,7 @@ export default {
 #navigator {
   top: 0;
   right: 0;
-  z-index: 9999;
+  z-index: 8000;
   display: flex;
   width: 50%;
   justify-content: flex-end;

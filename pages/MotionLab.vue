@@ -1,6 +1,6 @@
 <template>
   <div id="motionlab">
-    <header class="motionlab-header">
+    <header class="motionlab-header justify-center">
       <cri-logo class="logo-cri" />
       <p>
         The CRI is co-constructing and sharing new ways of learning, teaching,
@@ -73,9 +73,6 @@ export default {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto 10vw auto;
-
-  text-align: justify;
-  text-align-last: center;
 
   .logo-cri {
     margin: 0 auto;

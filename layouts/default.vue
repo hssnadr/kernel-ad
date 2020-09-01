@@ -19,9 +19,9 @@
         Hitbox
       </NuxtLink>
 
-      <!-- <NuxtLink to="/About">
+      <NuxtLink to="/About">
         About
-      </NuxtLink> -->
+      </NuxtLink>
 
       <!-- <h1>
         <NuxtLink to="/KernelError">

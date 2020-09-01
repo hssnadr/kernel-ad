@@ -1,22 +1,30 @@
 <template>
   <div>
     <!-- <header id="hitbox-header"></header> -->
-    <!-- <div class="hitbox-background1"></div>
+    <div class="hitbox-background1"></div>
+    <!-- style="background-attachment: scroll;" -->
 
-    <vimeo-player
-      ref="player"
-      :video-id="450028533"
-      :player-width="1200"
-      :autoplay="true"
-      :controls="false"
-      :loop="true"
-    /> -->
+    <!-- VIDEO -->
+    <div class="iframe-container">
+      <iframe
+        src="https://player.vimeo.com/video/450028533?autoplay=1&title=0&byline=0&portrait=0"
+        class="responsive-iframe"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+      ></iframe>
+    </div>
 
-    <div
+    <div class="hitbox-background2"></div>
+    <div class="hitbox-background3"></div>
+    <div class="hitbox-background4"></div>
+    <div class="hitbox-background5"></div>
+
+    <!-- <div
       v-for="index in 5"
       :key="index"
       :class="'hitbox-background' + index"
-    ></div>
+    ></div> -->
   </div>
 </template>
 
@@ -27,8 +35,6 @@ export default {
     this.$store.commit('navigator/SET_COLORSWAP', true)
     this.$store.commit('sidemenu/SetState', false)
     this.$store.commit('sidemenu/HIDE_SIDEBAR', true)
-
-    this.$refs.player.mute() // mute video
   }
 }
 </script>

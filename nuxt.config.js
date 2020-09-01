@@ -47,8 +47,7 @@ export default {
     { src: '~/plugins/v-tooltype' },
     // { src: '~/plugins/double-slider' },
     // { src: '~/plugins/vue-headroom' },
-    { src: '~/plugins/global-components' },
-    { src: '~/plugins/vue-vimeo-player', ssr: false }
+    { src: '~/plugins/global-components' }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -58,7 +57,6 @@ export default {
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module'
-    // '@nuxtjs/vuetify'
   ],
   /*
    ** Nuxt.js modules
@@ -83,8 +81,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {},
-    vendor: ['vue-vimeo-player']
+    extend(config, ctx) {}
   },
   styleResources: {
     scss: ['assets/css/*.scss']

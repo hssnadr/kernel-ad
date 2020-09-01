@@ -57,7 +57,7 @@ export default {
   .adrienhusson {
     height: 100vh;
     width: 31%;
-    background-image: url('~assets/about/adrienhusson.jpg');
+    background-image: url('~assets/about/AdrienHusson.jpg');
     background-attachment: fixed;
     background-position: -10% 50%;
     background-repeat: no-repeat;

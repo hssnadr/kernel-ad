@@ -137,7 +137,7 @@ export default {
 
   .overview {
     width: 100%;
-    height: 180vh;
+    height: 200vh;
     // background: $primary-color;
     color: $base-color;
     display: flex;

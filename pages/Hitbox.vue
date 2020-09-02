@@ -15,35 +15,31 @@
       ></iframe>
     </div>
 
-    <!-- <div class="hitbox-background2"></div> -->
-
     <div class="overview justify-center hitbox-background2">
-      <div class="color-background">
-        <div class="content">
-          <cri-logo class="cri-logo" />
-          <p>
-            Hitbox was developed at the Center for Research and
-            Interdisciplinarity (CRI) based in Paris. This laboratory
-            experiments and spreads new ways of learning, teaching, conducting
-            research and mobilizing collective intelligence in life, learning
-            and digital sciences.
-          </p>
-          <p>
-            With Hitbox, the former purpose is to explore ways to interact with
-            technologies in an education process involving the body. Connecting
-            several Hitbox together allows to create innovative boxing scenarios
-            where beginners interact with each others without risk of injuries.
-            The integrated and interactive screen drive their learning through
-            specific scenarios addressing specific aspect of boxing: movement,
-            reactivity, strength…
-          </p>
-          <p>
-            Based on a crossed approach research / design / engineering, Hitbox
-            is now dedicated to explore new interaction by developing various
-            immersive and tangible digital spaces for any kind of application:
-            health, communication, events…
-          </p>
-        </div>
+      <div class="content">
+        <cri-logo class="cri-logo" />
+        <p>
+          Hitbox was developed at the Center for Research and
+          Interdisciplinarity (CRI) based in Paris. This laboratory experiments
+          and spreads new ways of learning, teaching, conducting research and
+          mobilizing collective intelligence in life, learning and digital
+          sciences.
+        </p>
+        <p>
+          With Hitbox, the former purpose is to explore ways to interact with
+          technologies in an education process involving the body. Connecting
+          several Hitbox together allows to create innovative boxing scenarios
+          where beginners interact with each others without risk of injuries.
+          The integrated and interactive screen drive their learning through
+          specific scenarios addressing specific aspect of boxing: movement,
+          reactivity, strength…
+        </p>
+        <p>
+          Based on a crossed approach research / design / engineering, Hitbox is
+          now dedicated to explore new interaction by developing various
+          immersive and tangible digital spaces for any kind of application:
+          health, communication, events…
+        </p>
       </div>
     </div>
 
@@ -141,32 +137,28 @@ export default {
 
   .overview {
     width: 100%;
-    min-height: 180vh;
+    height: 180vh;
     // background: $primary-color;
-    // color: $base-color;
+    color: $base-color;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
 
-    .color-background {
-      width: 100%;
-      height: 100%;
-      background: transparentize($color: #fff, $amount: 0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .content {
+      width: 45%;
+      // margin: 0 auto;
+      padding: 0 5rem;
 
-      .content {
-        width: 50%;
-        // margin: 0 auto;
-        // padding: 50px 0;
+      .cri-logo {
+        display: block;
+        width: 400px;
+        margin: 0 auto 4rem auto;
+      }
 
-        .cri-logo {
-          display: block;
-          width: 400px;
-          margin: 0 auto 4rem auto;
-        }
-
-        p {
-          margin-bottom: 2rem;
-        }
+      p {
+        margin-bottom: 2rem;
+        filter: drop-shadow(2px 2px 1px #000);
       }
     }
   }

@@ -1,18 +1,20 @@
 <template>
-  <div>
-    <header style="height: 50px;">
-      <!-- logo -->
+  <div id="index">
+    <header>
+      <ah-logo class="logo" />
     </header>
     <portfolio-grid />
   </div>
 </template>
 
 <script>
+import AhLogo from '~/components/ah-logo.vue'
 import PortfolioGrid from '~/components/PortfolioGrid.vue'
 
 export default {
   components: {
-    PortfolioGrid
+    PortfolioGrid,
+    AhLogo
   },
 
   data() {
@@ -29,7 +31,11 @@ export default {
 </script>
 
 <style lang="scss">
-.title {
-  color: $secondary-color;
+#index {
+  .logo {
+    display: block;
+    width: 80px;
+    margin: 100px auto 80px auto;
+  }
 }
 </style>

@@ -8,9 +8,9 @@
       tag="ul"
     >
       <Cardboard
-        v-for="prj_ in displayProjects"
-        :key="prj_.id"
-        :project="prj_"
+        v-for="id_ in displayProjects"
+        :key="id_"
+        :projectid="id_"
         class="item-project"
         @selected="WatchProject"
       />
@@ -57,7 +57,7 @@ export default {
       return isEmpt_
     },
     ...mapGetters({
-      displayProjects: 'projects/selectedProjects'
+      displayProjects: 'projects/selectedProjectsId'
     })
   },
   mounted() {
@@ -93,7 +93,7 @@ export default {
   min-height: 80vh;
   align-content: center;
 
-  padding: 20px;
+  padding: 0 20px;
 }
 
 .item-project {

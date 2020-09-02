@@ -2,22 +2,22 @@
   <div class="card" :style="cardBackground">
     <div class="card-content" @click="emitProject()">
       <div class="top-content">
-        <h2>{{ project.title }}</h2>
+        <h2>{{ dataProject.title }}</h2>
         <h3 v-if="refName(institute) !== ''">{{ refName(institute) }}</h3>
         <span class="format">
-          <p>{{ project.format[0] }} project &bull; {{ years }}</p>
+          <p>{{ dataProject.format[0] }} project &bull; {{ years }}</p>
         </span>
         <div class="line-break"></div>
         <div class="description">
           <p>
-            {{ project.description }}
+            {{ dataProject.description }}
           </p>
         </div>
       </div>
 
       <div class="bottom-content">
         <div class="tools-icon">
-          <div v-for="tool_ in project.tools" :key="tool_">
+          <div v-for="tool_ in dataProject.tools" :key="tool_">
             <component
               :is="'icon-' + tool_"
               v-if="isFile('icon-' + tool_)"
@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="skills">
-          <span v-for="skill_ in project.skills" :key="skill_">
+          <span v-for="skill_ in dataProject.skills" :key="skill_">
             {{ skill_ }}
           </span>
         </div>
@@ -38,9 +38,9 @@
 <script>
 export default {
   props: {
-    project: {
-      type: Object,
-      default: null,
+    projectid: {
+      type: String,
+      default: '',
       required: true
     }
   },
@@ -48,40 +48,47 @@ export default {
     return {
       cardBackground: {
         backgroundImage: "url('https://via.placeholder.com/320x450')"
-      }
+      },
+      dataProject: null
     }
   },
   computed: {
     thumbnail() {
-      return this.$store.getters['projects/getThumbnailById'](this.project.id)
+      return this.$store.getters['projects/getThumbnailById'](
+        this.dataProject.id
+      )
     },
     years() {
       let years_ = 'unknown'
-      if (this.project.years.y0 !== this.project.years.y1) {
-        years_ = this.project.years.y0 + ' - ' + this.project.years.y1
+      if (this.dataProject.years.y0 !== this.dataProject.years.y1) {
+        years_ = this.dataProject.years.y0 + ' - ' + this.dataProject.years.y1
       } else {
-        years_ = this.project.years.y0
+        years_ = this.dataProject.years.y0
       }
 
       return years_
     },
     institute() {
       let institute_ = ''
-      if (this.project.institutes !== null) {
-        institute_ = this.project.institutes[0]
+      if (this.dataProject.institutes !== null) {
+        institute_ = this.dataProject.institutes[0]
       }
       return institute_
     }
   },
   created() {
+    this.dataProject = this.$store.getters['projects/getProjectByid'](
+      this.projectid
+    )
+
     this.cardBackground.backgroundImage =
       'url(' +
-      this.$store.getters['projects/getThumbnailById'](this.project.id) +
+      this.$store.getters['projects/getThumbnailById'](this.dataProject.id) +
       ')'
   },
   methods: {
     emitProject() {
-      this.$emit('selected', { id: this.project.id })
+      this.$emit('selected', { id: this.dataProject.id })
     },
     isFile(file_) {
       return file_ in this.$options.components
@@ -186,101 +193,4 @@ export default {
     color: transparentize($color: $base-color, $amount: 0.2);
   }
 }
-
-/*
-.card .card-content:after,
-.card .card-content:before {
-  content: '';
-  width: 100px;
-  height: 50px;
-  position: absolute;
-  opacity: 0;
-  transform: scale(1.5);
-  transition: all 0.6s ease 0.3s;
-}
-.card .card-content:before {
-  border-left: 1px solid #a01f1f;
-  border-top: 1px solid #a01f1f;
-  top: 19px;
-  left: 19px;
-}
-.card .card-content:after {
-  border-bottom: 1px solid #56ec48;
-  border-right: 1px solid #56ec48;
-  bottom: 19px;
-  right: 19px;
-}
-.card:hover .card-content:after,
-.card:hover .card-content:before {
-  opacity: 1;
-  transform: scale(1);
-}
-.card .title {
-  font-size: 22px;
-  color: #000;
-  margin: 0;
-  position: relative;
-  top: 0;
-  opacity: 0;
-  transition: all 1s ease 10ms;
-}
-.card:hover .title {
-  top: 39%;
-  opacity: 1;
-  transition: all 0.5s cubic-bezier(1, -0.53, 0.405, 1.425) 10ms;
-}
-.card .title:after {
-  content: '';
-  width: 0;
-  height: 1px;
-  background: #040404;
-  position: absolute;
-  bottom: -8px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  transition: all 1s ease 0s;
-}
-.card:hover .title:after {
-  width: 80%;
-  transition: all 1s ease 0.8s;
-}
-.card .icon {
-  width: 100%;
-  margin: 0 auto;
-  position: absolute;
-  bottom: 0;
-  opacity: 0;
-  transition-duration: 0.6s;
-  transition-timing-function: cubic-bezier(1, -0.53, 0.405, 1.425);
-  transition-delay: 0.1s;
-}
-.card:hover .icon {
-  bottom: 39%;
-  opacity: 1;
-}
-.card .icon li {
-  display: inline-block;
-}
-.card .icon li a {
-  display: block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  border-radius: 50%;
-  font-size: 18px;
-  color: #000;
-  border: 1px solid #000;
-  margin-right: 5px;
-  transition: all 0.3s ease-in-out 0s;
-}
-.card .icon li a:hover {
-  background: #000;
-  color: #fff;
-} */
-/* @media only screen and (max-width: 990px) {
-  .card {
-    margin-bottom: 30px;
-  }
-} */
 </style>

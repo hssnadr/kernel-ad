@@ -42,3 +42,25 @@
     />
   </svg>
 </template>
+
+<style lang="scss">
+#ahlogo {
+  stroke: $primary-color;
+  fill: none;
+  stroke-width: 3px;
+
+  animation: 1.2s ah-appear linear;
+  stroke-dasharray: 270;
+}
+
+@keyframes ah-appear {
+  0% {
+    opacity: 0;
+    stroke-dashoffset: 270;
+  }
+  100% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+</style>

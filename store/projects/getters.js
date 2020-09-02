@@ -2,6 +2,12 @@ export default {
   getCurrentProject: (state, getters) =>
     getters.getProjectByid(state.curProject),
 
+  getAllProjectsId: (state) => {
+    const allPrjId_ = []
+    state.allProjects.forEach((prj_) => allPrjId_.push(prj_.id))
+    return allPrjId_
+  },
+
   getProjectByid: (state) => (id_) => {
     return state.allProjects.find((prj_) => prj_.id === id_)
   },
@@ -174,9 +180,9 @@ export default {
     return allTls_
   },
 
-  selectedProjects(state) {
+  selectedProjectsId(state, getters) {
     const allPrj_ = state.allProjects
-    let selPrj_ = []
+    let selPrjId_ = []
     const filters_ = state.selFilters
 
     // YEARS
@@ -203,11 +209,11 @@ export default {
 
         if (state.selTypeFilters.includes(type_) && state_ === 'include') {
           fltYrs_.forEach((prj_) => {
-            if (!selPrj_.includes(prj_)) {
+            if (!selPrjId_.includes(prj_.id)) {
               if (Object.prototype.hasOwnProperty.call(prj_, type_)) {
                 if (prj_[type_] != null) {
                   if (prj_[type_].includes(name_)) {
-                    selPrj_.push(prj_) // add project
+                    selPrjId_.push(prj_.id) // add project
                   }
                 }
               }
@@ -224,11 +230,11 @@ export default {
 
         if (state.selTypeFilters.includes(type_) && state_ === 'add') {
           fltYrs_.forEach((prj_) => {
-            if (!selPrj_.includes(prj_)) {
+            if (!selPrjId_.includes(prj_.id)) {
               if (Object.prototype.hasOwnProperty.call(prj_, type_)) {
                 if (prj_[type_] != null) {
                   if (prj_[type_].includes(name_)) {
-                    selPrj_.push(prj_) // add project
+                    selPrjId_.push(prj_.id) // add project
                   }
                 }
               }
@@ -238,8 +244,8 @@ export default {
       })
 
       // If no project selected return all projects
-      if (selPrj_.length === 0) {
-        selPrj_ = allPrj_
+      if (selPrjId_.length === 0) {
+        selPrjId_ = getters.getAllProjectsId()
       }
 
       // Exclude
@@ -250,7 +256,7 @@ export default {
 
         if (state.selTypeFilters.includes(type_) && state_ === 'exclude') {
           fltYrs_.forEach((prj_) => {
-            if (selPrj_.includes(prj_)) {
+            if (selPrjId_.includes(prj_.id)) {
               if (Object.prototype.hasOwnProperty.call(prj_, type_)) {
                 if (prj_[type_] != null) {
                   if (prj_[type_].includes(name_)) {
@@ -264,9 +270,9 @@ export default {
         }
       })
     } else {
-      selPrj_ = fltYrs_ // all projects if no selection
+      fltYrs_.forEach((prj_) => selPrjId_.push(prj_.id)) // all projects if no selection
     }
 
-    return selPrj_
+    return selPrjId_
   }
 }

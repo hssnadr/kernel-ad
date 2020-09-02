@@ -14,8 +14,6 @@
             French engineer and designer graduated from the Arts et Métiers
             ParisTech and Strate École de Design.
           </p>
-          <logo-strate class="cri-logo" />
-          <cardboard projectid="guken" class="item-project" />
           <p>
             In 2014 he developed the project Guken based on his diploma project
             mixing gesture recognition, sound design and sport training. This
@@ -23,7 +21,6 @@
             he met Joël Chevrier who proposed to him in 2016 to join the initial
             team of the MotionLab.
           </p>
-          <cri-logo class="cri-logo" />
           <p>
             Since then, he has been developing various projects exploring the
             forms and places of digital technologies into learning and health
@@ -33,6 +30,9 @@
             theoretical knowledge, physical practices and creation processes.
           </p>
         </div>
+        <logo-strate class="cri-logo" />
+        <cardboard projectid="guken" class="item-project" />
+        <cri-logo class="cri-logo" />
       </main>
     </div>
   </div>
@@ -59,11 +59,14 @@ export default {
 
 <style lang="scss">
 #About {
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
 
   .adrienhusson {
     height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 31%;
     background-image: url('~assets/about/AdrienHusson.jpg');
     background-attachment: fixed;
@@ -74,6 +77,7 @@ export default {
 
   .content {
     width: 69%;
+    margin-left: 31%;
 
     header {
       width: 100%;
@@ -96,10 +100,9 @@ export default {
         font-size: 2rem;
         margin: 2.1rem 0;
       }
-
-      .cri-logo {
-        width: 110px;
-      }
+    }
+    .cri-logo {
+      width: 110px;
     }
   }
 }

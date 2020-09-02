@@ -16,30 +16,46 @@
     </div>
 
     <div class="overview justify-center hitbox-background2">
-      <div class="content">
+      <div ref="overview" class="background-hover" :style="styleOveriew">
         <cri-logo class="cri-logo" />
-        <p>
-          Hitbox was developed at the Center for Research and
-          Interdisciplinarity (CRI) based in Paris. This laboratory experiments
-          and spreads new ways of learning, teaching, conducting research and
-          mobilizing collective intelligence in life, learning and digital
-          sciences.
-        </p>
-        <p>
-          With Hitbox, the former purpose is to explore ways to interact with
-          technologies in an education process involving the body. Connecting
-          several Hitbox together allows to create innovative boxing scenarios
-          where beginners interact with each others without risk of injuries.
-          The integrated and interactive screen drive their learning through
-          specific scenarios addressing specific aspect of boxing: movement,
-          reactivity, strength…
-        </p>
-        <p>
-          Based on a crossed approach research / design / engineering, Hitbox is
-          now dedicated to explore new interaction by developing various
-          immersive and tangible digital spaces for any kind of application:
-          health, communication, events…
-        </p>
+        <div class="content">
+          <p>
+            Hitbox was developed at the Center for Research and
+            Interdisciplinarity (CRI) based in Paris. This laboratory
+            experiments and spreads new ways of learning, teaching, conducting
+            research and mobilizing collective intelligence in life, learning
+            and digital sciences.
+          </p>
+          <p>
+            With Hitbox, the former purpose is to explore ways to interact with
+            technologies in an education process involving the body. Connecting
+            several Hitbox together allows to create innovative boxing scenarios
+            where beginners interact with each others without risk of injuries.
+            The integrated and interactive screen drive their learning through
+            specific scenarios addressing specific aspect of boxing: movement,
+            reactivity, strength…
+          </p>
+          <p>
+            Based on a crossed approach research / design / engineering, Hitbox
+            is now dedicated to explore new interaction by developing various
+            immersive and tangible digital spaces for any kind of application:
+            health, communication, events…
+          </p>
+        </div>
+        <div class="logos-institutes">
+          <img
+            src="~assets/logos/universite-paris.svg"
+            alt="logo-universite-paris"
+          />
+          <img
+            src="~assets/logos/paris-descartes.svg"
+            alt="logo-paris-descartes"
+          />
+          <img
+            src="~assets/logos/investissement-avenir.svg"
+            alt="logo-investissement-avenir"
+          />
+        </div>
       </div>
     </div>
 
@@ -57,7 +73,7 @@
 
 <script>
 import HitboxLogo from '~/components/hitbox/hitbox-logo.vue'
-import CriLogo from '~/components/motionlab/cri-logo.vue'
+import CriLogo from '~/components/hitbox/cri-logo-white.vue'
 
 export default {
   components: {
@@ -67,8 +83,29 @@ export default {
   data() {
     return {
       windowHeight: 0,
-      scrollY: 0
+      scrollY: 0,
+      yOverview: 0
     }
+  },
+  computed: {
+    styleOveriew() {
+      let viewOnOverview_ =
+        1 -
+        (this.yOverview + this.windowHeight - this.scrollY) /
+          (2 * this.windowHeight)
+      if (Math.abs(viewOnOverview_) > 1) {
+        viewOnOverview_ = 1 // constrain value (max)
+      }
+      viewOnOverview_ = 1.2 * viewOnOverview_ - 0.5 // offset value
+      if (viewOnOverview_ < 0) {
+        viewOnOverview_ = 0 // constrain value (min)
+      }
+      return { background: 'rgba(0,0,0,' + viewOnOverview_ + ')' }
+    }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.windowResize)
+    window.removeEventListener('scroll', this.scrollEvent)
   },
   mounted() {
     // Hide side bar
@@ -102,6 +139,10 @@ export default {
     },
     windowResize(event) {
       this.windowHeight = document.documentElement.clientHeight
+
+      // Overview position
+      this.yOverview =
+        this.$refs.overview.getBoundingClientRect().top + window.scrollY
     }
   }
 }
@@ -137,28 +178,42 @@ export default {
 
   .overview {
     width: 100%;
-    height: 200vh;
-    // background: $primary-color;
+    height: 220vh;
     color: $base-color;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    flex-wrap: wrap;
 
-    .content {
-      width: 45%;
-      // margin: 0 auto;
-      padding: 0 5rem;
+    .background-hover {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-content: center;
+      flex-wrap: wrap;
 
       .cri-logo {
         display: block;
-        width: 400px;
+        width: 420px;
         margin: 0 auto 4rem auto;
+        opacity: 1;
       }
 
-      p {
-        margin-bottom: 2rem;
-        filter: drop-shadow(2px 2px 1px #000);
+      .content {
+        width: 55%;
+        padding: 0 5rem;
+        opacity: 1;
+
+        p {
+          margin-bottom: 2rem;
+          filter: drop-shadow(2px 2px 1px #000);
+        }
+      }
+
+      .logos-institutes {
+        img {
+          height: 100px;
+          margin: 10px 10px 18vh 10px;
+        }
       }
     }
   }

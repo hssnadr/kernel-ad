@@ -145,7 +145,7 @@ export default {
   }
 
   .text {
-    animation: 2s hitbox-text-appear ease-out;
+    animation: 2.2s hitbox-text-appear ease-out;
     stroke-dasharray: 680;
     // fill: $hitbox-logo-color;
   }
@@ -167,8 +167,8 @@ export default {
       stroke-dashoffset: 680;
       fill: transparentize($color: $hitbox-logo-color, $amount: 1);
     }
-    50% {
-      fill: transparentize($color: $hitbox-logo-color, $amount: 0.3);
+    45% {
+      fill: transparentize($color: $hitbox-logo-color, $amount: 0.4);
     }
     100% {
       opacity: 1;

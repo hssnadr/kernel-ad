@@ -1,1 +1,0 @@
-__NUXT_JSONP__("projects/vectors", {data:[{}],fetch:[],mutations:[]});

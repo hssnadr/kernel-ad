@@ -58,6 +58,9 @@
     opacity: 0;
     stroke-dashoffset: 270;
   }
+  70% {
+    opacity: 1;
+  }
   100% {
     opacity: 1;
     stroke-dashoffset: 0;

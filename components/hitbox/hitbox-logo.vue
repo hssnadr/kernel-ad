@@ -111,13 +111,15 @@ export default {
   computed: {
     lineAnimState() {
       const style_ = {
-        strokeDashoffset: 2700 * (1 - this.animProg)
+        strokeDashoffset: 2700 * (1 - this.animProg),
+        opacity: Math.sqrt(this.animProg)
       }
       return style_
     },
     textAnimState() {
       const style_ = {
-        strokeDashoffset: 680 * (1 - this.animProg)
+        strokeDashoffset: 680 * (1 - this.animProg),
+        opacity: Math.sqrt(this.animProg)
       }
       return style_
     }

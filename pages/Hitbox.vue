@@ -4,6 +4,19 @@
       <hitbox-logo ref="hbxlogo" class="hitbox-logo" />
     </header>
 
+    <!-- VIDEO -->
+    <div class="iframe-container">
+      <iframe
+        src="https://player.vimeo.com/video/450028533?muted=1&?autoplay=1&title=0&byline=0&portrait=0"
+        class="responsive-iframe"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <div class="hitbox-background2"></div>
+
     <div class="overview justify-center">
       <cri-logo class="cri-logo" />
       <p>
@@ -29,18 +42,6 @@
       </p>
     </div>
 
-    <!-- VIDEO -->
-    <div class="iframe-container">
-      <iframe
-        src="https://player.vimeo.com/video/450028533?muted=1&?autoplay=1&title=0&byline=0&portrait=0"
-        class="responsive-iframe"
-        frameborder="0"
-        allow="autoplay; fullscreen"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-    <div class="hitbox-background2"></div>
     <div class="hitbox-background3"></div>
     <div class="hitbox-background4"></div>
     <div class="hitbox-background5"></div>
@@ -91,11 +92,12 @@ export default {
       this.scrollY = window.scrollY
 
       let viewOnHeader_ = this.scrollY / this.windowHeight
-      if (Math.abs(viewOnHeader_) > 1) {
-        viewOnHeader_ = 1
+      if (Math.abs(viewOnHeader_) > 0.5) {
+        viewOnHeader_ = 0.5
       }
+      viewOnHeader_ = 2 * viewOnHeader_
 
-      this.$refs.hbxlogo.setAnimProg((1 - viewOnHeader_) ** 5)
+      this.$refs.hbxlogo.setAnimProg(1 - viewOnHeader_)
     },
     windowResize(event) {
       this.windowHeight = document.documentElement.clientHeight

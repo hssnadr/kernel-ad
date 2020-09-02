@@ -7,8 +7,8 @@
       name="card-swap"
       tag="ul"
     >
-      <Cardboard
-        v-for="id_ in displayProjects"
+      <cardboard
+        v-for="id_ in displayProjectsId"
         :key="id_"
         :projectid="id_"
         class="item-project"
@@ -51,13 +51,13 @@ export default {
   computed: {
     isEmptySel() {
       let isEmpt_ = false
-      if (this.displayProjects.length > 0) {
+      if (this.displayProjectsId.length > 0) {
         isEmpt_ = true
       }
       return isEmpt_
     },
     ...mapGetters({
-      displayProjects: 'projects/selectedProjectsId'
+      displayProjectsId: 'projects/selectedProjectsId'
     })
   },
   mounted() {

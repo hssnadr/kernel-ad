@@ -15,7 +15,7 @@
             ParisTech and Strate École de Design.
           </p>
           <logo-strate class="cri-logo" />
-          <Cardboard :project="guken" class="item-project" />
+          <cardboard projectid="guken" class="item-project" />
           <p>
             In 2014 he developed the project Guken based on his diploma project
             mixing gesture recognition, sound design and sport training. This

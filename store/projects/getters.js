@@ -180,7 +180,7 @@ export default {
     return allTls_
   },
 
-  selectedProjectsId(state, getters) {
+  selectedProjectsId: (state, getters) => {
     const allPrj_ = state.allProjects
     let selPrjId_ = []
     const filters_ = state.selFilters
@@ -243,9 +243,9 @@ export default {
         }
       })
 
-      // If no project selected return all projects
+      // // If no project selected return all projects
       if (selPrjId_.length === 0) {
-        selPrjId_ = getters.getAllProjectsId()
+        selPrjId_ = getters.getAllProjectsId
       }
 
       // Exclude

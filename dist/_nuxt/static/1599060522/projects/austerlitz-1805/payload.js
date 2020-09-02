@@ -1,0 +1,1 @@
+__NUXT_JSONP__("projects/austerlitz-1805", {data:[{}],fetch:[],mutations:[]});

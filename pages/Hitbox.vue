@@ -48,12 +48,13 @@
             alt="logo-universite-paris"
           />
           <img
-            src="~assets/logos/paris-descartes.svg"
-            alt="logo-paris-descartes"
-          />
-          <img
             src="~assets/logos/investissement-avenir.svg"
             alt="logo-investissement-avenir"
+          />
+          <img
+            src="~assets/logos/paris-descartes.svg"
+            class="paris-descartes"
+            alt="logo-paris-descartes"
           />
         </div>
       </div>
@@ -62,12 +63,6 @@
     <div class="hitbox-background3"></div>
     <div class="hitbox-background4"></div>
     <div class="hitbox-background5"></div>
-
-    <!-- <div
-      v-for="index in 5"
-      :key="index"
-      :class="'hitbox-background' + index"
-    ></div> -->
   </div>
 </template>
 
@@ -165,11 +160,7 @@ export default {
     background-repeat: no-repeat;
     background-size: auto 100%;
 
-    @media #{$small-up} {
-      background-size: cover;
-    }
-
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
 
     display: flex;
@@ -178,7 +169,14 @@ export default {
 
     .hitbox-logo {
       display: block;
-      width: 60%;
+      width: 90%;
+    }
+
+    @media #{$small-up} {
+      background-size: cover;
+      .hitbox-logo {
+        width: 60%;
+      }
     }
   }
 
@@ -186,6 +184,25 @@ export default {
     .hitbox-background#{$i} {
       @extend header;
       background-image: url('~assets/hitbox/pics/Hitbox#{$i}.jpg');
+
+      @if $i == 3 {
+        background-position: 10% center;
+        @media #{$small-up} {
+          background-position: center;
+        }
+      }
+      @if $i == 4 {
+        background-position: 25% center;
+        @media #{$small-up} {
+          background-position: center;
+        }
+      }
+      @if $i == 5 {
+        background-position: 45% center;
+        @media #{$small-up} {
+          background-position: center;
+        }
+      }
     }
   }
 
@@ -197,6 +214,7 @@ export default {
     .background-hover {
       width: 100%;
       height: 100%;
+      min-height: 220vh; // should be useless (defined by parent .overview)
 
       display: flex;
       flex-direction: column;
@@ -206,18 +224,16 @@ export default {
 
       .cri-logo {
         display: block;
-        width: 50%;
+        width: 75%;
         max-width: 420px;
         margin: 0 auto 4rem auto;
         opacity: 1;
       }
 
       .content {
-        width: 80%;
-        opacity: 1;
-
+        width: 90%;
         @media #{$small-up} {
-          width: 95%;
+          width: 80%;
         }
         @media #{$medium-up} {
           width: 55%;
@@ -230,15 +246,39 @@ export default {
       }
 
       .logos-institutes {
-        img {
-          height: 70px;
-          margin: 10px 10px 18vh 10px;
+        width: 100%;
+        padding: 0 10%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding-bottom: 2rem;
 
-          // @media #{$small-up} {
-          //   width: 95%;
-          // }
-          @media #{$medium-up} {
+        img {
+          width: 40%;
+          margin-bottom: 20px;
+          height: auto;
+        }
+        .paris-descartes {
+          width: 90%;
+        }
+
+        @media #{$small-up} {
+          flex-wrap: nowrap;
+          justify-content: center;
+          padding-bottom: 18vh;
+          img {
             height: 100px;
+            width: auto;
+          }
+          .paris-descartes {
+            width: auto;
+          }
+        }
+        @media #{$medium-up} {
+          img {
+            height: 90px;
           }
         }
       }

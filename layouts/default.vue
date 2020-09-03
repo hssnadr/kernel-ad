@@ -89,6 +89,10 @@ export default {
 
   a {
     margin: 1rem 0 1rem 1em;
+    font-weight: 300;
+    &:hover {
+      font-weight: 400;
+    }
   }
 }
 

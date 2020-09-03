@@ -1,6 +1,6 @@
 <template>
   <div id="About">
-    <div class="adrienhusson"></div>
+    <div class="adrienhusson-1"></div>
 
     <div class="content">
       <header>
@@ -15,39 +15,52 @@
             ParisTech and Strate École de Design.
           </p>
           <p>
-            In 2014 he developed the project Guken based on his diploma project
-            mixing gesture recognition, sound design and sport training. This
-            brought him to work with the CRI and its Movuino technology, where
-            he met Joël Chevrier who proposed to him in 2016 to join the initial
-            team of the MotionLab.
+            In 2014 I developed the project
+            <nuxt-link to="/projects/guken" target="_blank">GUKEN</nuxt-link>
+            based on my diploma project,
+            <nuxt-link to="/projects/whooshing-machine" target="_blank"
+              >Whooshing Machine</nuxt-link
+            >, mixing gesture recognition, sound design and sport training. This
+            brought me to work with the
+            <a href="https://www.cri-paris.org" target="_blank">CRI</a> and its
+            <a href="http://www.movuino.com/" target="_blank">Movuino</a>
+            technology. There I met Joël Chevrier who proposed me to join the
+            initial team of the
+            <nuxt-link to="/motionlab" target="_blank">MotionLab</nuxt-link> in
+            2016.
           </p>
           <p>
-            Since then, he has been developing various projects exploring the
+            Since then, I've been developing various projects exploring the
             forms and places of digital technologies into learning and health
-            paths. He seeks in his creations the sensitive scope of digital
+            paths. I seek in my creations the sensitive scope of digital
             technologies, exploring the potential of a field which is still
             young and whose sensors and actuators are as many bridges between
-            theoretical knowledge, physical practices and creation processes.
+            theoretical knowledges, physical practices and creation processes.
           </p>
         </div>
-        <logo-strate class="cri-logo" />
+        <!-- <logo-strate class="cri-logo" />
         <cardboard projectid="guken" class="item-project" />
-        <cri-logo class="cri-logo" />
+        <cri-logo class="cri-logo" /> -->
       </main>
+      <img
+        src="~assets/about/AdrienHusson.jpg"
+        class="adrienhusson-2"
+        alt="adrienhusson"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import AhLogo from '~/components/ah-logo.vue'
-import CriLogo from '~/components/motionlab/cri-logo.vue'
-import Cardboard from '~/components/Cardboard.vue'
+// import CriLogo from '~/components/motionlab/cri-logo.vue'
+// import Cardboard from '~/components/Cardboard.vue'
 
 export default {
   components: {
-    AhLogo,
-    CriLogo,
-    Cardboard
+    AhLogo
+    // CriLogo,
+    // Cardboard
   },
   mounted() {
     this.$store.commit('navigator/SET_COLORSWAP', false)
@@ -59,25 +72,24 @@ export default {
 
 <style lang="scss">
 #About {
-  // display: flex;
-  // flex-wrap: wrap;
+  display: flex;
+  flex-direction: row-reverse;
 
-  .adrienhusson {
+  .adrienhusson-1 {
+    display: none;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    width: 31%;
+    width: 25%;
     background-image: url('~assets/about/AdrienHusson.jpg');
-    background-attachment: fixed;
-    background-position: -10% 50%;
+    background-position: top 50% right 35%;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
 
   .content {
-    width: 69%;
-    margin-left: 31%;
+    width: 100%;
 
     header {
       width: 100%;
@@ -100,9 +112,49 @@ export default {
         font-size: 2rem;
         margin: 2.1rem 0;
       }
+
+      p {
+        margin: 1rem 0;
+      }
     }
-    .cri-logo {
-      width: 110px;
+    .adrienhusson-2 {
+      width: 100%;
+      margin: 2.1rem 0;
+      @media #{$small-up} {
+        display: none;
+      }
+    }
+  }
+
+  @media #{$small-up} {
+    .adrienhusson-1 {
+      display: block;
+      width: 25%;
+      background-position: 50% 50%;
+    }
+    .content {
+      width: 75%;
+      margin-left: 25%;
+    }
+  }
+  @media #{$medium-up} {
+    .adrienhusson-1 {
+      width: 25%;
+      background-position: 50% 50%;
+    }
+    .content {
+      width: 75%;
+      margin-left: 25%;
+    }
+  }
+  @media #{$large-up} {
+    .adrienhusson-1 {
+      width: 31%;
+      background-position: right;
+    }
+    .content {
+      width: 69%;
+      margin-left: 31%;
     }
   }
 }

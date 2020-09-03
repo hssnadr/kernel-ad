@@ -172,7 +172,7 @@ export default {
       width: 90%;
     }
 
-    @media #{$small-up} {
+    @media #{$medium-up} {
       background-size: cover;
       .hitbox-logo {
         width: 60%;
@@ -187,14 +187,20 @@ export default {
 
       @if $i == 3 {
         background-position: 10% center;
-        @media #{$small-up} {
+        @media #{$medium-up} {
           background-position: center;
+        }
+        @media #{$small-up} {
+          background-position: 15% center;
         }
       }
       @if $i == 4 {
         background-position: 25% center;
-        @media #{$small-up} {
+        @media #{$medium-up} {
           background-position: center;
+        }
+        @media #{$small-up} {
+          background-position: 30% center;
         }
       }
       @if $i == 5 {

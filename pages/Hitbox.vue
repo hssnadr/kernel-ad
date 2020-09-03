@@ -82,6 +82,7 @@ export default {
   },
   data() {
     return {
+      windowWidth: 0,
       windowHeight: 0,
       scrollY: 0,
       yOverview: 0
@@ -96,7 +97,13 @@ export default {
       if (Math.abs(viewOnOverview_) > 1) {
         viewOnOverview_ = 1 // constrain value (max)
       }
-      viewOnOverview_ = 1.2 * viewOnOverview_ - 0.5 // offset value
+
+      if (this.windowWidth > 500) {
+        viewOnOverview_ = 1.2 * viewOnOverview_ - 0.5 // offset value
+      } else {
+        viewOnOverview_ = 1.0 * viewOnOverview_ - 0.1 // offset value on smartphone
+      }
+
       if (viewOnOverview_ < 0) {
         viewOnOverview_ = 0 // constrain value (min)
       }
@@ -138,6 +145,7 @@ export default {
       this.$refs.hbxlogo.setAnimProg(1 - viewOnHeader_)
     },
     windowResize(event) {
+      this.windowWidth = document.documentElement.clientWidth
       this.windowHeight = document.documentElement.clientHeight
 
       // Overview position
@@ -155,7 +163,11 @@ export default {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto 100%;
+
+    @media #{$small-up} {
+      background-size: cover;
+    }
 
     height: 100vh;
     width: 100%;
@@ -165,6 +177,7 @@ export default {
     align-items: center;
 
     .hitbox-logo {
+      display: block;
       width: 60%;
     }
   }
@@ -178,7 +191,7 @@ export default {
 
   .overview {
     width: 100%;
-    height: 220vh;
+    min-height: 220vh;
     color: $base-color;
 
     .background-hover {
@@ -189,19 +202,26 @@ export default {
       flex-direction: column;
       justify-content: flex-end;
       align-content: center;
-      flex-wrap: wrap;
+      align-items: center;
 
       .cri-logo {
         display: block;
-        width: 420px;
+        width: 50%;
+        max-width: 420px;
         margin: 0 auto 4rem auto;
         opacity: 1;
       }
 
       .content {
-        width: 55%;
-        padding: 0 5rem;
+        width: 80%;
         opacity: 1;
+
+        @media #{$small-up} {
+          width: 95%;
+        }
+        @media #{$medium-up} {
+          width: 55%;
+        }
 
         p {
           margin-bottom: 2rem;
@@ -211,8 +231,15 @@ export default {
 
       .logos-institutes {
         img {
-          height: 100px;
+          height: 70px;
           margin: 10px 10px 18vh 10px;
+
+          // @media #{$small-up} {
+          //   width: 95%;
+          // }
+          @media #{$medium-up} {
+            height: 100px;
+          }
         }
       }
     }

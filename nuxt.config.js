@@ -47,7 +47,8 @@ export default {
     { src: '~/plugins/v-tooltype' },
     // { src: '~/plugins/double-slider' },
     // { src: '~/plugins/vue-headroom' },
-    { src: '~/plugins/global-components' }
+    { src: '~/plugins/global-components' },
+    { src: '~/plugins/vue-parallax-js' }
   ],
   /*
    ** Nuxt.js dev-modules

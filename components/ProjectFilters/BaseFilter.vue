@@ -18,39 +18,39 @@
         @click="setFilter(filter_)"
       >
         <!-- by id (default) -->
-        <span v-if="display === 'id'">
+        <div v-if="display === 'id'">
           {{ filter_ }}
-        </span>
+        </div>
 
         <!-- by name -->
-        <span v-if="display === 'name'">
+        <div v-if="display === 'name'">
           {{ filterName(filter_) }}
-        </span>
+        </div>
 
         <!-- by icon -->
-        <span v-if="display === 'icon'">
+        <div v-if="display === 'icon'">
           <component
             :is="'icon-' + filter_"
             v-if="isFile('icon-' + filter_)"
             v-tooltip.bottom="filterName(filter_)"
             :class="[filterState(filter_) ? 'filtericon-on' : 'filtericon-off']"
           ></component>
-          <span v-else>
+          <div v-else>
             {{ filterName(filter_) }}
-          </span>
-        </span>
+          </div>
+        </div>
 
         <!-- by logo -->
-        <span v-if="display === 'logo'">
+        <div v-if="display === 'logo'">
           <component
             :is="'logo-' + filter_"
             v-if="isFile('logo-' + filter_)"
             :class="[filterState(filter_) ? 'filterlogo-on' : 'filterlogo-off']"
           ></component>
-          <span v-else>
+          <div v-else>
             {{ filterName(filter_) }}
-          </span>
-        </span>
+          </div>
+        </div>
       </button>
     </div>
   </div>

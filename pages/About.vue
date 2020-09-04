@@ -42,6 +42,11 @@
         <cardboard projectid="guken" class="item-project" />
         <cri-logo class="cri-logo" /> -->
       </main>
+
+      <!-- <div class="contact">
+        <contact-form />
+      </div> -->
+
       <img
         src="~assets/about/AdrienHusson.jpg"
         class="adrienhusson-2"
@@ -55,12 +60,14 @@
 import AhLogo from '~/components/ah-logo.vue'
 // import CriLogo from '~/components/motionlab/cri-logo.vue'
 // import Cardboard from '~/components/Cardboard.vue'
+// import ContactForm from '~/components/contact-form.vue'
 
 export default {
   components: {
     AhLogo
     // CriLogo,
     // Cardboard
+    // ContactForm
   },
   mounted() {
     this.$store.commit('navigator/SET_COLORSWAP', false)

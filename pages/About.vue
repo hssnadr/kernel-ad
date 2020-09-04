@@ -39,9 +39,9 @@
           </p>
         </div>
         <!-- <logo-strate class="cri-logo" />
-        <cardboard projectid="guken" class="item-project" />
         <cri-logo class="cri-logo" /> -->
       </main>
+      <cardboard projectid="guken" class="item-project" />
 
       <!-- <div class="contact">
         <contact-form />
@@ -59,14 +59,14 @@
 <script>
 import AhLogo from '~/components/ah-logo.vue'
 // import CriLogo from '~/components/motionlab/cri-logo.vue'
-// import Cardboard from '~/components/Cardboard.vue'
+import Cardboard from '~/components/Cardboard.vue'
 // import ContactForm from '~/components/contact-form.vue'
 
 export default {
   components: {
-    AhLogo
+    AhLogo,
     // CriLogo,
-    // Cardboard
+    Cardboard
     // ContactForm
   },
   mounted() {

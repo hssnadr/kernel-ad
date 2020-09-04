@@ -10,7 +10,7 @@
 
     <!-- FILTER -->
     <div v-if="isFilterDisplay" class="filters">
-      <button
+      <div
         v-for="filter_ in filters"
         :id="filter_"
         :key="filter_"
@@ -51,7 +51,7 @@
             {{ filterName(filter_) }}
           </div>
         </div>
-      </button>
+      </div>
     </div>
   </div>
 </template>
@@ -165,7 +165,8 @@ $filter-spaceletter: 0.02em;
 .filters {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-content: center;
   margin: 0 0 20px 0;
 }
 
@@ -198,9 +199,10 @@ $filter-spaceletter: 0.02em;
   transition: fill 0.3s;
 
   // ---> not good on touch devices
-  // &:hover {
-  //   fill: $primary-color;
-  // }
+  &:hover {
+    // fill: $primary-color;
+    cursor: pointer;
+  }
 }
 
 .filtericon-on {
@@ -212,15 +214,15 @@ $filter-spaceletter: 0.02em;
 
 .filterlogo-off {
   height: 60px;
-  width: auto;
   fill: $lightgrey;
   margin: 0 10px;
   transition: fill 0.3s;
 
   // ---> not good on touch devices
-  // &:hover {
-  //   fill: $primary-color;
-  // }
+  &:hover {
+    // fill: $primary-color;
+    cursor: pointer;
+  }
 }
 
 .filterlogo-on {

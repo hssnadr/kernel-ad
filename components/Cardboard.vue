@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :style="cardBackground">
+  <div id="cardboard" :style="cardBackground">
     <div class="card-content" @click="emitProject()">
       <div class="top-content">
         <h2>{{ dataProject.title }}</h2>
@@ -101,96 +101,95 @@ export default {
 </script>
 
 <style lang="scss">
-.card {
+#cardboard {
   cursor: pointer;
   background-size: cover;
   background-position: center;
-}
 
-.card .card-content {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  top: 0;
-  background-color: transparentize($color: $primary-color, $amount: 0.05);
-  // background-color: transparentize($color: $primary-color, $amount: 0.15);
-  // background: linear-gradient(
-  //   transparentize($color: black, $amount: 0.01),
-  //   transparentize($color: black, $amount: 0.05) 40%,
-  //   transparentize($color: black, $amount: 0.4)
-  // );
-  color: $base-color;
-  opacity: 0;
+  .card-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    background-color: transparentize($color: $primary-color, $amount: 0.05);
+    color: $base-color;
+    opacity: 0;
 
-  &:hover {
-    opacity: 1;
-  }
-}
+    .top-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 20px;
 
-.line-break {
-  width: 30%;
-  height: 2px;
-  margin: 1em 0;
-  background: $base-color;
-}
+      h2 {
+        font-size: 1.7em;
+        margin-bottom: 0.3rem;
+        // font-style: italic;
+        font-weight: 800;
 
-.card-content .top-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 20px;
+        font-style: normal;
+        // color: $primary-color;
+        text-transform: uppercase;
+      }
 
-  h2 {
-    font-size: 1.7em;
-    margin-bottom: 0.3rem;
-    // font-style: italic;
-  }
+      h3 {
+        font-weight: 600;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        margin-bottom: 0.3rem;
+        color: $lightgrey; // transparentize($color: $base-color, $amount: 0.2);
+      }
 
-  h3 {
-    font-weight: 600;
-    font-size: 1.1em;
-    text-transform: uppercase;
-    margin-bottom: 0.3rem;
-    color: $lightgrey; // transparentize($color: $base-color, $amount: 0.2);
-  }
+      .description {
+        text-align: justify;
+      }
+    }
 
-  .description {
-    text-align: justify;
-  }
-}
+    .bottom-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
 
-.card-content .bottom-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
+      .tools-icon {
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        align-content: flex-start;
+        align-items: center;
 
-  .tools-icon {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap-reverse;
-    align-content: flex-start;
-    align-items: center;
+        .tool-icon {
+          width: 45px;
+          fill: $base-color;
+          margin-right: 4px;
+        }
+      }
 
-    .tool-icon {
-      width: 45px;
-      fill: $base-color;
-      margin-right: 4px;
+      .skills {
+        // width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        text-align: right;
+        font-weight: 100;
+        font-size: 1em;
+        color: transparentize($color: $base-color, $amount: 0.2);
+      }
+    }
+
+    &:hover {
+      opacity: 1;
     }
   }
 
-  .skills {
-    // width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column-reverse;
-    text-align: right;
-    font-weight: 100;
-    font-size: 1em;
-    color: transparentize($color: $base-color, $amount: 0.2);
+  .line-break {
+    width: 30%;
+    height: 2px;
+    margin: 1em 0;
+    background: $base-color;
   }
 }
 </style>

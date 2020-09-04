@@ -112,8 +112,8 @@ export default {
   mounted() {
     // Hide side bar
     this.$store.commit('navigator/SET_COLORSWAP', true)
-    this.$store.commit('sidemenu/SetState', false)
-    this.$store.commit('sidemenu/HIDE_SIDEBAR', true)
+    this.$store.commit('utilities/SET_SIDEMENU_STATE', false)
+    this.$store.commit('utilities/HIDE_SIDEMENU', true)
 
     // Window resize listener
     this.$nextTick(function() {

@@ -89,7 +89,7 @@ export default {
   },
   server: {
     port: 8000, // default: 3000
-    host: 'localhost' // '0.0.0.0' // default: localhost
+    host: '0.0.0.0' // default: localhost
   },
   generate: {
     routes: dynamicRoutes

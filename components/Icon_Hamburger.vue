@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="[isSidebar ? 'hamburger-cross' : 'hamburger']"
-    @click="$store.dispatch('sidemenu/toggleSidebar')"
+    :class="[isSideMenu ? 'hamburger-cross' : 'hamburger']"
+    @click="$store.dispatch('utilities/toggleSideMenu')"
   >
     <span></span>
   </div>
@@ -10,8 +10,8 @@
 <script>
 export default {
   computed: {
-    isSidebar() {
-      return this.$store.getters['sidemenu/isSidebar']
+    isSideMenu() {
+      return this.$store.getters['utilities/isSideMenu']
     }
   }
 }

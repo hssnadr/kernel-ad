@@ -96,23 +96,6 @@ export default {
   padding: 0 20px;
 }
 
-.item-project {
-  width: 300px;
-  height: 490px;
-  margin: 7px;
-  // align-self: center; /* alignement axe secondaire */
-  border-radius: 0;
-  border: none;
-}
-
-@media #{$medium-down} {
-  .item-project {
-    width: 140px;
-    height: 240px;
-    margin: 4px;
-  }
-}
-
 #iframe-project {
   display: block;
   height: 100%;
@@ -124,7 +107,7 @@ export default {
 .modal {
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 9000; /* Sit on top */
+  z-index: 9999; /* Sit on top */
   // padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;

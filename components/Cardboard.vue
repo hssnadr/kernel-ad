@@ -102,6 +102,19 @@ export default {
 
 <style lang="scss">
 #cardboard {
+  width: 300px;
+  height: 490px;
+  margin: 7px;
+  // align-self: center; /* alignement axe secondaire */
+  border-radius: 0;
+  border: none;
+
+  @media #{$medium-down} {
+    width: 140px;
+    height: 240px;
+    margin: 4px;
+  }
+
   cursor: pointer;
   background-size: cover;
   background-position: center;
@@ -138,6 +151,13 @@ export default {
         text-transform: uppercase;
         margin-bottom: 0.3rem;
         color: $lightgrey; // transparentize($color: $base-color, $amount: 0.2);
+      }
+
+      .line-break {
+        width: 30%;
+        height: 2px;
+        margin: 1em 0;
+        background: $base-color;
       }
 
       .description {
@@ -183,13 +203,6 @@ export default {
     &:hover {
       opacity: 1;
     }
-  }
-
-  .line-break {
-    width: 30%;
-    height: 2px;
-    margin: 1em 0;
-    background: $base-color;
   }
 }
 </style>

@@ -25,7 +25,7 @@ export default {
   mounted() {
     // Show side bar button
     this.$store.commit('navigator/SET_COLORSWAP', false)
-    this.$store.commit('sidemenu/HIDE_SIDEBAR', false)
+    this.$store.commit('utilities/HIDE_SIDEMENU', false)
   }
 }
 </script>

@@ -71,8 +71,8 @@ export default {
   },
   mounted() {
     this.$store.commit('navigator/SET_COLORSWAP', false)
-    this.$store.commit('sidemenu/SetState', false)
-    this.$store.commit('sidemenu/HIDE_SIDEBAR', true)
+    this.$store.commit('utilities/SET_SIDEMENU_STATE', false)
+    this.$store.commit('utilities/HIDE_SIDEMENU', true)
   }
 }
 </script>

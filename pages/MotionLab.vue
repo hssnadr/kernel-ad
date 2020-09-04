@@ -90,7 +90,7 @@ export default {
     }
 
     h3 {
-      // text-align: center;
+      text-align: center;
       color: $motionlab-black;
       margin: 1.5rem;
       transition: all 0.4s ease-out; //transform 0.4s, filter 0.8s;

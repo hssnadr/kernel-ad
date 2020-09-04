@@ -19,16 +19,8 @@
       <p>No projects selected! It works!!</p>
     </div>
 
-    <div
-      v-if="isWatching"
-      id="myModal"
-      class="modal"
-      @click="CloseProject"
-      @keyup.esc="CloseProject"
-    >
-      <span class="close-project" @click="CloseProject()">&times;</span>
-      <iframe id="iframe-project" :src="linkProject"></iframe>
-    </div>
+    <!-- Project frame -->
+    <project-frame v-if="isWatching" @close="CloseProject" />
   </div>
   <!-- il faudra rajouter un prevent au dessus si la page nexiste pas!! -->
 </template>
@@ -36,15 +28,17 @@
 <script>
 import { mapGetters } from 'vuex'
 import Cardboard from '~/components/Cardboard.vue'
+import ProjectFrame from '~/components/ProjectFrame.vue'
 
 export default {
   components: {
-    Cardboard
+    Cardboard,
+    ProjectFrame
   },
   data() {
     return {
       isWatching: false,
-      linkProject: '',
+      projectLink: '',
       idToWatch: ''
     }
   },
@@ -68,15 +62,7 @@ export default {
   methods: {
     WatchProject(data) {
       this.$store.commit('projects/setCurrentProjectId', data.id)
-
-      if (window.innerWidth > 800) {
-        // Large screen (iframe)
-        this.linkProject = '/projects/' + data.id
-        this.isWatching = true
-      } else {
-        // Small screen (link to)
-        window.location.href = '/projects/' + data.id
-      }
+      this.isWatching = true
     },
     CloseProject() {
       this.isWatching = false
@@ -96,37 +82,6 @@ export default {
   padding: 0 20px;
 }
 
-#iframe-project {
-  display: block;
-  height: 100%;
-  width: 70%;
-  min-width: 700px;
-  margin: auto;
-}
-
-.modal {
-  display: block; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 9999; /* Sit on top */
-  // padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100vh; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  // background-color: rgb(0, 0, 0); // Fallback color
-  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
-}
-
-/* Modal Content (image) */
-// .modal-content {
-//   margin: auto;
-//   display: block;
-//   width: 100%;
-//   height: 100vh;
-//   background: rgba(0, 255, 0, 0.5);
-// }
-
 .background-project {
   // position: fixed;
   // top: 0;
@@ -135,25 +90,6 @@ export default {
   min-height: 100vh;
   padding: 30px 0;
   background: transparentize($color: $primary-color, $amount: 0.15);
-}
-
-/* The Close Button */
-.close-project {
-  position: fixed;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-  z-index: 9999;
-
-  &:hover,
-  &:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-  }
 }
 
 /* ENTER */

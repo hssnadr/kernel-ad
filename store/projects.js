@@ -2,7 +2,7 @@ import data from '~/static/projects.json'
 
 export const state = () => ({
   allProjects: data,
-  curProject: null,
+  curProjectId: null,
   selYears: null, // { y0: 1989, y1: 2020 },
   // selInstitutes: '',
   // selFormat: '',

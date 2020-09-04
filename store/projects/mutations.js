@@ -1,6 +1,6 @@
 export default {
   setCurrentProjectId(state, id_) {
-    state.curProject = id_
+    state.curProjectId = id_
   },
 
   setInstitute(state, institute_) {

@@ -1,6 +1,8 @@
 export default {
   getCurrentProject: (state, getters) =>
-    getters.getProjectByid(state.curProject),
+    getters.getProjectByid(state.curProjectId),
+
+  currentProjectID: (state) => state.curProjectId,
 
   getAllProjectsId: (state) => {
     const allPrjId_ = []

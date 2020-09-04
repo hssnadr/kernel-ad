@@ -1,10 +1,10 @@
 <template>
-  <div id="mainview" :style="setMargin">
+  <div id="main-layout" :style="setMargin">
     <side-menu class="side-menu" />
 
     <nav
-      class="navigator"
       v-scroll-lock="isScrollLock"
+      class="navigator"
       :class="[{ 'navigator-swap': colorSwap }, 'navigator-unswap']"
     >
       <NuxtLink to="/">
@@ -100,19 +100,20 @@ export default {
 </script>
 
 <style lang="scss">
-#mainview {
+#main-layout {
   transition: margin-left 0.5s ease-out;
   margin-left: 0px;
   padding: 0px;
 
   .side-menu {
-    z-index: 9000;
+    // z-index: 8500;
+    // position: absolute;
   }
 
   .navigator {
     top: 0;
     right: 0;
-    z-index: 8000;
+    // z-index: 8000;
     display: flex;
     width: 50%;
     justify-content: flex-end;

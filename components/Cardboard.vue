@@ -102,17 +102,22 @@ export default {
 
 <style lang="scss">
 #cardboard {
-  width: 300px;
-  height: 490px;
-  margin: 7px;
+  width: 140px;
+  height: 240px;
+  margin: 4px;
   // align-self: center; /* alignement axe secondaire */
   border-radius: 0;
   border: none;
 
-  @media #{$medium-down} {
-    width: 140px;
-    height: 240px;
-    margin: 4px;
+  // @media #{$small-up} {
+  //   width: 250px;
+  //   height: 408px;
+  //   margin: 7px;
+  // }
+  @media #{$medium-up} {
+    width: 300px;
+    height: 490px;
+    margin: 7px;
   }
 
   cursor: pointer;

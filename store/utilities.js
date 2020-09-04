@@ -3,9 +3,9 @@ export const state = () => ({
   windowWidth: 400,
   hideSideMenu: true,
   isSideMenu: false,
-  sideMenuWidthPx: 400,
+  sideMenuWidthPx0: 340,
+  sideMenuWidthPx: 340,
   breakpoint: 600, // pixel (width)
-  sideMenuWidthFactor: 0.2,
   isSideMenuHover: false
 })
 
@@ -19,7 +19,7 @@ export const mutations = {
       state.sideMenuWidthPx = width_
       state.isSideMenuHover = true
     } else {
-      state.sideMenuWidthPx = width_ * state.sideMenuWidthFactor
+      state.sideMenuWidthPx = state.sideMenuWidthPx0
       state.isSideMenuHover = false
     }
   },

@@ -83,6 +83,6 @@ export default {
 }
 .button-slide-enter,
 .button-slide-leave-to {
-  transform: translateX(-100%);
+  transform: translateX(-250%);
 }
 </style>

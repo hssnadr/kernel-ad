@@ -213,9 +213,9 @@ $filter-spaceletter: 0.02em;
 // -----------------------------
 
 .filterlogo-off {
-  height: 60px;
+  height: 50px;
   fill: $lightgrey;
-  margin: 0 10px;
+  // margin: 0 10px;
   transition: fill 0.3s;
 
   // ---> not good on touch devices

@@ -65,7 +65,7 @@
     <div class="documentation">
       <div class="background">
         <div class="content">
-          <p>Description de batârd</p>
+          <p>Description de bâtard</p>
         </div>
       </div>
     </div>

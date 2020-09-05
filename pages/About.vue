@@ -24,25 +24,52 @@
             brought me to work with the
             <a href="https://www.cri-paris.org" target="_blank">CRI</a> and its
             <a href="http://www.movuino.com/" target="_blank">Movuino</a>
-            technology. There I met Joël Chevrier who proposed me to join the
-            initial team of the
-            <nuxt-link to="/motionlab" target="_blank">MotionLab</nuxt-link> in
-            2016.
+            technology. There I met
+            <a
+              href="https://www.echosciences-grenoble.fr/membres/joel-chevrier"
+              target="_blank"
+              >Joël Chevrier</a
+            >
+            who proposed me to join the initial team of the
+            <a href="https://www.themotionlab.net/" target="_blank"
+              >MotionLab</a
+            >
+            in 2016.
           </p>
           <p>
-            Since then, I've been developing various projects exploring the
-            forms and places of digital technologies into learning and health
-            paths. I seek in my creations the sensitive scope of digital
-            technologies, exploring the potential of a field which is still
-            young and whose sensors and actuators are as many bridges between
-            theoretical knowledges, physical practices and creation processes.
+            Since then, I've been developing
+            <nuxt-link to="/motionlab" target="_blank"
+              >various projects</nuxt-link
+            >
+            exploring the forms and places of digital technologies into learning
+            and health paths. I seek in my creations the sensitive scope of
+            digital technologies, exploring the potential of a field which is
+            still young and whose sensors and actuators are as many bridges
+            between theoretical knowledges, physical practices and creation
+            processes.
           </p>
         </div>
-        <!-- <logo-strate class="cri-logo" />
-        <cri-logo class="cri-logo" /> -->
+        <div class="link-networks">
+          <a href="https://github.com/hssnadr/" target="_blank"
+            ><icon-github class="icon-link"
+          /></a>
+          <a href="https://www.linkedin.com/in/adrienhusson/" target="_blank"
+            ><icon-linkedin class="icon-link"
+          /></a>
+          <a href="https://www.instagram.com/hssnadr/" target="_blank"
+            ><icon-instagram class="icon-link"
+          /></a>
+          <a href="https://vimeo.com/user16384712" target="_blank"
+            ><icon-vimeo class="icon-link"
+          /></a>
+          <a href="https://www.behance.net/adrienhusson" target="_blank"
+            ><icon-behance class="icon-link"
+          /></a>
+        </div>
       </main>
-      <cardboard projectid="guken" class="item-project" />
 
+      <!-- <logo-strate class="cri-logo" />
+        <cri-logo class="cri-logo" /> -->
       <!-- <div class="contact">
         <contact-form />
       </div> -->
@@ -59,15 +86,23 @@
 <script>
 import AhLogo from '~/components/ah-logo.vue'
 // import CriLogo from '~/components/motionlab/cri-logo.vue'
-import Cardboard from '~/components/Cardboard.vue'
 // import ContactForm from '~/components/contact-form.vue'
+import IconLinkedin from '~/components/icons/icon-linkedin.vue'
+import IconInstagram from '~/components/icons/icon-instagram.vue'
+import IconGithub from '~/components/icons/icon-github.vue'
+import IconVimeo from '~/components/icons/icon-vimeo.vue'
+import IconBehance from '~/components/icons/icon-behance.vue'
 
 export default {
   components: {
     AhLogo,
     // CriLogo,
-    Cardboard
-    // ContactForm
+    // ContactForm,
+    IconLinkedin,
+    IconInstagram,
+    IconGithub,
+    IconVimeo,
+    IconBehance
   },
   mounted() {
     this.$store.commit('navigator/SET_COLORSWAP', false)
@@ -122,6 +157,24 @@ export default {
 
       p {
         margin: 1rem 0;
+      }
+
+      .link-networks {
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        .icon-link {
+          fill: $lightgrey;
+          margin: 0.5rem;
+          width: 30px;
+          &:hover {
+            fill: $primary-color;
+          }
+        }
       }
     }
     .adrienhusson-2 {

@@ -166,15 +166,6 @@ export default {
         justify-content: center;
         align-items: center;
         align-content: center;
-
-        .icon-link {
-          fill: $lightgrey;
-          margin: 0.5rem;
-          width: 30px;
-          &:hover {
-            fill: $primary-color;
-          }
-        }
       }
     }
     .adrienhusson-2 {

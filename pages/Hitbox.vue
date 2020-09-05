@@ -61,6 +61,15 @@
     </div>
 
     <div class="hitbox-background3"></div>
+
+    <div class="documentation">
+      <div class="background">
+        <div class="content">
+          <p>Description de batârd</p>
+        </div>
+      </div>
+    </div>
+
     <div class="hitbox-background4"></div>
     <div class="hitbox-background5"></div>
   </div>
@@ -207,6 +216,47 @@ export default {
         background-position: 45% center;
         @media #{$small-up} {
           background-position: center;
+        }
+      }
+    }
+  }
+
+  .documentation {
+    background: #e9e9e9;
+
+    .background {
+      @extend header;
+      background-image: url('~assets/hitbox/visuals/HITBOX_WhitePreview.jpg');
+      background-position: left 0% bottom 0%;
+      height: 120vh;
+      background-attachment: scroll;
+      background-size: 350% auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      .content {
+        width: 100%;
+        padding: 3rem;
+        text-align: center;
+      }
+
+      @media #{$small-up} {
+        height: 100vh;
+        background-attachment: fixed;
+        background-size: auto 100%;
+        justify-content: center;
+        align-items: flex-end;
+
+        .content {
+          width: 60%;
+        }
+      }
+      @media #{$small-up} {
+        .content {
+          width: 80%;
+          padding: 3rem;
         }
       }
     }

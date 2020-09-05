@@ -151,3 +151,12 @@ button {
   text-align: justify;
   text-align-last: center;
 }
+
+.icon-link {
+  fill: $lightgrey;
+  margin: 0.5rem;
+  width: 30px;
+  &:hover {
+    fill: $primary-color;
+  }
+}

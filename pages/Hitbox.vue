@@ -64,7 +64,10 @@
     <div class="documentation">
       <div class="background">
         <div class="content">
-          <p>Description de bâtard</p>
+          <h3>Documentation is coming</h3>
+          <p>Ressources are already available on Github</p>
+          <div class="making"></div>
+          <div class="template"></div>
         </div>
       </div>
     </div>

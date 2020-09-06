@@ -64,7 +64,8 @@ export default {
   mounted() {
     // Show side bar button
     this.$store.commit('navigator/SET_COLORSWAP', false)
-    this.$store.commit('utilities/HIDE_SIDEMENU', false)
+    this.$store.commit('utilities/SET_SIDEMENU_STATE', false)
+    this.$store.commit('utilities/HIDE_FILTERS', false)
   },
   methods: {
     toggleReadMore() {

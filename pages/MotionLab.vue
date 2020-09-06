@@ -79,7 +79,7 @@ export default {
     // Hide side bar
     this.$store.commit('navigator/SET_COLORSWAP', false)
     this.$store.commit('utilities/SET_SIDEMENU_STATE', false)
-    this.$store.commit('utilities/HIDE_SIDEMENU', true)
+    this.$store.commit('utilities/HIDE_FILTERS', true)
   }
 }
 </script>

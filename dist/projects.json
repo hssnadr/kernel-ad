@@ -135,7 +135,7 @@
       },
       { "type": "image", "id": "nm-presentation2", "file": "traceur2.png" }
     ],
-    "description": "NeighborMood is a interactive student design project dedicated to public spaces on the horizon of 2030",
+    "description": "My first design project, a prospective and interactive urban concept",
     "level": 1
   },
   {
@@ -451,7 +451,7 @@
     "level": 1
   },
   {
-    "title": "Sèvre Chaville Boxe 92",
+    "title": "Sèvres Chaville Boxe 92",
     "id": "boxe92",
     "years": { "y0": "2015", "y1": "2015" },
     "institutes": null,
@@ -507,21 +507,6 @@
       }
     ],
     "description": "Logo realized for the boxing club based in Sèvres and Chaville",
-    "level": 1
-  },
-  {
-    "title": "Boxylab",
-    "id": "boxylab",
-    "years": { "y0": "2020", "y1": "2020" },
-    "institutes": null,
-    "format": "Freelance",
-    "fields": ["Engineering"],
-    "skills": ["Programming"],
-    "tools": ["nuxt"],
-    "thumbnail": {
-      "link": "https://f4.bcbits.com/img/0016301968_10.jpg"
-    },
-    "description": "My first web development mission",
     "level": 1
   }
 ]

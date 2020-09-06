@@ -1,5 +1,5 @@
 <template>
-  <div id="cardboard" :style="cardBackground">
+  <div class="cardboard" :style="cardBackground">
     <div class="card-content" @click="emitProject()">
       <div class="top-content">
         <h2>{{ dataProject.title }}</h2>
@@ -101,7 +101,7 @@ export default {
 </script>
 
 <style lang="scss">
-#cardboard {
+.cardboard {
   width: 140px;
   height: 240px;
   margin: 4px;
@@ -132,6 +132,7 @@ export default {
     background-color: transparentize($color: $primary-color, $amount: 0.05);
     color: $base-color;
     opacity: 0;
+    z-index: 10;
 
     .top-content {
       position: absolute;

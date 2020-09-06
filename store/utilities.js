@@ -1,12 +1,12 @@
 // State
 export const state = () => ({
   windowWidth: 400,
-  hideSideMenu: true,
+  hidePortfolioFilters: true,
   isSideMenu: false,
   sideMenuWidthPx0: 340,
   sideMenuWidthPx: 340,
   breakpoint: 600, // pixel (width)
-  isSideMenuHover: false
+  isSideMenuHover: true
 })
 
 // Mutations
@@ -23,8 +23,8 @@ export const mutations = {
       state.isSideMenuHover = false
     }
   },
-  HIDE_SIDEMENU(state, isHidden_) {
-    state.hideSideMenu = isHidden_
+  HIDE_FILTERS(state, isHidden_) {
+    state.hidePortfolioFilters = isHidden_
   },
   TOGGLE_SIDEMENU(state) {
     state.isSideMenu = !state.isSideMenu
@@ -44,7 +44,7 @@ export const actions = {
 // Getters
 export const getters = {
   windowWidth: (state) => state.windowWidth,
-  hideSidemenu: (state) => state.hideSideMenu,
+  hidePortfolioFilters: (state) => state.hidePortfolioFilters,
   isSideMenu: (state) => state.isSideMenu,
   isSideMenuHover: (state) => state.isSideMenuHover,
   sideMenuWidthPx: (state) => state.sideMenuWidthPx

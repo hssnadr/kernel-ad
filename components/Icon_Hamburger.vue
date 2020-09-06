@@ -3,7 +3,7 @@
     :class="[isSideMenu ? 'hamburger-cross' : 'hamburger']"
     @click="$store.dispatch('utilities/toggleSideMenu')"
   >
-    <span></span>
+    <span :class="{ 'color-swap': setColorSwap }"></span>
   </div>
 </template>
 
@@ -12,6 +12,12 @@ export default {
   computed: {
     isSideMenu() {
       return this.$store.getters['utilities/isSideMenu']
+    },
+    colorSwap() {
+      return this.$store.getters['navigator/colorSwap']
+    },
+    setColorSwap() {
+      return !this.isSideMenu && this.colorSwap
     }
   }
 }
@@ -66,6 +72,14 @@ export default {
 
     &:after {
       transform: translateY($space-between);
+    }
+  }
+
+  .color-swap {
+    background: $base-color;
+    &::before,
+    &::after {
+      background: $base-color;
     }
   }
 

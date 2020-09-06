@@ -181,6 +181,7 @@ $filter-spaceletter: 0.02em;
 
   &:hover {
     color: $primary-color;
+    cursor: pointer;
   }
 }
 

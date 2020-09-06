@@ -1,38 +1,59 @@
 <template>
   <div class="sidenav-container">
     <transition name="button-slide">
-      <icon-hbg v-if="!hideSidemenu" id="menu-button" />
+      <icon-hbg v-if="isMenuDisplayed" id="menu-button" />
     </transition>
 
     <transition name="slide-side">
       <div
-        v-if="isSideMenu"
+        v-if="isMenuOpen"
         id="foo"
         ref="foo"
         class="sidenav"
         :style="{ width: wSideMenu + 'px' }"
       >
-        <main-menu></main-menu>
+        <div v-if="isSideMenuHover" class="site-navigator">
+          <!-- Small screens only -->
+          <site-navigator />
+        </div>
+        <div v-if="!hidePortfolioFilters" class="portfolio-filters">
+          <portfolio-filters />
+        </div>
       </div>
     </transition>
   </div>
 </template>
 
 <script>
-import MainMenu from '~/components/Menu_Content'
+import PortfolioFilters from '~/components/PortfolioFilters'
 import IconHbg from '~/components/Icon_Hamburger'
+import SiteNavigator from '~/components/Navigator'
 
 export default {
-  components: { MainMenu, IconHbg },
+  components: {
+    PortfolioFilters,
+    IconHbg,
+    SiteNavigator
+  },
   computed: {
-    isSideMenu() {
+    isMenuOpen() {
       return this.$store.getters['utilities/isSideMenu']
-    },
-    hideSidemenu() {
-      return this.$store.getters['utilities/hideSidemenu']
     },
     wSideMenu() {
       return this.$store.getters['utilities/sideMenuWidthPx']
+    },
+    isSideMenuHover() {
+      return this.$store.getters['utilities/isSideMenuHover']
+    },
+    hidePortfolioFilters() {
+      return this.$store.getters['utilities/hidePortfolioFilters']
+    },
+    isMenuDisplayed() {
+      if (this.isSideMenuHover || !this.hidePortfolioFilters) {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }
@@ -40,49 +61,53 @@ export default {
 
 <style scoped lang="scss">
 .sidenav-container {
-  height: 100%;
-  width: 100%;
-}
-
-.sidenav {
-  height: 100%;
-  background: $base-color;
-  /* width: 300px; */
-  z-index: 2;
   position: fixed;
   overflow: auto;
   top: 0;
   left: 0;
-  box-sizing: border-box;
-  padding: 30px;
-  padding-top: 100px;
-}
+  z-index: 7000;
 
-.slide-side-enter-active,
-.slide-side-leave-active {
-  transition: all 0.5s ease-out;
-}
-.slide-side-enter,
-.slide-side-leave-to {
-  transform: translateX(-100%);
-}
+  .portfolio-filters {
+    margin-top: 50px;
+  }
 
-#menu-button {
-  position: fixed;
-  display: block;
-  top: 1rem;
-  left: 2rem;
-  z-index: 3;
-  cursor: pointer;
-  // transform: translateY(-25%);
-}
+  .sidenav {
+    height: 100vh;
+    width: 100%;
+    background: $base-color;
+    overflow: auto;
+    // z-index: 2;
+    box-sizing: border-box;
+    padding: 30px;
+    padding-top: 50px;
+  }
 
-.button-slide-enter-active,
-.button-slide-leave-active {
-  transition: all 0.3s ease-out;
-}
-.button-slide-enter,
-.button-slide-leave-to {
-  transform: translateX(-250%);
+  .slide-side-enter-active,
+  .slide-side-leave-active {
+    transition: all 0.5s ease-out;
+  }
+  .slide-side-enter,
+  .slide-side-leave-to {
+    transform: translateX(-100%);
+  }
+
+  #menu-button {
+    position: fixed;
+    display: block;
+    top: 1rem;
+    left: 2rem;
+    z-index: 3;
+    cursor: pointer;
+    // transform: translateY(-25%);
+  }
+
+  .button-slide-enter-active,
+  .button-slide-leave-active {
+    transition: all 0.3s ease-out;
+  }
+  .button-slide-enter,
+  .button-slide-leave-to {
+    transform: translateX(-250%);
+  }
 }
 </style>

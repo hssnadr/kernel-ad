@@ -2,16 +2,15 @@
   <div v-scroll-lock="isWatching">
     <transition-group
       v-if="isEmptySel"
-      id="gridProjects"
+      id="portfolio-grid"
       :duration="{ enter: 500, leave: 800 }"
-      name="card-swap"
+      name="card"
       tag="ul"
     >
       <cardboard
         v-for="id_ in displayProjectsId"
         :key="id_"
         :projectid="id_"
-        class="item-project"
         @selected="WatchProject"
       />
     </transition-group>
@@ -72,58 +71,50 @@ export default {
 </script>
 
 <style lang="scss">
-#gridProjects {
+#portfolio-grid {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   min-height: 80vh;
-  align-content: center;
+  // align-content: center;
+  // width: 100%;
 
   // padding: 0 20px;
 }
 
-.background-project {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  width: 100vw;
-  min-height: 100vh;
-  padding: 30px 0;
-  background: transparentize($color: $primary-color, $amount: 0.15);
-}
-
 /* ENTER */
-.card-swap-enter
+.card-enter
 /* enter from */ {
   opacity: 0;
   transform: scale(0.5);
 }
 
-.card-swap-enter-active {
+.card-enter-active {
 }
 
-.card-swap-enter-to {
+.card-enter-to {
   opacity: 1;
   transform: scale(1);
 }
 
 /* MOVE */
-.card-swap-move {
+.card-move {
   position: relative;
 }
 
 /* LEAVE */
-.card-swap-leave {
+.card-leave {
   opacity: 1;
   transform: scale(1);
 }
 
-.card-swap-leave-active {
+.card-leave-active {
   position: absolute;
 }
 
-.card-swap-leave-to
-/* .card-swap-leave-active for <2.1.8 */ {
+.card-leave-to
+/* .card-leave-active for <2.1.8 */ {
   opacity: 0;
   transform: translate(0, 0, 0) scale(0.1);
 }

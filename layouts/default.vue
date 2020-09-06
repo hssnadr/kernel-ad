@@ -1,50 +1,23 @@
 <template>
   <div id="main-layout" :style="setMargin">
-    <side-menu class="side-menu" />
-
-    <nav
-      v-scroll-lock="isScrollLock"
-      class="navigator"
-      :class="[{ 'navigator-swap': colorSwap }, 'navigator-unswap']"
-    >
-      <NuxtLink to="/">
-        Portfolio
-      </NuxtLink>
-
-      <NuxtLink to="/MotionLab">
-        MotionLab
-      </NuxtLink>
-
-      <NuxtLink to="/Hitbox">
-        Hitbox
-      </NuxtLink>
-
-      <NuxtLink to="/About">
-        About
-      </NuxtLink>
-
-      <!-- <h1>
-        <NuxtLink to="/KernelError">
-          Kernel Error
-        </NuxtLink>
-      </h1> -->
-    </nav>
-
-    <nuxt />
+    <side-menu />
+    <site-navigator v-if="!isSideMenuHover" class="navigator" />
+    <div v-scroll-lock="isScrollLock">
+      <nuxt />
+    </div>
   </div>
 </template>
 
 <script>
 import SideMenu from '~/components/Menu_Container'
+import SiteNavigator from '~/components/Navigator'
 
 export default {
   components: {
-    SideMenu
+    SideMenu,
+    SiteNavigator
   },
   computed: {
-    colorSwap() {
-      return this.$store.getters['navigator/colorSwap']
-    },
     menuWidth() {
       return this.$store.getters['utilities/sideMenuWidthPx']
     },
@@ -104,44 +77,14 @@ export default {
   transition: margin-left 0.5s ease-out;
   margin-left: 0px;
   padding: 0px;
-
-  .side-menu {
-    // z-index: 8500;
-    // position: absolute;
-  }
+  background: $base-color;
 
   .navigator {
+    position: fixed;
     top: 0;
     right: 0;
-    // z-index: 8000;
-    display: flex;
-    width: 50%;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 2rem;
-    font-size: 1.1rem;
-
-    a {
-      margin: 1rem 0 1rem 1em;
-      font-weight: 300;
-      &:hover {
-        font-weight: 400;
-      }
-    }
-  }
-
-  .navigator-unswap {
-    position: absolute;
-  }
-
-  .navigator-swap {
-    position: fixed;
-    a {
-      color: $base-color;
-      &:hover {
-        color: $base-color;
-      }
-    }
+    z-index: 8000;
+    width: 80%;
   }
 }
 </style>

@@ -4,10 +4,16 @@
       <cri-logo class="logo-cri" />
       <div class="description justify-center">
         <p>
-          The CRI is co-constructing and sharing new ways of learning, teaching,
-          conducting research and mobilizing collective intelligence in the
-          fields of life, learning and digital sciences, in order to face the
-          world's sustainable development goals (SDGs).
+          The <a href="https://www.cri-paris.org" target="_blanck">CRI</a> is
+          co-constructing and sharing new ways of learning, teaching, conducting
+          research and mobilizing collective intelligence in the fields of life,
+          learning and digital sciences, in order to face the world's
+          <a
+            href="https://www.un.org/sustainabledevelopment/sustainable-development-goals/"
+            target="_blank"
+          >
+            sustainable development goals (SDGs)</a
+          >.
         </p>
         <a
           href="https://www.themotionlab.net/"
@@ -22,14 +28,29 @@
         </a>
         <p>
           After a first professional experience focused on IOT and boxing
-          education with GUKEN, I joined Joël Chevrier to develop a MotionLab at
-          the CRI. This lab was highly impulsed by the works of Kevin Lhoste
-          with the Movuino, an open-source motion sensors plateform dedicated to
-          prototype various projects. Those 3 years of MotionLab has been a
-          unique experimental way to explore practical usages involving
-          gestures, learning and digital technologies. This map represents most
-          of the projects I developed at the CRI as engineer and designer, and
-          the way they are related together.
+          education with
+          <nuxt-link to="/projects/guken" target="_blank">GUKEN</nuxt-link>, I
+          joined
+          <a
+            href="https://www.echosciences-grenoble.fr/membres/joel-chevrier"
+            target="_blank"
+            >Joël Chevrier</a
+          >
+          to develop a MotionLab at the CRI. This lab was highly impulsed by the
+          works of
+          <a
+            href="https://www.linkedin.com/in/kevinlhoste/?originalSubdomain=fr"
+            target="_blank"
+            >Kevin Lhoste</a
+          >
+          with the
+          <a href="http://www.movuino.com/" target="_blank">Movuino</a>, an
+          open-source motion sensors plateform dedicated to prototype various
+          projects. Those 3 years of MotionLab has been a unique experimental
+          way to explore practical usages involving gestures, learning and
+          digital technologies. This map represents most of the projects I
+          developed at the CRI as engineer and designer, and the way they are
+          related together.
         </p>
       </div>
     </header>
@@ -71,7 +92,7 @@ export default {
 .motionlab-header {
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto 10vw auto;
+  margin: 0 auto 3rem auto;
   padding: 3rem;
   display: flex;
   flex-direction: column;

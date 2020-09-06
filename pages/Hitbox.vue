@@ -38,8 +38,7 @@
           <p>
             Based on a crossed approach research / design / engineering, Hitbox
             is now dedicated to explore new interaction by developing various
-            immersive and tangible digital spaces for any kind of application:
-            health, communication, events…
+            immersive and tangible digital spaces for any kind of application.
           </p>
         </div>
         <div class="logos-institutes">

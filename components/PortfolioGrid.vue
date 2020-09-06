@@ -79,7 +79,7 @@ export default {
   min-height: 80vh;
   align-content: center;
 
-  padding: 0 20px;
+  // padding: 0 20px;
 }
 
 .background-project {

@@ -75,7 +75,7 @@
       </div> -->
 
       <img
-        src="~assets/about/AdrienHusson.jpg"
+        src="~assets/about/AdrienHusson2.jpg"
         class="adrienhusson-2"
         alt="adrienhusson"
       />

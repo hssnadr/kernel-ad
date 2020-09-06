@@ -22,6 +22,22 @@ export const state = () => ({
 // exports.allProjectsDataBase = allProjectsDataBase
 
 // {
+//   "title": "Boxylab",
+//   "id": "boxylab",
+//   "years": { "y0": "2020", "y1": "2020" },
+//   "institutes": null,
+//   "format": "Freelance",
+//   "fields": ["Engineering"],
+//   "skills": ["Programming"],
+//   "tools": ["nuxt"],
+//   "thumbnail": {
+//     "link": "https://f4.bcbits.com/img/0016301968_10.jpg"
+//   },
+//   "description": "My first web development mission",
+//   "level": 1
+// }
+
+// {
 //   title: '',
 //   id: '',
 //   years: { y0: '', y1: '' },

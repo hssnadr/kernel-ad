@@ -76,7 +76,7 @@ export default {
     width: 100%;
     background: $base-color;
     overflow: auto;
-    // z-index: 2;
+    // z-index: 7000;
     box-sizing: border-box;
     padding: 30px;
     padding-top: 50px;

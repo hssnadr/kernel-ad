@@ -64,10 +64,33 @@
     <div class="documentation">
       <div class="background">
         <div class="content">
-          <h3>Documentation is coming</h3>
-          <p>Ressources are already available on Github</p>
-          <div class="making"></div>
-          <div class="template"></div>
+          <h4>Documentation is coming</h4>
+          <!-- <p>Ressources are already available on Github</p>
+          <div class="ressources">
+            <div class="icons">
+              <icon-making class="icon" />
+              <icon-arduino class="icon" />
+            </div>
+            <div class="link-github">
+              <a
+                href="https://github.com/hssnadr/HTBX_01Ressources"
+                target="_blank"
+                >Making and electronic ressources</a
+              >
+            </div>
+          </div>
+          <div class="ressources">
+            <div class="icons">
+              <icon-unity3d class="icon" />
+            </div>
+            <div class="link-github">
+              <a
+                href="https://github.com/hssnadr/HTBX_02UnityTemplates"
+                target="_blank"
+                >Unity3D templates</a
+              >
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -80,11 +103,13 @@
 <script>
 import HitboxLogo from '~/components/hitbox/hitbox-logo.vue'
 import CriLogo from '~/components/hitbox/cri-logo-white.vue'
+// import IconMaking from '~/components/icons/icon-making.vue'
 
 export default {
   components: {
     HitboxLogo,
     CriLogo
+    // IconMaking
   },
   data() {
     return {
@@ -230,7 +255,7 @@ export default {
       @extend header;
       background-image: url('~assets/hitbox/visuals/HITBOX_WhitePreview.jpg');
       background-position: left 0% bottom 0%;
-      height: 120vh;
+      height: 130vh;
       background-attachment: scroll;
       background-size: 350% auto;
       display: flex;
@@ -242,6 +267,34 @@ export default {
         width: 100%;
         padding: 3rem;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h4 {
+          margin-bottom: 1.5rem;
+        }
+
+        .ressources {
+          display: flex;
+          justify-content: center;
+          text-align: left;
+          margin-bottom: 1rem;
+          .icons {
+            width: 55px;
+            display: flex;
+            justify-content: flex-end;
+            align-content: center;
+            margin-right: 1rem;
+            .icon {
+              fill: $primary-color;
+              width: 25px;
+            }
+          }
+          .link-github {
+            width: auto;
+          }
+        }
       }
 
       @media #{$small-up} {

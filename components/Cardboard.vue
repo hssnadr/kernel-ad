@@ -4,9 +4,9 @@
       <div class="top-content">
         <h2>{{ dataProject.title }}</h2>
         <h3 v-if="refName(institute) !== ''">{{ refName(institute) }}</h3>
-        <span class="format">
+        <div class="format">
           <p>{{ dataProject.format[0] }} project &bull; {{ years }}</p>
-        </span>
+        </div>
         <div class="line-break"></div>
         <div class="description">
           <p>
@@ -16,7 +16,7 @@
       </div>
 
       <div class="bottom-content">
-        <div class="tools-icon">
+        <div class="tool-icons">
           <div v-for="tool_ in dataProject.tools" :key="tool_">
             <component
               :is="'icon-' + tool_"
@@ -105,110 +105,154 @@ export default {
   width: 140px;
   height: 240px;
   margin: 4px;
-  // align-self: center; /* alignement axe secondaire */
   border-radius: 0;
-  border: none;
-
-  // @media #{$small-up} {
-  //   width: 250px;
-  //   height: 408px;
-  //   margin: 7px;
-  // }
-  @media #{$medium-up} {
-    width: 300px;
-    height: 490px;
-    margin: 7px;
-  }
 
   cursor: pointer;
   background-size: cover;
   background-position: center;
 
   .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     width: 100%;
     height: 100%;
-    position: relative;
-    top: 0;
+    padding: 10px;
     background-color: transparentize($color: $primary-color, $amount: 0.05);
     color: $base-color;
-    opacity: 0;
     z-index: 10;
 
+    opacity: 0;
+
     .top-content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 20px;
-
       h2 {
-        font-size: 1.7em;
+        font-size: 1.1rem;
         margin-bottom: 0.3rem;
-        // font-style: italic;
         font-weight: 800;
-
         font-style: normal;
-        // color: $primary-color;
-        text-transform: uppercase;
+        text-align: center;
+        hyphens: auto;
       }
 
       h3 {
         font-weight: 600;
-        font-size: 1.1em;
-        text-transform: uppercase;
+        font-size: 1rem;
         margin-bottom: 0.3rem;
-        color: $lightgrey; // transparentize($color: $base-color, $amount: 0.2);
+        color: $lightgrey;
+        text-align: center;
+      }
+
+      .format {
+        display: none;
       }
 
       .line-break {
-        width: 30%;
-        height: 2px;
-        margin: 1em 0;
-        background: $base-color;
+        display: none;
       }
 
       .description {
-        text-align: justify;
+        display: none;
       }
     }
 
     .bottom-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
       width: 100%;
-      padding: 20px;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
 
-      .tools-icon {
-        width: 50%;
+      .tool-icons {
+        width: 100%;
         display: flex;
-        flex-wrap: wrap-reverse;
-        align-content: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
 
+        div {
+          width: 26%;
+        }
+
         .tool-icon {
-          width: 45px;
           fill: $base-color;
-          margin-right: 4px;
         }
       }
 
       .skills {
-        // width: 50%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column-reverse;
-        text-align: right;
-        font-weight: 100;
-        font-size: 1em;
-        color: transparentize($color: $base-color, $amount: 0.2);
+        display: none;
       }
     }
 
     &:hover {
       opacity: 1;
     }
+  }
+
+  // @media #{$small-up} {
+  //   width: 250px;
+  //   height: 408px;
+  //   margin: 7px;
+  // }
+
+  @media #{$medium-up} {
+    width: 280px;
+    height: 480px;
+    margin: 7px;
+
+    .card-content {
+      justify-content: space-between;
+      padding: 20px;
+      .top-content {
+        h2 {
+          font-size: 1.9rem;
+          text-align: left;
+        }
+        h3 {
+          font-size: 1.1rem;
+          text-align: left;
+          text-transform: uppercase;
+        }
+        .format {
+          display: block;
+        }
+        .line-break {
+          display: block;
+          width: 30%;
+          height: 2px;
+          margin: 1em 0;
+          background: $base-color;
+        }
+        .description {
+          display: block;
+          text-align: justify;
+        }
+      }
+
+      .bottom-content {
+        .tool-icons {
+          flex-direction: row;
+          flex-wrap: wrap-reverse;
+          justify-content: flex-start;
+          width: 60%;
+          div {
+            width: 40%;
+          }
+        }
+        .skills {
+          width: 50%;
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column-reverse;
+          text-align: right;
+          font-weight: 100;
+          font-size: 1em;
+          color: transparentize($color: $base-color, $amount: 0.2);
+        }
+      }
+    }
+  }
+  @media #{$large-up} {
+    width: 300px;
+    height: 490px;
   }
 }
 </style>

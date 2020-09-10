@@ -65,9 +65,10 @@ export default {
 
     a {
       font-size: 2rem;
-      font-weight: 600;
+      font-weight: 800;
+      text-transform: uppercase;
       &:hover {
-        font-weight: 600;
+        font-weight: 800;
       }
     }
   }

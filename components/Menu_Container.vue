@@ -12,9 +12,9 @@
         class="sidenav"
         :style="{ width: wSideMenu + 'px' }"
       >
-        <div v-if="isSideMenuHover" class="site-navigator">
+        <div v-if="isSideMenuHover">
           <!-- Small screens only -->
-          <site-navigator />
+          <site-navigator class="site-navigator" />
         </div>
         <div v-if="!hidePortfolioFilters" class="portfolio-filters">
           <portfolio-filters />
@@ -80,6 +80,9 @@ export default {
     box-sizing: border-box;
     padding: 30px;
     padding-top: 50px;
+
+    .site-navigator {
+    }
   }
 
   .slide-side-enter-active,

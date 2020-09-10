@@ -11,7 +11,6 @@
     xml:space="preserve"
   >
     <line
-      stroke="#000000"
       stroke-linejoin="round"
       stroke-miterlimit="10"
       x1="50.48"
@@ -20,7 +19,6 @@
       y2="8.18"
     />
     <polyline
-      stroke="#000000"
       stroke-linejoin="round"
       stroke-miterlimit="10"
       points="22.5,8.18 22.5,64.36 36.49,78.39 

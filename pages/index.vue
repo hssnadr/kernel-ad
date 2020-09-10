@@ -36,8 +36,8 @@
           >
           profile. The
           <nuxt-link to="/motionlab">MotionLab</nuxt-link> section is closer to
-          this vision but it's a long term process to achieve it as I really
-          concieve it.
+          this vision (on laptop/desktop) but it's a long term process to
+          achieve it as I really concieve it.
           <b class="toggleRead" @click="toggleReadMore()">Read less</b>
         </p>
       </span>

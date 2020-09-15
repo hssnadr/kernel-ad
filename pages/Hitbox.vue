@@ -15,46 +15,49 @@
       ></iframe>
     </div>
 
-    <div class="overview justify-center hitbox-background2">
-      <div ref="overview" class="background-hover" :style="styleOveriew">
-        <cri-logo class="cri-logo" />
-        <div class="content">
-          <p>
-            Hitbox was developed at the Center for Research and
-            Interdisciplinarity (CRI) based in Paris. This laboratory
-            experiments and spreads new ways of learning, teaching, conducting
-            research and mobilizing collective intelligence in life, learning
-            and digital sciences.
-          </p>
-          <p>
-            With Hitbox, the former purpose is to explore ways to interact with
-            technologies in an education process involving the body. Connecting
-            several Hitbox together allows to create innovative boxing scenarios
-            where beginners interact with each others without risk of injuries.
-            The integrated and interactive screen drive their learning through
-            specific scenarios addressing specific aspect of boxing: movement,
-            reactivity, strength…
-          </p>
-          <p>
-            Based on a crossed approach research / design / engineering, Hitbox
-            is now dedicated to explore new interaction by developing various
-            immersive and tangible digital spaces for any kind of application.
-          </p>
-        </div>
-        <div class="logos-institutes">
-          <img
-            src="~assets/logos/universite-paris.svg"
-            alt="logo-universite-paris"
-          />
-          <img
-            src="~assets/logos/investissement-avenir.svg"
-            alt="logo-investissement-avenir"
-          />
-          <img
-            src="~assets/logos/paris-descartes.svg"
-            class="paris-descartes"
-            alt="logo-paris-descartes"
-          />
+    <div class="background-overview">
+      <div class="overview justify-center hitbox-background2">
+        <div ref="overview" class="background-hover" :style="styleOveriew">
+          <cri-logo class="cri-logo" />
+          <div class="content">
+            <p>
+              Hitbox was developed at the Center for Research and
+              Interdisciplinarity (CRI) based in Paris. This laboratory
+              experiments and spreads new ways of learning, teaching, conducting
+              research and mobilizing collective intelligence in life, learning
+              and digital sciences.
+            </p>
+            <p>
+              With Hitbox, the former purpose is to explore ways to interact
+              with technologies in an education process involving the body.
+              Connecting several Hitbox together allows to create innovative
+              boxing scenarios where beginners interact with each others without
+              risk of injuries. The integrated and interactive screen drive
+              their learning through specific scenarios addressing specific
+              aspect of boxing: movement, reactivity, strength…
+            </p>
+            <p>
+              Based on a crossed approach research / design / engineering,
+              Hitbox is now dedicated to explore new interaction by developing
+              various immersive and tangible digital spaces for any kind of
+              application.
+            </p>
+          </div>
+          <div class="logos-institutes">
+            <img
+              src="~assets/logos/universite-paris.svg"
+              alt="logo-universite-paris"
+            />
+            <img
+              src="~assets/logos/investissement-avenir.svg"
+              alt="logo-investissement-avenir"
+            />
+            <img
+              src="~assets/logos/paris-descartes.svg"
+              class="paris-descartes"
+              alt="logo-paris-descartes"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -121,24 +124,28 @@ export default {
   },
   computed: {
     styleOveriew() {
-      let viewOnOverview_ =
-        1 -
-        (this.yOverview + this.windowHeight - this.scrollY) /
-          (2 * this.windowHeight)
-      if (Math.abs(viewOnOverview_) > 1) {
-        viewOnOverview_ = 1 // constrain value (max)
-      }
+      let style_ = {}
+      if (this.windowWidth > 0) {
+        let viewOnOverview_ =
+          1 -
+          (this.yOverview + this.windowHeight - this.scrollY) /
+            (2 * this.windowHeight)
+        if (Math.abs(viewOnOverview_) > 1) {
+          viewOnOverview_ = 1 // constrain value (max)
+        }
 
-      if (this.windowWidth > 500) {
-        viewOnOverview_ = 1.2 * viewOnOverview_ - 0.5 // offset value
-      } else {
-        viewOnOverview_ = 1.0 * viewOnOverview_ - 0.1 // offset value on smartphone
-      }
+        if (this.windowWidth > 900) {
+          viewOnOverview_ = 1.2 * viewOnOverview_ - 0.5 // offset value
+        } else {
+          viewOnOverview_ = 1.1 * viewOnOverview_ - 0.1 // offset value on smartphone
+        }
 
-      if (viewOnOverview_ < 0) {
-        viewOnOverview_ = 0 // constrain value (min)
+        if (viewOnOverview_ < 0) {
+          viewOnOverview_ = 0 // constrain value (min)
+        }
+        style_ = { background: 'rgba(0,0,0,' + viewOnOverview_ + ')' }
       }
-      return { background: 'rgba(0,0,0,' + viewOnOverview_ + ')' }
+      return style_
     }
   },
   beforeDestroy() {
@@ -189,9 +196,11 @@ export default {
 
 <style lang="scss">
 #hitbox-page {
+  background-color: $primary-color;
+
   header {
     background-image: url('~assets/hitbox/pics/Hitbox1.jpg');
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
     background-size: auto 100%;
@@ -209,6 +218,7 @@ export default {
     }
 
     @media #{$medium-up} {
+      background-attachment: fixed;
       background-size: cover;
       .hitbox-logo {
         width: 60%;
@@ -221,6 +231,18 @@ export default {
       @extend header;
       background-image: url('~assets/hitbox/pics/Hitbox#{$i}.jpg');
 
+      @if $i == 2 {
+        background-position: top;
+        background-size: 300% auto;
+        @media #{$small-up} {
+          background-size: auto 100%;
+          background-size: 200% auto;
+        }
+        @media #{$medium-up} {
+          background-position: center;
+          background-size: cover;
+        }
+      }
       @if $i == 3 {
         background-position: 10% center;
         @media #{$medium-up} {
@@ -243,6 +265,100 @@ export default {
         background-position: 45% center;
         @media #{$small-up} {
           background-position: center;
+        }
+      }
+    }
+  }
+
+  .overview {
+    width: 100%;
+    color: $base-color;
+    @media #{$medium-up} {
+      min-height: 220vh;
+    }
+
+    .background-hover {
+      width: 100%;
+      height: 100%;
+      // background-color: transparentize($color: $primary-color, $amount: 0.2);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-content: center;
+      align-items: center;
+
+      @media #{$medium-up} {
+        min-height: 220vh; // should be useless (defined by parent .overview)
+      }
+
+      .cri-logo {
+        display: block;
+        width: 100%;
+        max-width: 420px;
+        margin: 75% auto 2rem auto;
+        opacity: 1;
+
+        @media #{$small-up} {
+          width: 75%;
+          margin: 50% auto 2rem auto;
+        }
+        @media #{$medium-up} {
+          margin: 4rem auto 2rem auto;
+        }
+      }
+
+      .content {
+        width: 100%;
+        padding: 0 5%;
+        margin-bottom: 2rem;
+        @media #{$small-up} {
+          padding: 0 10%;
+        }
+        @media #{$medium-up} {
+          padding: 0 22%;
+        }
+
+        p {
+          filter: drop-shadow(2px 2px 1px #000);
+        }
+      }
+
+      .logos-institutes {
+        width: 100%;
+        padding: 0 10%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding-bottom: 2rem;
+
+        img {
+          width: 40%;
+          margin-bottom: 20px;
+          height: auto;
+        }
+        .paris-descartes {
+          width: 90%;
+        }
+
+        @media #{$small-up} {
+          flex-wrap: nowrap;
+          justify-content: center;
+          padding-bottom: 18vh;
+          img {
+            height: 100px;
+            width: auto;
+          }
+          .paris-descartes {
+            width: auto;
+          }
+        }
+        @media #{$medium-up} {
+          img {
+            height: 90px;
+          }
         }
       }
     }
@@ -312,85 +428,6 @@ export default {
         .content {
           width: 80%;
           padding: 3rem;
-        }
-      }
-    }
-  }
-
-  .overview {
-    width: 100%;
-    min-height: 220vh;
-    color: $base-color;
-
-    .background-hover {
-      width: 100%;
-      height: 100%;
-      min-height: 220vh; // should be useless (defined by parent .overview)
-
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-content: center;
-      align-items: center;
-
-      .cri-logo {
-        display: block;
-        width: 75%;
-        max-width: 420px;
-        margin: 0 auto 4rem auto;
-        opacity: 1;
-      }
-
-      .content {
-        width: 90%;
-        @media #{$small-up} {
-          width: 80%;
-        }
-        @media #{$medium-up} {
-          width: 55%;
-        }
-
-        p {
-          margin-bottom: 2rem;
-          filter: drop-shadow(2px 2px 1px #000);
-        }
-      }
-
-      .logos-institutes {
-        width: 100%;
-        padding: 0 10%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-        padding-bottom: 2rem;
-
-        img {
-          width: 40%;
-          margin-bottom: 20px;
-          height: auto;
-        }
-        .paris-descartes {
-          width: 90%;
-        }
-
-        @media #{$small-up} {
-          flex-wrap: nowrap;
-          justify-content: center;
-          padding-bottom: 18vh;
-          img {
-            height: 100px;
-            width: auto;
-          }
-          .paris-descartes {
-            width: auto;
-          }
-        }
-        @media #{$medium-up} {
-          img {
-            height: 90px;
-          }
         }
       }
     }

@@ -1,5 +1,5 @@
 <template>
-  <a href="https://www.cri-paris.org" target="_blanck">
+  <a href="https://www.cri-paris.org" class="nostroke" target="_blanck">
     <svg
       id="hitbox-logo-white"
       version="1.1"

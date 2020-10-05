@@ -50,19 +50,31 @@
           </p>
         </div>
         <div class="link-networks">
-          <a href="https://github.com/hssnadr/" target="_blank"
+          <a href="https://github.com/hssnadr/" class="nostroke" target="_blank"
             ><icon-github class="icon-link"
           /></a>
-          <a href="https://www.linkedin.com/in/adrienhusson/" target="_blank"
+          <a
+            href="https://www.linkedin.com/in/adrienhusson/"
+            class="nostroke"
+            target="_blank"
             ><icon-linkedin class="icon-link"
           /></a>
-          <a href="https://www.instagram.com/hssnadr/" target="_blank"
+          <a
+            href="https://www.instagram.com/hssnadr/"
+            class="nostroke"
+            target="_blank"
             ><icon-instagram class="icon-link"
           /></a>
-          <a href="https://vimeo.com/user16384712" target="_blank"
+          <a
+            href="https://vimeo.com/user16384712"
+            class="nostroke"
+            target="_blank"
             ><icon-vimeo class="icon-link"
           /></a>
-          <a href="https://www.behance.net/adrienhusson" target="_blank"
+          <a
+            href="https://www.behance.net/adrienhusson"
+            class="nostroke"
+            target="_blank"
             ><icon-behance class="icon-link"
           /></a>
         </div>

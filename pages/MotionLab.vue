@@ -17,6 +17,7 @@
         </p>
         <a
           href="https://www.themotionlab.net/"
+          class="nostroke"
           target="_blanck"
           @mouseover="hoverMotionLab = true"
           @mouseleave="hoverMotionLab = false"

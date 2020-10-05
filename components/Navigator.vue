@@ -75,15 +75,18 @@ export default {
 
   a {
     margin: 0.4rem;
-    font-weight: 300;
+    font-weight: 400;
     &:hover {
-      font-weight: 400;
+      // font-weight: 400;
     }
   }
 
   .color-unswap {
     a {
       color: $primary-color;
+      &:before {
+        background-color: $primary-color;
+      }
       &:hover {
         color: $primary-color;
       }
@@ -93,6 +96,9 @@ export default {
   .color-swap {
     a {
       color: $base-color;
+      &:before {
+        background-color: $base-color;
+      }
       &:hover {
         color: $base-color;
       }

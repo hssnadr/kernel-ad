@@ -9,7 +9,7 @@
     style="enable-background:new 0 0 400 400;"
     xml:space="preserve"
   >
-    <a href="https://www.cri-paris.org" target="_blanck">
+    <a class="nostroke" href="https://www.cri-paris.org" target="_blanck">
       <g id="CRILogo">
         <g>
           <g>

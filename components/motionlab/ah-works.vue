@@ -12931,28 +12931,28 @@ export default {
 	transition: all 0.5s;
 
 	.arrows {
-			stroke: $motionlab-black;
-			stroke-width: 3px;
-			fill: none ;
+		stroke: $motionlab-black;
+		stroke-width: 3px;
+		fill: none ;
 
-			stroke-dasharray: 500;
-  		stroke-dashoffset: 500;
-			transition : stroke-dashoffset 0.8s;
-		}
-		.hover {
-			fill: $base-color;
-			stroke-width: 5px;
-			stroke: $motionlab-black; // $motionlab-blue;
-			// filter: drop-shadow(5px 5px 0px $motionlab-blue);
-			
-			opacity: 0;
-			transition : opacity 0.5s;
-		}
-		.normal {
-			stroke: $motionlab-black;
-			stroke-width: 0.5px;
-			fill: $base-color;
-		}
+		stroke-dasharray: 500;
+		stroke-dashoffset: 500;
+		transition : stroke-dashoffset 0.8s;
+	}
+	.hover {
+		fill: $base-color;
+		stroke-width: 5px;
+		stroke: $motionlab-black; // $motionlab-blue;
+		// filter: drop-shadow(5px 5px 0px $motionlab-blue);
+		
+		opacity: 0;
+		transition : opacity 0.5s;
+	}
+	.normal {
+		stroke: $motionlab-black;
+		stroke-width: 0.5px;
+		fill: $base-color;
+	}
 
   &:hover {
 		.hover {

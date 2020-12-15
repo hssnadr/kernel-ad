@@ -81,16 +81,14 @@ export default {
    ** Build configuration
    */
   build: {
-    /*
-     ** You can extend webpack config here
-     */
     extend(config, ctx) {
       config.plugins.push(
         new webpack.ProvidePlugin({
           THREE: 'three'
         })
       )
-    }
+    },
+    transpile: ['three']
   },
   styleResources: {
     scss: ['assets/css/*.scss']

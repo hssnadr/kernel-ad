@@ -32,6 +32,7 @@ import IconUnity3d from '~/components/tools/unity3d.vue'
 // Project pages
 import WhooshingMachine from '~/components/projects/WhooshingMachine.vue'
 import Boxylab from '~/components/projects/Boxylab.vue'
+import Montessorizer from '~/components/projects/Montessorizer.vue'
 
 // ------------------------------------------------------------------------------
 
@@ -67,3 +68,4 @@ Vue.component('icon-unity3d', IconUnity3d)
 // Project pages
 Vue.component('whooshing-machine', WhooshingMachine)
 Vue.component('boxylab', Boxylab)
+Vue.component('montessorizer', Montessorizer)

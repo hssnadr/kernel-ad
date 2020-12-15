@@ -60,7 +60,7 @@ export default {
     const allPrj_ = state.allProjects
     const d_ = new Date()
     let y0_ = d_.getFullYear()
-    let y1_ = 1989
+    let y1_ = y0_
 
     allPrj_.forEach((p_) => {
       if (!isNaN(p_.years.y0)) {

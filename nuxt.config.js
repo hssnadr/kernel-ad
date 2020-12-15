@@ -1,4 +1,6 @@
+import webpack from 'webpack'
 import data from './static/projects.json'
+
 const dynamicRoutes = () => {
   return new Promise((resolve) => {
     resolve(data.map((el) => `projects/${el.id}`))
@@ -82,7 +84,13 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      config.plugins.push(
+        new webpack.ProvidePlugin({
+          THREE: 'three'
+        })
+      )
+    }
   },
   styleResources: {
     scss: ['assets/css/*.scss']

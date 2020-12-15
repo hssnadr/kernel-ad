@@ -27,6 +27,7 @@
     "masonry": "0.0.2",
     "masonry-layout": "^4.2.2",
     "nuxt": "^2.14.3",
+    "three": "^0.123.0",
     "v-scroll-lock": "^1.2.0",
     "v-tooltip": "^2.0.3",
     "vue-client-only": "^2.0.0",

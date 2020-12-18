@@ -19,17 +19,17 @@ export default {
   },
   methods: {
     updateMesh() {},
-    createWireframe({ mesh, color = 0x000000, linewidth = 4 } = {}) {
-      const material = new THREE.LineBasicMaterial({ color, linewidth })
-      const geometry = new THREE.EdgesGeometry(mesh.geometry)
+    // createWireframe({ mesh, color = 0x000000, linewidth = 4 } = {}) {
+    //   const material = new THREE.LineBasicMaterial({ color, linewidth })
+    //   const geometry = new THREE.EdgesGeometry(mesh.geometry)
 
-      const wireframe = new THREE.LineSegments(geometry, material)
+    //   const wireframe = new THREE.LineSegments(geometry, material)
 
-      wireframe.name = '_wireframe'
-      wireframe.renderOrder = 1
+    //   wireframe.name = '_wireframe'
+    //   wireframe.renderOrder = 1
 
-      mesh.add(wireframe)
-    },
+    //   mesh.add(wireframe)
+    // },
     loadModel() {
       this.isLoaded = false
 
@@ -45,21 +45,31 @@ export default {
             // eslint-disable-next-line unicorn/number-literal-case
             randomColor.setHex(Math.random() * 0xffffff)
 
-            console.log(child.name)
-            child.material = new THREE.MeshBasicMaterial({
+            // console.log(child.name)
+            child.material = new THREE.MeshStandardMaterial({
               color: randomColor
             })
 
             // eslint-disable-next-line unicorn/number-literal-case
-            // child.material = new THREE.MeshPhongMaterial({ color: 0x00ff00 })
+            // child.material = new THREE.MeshLambertMaterial({
+            //   color: randomColor
+            // })
+
+            child.translateZ(0.01)
 
             // this.createWireframe({ mesh: child }) // create 3d wireframes (optional)
             this.objects.push(child) // push to local array
           }
         })
-
         this.model = model
         this.scene.add(model)
+
+        const geometry = new THREE.BoxGeometry(1, 1, 1)
+        // eslint-disable-next-line unicorn/number-literal-case
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
+        const cube = new THREE.Mesh(geometry, material)
+        cube.translateY(1)
+        this.scene.add(cube)
 
         setTimeout(() => {
           this.isLoaded = true

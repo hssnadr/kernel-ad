@@ -22,7 +22,7 @@ class SceneInit {
     this.background = 0xeeeeee
 
     this.init()
-    this.update()
+    this.update() // update() will be called at 60fps thanks to its requestAnimationFrame function in it
   }
 
   init() {
@@ -37,11 +37,20 @@ class SceneInit {
 
   initScene() {
     this.scene = new THREE.Scene()
+
+    const geometry = new THREE.PlaneBufferGeometry(0.5, 0.5, 32)
+    const material = new THREE.MeshBasicMaterial({
+      color: 0xffffff
+    })
+    const plane = new THREE.Mesh(geometry, material)
+    plane.rotation.x = -Math.PI / 2
+    this.scene.add(plane)
   }
 
   initLights() {
-    const ambient = new THREE.AmbientLight(0xffffff, 0.9)
-    const point = new THREE.PointLight(0xcccccc, 0.1, 10)
+    const ambient = new THREE.AmbientLight(0xff0000, 0.9)
+    const point = new THREE.PointLight(0xff0000, 0.1, 100)
+    point.position.set(0, 10, 0)
     const directional = new THREE.DirectionalLight(0xffffff, 0.5)
 
     this.scene.add(ambient)
@@ -52,7 +61,7 @@ class SceneInit {
   initCamera() {
     const aspect = this.width / this.height
 
-    this.camera = new THREE.PerspectiveCamera(1.5, aspect, 1, 1000) // args = field of view (degree), ratio, near clipping plane, far clipping plane
+    this.camera = new THREE.PerspectiveCamera(75, aspect, 1, 1000) // args = field of view (degree), ratio, near clipping plane, far clipping plane
 
     this.camera.position.z = 0
     this.camera.aspect = aspect
@@ -87,7 +96,7 @@ class SceneInit {
 
     // Render
     this.camera.lookAt(this.scene.position)
-    this.renderer.render(this.scene, this.camera)
+    this.renderer.render(this.scene, this.camera) // call render method
   }
 
   loadModel(model, callback) {

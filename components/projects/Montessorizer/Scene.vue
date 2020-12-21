@@ -33,7 +33,14 @@ export default {
     loadModel() {
       this.isLoaded = false
 
-      this.scene.loadModel('../../3d/Montessorizer3D.gltf', (model) => {
+      const geometry = new THREE.BoxGeometry(100, 100, 100)
+      // eslint-disable-next-line unicorn/number-literal-case
+      const material = new THREE.MeshPhysicalMaterial({ color: 0x00ff00 })
+      const cube = new THREE.Mesh(geometry, material)
+      cube.translateY(1)
+      // this.scene.add(cube)
+
+      this.scene.loadModel('../../3dblender/MontessoriTest.glb', (model) => {
         model.name = 'headphones'
 
         // Iterator through the model's children
@@ -45,8 +52,8 @@ export default {
             // eslint-disable-next-line unicorn/number-literal-case
             randomColor.setHex(Math.random() * 0xffffff)
 
-            // console.log(child.name)
-            child.material = new THREE.MeshStandardMaterial({
+            console.log(child.name)
+            child.material = new THREE.MeshBasicMaterial({
               color: randomColor
             })
 
@@ -55,7 +62,7 @@ export default {
             //   color: randomColor
             // })
 
-            child.translateZ(0.01)
+            // child.translateZ(0.01)
 
             // this.createWireframe({ mesh: child }) // create 3d wireframes (optional)
             this.objects.push(child) // push to local array
@@ -63,13 +70,6 @@ export default {
         })
         this.model = model
         this.scene.add(model)
-
-        const geometry = new THREE.BoxGeometry(1, 1, 1)
-        // eslint-disable-next-line unicorn/number-literal-case
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 })
-        const cube = new THREE.Mesh(geometry, material)
-        cube.translateY(1)
-        this.scene.add(cube)
 
         setTimeout(() => {
           this.isLoaded = true

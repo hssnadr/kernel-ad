@@ -10,6 +10,7 @@
 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+const TWEEN = require('@tweenjs/tween.js') // see: https://github.com/tweenjs/tween.js
 
 class SceneInit {
   constructor({ rootEl }) {
@@ -30,40 +31,44 @@ class SceneInit {
     this.initLights()
     this.initCamera()
     this.initRenderer()
-    this.initControls()
+    // this.initControls()
+
+    this.moveCameraTo(new THREE.Vector3(0, 200, 0), 1000)
 
     this.root.appendChild(this.canvas)
   }
 
   initScene() {
     this.scene = new THREE.Scene()
-
-    const geometry = new THREE.PlaneBufferGeometry(0.5, 0.5, 32)
-    const material = new THREE.MeshBasicMaterial({
-      color: 0xffffff
-    })
-    const plane = new THREE.Mesh(geometry, material)
-    plane.rotation.x = -Math.PI / 2
-    this.scene.add(plane)
   }
 
   initLights() {
-    const ambient = new THREE.AmbientLight(0xff0000, 0.9)
-    const point = new THREE.PointLight(0xff0000, 0.1, 100)
-    point.position.set(0, 10, 0)
-    const directional = new THREE.DirectionalLight(0xffffff, 0.5)
-
+    // AMBIENT LIGHT
+    const ambient = new THREE.AmbientLight(0xffffff, 1)
     this.scene.add(ambient)
+
+    // POINT LIGHT
+    const point = new THREE.PointLight(0xff0000, 0.1, 100)
+    const geometry = new THREE.SphereBufferGeometry(10)
+    const material = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    const sphere = new THREE.Mesh(geometry, material) // landmark (-> REMOVE)
+    const pos_ = new THREE.Vector3(10, 10, 0)
+    point.position.set(pos_)
+    sphere.position.set(pos_)
     this.scene.add(point)
+    this.scene.add(sphere)
+
+    // DIRECTIONAL LIGHT
+    const directional = new THREE.DirectionalLight(0xffffff, 0.5)
     this.scene.add(directional)
   }
 
   initCamera() {
     const aspect = this.width / this.height
 
-    this.camera = new THREE.PerspectiveCamera(75, aspect, 1, 1000) // args = field of view (degree), ratio, near clipping plane, far clipping plane
+    this.camera = new THREE.PerspectiveCamera(70, aspect, 0.1, 3000) // args = field of view (degree), ratio, near clipping plane, far clipping plane
 
-    this.camera.position.z = 0
+    this.camera.position.z = 200
     this.camera.aspect = aspect
     this.camera.updateProjectionMatrix()
   }
@@ -85,14 +90,29 @@ class SceneInit {
     this.controls.smooth = true
     this.controls.smoothspeed = 0.95
     this.controls.autoRotateSpeed = 2
-    this.controls.maxDistance = 20
+    this.controls.maxDistance = 2000
     this.controls.minDistance = 5
 
     this.controls.update()
   }
 
+  moveCameraTo(targetPos_, time_) {
+    const camPos_ = this.camera.position
+    const tween = new TWEEN.Tween(camPos_).to(targetPos_, time_)
+    tween.easing(TWEEN.Easing.Quintic.Out)
+    tween.onUpdate(function() {
+      console.log(camPos_.x, camPos_.y, camPos_.z)
+    })
+    tween.onComplete(function() {
+      console.log('complete')
+    })
+    tween.start()
+  }
+
   update() {
     requestAnimationFrame(() => this.update()) // replace setInterval to refresh each frames (advantage: pauses when user on another navigator tab)
+
+    TWEEN.update()
 
     // Render
     this.camera.lookAt(this.scene.position)

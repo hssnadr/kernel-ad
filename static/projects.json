@@ -3,7 +3,7 @@
     "title": "Montessorizer",
     "id": "montessorizer",
     "years": { "y0": "2017", "y1": "2020" },
-    "institutes": ["cri-paris"],
+    "institutes": ["cri"],
     "format": ["Regular"],
     "fields": ["Engineering"],
     "skills": ["UX", "Electronics", "CAO"],

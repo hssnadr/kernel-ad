@@ -4,6 +4,7 @@ import Vue from 'vue'
 import ButtonFilter from '~/components/ButtonFilter.vue'
 
 // Logo (file name = reference id in store/references.js)
+import LogoCri from '~/components/institutes/cri.vue'
 import LogoDassaultsystemes from '~/components/institutes/dassaultsystemes.vue'
 import LogoLeroymerlin from '~/components/institutes/leroymerlin.vue'
 import LogoStrate from '~/components/institutes/strate.vue'
@@ -40,6 +41,7 @@ import Montessorizer from '~/components/projects/Montessorizer.vue'
 Vue.component('button-filter', ButtonFilter)
 
 // Logo
+Vue.component('logo-cri', LogoCri)
 Vue.component('logo-dassaultsystemes', LogoDassaultsystemes)
 Vue.component('logo-leroymerlin', LogoLeroymerlin)
 Vue.component('logo-strate', LogoStrate)

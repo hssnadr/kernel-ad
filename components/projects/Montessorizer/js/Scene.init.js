@@ -11,6 +11,7 @@
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 const TWEEN = require('@tweenjs/tween.js') // see: https://github.com/tweenjs/tween.js
+const _mouse = new THREE.Vector2()
 
 class SceneInit {
   constructor({ rootEl }) {
@@ -24,22 +25,25 @@ class SceneInit {
 
     this.init()
     this.update() // update() will be called at 60fps thanks to its requestAnimationFrame function in it
+    this.bindEvents()
   }
 
   init() {
-    this.initScene()
+    // Scene
+    this.scene = new THREE.Scene()
     this.initLights()
     this.initCamera()
     this.initRenderer()
-    // this.initControls()
+    this.initControls()
 
+    // Raycast
+    this.raycaster = new THREE.Raycaster()
+    this.curFocusObj = '' // current focused object with mouse pointer
+
+    // Tween test
     this.moveCameraTo(new THREE.Vector3(0, 200, 0), 1000)
 
     this.root.appendChild(this.canvas)
-  }
-
-  initScene() {
-    this.scene = new THREE.Scene()
   }
 
   initLights() {
@@ -66,7 +70,7 @@ class SceneInit {
   initCamera() {
     const aspect = this.width / this.height
 
-    this.camera = new THREE.PerspectiveCamera(70, aspect, 0.1, 3000) // args = field of view (degree), ratio, near clipping plane, far clipping plane
+    this.camera = new THREE.PerspectiveCamera(70, aspect, 1, 3000) // args = field of view (degree), ratio, near clipping plane, far clipping plane
 
     this.camera.position.z = 200
     this.camera.aspect = aspect
@@ -101,22 +105,48 @@ class SceneInit {
     const tween = new TWEEN.Tween(camPos_).to(targetPos_, time_)
     tween.easing(TWEEN.Easing.Quintic.Out)
     tween.onUpdate(function() {
-      console.log(camPos_.x, camPos_.y, camPos_.z)
+      // console.log(camPos_.x, camPos_.y, camPos_.z)
     })
     tween.onComplete(function() {
-      console.log('complete')
+      // console.log('complete')
     })
     tween.start()
+  }
+
+  onMouseMove(event) {
+    // calculate mouse position in normalized device coordinates
+    // (-1 to +1) for both components
+    _mouse.x = (event.clientX / window.innerWidth) * 2 - 1
+    _mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
   }
 
   update() {
     requestAnimationFrame(() => this.update()) // replace setInterval to refresh each frames (advantage: pauses when user on another navigator tab)
 
     TWEEN.update()
+    this.raycast()
 
     // Render
     this.camera.lookAt(this.scene.position)
     this.renderer.render(this.scene, this.camera) // call render method
+  }
+
+  raycast() {
+    // Set ray
+    this.raycaster.setFromCamera(_mouse, this.camera) // update the picking ray with the camera and mouse position
+    const intersects_ = this.raycaster.intersectObjects(
+      this.scene.children,
+      true
+    ) // calculate objects intersecting the picking ray
+
+    // Get object
+    if (intersects_.length > 0) {
+      if (this.curFocusObj !== intersects_[0].object) {
+        this.curFocusObj = intersects_[0].object
+      }
+    } else {
+      this.curFocusObj = null
+    }
   }
 
   loadModel(model, callback) {
@@ -142,9 +172,23 @@ class SceneInit {
       this.scene.remove(object)
     }
   }
+
+  onResize() {
+    this.width = this.root.clientWidth
+    this.height = this.root.clientHeight
+
+    this.renderer.setSize(this.width, this.height)
+
+    this.camera.aspect = this.width / this.height
+    this.camera.updateProjectionMatrix()
+  }
+
+  bindEvents() {
+    window.addEventListener('resize', () => this.onResize())
+    window.addEventListener('mousemove', this.onMouseMove, false)
+  }
 }
 
 // To call our class as a function
 const sceneInit = (args) => new SceneInit(args)
-
 export default sceneInit

@@ -13,19 +13,41 @@ export default {
       isLoaded: false
     }
   },
-  computed: {
-    focusObj() {
-      return this.scene.curFocus
-    }
+  created() {
+    this.$nuxt.$on('ONFOCUS-THREEJS', this.setCurFocus)
   },
-  watch: {
-    focusObj() {
-      console.log('change')
-    }
+  beforeDestroy() {
+    this.$nuxt.$off('ONFOCUS-THREEJS')
   },
   mounted() {
     this.scene = SceneInit({ rootEl: this.$refs.container })
-    this.loadModel()
+
+    // this.loadModel()
+
+    // --------------------------------------------------------------
+    // load cube to test simple scene
+    this.isLoaded = false
+    const geometry = new THREE.BoxGeometry(20, 20, 20)
+    const material = new THREE.MeshLambertMaterial({
+      // eslint-disable-next-line unicorn/number-literal-case
+      color: Math.random() * 0xffffff
+    })
+    const cube = new THREE.Mesh(geometry, material)
+    cube.name = 'cube 1'
+    cube.position.x = -15
+    this.scene.add(cube)
+
+    const material2 = new THREE.MeshLambertMaterial({
+      // eslint-disable-next-line unicorn/number-literal-case
+      color: Math.random() * 0xffffff
+    })
+    const cube2 = new THREE.Mesh(geometry, material2)
+    cube2.name = 'cube 2'
+    cube2.position.x = 15
+    this.scene.add(cube2)
+
+    this.isLoaded = true
+    // --------------------------------------------------------------
   },
   methods: {
     updateMesh() {},
@@ -78,6 +100,16 @@ export default {
           this.isLoaded = true
         }, 200)
       })
+    },
+    setCurFocus(obj_) {
+      if (Object.prototype.hasOwnProperty.call(obj_, 'material')) {
+        if (Object.prototype.hasOwnProperty.call(obj_.material, 'emissive')) {
+          if (obj_) obj_.material.emissive.setHex(obj_.currentHex)
+          obj_.currentHex = obj_.material.emissive.getHex()
+          // eslint-disable-next-line unicorn/number-literal-case
+          obj_.material.emissive.setHex(0xff0000)
+        }
+      }
     }
   }
 }

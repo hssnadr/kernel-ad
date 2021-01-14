@@ -38,7 +38,7 @@ class SceneInit {
 
     // Raycast
     this.raycaster = new THREE.Raycaster()
-    this.curFocusObj = '' // current focused object with mouse pointer
+    this.curFocusObj = null // current focused object with mouse pointer
 
     // Tween test
     this.moveCameraTo(new THREE.Vector3(0, 200, 0), 1000)
@@ -114,6 +114,7 @@ class SceneInit {
   }
 
   onMouseMove(event) {
+    event.preventDefault()
     // calculate mouse position in normalized device coordinates
     // (-1 to +1) for both components
     _mouse.x = (event.clientX / window.innerWidth) * 2 - 1
@@ -143,10 +144,16 @@ class SceneInit {
     if (intersects_.length > 0) {
       if (this.curFocusObj !== intersects_[0].object) {
         this.curFocusObj = intersects_[0].object
+        console.log(this.curFocusObj.name)
+        window.$nuxt.$emit('ONFOCUS-THREEJS', this.curFocusObj)
       }
     } else {
       this.curFocusObj = null
     }
+  }
+
+  getFocusObj() {
+    return this.curFocusObj
   }
 
   loadModel(model, callback) {

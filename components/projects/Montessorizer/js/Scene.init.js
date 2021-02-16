@@ -125,7 +125,7 @@ class SceneInit {
     requestAnimationFrame(() => this.update()) // replace setInterval to refresh each frames (advantage: pauses when user on another navigator tab)
 
     TWEEN.update()
-    this.raycast()
+    // this.raycast()
 
     // Render
     this.camera.lookAt(this.scene.position)

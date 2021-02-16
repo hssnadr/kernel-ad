@@ -22,31 +22,31 @@ export default {
   mounted() {
     this.scene = SceneInit({ rootEl: this.$refs.container })
 
-    // this.loadModel()
+    this.loadModel()
 
     // --------------------------------------------------------------
     // load cube to test simple scene
-    this.isLoaded = false
-    const geometry = new THREE.BoxGeometry(20, 20, 20)
-    const material = new THREE.MeshLambertMaterial({
-      // eslint-disable-next-line unicorn/number-literal-case
-      color: Math.random() * 0xffffff
-    })
-    const cube = new THREE.Mesh(geometry, material)
-    cube.name = 'cube 1'
-    cube.position.x = -15
-    this.scene.add(cube)
+    // this.isLoaded = false
+    // const geometry = new THREE.BoxGeometry(20, 20, 20)
+    // const material = new THREE.MeshLambertMaterial({
+    //   // eslint-disable-next-line unicorn/number-literal-case
+    //   color: Math.random() * 0xffffff
+    // })
+    // const cube = new THREE.Mesh(geometry, material)
+    // cube.name = 'cube 1'
+    // cube.position.x = -15
+    // this.scene.add(cube)
 
-    const material2 = new THREE.MeshLambertMaterial({
-      // eslint-disable-next-line unicorn/number-literal-case
-      color: Math.random() * 0xffffff
-    })
-    const cube2 = new THREE.Mesh(geometry, material2)
-    cube2.name = 'cube 2'
-    cube2.position.x = 15
-    this.scene.add(cube2)
+    // const material2 = new THREE.MeshLambertMaterial({
+    //   // eslint-disable-next-line unicorn/number-literal-case
+    //   color: Math.random() * 0xffffff
+    // })
+    // const cube2 = new THREE.Mesh(geometry, material2)
+    // cube2.name = 'cube 2'
+    // cube2.position.x = 15
+    // this.scene.add(cube2)
 
-    this.isLoaded = true
+    // this.isLoaded = true
     // --------------------------------------------------------------
   },
   methods: {
@@ -67,7 +67,7 @@ export default {
       this.isLoaded = false
 
       // Load 3d model
-      this.scene.loadModel('../../3dblender/MontessoriTest.glb', (model) => {
+      this.scene.loadModel('../../3dblender/Montessorizer_A.gltf', (model) => {
         model.name = 'headphones'
 
         // Iterator through the model's children
@@ -89,7 +89,7 @@ export default {
             //   color: randomColor
             // })
 
-            // this.createWireframe({ mesh: child }) // create 3d wireframes (optional)
+            this.createWireframe({ mesh: child }) // create 3d wireframes (optional)
             this.objects.push(child) // push to local array
           }
         })

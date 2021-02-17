@@ -21,10 +21,10 @@ export default {
     }
   },
   created() {
-    this.$nuxt.$on('ONFOCUS-THREEJS', this.setCurFocus)
+    this.$nuxt.$on('DOCSTEP-CURSTEP', this.setStepScene)
   },
   beforeDestroy() {
-    this.$nuxt.$off('ONFOCUS-THREEJS')
+    this.$nuxt.$off('DOCSTEP-CURSTEP')
   },
   mounted() {
     this.scene = SceneInit({ rootEl: this.$refs.container })
@@ -109,15 +109,8 @@ export default {
         }, 200)
       })
     },
-    setCurFocus(obj_) {
-      if (Object.prototype.hasOwnProperty.call(obj_, 'material')) {
-        if (Object.prototype.hasOwnProperty.call(obj_.material, 'emissive')) {
-          if (obj_) obj_.material.emissive.setHex(obj_.currentHex)
-          obj_.currentHex = obj_.material.emissive.getHex()
-          // eslint-disable-next-line unicorn/number-literal-case
-          obj_.material.emissive.setHex(0xff0000)
-        }
-      }
+    setStepScene(stepIndex_) {
+      console.log(stepIndex_)
     }
   }
 }

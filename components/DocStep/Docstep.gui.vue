@@ -32,7 +32,7 @@
                 ]"
                 @click="setFocusStep(step.partId, stepIndex)"
               >
-                {{ stepIndex }} {{ step.name }}
+                {{ stepIndex }} - {{ step.name }}
               </span>
             </li>
           </ul>
@@ -67,9 +67,11 @@ export default {
       if (this.focusStep !== step_) {
         this.focusPart = part_
         this.focusStep = step_
+        window.$nuxt.$emit('DOCSTEP-CURSTEP', step_)
       } else {
         this.focusPart = ''
         this.focusStep = ''
+        window.$nuxt.$emit('DOCSTEP-CURSTEP', -1)
       }
     }
   }

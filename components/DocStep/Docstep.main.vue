@@ -1,7 +1,7 @@
 <template>
   <div class="docstep-main">
-    <doc-gui class="gui" />
-    <doc-scene class="scene" />
+    <doc-gui class="gui" :doc-id="docId" />
+    <doc-scene class="scene" :doc-id="docId" />
     <doc-content class="content" />
   </div>
 </template>
@@ -16,6 +16,13 @@ export default {
     DocGui,
     DocScene,
     DocContent
+  },
+  props: {
+    docId: {
+      type: String,
+      default: '',
+      required: true
+    }
   }
 }
 </script>
@@ -23,9 +30,19 @@ export default {
 <style lang="scss">
 .docstep-main {
   background: lightblue;
+  position: relative;
+
   .scene {
     width: 100vw;
     height: 100vh;
+  }
+  .gui {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    right: 0;
+    width: 25%;
+    height: 100%;
   }
 }
 </style>

@@ -6,6 +6,13 @@
 import SceneInit from './js/Scene.init'
 
 export default {
+  props: {
+    docId: {
+      type: String,
+      default: '',
+      required: true
+    }
+  },
   data() {
     return {
       model: {},
@@ -67,42 +74,40 @@ export default {
       this.isLoaded = false
 
       // Load 3d model
-      this.scene.loadModel(
-        '/docstep/montessorizer/montessorizer.gltf',
-        (model) => {
-          model.name = '3dmodel'
+      const path_ = '/docstep/' + this.docId + '/' + this.docId + '.gltf'
+      this.scene.loadModel(path_, (model) => {
+        model.name = '3dmodel'
 
-          // Iterator through the model's children
-          model.traverse((child) => {
-            if (child instanceof THREE.Mesh) {
-              child.material.map = null // reset original material
-              // eslint-disable-next-line unicorn/number-literal-case
-              const randomColor = new THREE.Color(0xffffff)
-              // eslint-disable-next-line unicorn/number-literal-case
-              randomColor.setHex(Math.random() * 0xffffff)
+        // Iterator through the model's children
+        model.traverse((child) => {
+          if (child instanceof THREE.Mesh) {
+            child.material.map = null // reset original material
+            // eslint-disable-next-line unicorn/number-literal-case
+            const randomColor = new THREE.Color(0xffffff)
+            // eslint-disable-next-line unicorn/number-literal-case
+            randomColor.setHex(Math.random() * 0xffffff)
 
-              console.log(child.name)
-              child.material = new THREE.MeshLambertMaterial({
-                color: randomColor
-              })
+            console.log(child.name)
+            child.material = new THREE.MeshLambertMaterial({
+              color: randomColor
+            })
 
-              // eslint-disable-next-line unicorn/number-literal-case
-              // child.material = new THREE.MeshLambertMaterial({
-              //   color: randomColor
-              // })
+            // eslint-disable-next-line unicorn/number-literal-case
+            // child.material = new THREE.MeshLambertMaterial({
+            //   color: randomColor
+            // })
 
-              this.createWireframe({ mesh: child }) // create 3d wireframes (optional)
-              this.objects.push(child) // push to local array
-            }
-          })
-          this.model = model
-          this.scene.add(model)
+            this.createWireframe({ mesh: child }) // create 3d wireframes (optional)
+            this.objects.push(child) // push to local array
+          }
+        })
+        this.model = model
+        this.scene.add(model)
 
-          setTimeout(() => {
-            this.isLoaded = true
-          }, 200)
-        }
-      )
+        setTimeout(() => {
+          this.isLoaded = true
+        }, 200)
+      })
     },
     setCurFocus(obj_) {
       if (Object.prototype.hasOwnProperty.call(obj_, 'material')) {

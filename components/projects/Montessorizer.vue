@@ -1,7 +1,7 @@
 <template>
   <div class="montessorizer-project">
     {{ mavar }}
-    <doc-step />
+    <doc-step :doc-id="'montessorizer'" />
   </div>
 </template>
 

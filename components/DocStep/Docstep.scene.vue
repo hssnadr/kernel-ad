@@ -1,5 +1,5 @@
 <template>
-  <div ref="container" class="threejs-container"></div>
+  <div ref="container" class="threejs-scene"></div>
 </template>
 
 <script>
@@ -124,7 +124,7 @@ export default {
 </script>
 
 <style lang="scss">
-.threejs-container {
+.threejs-scene {
   background: lightgreen;
   width: 100%;
   height: 100%;

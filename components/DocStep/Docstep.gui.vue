@@ -1,20 +1,44 @@
 <template>
   <div class="docstep-gui">
-    <ul id="parts">
-      <li v-for="part in dataSteps.parts" :key="part">
-        <!-- PART -->
-        {{ part.name }}
+    <!-- client-only (ex no-ssr) -> client-side rendered virtual DOM tree issues related to static/.json -->
+    <client-only>
+      <ul id="parts" class="disable-select" @mouseleave="hoverPart = ''">
+        <li
+          v-for="(part, partIndex) in dataSteps.parts"
+          :key="partIndex"
+          @mouseover="hoverPart = partIndex"
+          @click="hoverPart = partIndex"
+        >
+          <!-- PART -->
+          <span
+            :class="[
+              part.id === focusPart ? 'activepart-on' : 'activepart-off'
+            ]"
+          >
+            {{ part.id }} - {{ part.name }}
+          </span>
 
-        <!-- STEPS -->
-        <ul id="steps">
-          <li v-for="step in dataSteps.steps" :key="step">
-            <span v-if="step.partId === part.id">
-              {{ step.name }}
-            </span>
-          </li>
-        </ul>
-      </li>
-    </ul>
+          <!-- STEPS -->
+          <ul
+            v-if="hoverPart === partIndex || part.id === focusPart"
+            id="steps"
+            class="step-list"
+          >
+            <li v-for="(step, stepIndex) in dataSteps.steps" :key="stepIndex">
+              <span
+                v-if="step.partId === part.id"
+                :class="[
+                  stepIndex === focusStep ? 'activestep-on' : 'activestep-off'
+                ]"
+                @click="setFocusStep(step.partId, stepIndex)"
+              >
+                {{ stepIndex }} {{ step.name }}
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </client-only>
   </div>
 </template>
 
@@ -29,11 +53,56 @@ export default {
   },
   data() {
     return {
-      dataSteps: null
+      dataSteps: null,
+      hoverPart: '',
+      focusPart: '',
+      focusStep: ''
     }
   },
   created() {
     this.dataSteps = this.$store.getters['docsteps/getDocData'](this.docId)
+  },
+  methods: {
+    setFocusStep(part_, step_) {
+      if (this.focusStep !== step_) {
+        this.focusPart = part_
+        this.focusStep = step_
+      } else {
+        this.focusPart = ''
+        this.focusStep = ''
+      }
+    }
   }
 }
 </script>
+
+<style lang="scss">
+.docstep-gui {
+  .activepart-off {
+    font-weight: 300;
+    font-size: 1.2rem;
+    &:hover {
+      cursor: default;
+    }
+  }
+  .activepart-on {
+    @extend .activepart-off;
+    font-weight: 800;
+  }
+
+  .step-list {
+    margin: 0.2rem 0 0.5rem 0;
+
+    .activestep-off {
+      font-style: normal;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .activestep-on {
+      @extend .activestep-off;
+      font-weight: 600;
+    }
+  }
+}
+</style>

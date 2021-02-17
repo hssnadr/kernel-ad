@@ -1,6 +1,8 @@
 <template>
   <div class="docstep-main">
-    <doc-gui class="gui" :doc-id="docId" />
+    <div class="gui-container">
+      <doc-gui class="gui" :doc-id="docId" />
+    </div>
     <doc-scene class="scene" :doc-id="docId" />
     <doc-content class="content" />
   </div>
@@ -36,13 +38,15 @@ export default {
     width: 100vw;
     height: 100vh;
   }
-  .gui {
+  .gui-container {
     position: absolute;
-    top: 50%;
-    bottom: 50%;
-    right: 0;
+    left: 0;
     width: 25%;
     height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>

@@ -1,16 +1,16 @@
 <template>
   <div class="montessorizer-project">
     {{ mavar }}
-    <scene />
+    <doc-step />
   </div>
 </template>
 
 <script>
-import Scene from './Montessorizer/Scene.vue'
+import DocStep from './../DocStep/Docstep.main.vue'
 
 export default {
   components: {
-    Scene
+    DocStep
   },
   data() {
     return {

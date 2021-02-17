@@ -361,7 +361,8 @@
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.02);
+    // transform: scale(1.02);
+    filter: drop-shadow(4px 4px 1px $color-shadow);
 
     .lines {
       stroke-dashoffset: 400;

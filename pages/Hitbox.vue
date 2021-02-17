@@ -67,7 +67,7 @@
     <div class="documentation">
       <div class="background">
         <div class="content">
-          <h4>Documentation is coming</h4>
+          <h4>Documentation in progress</h4>
           <!-- <p>Ressources are already available on Github</p>
           <div class="ressources">
             <div class="icons">

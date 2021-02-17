@@ -1,0 +1,16 @@
+[
+  {
+    "id": "montessorizer",
+    "parts": [
+      { "id": "A", "name": "Part A"},
+      { "id": "B", "name": "Part B"},
+      { "id": "C", "name": "Part C"}
+    ],
+    "steps": [
+      { "part": "A", "name": "step 1"},
+      { "part": "A", "name": "step 2"},
+      { "part": "B", "name": "step 3"},
+      { "part": "C", "name": "step 4"}
+    ]
+  }
+]

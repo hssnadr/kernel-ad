@@ -390,7 +390,7 @@
     filter 0.8s ease-out;
 
   &:hover {
-    transform: scale(1.005);
+    // transform: scale(1.005);
     stroke-dashoffset: 400;
     filter: drop-shadow(4px 4px 1px $color-shadow);
   }

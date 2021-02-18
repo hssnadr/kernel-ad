@@ -104,11 +104,11 @@ class SceneInit {
     const camPos_ = this.camera.position
     const tween = new TWEEN.Tween(camPos_).to(targetPos_, time_)
     tween.easing(TWEEN.Easing.Quintic.Out)
-    tween.onUpdate(function() {
+    tween.onUpdate(() => {
       // console.log(camPos_.x, camPos_.y, camPos_.z)
     })
-    tween.onComplete(function() {
-      // console.log('complete')
+    tween.onComplete(() => {
+      console.log('camera move complete')
     })
     tween.start()
   }
@@ -212,7 +212,7 @@ class SceneInit {
               const val_ = element.substring(3)
               console.log(' - ' + option_ + ' = ' + val_)
 
-              switch (option_) {
+              switch (option_.toLowerCase()) {
                 case 'out':
                   stepOut_ = parseInt(val_, 10)
                   break
@@ -237,11 +237,46 @@ class SceneInit {
               if (stepIn_ === stepIndex_) {
                 if (translation_.offset !== 0) {
                   console.log(translation_)
+
+                  // const startPos_ = child.position
+                  // const targetPos_ = startPos_
+
+                  // switch (translation_.axis.toLowerCase()) {
+                  //   case 'x':
+                  //     targetPos_.setX(startPos_.x + 10) // + translation_.offset
+                  //     console.log('X', targetPos_.x)
+                  //     break
+                  //   case 'y':
+                  //     console.log('Y')
+                  //     targetPos_.y = startPos_.y + translation_.offset
+                  //     break
+                  //   case 'z':
+                  //     console.log('Z')
+                  //     targetPos_.z = startPos_.z + translation_.offset
+                  //     break
+                  //   default:
+                  //     break
+                  // }
+
+                  // console.log('START AT')
+                  // console.log(startPos_)
+                  // console.log('STOP AT')
+                  // console.log(targetPos_)
+
+                  // // TWEEN
+                  // const tweenX = new TWEEN.Tween(startPos_).to(targetPos_, 1000)
+                  // tweenX.easing(TWEEN.Easing.Quintic.Out)
+                  // tweenX.onUpdate(() => {
+                  //   // console.log(camPos_.x, camPos_.y, camPos_.z)
+                  // })
+                  // tweenX.onComplete(() => {
+                  //   console.log('camera move complete')
+                  // })
+                  // tweenX.start()
                 }
-                if (translation_.offset !== 0) {
+                if (rotation_.offset !== 0) {
                   console.log(rotation_)
                 }
-                console.log(translation_.offset + rotation_.offset)
               }
 
               if (stepOut_ !== -1 && stepOut_ <= stepIndex_) {

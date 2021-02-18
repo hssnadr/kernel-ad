@@ -174,7 +174,6 @@ class SceneInit {
           })
 
           console.log(child.name)
-          child.visible = false
         }
 
         setTimeout(() => {
@@ -187,28 +186,63 @@ class SceneInit {
   }
 
   pushStepConfig(stepIndex_) {
+    if (stepIndex_ === -1) {
+      this.showAll()
+    } else {
+      this.scene.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          child.visible = false // reset display
+          const data_ = child.name.split('_') // split data info
+
+          if (data_.length > 1) {
+            const stepIn_ = data_[0]
+            const id_ = data_[1] // UNUSED!!
+
+            console.log(id_)
+            console.log(' - in = ' + stepIn_)
+
+            // option init
+            let stepOut_ = -1
+
+            data_.splice(2).forEach((element) => {
+              const option_ = element.substring(0, 3)
+              const val_ = element.substring(3)
+              console.log(' - ' + option_ + ' = ' + val_)
+
+              switch (option_) {
+                case 'out':
+                  stepOut_ = parseInt(val_, 10)
+                  break
+                default:
+                  break
+              }
+            })
+            if (stepIn_ <= stepIndex_) {
+              child.visible = true // show part
+              if (stepOut_ !== -1 && stepOut_ <= stepIndex_) {
+                child.visible = false // hide part
+              }
+            }
+          }
+        }
+      })
+    }
+  }
+
+  showAll() {
     this.scene.traverse((child) => {
       if (child instanceof THREE.Mesh) {
-        const stepIn_ = child.name.split('_')[0]
-        if (stepIn_ <= stepIndex_) {
-          child.visible = true
-        } else {
-          child.visible = false
-        }
+        child.visible = true
       }
     })
   }
 
-  showPart(name_) {
-    this.scene.getObjectByName(name_).visible = true
-  }
-
-  hidePart(name_) {
-    this.scene.getObjectByName(name_).visible = false
-  }
-
-  add(model) {
-    this.scene.add(model)
+  hideAll() {
+    this.scene.traverse((child) => {
+      if (child instanceof THREE.Mesh) {
+        child.visible = false
+      }
+    })
   }
 
   remove(objName) {

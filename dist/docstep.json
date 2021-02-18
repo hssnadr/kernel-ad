@@ -1,0 +1,16 @@
+[
+  {
+    "id": "montessorizer",
+    "parts": [
+      { "id": "A", "name": "Can you feel it"},
+      { "id": "B", "name": "Ride the lightning"},
+      { "id": "C", "name": "Evil that men do"}
+    ],
+    "steps": [
+      { "partId": "A", "name": "ça va te surprendre"},
+      { "partId": "A", "name": "hahaha"},
+      { "partId": "B", "name": "c'est re moi"},
+      { "partId": "C", "name": "rep stp"}
+    ]
+  }
+]

@@ -1,5 +1,20 @@
 [
   {
+    "title": "Montessorizer",
+    "id": "montessorizer",
+    "years": { "y0": "2017", "y1": "2020" },
+    "institutes": ["cri"],
+    "format": ["Regular"],
+    "fields": ["Engineering"],
+    "skills": ["UX", "Electronics", "CAO"],
+    "tools": ["illustrator", "catia", "arduino"],
+    "thumbnail": {
+      "asset": "cover.png"
+    },
+    "description": "Exploratory project related to kindergarten",
+    "level": 3
+  },
+  {
     "title": "Whooshing Machine",
     "id": "whooshing-machine",
     "years": { "y0": "2014", "y1": "2014" },
@@ -66,7 +81,7 @@
     "id": "medapli",
     "years": { "y0": "2016", "y1": "2016" },
     "institutes": null,
-    "format": ["Freelance"],
+    "format": ["Regular"],
     "fields": ["Design"],
     "skills": ["UX", "UI"],
     "tools": ["illustrator", "photoshop", "pixate"],
@@ -205,7 +220,7 @@
     "id": "wstm",
     "years": { "y0": "2014", "y1": "2014" },
     "institutes": null,
-    "format": ["Freelance"],
+    "format": ["Regular"],
     "fields": ["Design"],
     "skills": ["Product Design"],
     "tools": ["catia"],

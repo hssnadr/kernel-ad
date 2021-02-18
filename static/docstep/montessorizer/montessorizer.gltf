@@ -123,7 +123,7 @@
         },
         {
             "mesh" : 1,
-            "name" : "1_Sensor1Copper_out2",
+            "name" : "1_Sensor1Copper_out2_rotY22_traX-10",
             "rotation" : [
                 0.7071068286895752,
                 0,
@@ -153,7 +153,7 @@
         },
         {
             "mesh" : 3,
-            "name" : "3_Sensor3Copper",
+            "name" : "3_Sensor3Copper_traZ561_rotX-80",
             "rotation" : [
                 0.7071068286895752,
                 0,

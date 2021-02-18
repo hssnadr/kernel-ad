@@ -189,13 +189,14 @@ class SceneInit {
     if (stepIndex_ === -1) {
       this.showAll()
     } else {
+      console.log('--------------')
       this.scene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
           child.visible = false // reset display
           const data_ = child.name.split('_') // split data info
 
           if (data_.length > 1) {
-            const stepIn_ = data_[0]
+            const stepIn_ = parseInt(data_[0], 10)
             const id_ = data_[1] // UNUSED!!
 
             console.log(id_)
@@ -203,6 +204,8 @@ class SceneInit {
 
             // option init
             let stepOut_ = -1
+            const translation_ = { axis: 'X', offset: 0 }
+            const rotation_ = { axis: 'X', offset: 0 }
 
             data_.splice(2).forEach((element) => {
               const option_ = element.substring(0, 3)
@@ -213,12 +216,34 @@ class SceneInit {
                 case 'out':
                   stepOut_ = parseInt(val_, 10)
                   break
+                case 'tra':
+                  translation_.axis = val_.substring(0, 1)
+                  translation_.offset = parseInt(val_.substring(1), 10)
+                  break
+                case 'rot':
+                  rotation_.axis = val_.substring(0, 1)
+                  rotation_.offset = parseInt(val_.substring(1), 10)
+                  break
                 default:
                   break
               }
             })
+
+            // SET OBJECT
             if (stepIn_ <= stepIndex_) {
               child.visible = true // show part
+
+              // SET ANIMATION
+              if (stepIn_ === stepIndex_) {
+                if (translation_.offset !== 0) {
+                  console.log(translation_)
+                }
+                if (translation_.offset !== 0) {
+                  console.log(rotation_)
+                }
+                console.log(translation_.offset + rotation_.offset)
+              }
+
               if (stepOut_ !== -1 && stepOut_ <= stepIndex_) {
                 child.visible = false // hide part
               }

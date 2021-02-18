@@ -1,6 +1,6 @@
 <template>
   <div class="docstep-gui">
-    <!-- client-only (ex no-ssr) -> client-side rendered virtual DOM tree issues related to static/.json -->
+    <!-- client-only (ex no-ssr) -> client-side rendered virtual DOM tree issues related to static/.json access -->
     <client-only>
       <ul id="parts" class="disable-select" @mouseleave="hoverPart = ''">
         <li
@@ -80,6 +80,8 @@ export default {
 
 <style lang="scss">
 .docstep-gui {
+  // background: transparentize($color: rgb(57, 119, 235), $amount: 0.5);
+
   .activepart-off {
     font-weight: 300;
     font-size: 1.2rem;

@@ -41,11 +41,12 @@ export default {
   .gui-container {
     position: absolute;
     left: 0;
-    width: 25%;
+    width: 20%;
     height: 100%;
+    margin-left: 5%;
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
 }

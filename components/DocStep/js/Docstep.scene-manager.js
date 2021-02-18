@@ -156,16 +156,55 @@ class SceneInit {
     return this.curFocusObj
   }
 
-  loadModel(model, callback) {
+  loadModel(id_) {
     this.loader = new GLTFLoader()
 
-    this.loader.load(model, (gltf) => {
-      if (typeof callback === 'function') {
-        callback(gltf.scene)
-      }
+    const path_ = '/docstep/' + id_ + '/' + id_ + '.gltf'
+
+    this.loader.load(path_, (gltf) => {
+      gltf.scene.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          child.material.map = null // reset original material
+          // eslint-disable-next-line unicorn/number-literal-case
+          const randomColor = new THREE.Color(0xffffff)
+          // eslint-disable-next-line unicorn/number-literal-case
+          randomColor.setHex(Math.random() * 0xffffff)
+          child.material = new THREE.MeshLambertMaterial({
+            color: randomColor
+          })
+
+          console.log(child.name)
+          child.visible = false
+        }
+
+        setTimeout(() => {
+          this.isLoaded = true
+        }, 200)
+      })
 
       this.scene.add(gltf.scene)
     })
+  }
+
+  pushStepConfig(stepIndex_) {
+    this.scene.traverse((child) => {
+      if (child instanceof THREE.Mesh) {
+        const stepIn_ = child.name.split('_')[0]
+        if (stepIn_ <= stepIndex_) {
+          child.visible = true
+        } else {
+          child.visible = false
+        }
+      }
+    })
+  }
+
+  showPart(name_) {
+    this.scene.getObjectByName(name_).visible = true
+  }
+
+  hidePart(name_) {
+    this.scene.getObjectByName(name_).visible = false
   }
 
   add(model) {

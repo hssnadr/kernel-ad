@@ -7,10 +7,10 @@
       { "id": "C", "name": "Evil that men do"}
     ],
     "steps": [
-      { "partId": "A", "name": "ça va te surprendre"},
-      { "partId": "A", "name": "hahaha"},
-      { "partId": "B", "name": "c'est re moi"},
-      { "partId": "C", "name": "rep stp"}
+      { "partId": "A", "name": "ça va te surprendre", "camera": "top"},
+      { "partId": "A", "name": "hahaha", "camera": "left"},
+      { "partId": "B", "name": "c'est re moi", "camera": "auto"},
+      { "partId": "C", "name": "rep stp", "camera": "top"}
     ]
   }
 ]

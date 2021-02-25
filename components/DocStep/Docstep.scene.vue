@@ -23,7 +23,7 @@ export default {
     this.$nuxt.$off('DOCSTEP-CURSTEP')
   },
   mounted() {
-    this.scene = SceneInit({ rootEl: this.$refs.container })
+    this.scene = SceneInit({ rootEl: this.$refs.container }) // init scene from javascript class
 
     console.log('Loading parts...')
     this.loadAllParts()

@@ -10,6 +10,7 @@
 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import Camera from './Docstep.camera.js'
 const TWEEN = require('@tweenjs/tween.js') // see: https://github.com/tweenjs/tween.js
 const _mouse = new THREE.Vector2()
 
@@ -32,16 +33,16 @@ class SceneInit {
     // Scene
     this.scene = new THREE.Scene()
     this.initLights()
-    this.initCamera()
+
+    // this.initCamera()
+    this.camera = new Camera(this.width, this.height)
+
     this.initRenderer()
     this.initControls()
 
     // Raycast
     this.raycaster = new THREE.Raycaster()
     this.curFocusObj = null // current focused object with mouse pointer
-
-    // Tween test
-    this.moveCameraTo(new THREE.Vector3(0, 200, 0), 1000)
 
     this.root.appendChild(this.canvas)
   }
@@ -67,15 +68,23 @@ class SceneInit {
     this.scene.add(directional)
   }
 
-  initCamera() {
-    const aspect = this.width / this.height
+  // initCamera() {
+  //   const aspect = this.width / this.height
 
-    this.camera = new THREE.PerspectiveCamera(70, aspect, 1, 3000) // args = field of view (degree), ratio, near clipping plane, far clipping plane
+  //   this.camera = new THREE.PerspectiveCamera(70, aspect, 1, 3000) // args = field of view (degree), ratio, near clipping plane, far clipping plane
+  //   this.camera = new THREE.OrthographicCamera(
+  //     this.width / -2,
+  //     this.width / 2,
+  //     this.height / 2,
+  //     this.height / -2,
+  //     1,
+  //     1000
+  //   )
 
-    this.camera.position.z = 200
-    this.camera.aspect = aspect
-    this.camera.updateProjectionMatrix()
-  }
+  //   this.camera.position.z = 200
+  //   this.camera.aspect = aspect
+  //   this.camera.updateProjectionMatrix()
+  // }
 
   initRenderer() {
     this.renderer = new THREE.WebGLRenderer({ antialias: true })
@@ -100,18 +109,18 @@ class SceneInit {
     this.controls.update()
   }
 
-  moveCameraTo(targetPos_, time_) {
-    const camPos_ = this.camera.position
-    const tween = new TWEEN.Tween(camPos_).to(targetPos_, time_)
-    tween.easing(TWEEN.Easing.Quintic.Out)
-    tween.onUpdate(() => {
-      // console.log(camPos_.x, camPos_.y, camPos_.z)
-    })
-    tween.onComplete(() => {
-      console.log('camera move complete')
-    })
-    tween.start()
-  }
+  // moveCameraTo(targetPos_, time_) {
+  //   const camPos_ = this.camera.position
+  //   const tween = new TWEEN.Tween(camPos_).to(targetPos_, time_)
+  //   tween.easing(TWEEN.Easing.Quintic.Out)
+  //   tween.onUpdate(() => {
+  //     // console.log(camPos_.x, camPos_.y, camPos_.z)
+  //   })
+  //   tween.onComplete(() => {
+  //     console.log('camera move complete')
+  //   })
+  //   tween.start()
+  // }
 
   onMouseMove(event) {
     event.preventDefault()

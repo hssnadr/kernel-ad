@@ -28,7 +28,7 @@
     "masonry": "0.0.2",
     "masonry-layout": "^4.2.2",
     "nuxt": "^2.14.3",
-    "three": "^0.123.0",
+    "three": "^0.131.3",
     "v-scroll-lock": "^1.2.0",
     "v-tooltip": "^2.0.3",
     "vue-client-only": "^2.0.0",
@@ -52,12 +52,22 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "node-sass": "^4.14.1",
+    "node-sass": "^6.0.1",
+    "postcss": "^8.3.6",
+    "postcss-focus": "^5.0.1",
     "prettier": "^1.19.1",
     "require-extension-hooks": "^0.3.3",
     "require-extension-hooks-babel": "^1.0.0",
     "require-extension-hooks-vue": "^2.0.0",
-    "sass-loader": "^8.0.2",
-    "stylelint": "^13.6.1"
+    "sass": "^1.37.5",
+    "sass-loader": "^10.2.0",
+    "stylelint": "^13.6.1",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "postcss": "^8.0.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }

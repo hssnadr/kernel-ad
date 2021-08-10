@@ -1,7 +1,11 @@
+// @use "sass:color";
+@use "libs/functions";
+
 // MAIN
+// functions.
 $base-font-size: 16px; // overight value in function.scss
 $base-color: #ffffff;
-$color-shadow: transparentize(#000, 0.8);
+$color-shadow: color.adjust(#000, $alpha: -0.8);
 $primary-color: #000000;
 $secondary-color: #f7091a;
 $lightgrey: #999999;

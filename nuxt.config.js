@@ -91,7 +91,10 @@ export default {
     transpile: ['three']
   },
   styleResources: {
-    scss: ['assets/css/*.scss']
+    scss: [
+      'assets/css/*.scss',
+      'assets/css/libs/*.scss'
+    ]
   },
   server: {
     port: 8000, // default: 3000

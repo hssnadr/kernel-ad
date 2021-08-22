@@ -1,15 +1,17 @@
-@use 'libs/functions';
-@use 'libs/variables';
+@use "sass:color"; // ???? fontionne pour _variables.scss mais pas pour les autres fichiers scss importés
 
-@use 'styles/reset';
-@use 'styles/fonts';
-@use 'styles/tooltype';
-
+@use 'libs/reset.scss';
+@use 'libs/functions.scss';
+@use 'libs/responsive.scss';
+@use 'libs/mixins.scss';
+@use 'variables.scss';
+@use 'fonts.scss';
+@use 'tooltype.scss';
 
 html {
   font-family: 'Poppins', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: variables.$base-font-size;
+  font-size: functions.$base-font-size;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;

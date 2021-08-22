@@ -1,8 +1,7 @@
-@use "sass:map";
 @use "sass:list";
+@use "sass:map";
 @use "sass:math";
 @use "sass:meta";
-
 @mixin text-stroke($color: black, $thikness: 1px) {
   text-shadow: (-1 * $thikness) (-1 * $thikness) $color, $thikness $thikness $color,
   (-1 * $thikness) $thikness $color, $thikness (-1 * $thikness) $color;

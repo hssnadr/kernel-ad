@@ -40,13 +40,15 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/main.scss'],
+  css: ['@assets/css/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
     { src: '~/plugins/v-scroll-lock' },
     { src: '~/plugins/v-tooltype' },
+    // { src: '~/plugins/double-slider' },
+    // { src: '~/plugins/vue-headroom' },
     { src: '~/plugins/global-components' },
     { src: '~/plugins/vue-parallax-js' }
   ],
@@ -57,17 +59,18 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/stylelint-module'
   ],
   /*
    ** Nuxt.js modules
    */
   modules: [
+    // Doc: https://bootstrap-vue.js.org
+    'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage,
+    '@nuxtjs/style-resources',
     '@nuxtjs/axios',
     '@nuxtjs/pwa'
-    // '@nuxtjs/style-resources' // --> add to buildModules
   ],
   /*
    ** Axios module configuration
@@ -88,8 +91,7 @@ export default {
     transpile: ['three']
   },
   styleResources: {
-    scss: ['~assets/css/libs/*.scss'],
-    hoistUseStatements: true
+    scss: ['assets/css/*.scss']
   },
   server: {
     port: 8000, // default: 3000

@@ -40,7 +40,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@assets/css/main.scss'],
+  css: ['~/assets/css/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -59,7 +59,8 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/style-resources'
   ],
   /*
    ** Nuxt.js modules
@@ -68,7 +69,7 @@ export default {
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage,
-    '@nuxtjs/style-resources',
+    // '@nuxtjs/style-resources',
     '@nuxtjs/axios',
     '@nuxtjs/pwa'
   ],
@@ -91,7 +92,8 @@ export default {
     transpile: ['three']
   },
   styleResources: {
-    scss: ['assets/css/*.scss']
+    scss: ['~/assets/css/libs/*.scss'],
+    hoistUseStatements: true
   },
   server: {
     port: 8000, // default: 3000
